@@ -87,6 +87,16 @@ namespace DAL
             return parametro_675MS;
         }
 
+        public SqlParameter CrearParametro_675MS(string nombre_675MS, DateTime valor_675MS)
+        {
+            SqlParameter parametro_675MS = new SqlParameter();
+
+            parametro_675MS.ParameterName = nombre_675MS;
+            parametro_675MS.Value = valor_675MS;
+            parametro_675MS.DbType = System.Data.DbType.DateTime;
+
+            return parametro_675MS;
+        }
         public DataTable Leer_675MS(string sql_675MS, List<SqlParameter> parametros_675MS = null)
         {
             DataTable tabla_675MS = new DataTable();

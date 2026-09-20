@@ -32,9 +32,9 @@ namespace BE
             set { fechaCreacion_675MS = value; }
         }
 
-        private string bloqueado_675MS;
+        private int bloqueado_675MS;
 
-        public string Bloqueado_675MS
+        public int Bloqueado_675MS
         {
             get { return bloqueado_675MS; }
             set { bloqueado_675MS = value; }
@@ -49,9 +49,9 @@ namespace BE
             set { intentosFallidos_675MS = value; }
         }
 
-        private bool solicitudDesbloqueo_675MS;
+        private int solicitudDesbloqueo_675MS;
 
-        public bool SolicitudDesbloqueo_675MS
+        public int  SolicitudDesbloqueo_675MS
         {
             get { return solicitudDesbloqueo_675MS; }
             set { solicitudDesbloqueo_675MS = value; }

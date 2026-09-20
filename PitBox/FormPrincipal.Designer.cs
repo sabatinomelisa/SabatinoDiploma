@@ -37,6 +37,7 @@
             this.bntRegistrar_675MS = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnSalir_675MS = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtUsuario_675MS
@@ -96,6 +97,7 @@
             this.bntRegistrar_675MS.TabIndex = 6;
             this.bntRegistrar_675MS.Text = "Registrar";
             this.bntRegistrar_675MS.UseVisualStyleBackColor = true;
+            this.bntRegistrar_675MS.Click += new System.EventHandler(this.bntRegistrar_675MS_Click);
             // 
             // comboBox1
             // 
@@ -117,6 +119,17 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "IDIOMA";
             // 
+            // btnSalir_675MS
+            // 
+            this.btnSalir_675MS.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalir_675MS.Location = new System.Drawing.Point(639, 459);
+            this.btnSalir_675MS.Name = "btnSalir_675MS";
+            this.btnSalir_675MS.Size = new System.Drawing.Size(275, 37);
+            this.btnSalir_675MS.TabIndex = 9;
+            this.btnSalir_675MS.Text = "Salir";
+            this.btnSalir_675MS.UseVisualStyleBackColor = true;
+            this.btnSalir_675MS.Click += new System.EventHandler(this.btnSalir_675MS_Click);
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -125,6 +138,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(926, 563);
+            this.Controls.Add(this.btnSalir_675MS);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.bntRegistrar_675MS);
@@ -135,7 +149,8 @@
             this.Controls.Add(this.txtUsuario_675MS);
             this.DoubleBuffered = true;
             this.Name = "FormPrincipal";
-            this.Text = "PitBox";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Bienvenido a PitBox!";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -150,6 +165,7 @@
         private System.Windows.Forms.Button bntRegistrar_675MS;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnSalir_675MS;
     }
 }
 

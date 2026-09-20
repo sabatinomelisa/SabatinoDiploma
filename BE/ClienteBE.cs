@@ -8,12 +8,12 @@ namespace BE
 {
     public class ClienteBE
     {
-		private int idCliente_06675MS;
+		private int dni_06675MS;
 
-		public int IdCliente_06675MS
+		public int Dni_06675MS
         {
-			get { return idCliente_06675MS; }
-			set { idCliente_06675MS = value; }
+			get { return dni_06675MS; }
+			set { dni_06675MS = value; }
 		}
 
 		private string apellido_675MS;
@@ -30,6 +30,38 @@ namespace BE
 		{
 			get { return nombre_675MS; }
 			set { nombre_675MS = value; }
+		}
+
+		private DateTime fechaNacimiento;
+
+		public DateTime FechaNacimiento
+		{
+			get { return fechaNacimiento; }
+			set { fechaNacimiento = value; }
+		}
+
+		private string mail;
+
+		public string Mail
+		{
+			get { return mail; }
+			set { mail = value; }
+		}
+
+		private string domicilio;
+
+		public string Domicilio
+		{
+			get { return domicilio; }
+			set { domicilio = value; }
+		}
+
+		private int telefono;
+
+		public int Telefono
+		{
+			get { return telefono; }
+			set { telefono = value; }
 		}
 
 

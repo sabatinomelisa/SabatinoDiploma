@@ -16,5 +16,25 @@ namespace PitBox
         {
             InitializeComponent();
         }
+
+        private void bntRegistrar_675MS_Click(object sender, EventArgs e)
+        {
+
+            // Instamcio el formulario al que voy a pasar
+            FormRegistro frmRegistro = new FormRegistro();
+
+            // Oculto el FormPrincipal
+            this.Hide();
+
+            // Mostraar el nuevo formulario
+            frmRegistro.ShowDialog(); 
+
+        }
+
+        private void btnSalir_675MS_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+
+        }
     }
 }

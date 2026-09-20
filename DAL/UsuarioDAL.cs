@@ -53,26 +53,19 @@ namespace DAL
 
             try
             {
-                SocioDAL socio_675MS = new SocioDAL();
+                //Doy de alta el usuario
+                 string sql = "RegistrarUsuario";
+                 parametros_675MS.Clear();
+                 parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@usuario", usr_675MS.Username_675MS));
+                 parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@password", usr_675MS.Password_675MS));
+                 parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@fechaCreacion", usr_675MS.FechaCreacion_675MS));
 
-                int resultado = socio.AltaSocio(usr_675MS, acceso_675MS);
+
+                 int resultado = acceso_675MS.Escribir_675MS(sql, parametros_675MS);
 
                 if (resultado != -1)
                 {
-                    //Doy de alta el usuario
-                    string sql = "RegistrarUsuario";
-                    parametros_675MS.Clear();
-                    parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@usuario", usr_675MS.Username_675MS));
-                    parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@password", usr_675MS.Password_675MS));
-                    parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@fechaCreacion", usr_675MS.FechaCreacion_675MS));
-                    parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@id", usr_675MS.IdSocio_675MS));
-                    parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@bloqueado", usr_675MS.Bloqueado_675MS));
-
-                    resultado = acceso_675MS.Escribir_675MS(sql, parametros_675MS);
-                    if (resultado != -1)
-                    {
-                        acceso_675MS.ConfirmarTx_675MS();
-                    }
+                    acceso_675MS.ConfirmarTx_675MS();
                     acceso_675MS.Desconectar_675MS();
                     return resultado;
                 }
