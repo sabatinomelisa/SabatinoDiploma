@@ -1,0 +1,8 @@
+C:\Users\Morsicasa\source\repos\PitBox\BE\bin\Debug\BE.dll
+C:\Users\Morsicasa\source\repos\PitBox\BE\bin\Debug\BE.pdb
+C:\Users\Morsicasa\source\repos\PitBox\BE\obj\Debug\BE.csproj.AssemblyReference.cache
+C:\Users\Morsicasa\source\repos\PitBox\BE\obj\Debug\BE.csproj.CoreCompileInputs.cache
+C:\Users\Morsicasa\source\repos\PitBox\BE\obj\Debug\BE.dll
+C:\Users\Morsicasa\source\repos\PitBox\BE\obj\Debug\BE.pdb
+C:\Users\Morsicasa\source\repos\PitBox\BE\obj\Debug\BE.csproj.Up2Date
+C:\Users\Morsicasa\source\repos\PitBox\BE\bin\Debug\MaterialSkin.dll

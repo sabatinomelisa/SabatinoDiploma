@@ -35,6 +35,13 @@
             this.lblIdEmpleado_675MS = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.bntRegistrar_675MS = new System.Windows.Forms.Button();
+            this.txtUsuario_675MS = new System.Windows.Forms.TextBox();
+            this.txtPassword_675MS = new System.Windows.Forms.TextBox();
+            this.txtDni_675MS = new System.Windows.Forms.TextBox();
+            this.lblResultado_675MS = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblUsuario_675MS
@@ -55,7 +62,7 @@
             this.lblPassword_675MS.BackColor = System.Drawing.Color.Transparent;
             this.lblPassword_675MS.Font = new System.Drawing.Font("Segoe UI Black", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPassword_675MS.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblPassword_675MS.Location = new System.Drawing.Point(417, 249);
+            this.lblPassword_675MS.Location = new System.Drawing.Point(417, 247);
             this.lblPassword_675MS.Name = "lblPassword_675MS";
             this.lblPassword_675MS.Size = new System.Drawing.Size(189, 35);
             this.lblPassword_675MS.TabIndex = 5;
@@ -79,7 +86,7 @@
             this.lblIdEmpleado_675MS.BackColor = System.Drawing.Color.Transparent;
             this.lblIdEmpleado_675MS.Font = new System.Drawing.Font("Segoe UI Black", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIdEmpleado_675MS.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblIdEmpleado_675MS.Location = new System.Drawing.Point(396, 293);
+            this.lblIdEmpleado_675MS.Location = new System.Drawing.Point(396, 331);
             this.lblIdEmpleado_675MS.Name = "lblIdEmpleado_675MS";
             this.lblIdEmpleado_675MS.Size = new System.Drawing.Size(210, 35);
             this.lblIdEmpleado_675MS.TabIndex = 7;
@@ -105,6 +112,68 @@
             this.comboBox1.Size = new System.Drawing.Size(141, 24);
             this.comboBox1.TabIndex = 9;
             // 
+            // bntRegistrar_675MS
+            // 
+            this.bntRegistrar_675MS.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bntRegistrar_675MS.Location = new System.Drawing.Point(402, 380);
+            this.bntRegistrar_675MS.Name = "bntRegistrar_675MS";
+            this.bntRegistrar_675MS.Size = new System.Drawing.Size(491, 37);
+            this.bntRegistrar_675MS.TabIndex = 11;
+            this.bntRegistrar_675MS.Text = "Registrar";
+            this.bntRegistrar_675MS.UseVisualStyleBackColor = true;
+            this.bntRegistrar_675MS.Click += new System.EventHandler(this.bntRegistrar_675MS_Click);
+            // 
+            // txtUsuario_675MS
+            // 
+            this.txtUsuario_675MS.Location = new System.Drawing.Point(618, 216);
+            this.txtUsuario_675MS.Name = "txtUsuario_675MS";
+            this.txtUsuario_675MS.Size = new System.Drawing.Size(275, 22);
+            this.txtUsuario_675MS.TabIndex = 12;
+            // 
+            // txtPassword_675MS
+            // 
+            this.txtPassword_675MS.Location = new System.Drawing.Point(618, 257);
+            this.txtPassword_675MS.Name = "txtPassword_675MS";
+            this.txtPassword_675MS.Size = new System.Drawing.Size(275, 22);
+            this.txtPassword_675MS.TabIndex = 13;
+            // 
+            // txtDni_675MS
+            // 
+            this.txtDni_675MS.Location = new System.Drawing.Point(618, 339);
+            this.txtDni_675MS.Name = "txtDni_675MS";
+            this.txtDni_675MS.Size = new System.Drawing.Size(275, 22);
+            this.txtDni_675MS.TabIndex = 14;
+            // 
+            // lblResultado_675MS
+            // 
+            this.lblResultado_675MS.AutoSize = true;
+            this.lblResultado_675MS.BackColor = System.Drawing.Color.Transparent;
+            this.lblResultado_675MS.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblResultado_675MS.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblResultado_675MS.Location = new System.Drawing.Point(410, 453);
+            this.lblResultado_675MS.Name = "lblResultado_675MS";
+            this.lblResultado_675MS.Size = new System.Drawing.Size(0, 36);
+            this.lblResultado_675MS.TabIndex = 15;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(618, 297);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(275, 22);
+            this.textBox1.TabIndex = 17;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Segoe UI Black", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label3.Location = new System.Drawing.Point(308, 288);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(299, 35);
+            this.label3.TabIndex = 16;
+            this.label3.Text = "REPETIR CONTRASEÑA";
+            // 
             // FormRegistro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -112,6 +181,13 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(926, 563);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblResultado_675MS);
+            this.Controls.Add(this.txtDni_675MS);
+            this.Controls.Add(this.txtPassword_675MS);
+            this.Controls.Add(this.txtUsuario_675MS);
+            this.Controls.Add(this.bntRegistrar_675MS);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.lblIdEmpleado_675MS);
@@ -135,5 +211,12 @@
         private System.Windows.Forms.Label lblIdEmpleado_675MS;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button bntRegistrar_675MS;
+        private System.Windows.Forms.TextBox txtUsuario_675MS;
+        private System.Windows.Forms.TextBox txtPassword_675MS;
+        private System.Windows.Forms.TextBox txtDni_675MS;
+        private System.Windows.Forms.Label lblResultado_675MS;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label3;
     }
 }

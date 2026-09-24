@@ -87,6 +87,7 @@
             this.btnIngresar_675MS.TabIndex = 5;
             this.btnIngresar_675MS.Text = "Ingresar";
             this.btnIngresar_675MS.UseVisualStyleBackColor = true;
+            this.btnIngresar_675MS.Click += new System.EventHandler(this.btnIngresar_675MS_Click);
             // 
             // bntRegistrar_675MS
             // 

@@ -103,6 +103,10 @@
       <Project>{ae7c7190-75f7-4701-baa7-f0a45f587414}</Project>
       <Name>BLL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Servicios\Servicios.csproj">
+      <Project>{f52a3c5e-d431-4573-b47c-c0d26d3cad69}</Project>
+      <Name>Servicios</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
