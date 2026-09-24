@@ -47,8 +47,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BitacoraBE.cs" />
     <Compile Include="ClienteBE.cs" />
+    <Compile Include="EmpleadoBE.cs" />
     <Compile Include="IdiomaBE.cs" />
+    <Compile Include="ResultadoIntegridadBE.cs" />
     <Compile Include="TraduccionBE.cs" />
     <Compile Include="UsuarioBE.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

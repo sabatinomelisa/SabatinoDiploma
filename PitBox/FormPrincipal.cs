@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -35,6 +36,22 @@ namespace PitBox
         {
             Application.Exit();
 
+        }
+
+        private void btnIngresar_675MS_Click(object sender, EventArgs e)
+        {
+            UsuarioBLL usuarioBLL_675MS = new UsuarioBLL();
+
+            try
+            {
+                usuarioBLL_675MS.Login_675MS(txtUsuario_675MS.Text, txtPassword_675MS.Text);
+            }
+            catch (Exception ex)
+            {
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
         }
     }
 }

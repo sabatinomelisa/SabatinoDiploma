@@ -1,0 +1,12 @@
+C:\Users\Morsicasa\source\repos\PitBox\Servicios\obj\Debug\Servicios.csproj.AssemblyReference.cache
+C:\Users\Morsicasa\source\repos\PitBox\Servicios\obj\Debug\Servicios.csproj.CoreCompileInputs.cache
+C:\Users\Morsicasa\source\repos\PitBox\Servicios\bin\Debug\Servicios.dll
+C:\Users\Morsicasa\source\repos\PitBox\Servicios\bin\Debug\Servicios.pdb
+C:\Users\Morsicasa\source\repos\PitBox\Servicios\bin\Debug\BE.dll
+C:\Users\Morsicasa\source\repos\PitBox\Servicios\bin\Debug\BE.pdb
+C:\Users\Morsicasa\source\repos\PitBox\Servicios\obj\Debug\Servicios.csproj.Up2Date
+C:\Users\Morsicasa\source\repos\PitBox\Servicios\obj\Debug\Servicios.dll
+C:\Users\Morsicasa\source\repos\PitBox\Servicios\obj\Debug\Servicios.pdb
+C:\Users\Morsicasa\source\repos\PitBox\Servicios\bin\Debug\BCrypt.Net-Core.dll
+C:\Users\Morsicasa\source\repos\PitBox\Servicios\bin\Debug\BCrypt.Net-Core.pdb
+C:\Users\Morsicasa\source\repos\PitBox\Servicios\bin\Debug\MaterialSkin.dll

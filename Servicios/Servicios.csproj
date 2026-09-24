@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CalculadorDigitoVerificador.cs" />
     <Compile Include="Observer\IObserverIdioma.cs" />
     <Compile Include="Observer\IObserverSubjectIdioma.cs" />
     <Compile Include="Observer\TratamientoIdioma.cs" />

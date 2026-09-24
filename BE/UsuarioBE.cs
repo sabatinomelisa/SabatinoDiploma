@@ -32,9 +32,9 @@ namespace BE
             set { fechaCreacion_675MS = value; }
         }
 
-        private int bloqueado_675MS;
+        private string bloqueado_675MS;
 
-        public int Bloqueado_675MS
+        public string Bloqueado_675MS
         {
             get { return bloqueado_675MS; }
             set { bloqueado_675MS = value; }
@@ -51,12 +51,36 @@ namespace BE
 
         private int solicitudDesbloqueo_675MS;
 
-        public int  SolicitudDesbloqueo_675MS
+        public int SolicitudDesbloqueo_675MS
         {
             get { return solicitudDesbloqueo_675MS; }
             set { solicitudDesbloqueo_675MS = value; }
         }
 
+
+        private int idRol_675MS;
+
+        public int IdRol_675MS
+        {
+            get { return idRol_675MS; }
+            set { idRol_675MS = value; }
+        }
+
+        private string nombreRol_675MS;
+
+        public string NombreRol_675MS
+        {
+            get { return nombreRol_675MS; }
+            set { nombreRol_675MS = value; }
+        }
+
+        private EmpleadoBE empleado_675MS;
+
+        public EmpleadoBE Empleado_675MS
+        {
+            get { return empleado_675MS; }
+            set { empleado_675MS = value; }
+        }
 
     }
 }

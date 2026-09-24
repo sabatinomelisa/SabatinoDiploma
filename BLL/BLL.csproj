@@ -47,8 +47,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BitacoraBLL.cs" />
     <Compile Include="ClienteBLL.cs" />
     <Compile Include="IdiomaBLL.cs" />
+    <Compile Include="IntegridadBLL.cs" />
     <Compile Include="TraduccionBLL.cs" />
     <Compile Include="UsuarioBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -62,6 +64,10 @@
     <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{1a753e06-7020-47dd-a9ae-1503f72d5da4}</Project>
       <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Servicios\Servicios.csproj">
+      <Project>{f52a3c5e-d431-4573-b47c-c0d26d3cad69}</Project>
+      <Name>Servicios</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
