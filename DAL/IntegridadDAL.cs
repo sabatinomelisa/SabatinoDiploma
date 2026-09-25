@@ -11,12 +11,13 @@ namespace DAL
 {
     public class IntegridadDAL
     {
-        private readonly string connectionString;
-        private readonly ClienteDAL clienteDAL;
+        private  string connectionString;
+        private  ClienteDAL clienteDAL;
 
 
         public List<ClienteBE> ListarClientesParaIntegridad_675MS()
         {
+            clienteDAL = new ClienteDAL();
             return clienteDAL.ListarClientes_675MS();
         }
 
@@ -48,36 +49,61 @@ namespace DAL
             return digitos;
         }
 
-        //public void GuardarDigitosVerticales_675MS(string entidad_675MS, Dictionary<string, int> digitos_675MS)
-        //{
-        //    using (SqlConnection connection = new SqlConnection(connectionString))
-        //    {
-        //        connection.Open();
+        public void GuardarDigitosVerticales_675MS(string entidad_675MS, Dictionary<string, int> digitos_675MS)
+        {
+            Acceso acceso_675MS = new Acceso();
+            try
+            {
+                //Abro la conexión al iniciar el proceso
+                acceso_675MS.Conectar_675MS();
 
-        //        foreach (KeyValuePair<string, int> digito_675MS in digitos_675MS)
-        //        {
-        //            using (SqlCommand command = new SqlCommand("GuardarDigitoVertical", connection))
-        //            {
-        //                command.CommandType = CommandType.StoredProcedure;
-        //                command.Parameters.Add("@entidad", SqlDbType.NVarChar, 100).Value = entidad;
-        //                command.Parameters.Add("@campo", SqlDbType.NVarChar, 100).Value = digito.Key;
-        //                command.Parameters.Add("@valor", SqlDbType.Int).Value = digito.Value;
-        //                command.ExecuteNonQuery();
-        //            }
-        //        }
-        //    }
-        //}
+                // Itero sobre cada dígito del diccionario
+                foreach (var digito_675MS in digitos_675MS)
+                {
+                    // 3. Creamos la lista de parámetros usando los helpers de tu clase Acceso
+                    List<SqlParameter> parametros_675MS = new List<SqlParameter>();
+                    parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@entidad", entidad_675MS));
+                    parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@campo", digito_675MS.Key));
+                    parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@valor", digito_675MS.Value));
 
-        //public bool ExistenDigitosVerticales_675MS(string entidad_675MS)
-        //{
-        //    using (SqlConnection connection = new SqlConnection(connectionString))
-        //    using (SqlCommand command = new SqlCommand("ExisteDigitoVertical", connection))
-        //    {
-        //        command.CommandType = CommandType.StoredProcedure;
-        //        command.Parameters.Add("@entidad", SqlDbType.NVarChar, 100).Value = entidad;
-        //        connection.Open();
-        //        return Convert.ToInt32(command.ExecuteScalar()) > 0;
-        //    }
-        //}
+                    // 4. Ejecutamos el procedimiento almacenado mediante el método de escritura
+                    acceso_675MS.Escribir_675MS("GUARDAR_DIGITO_VERTICAL", parametros_675MS);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                //Me aseguro de cerrar la conexion
+                acceso_675MS.Desconectar_675MS();
+            }
+        }
+
+        public bool ExistenDigitosVerticales_675MS(string entidad_675MS)
+        {
+            Acceso acceso_675MS = new Acceso();
+            try
+            {
+                acceso_675MS.Conectar_675MS();
+
+                List<SqlParameter> parametros_675MS = new List<SqlParameter>();
+                parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@entidad", entidad_675MS));
+
+                int resultado_675MS = acceso_675MS.DevolverEscalar_675MS("EXISTE_DIGITO_VERTICAL", parametros_675MS);
+
+                return resultado_675MS > 0;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                //Me aseguro de cerrar la conexion
+                acceso_675MS.Desconectar_675MS();
+            }
+        }
     }
 }

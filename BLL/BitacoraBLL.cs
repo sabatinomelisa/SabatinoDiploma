@@ -10,9 +10,12 @@ namespace BLL
 {
     public class BitacoraBLL
     {
+
+        BitacoraDAL bitacoraBLL_675MS;
         public void Registrar_675MS(string usuario_675MS, string accion_675MS, string modulo_675MS, string descripcion_675MS)
         {
             ValidarEvento_675MS(accion_675MS, modulo_675MS);
+            bitacoraBLL_675MS = new BitacoraDAL();
 
             BitacoraBE bitacora_675MS = new BitacoraBE();
             bitacora_675MS.Usuario_675MS = usuario_675MS;
@@ -20,7 +23,7 @@ namespace BLL
             bitacora_675MS.Modulo_675MS = modulo_675MS;
             bitacora_675MS.Descripcion_675MS = descripcion_675MS;
 
-            BitacoraDAL.Registrar_675MS(bitacora_675MS);
+            bitacoraBLL_675MS.Registrar_675MS(bitacora_675MS);
         }
 
         public void ValidarEvento_675MS(string accion_675MS, string modulo_675MS)

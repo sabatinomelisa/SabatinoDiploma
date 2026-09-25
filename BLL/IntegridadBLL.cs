@@ -24,10 +24,10 @@ namespace BLL
 
         public void InicializarSiCorresponde_675MS()
         {
-            //if (!integridadDAL_675MS.ExistenDigitosVerticales_675MS(EntidadCliente_675MS))
-            //{
-            //    RecalcularIntegridad_675MS();
-            //}
+            if (!integridadDAL_675MS.ExistenDigitosVerticales_675MS(EntidadCliente_675MS))
+            {
+                RecalcularIntegridad_675MS();
+            }
         }
 
 
@@ -133,7 +133,7 @@ namespace BLL
             }
 
             Dictionary<string, int> digitosVerticales = CalcularDigitosVerticales_675MS(clientes_675MS);
-            //integridadDAL_675MS.GuardarDigitosVerticales_675MS(EntidadCliente_675MS, digitosVerticales);
+            integridadDAL_675MS.GuardarDigitosVerticales_675MS(EntidadCliente_675MS, digitosVerticales);
         }
 
         public int CalcularDigitoHorizontalCliente_675MS(ClienteBE cliente_675MS)

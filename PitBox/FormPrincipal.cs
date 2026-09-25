@@ -45,6 +45,7 @@ namespace PitBox
             try
             {
                 usuarioBLL_675MS.Login_675MS(txtUsuario_675MS.Text, txtPassword_675MS.Text);
+
             }
             catch (Exception ex)
             {
@@ -52,6 +53,15 @@ namespace PitBox
                     MessageBox.Show(ex.Message);
                 }
             }
+
+            // Instamcio el formulario al que voy a pasar
+            FormMenuEmpleado frmMenu = new FormMenuEmpleado();
+
+            // Oculto el FormPrincipal
+            this.Hide();
+
+            // Mostraar el nuevo formulario
+            frmMenu.ShowDialog();
         }
     }
 }
