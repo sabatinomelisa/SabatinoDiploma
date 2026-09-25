@@ -49,8 +49,12 @@ namespace BLL
 
         public UsuarioBE Login_675MS(string username_675MS, string password_675MS)
         {
+            usuarioDAL_675MS = new UsuarioDAL();
+            bitacoraBLL_675MS = new BitacoraBLL();
             integridadBLL_675MS = new IntegridadBLL();
+
             ValidarCredencialesIngresadas_675MS(username_675MS, password_675MS);
+
             integridadBLL_675MS.ValidarIntegridadParaLogin_675MS();
 
             UsuarioBE usuario_675MS = usuarioDAL_675MS.ObtenerPorNombreUsuario_675MS(username_675MS);

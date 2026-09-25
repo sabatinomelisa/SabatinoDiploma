@@ -50,7 +50,20 @@ namespace BE
 			set { duracionEstimada_675MS = value; }
 		}
 
+        private int digitoVerificadorHorizontal_675MS;
+
+        public int DigitoVerificadorHorizontal_675MS
+        {
+            get
+            {
+                return digitoVerificadorHorizontal_675MS;
+            }
+            set
+            {
+                digitoVerificadorHorizontal_675MS = value;
+            }
+        }
 
 
-	}
+    }
 }

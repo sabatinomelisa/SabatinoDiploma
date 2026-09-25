@@ -41,6 +41,7 @@ namespace DAL
                     turnoAuxiliar_675MS.Dominio_675MS = turnoBE["Dominio"].ToString();
                     turnoAuxiliar_675MS.FechaHora_675MS = Convert.ToDateTime(turnoBE["FechaHora"]);
                     turnoAuxiliar_675MS.DuracionEstimada_675MS = Convert.ToInt32(turnoBE["DuracionEstimada"]);
+                    turnos_675MS.Add(turnoAuxiliar_675MS);
                 }
                     return turnos_675MS;
                 
