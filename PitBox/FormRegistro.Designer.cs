@@ -50,7 +50,7 @@
             this.lblUsuario_675MS.BackColor = System.Drawing.Color.Transparent;
             this.lblUsuario_675MS.Font = new System.Drawing.Font("Segoe UI Black", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsuario_675MS.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblUsuario_675MS.Location = new System.Drawing.Point(472, 206);
+            this.lblUsuario_675MS.Location = new System.Drawing.Point(698, 242);
             this.lblUsuario_675MS.Name = "lblUsuario_675MS";
             this.lblUsuario_675MS.Size = new System.Drawing.Size(104, 28);
             this.lblUsuario_675MS.TabIndex = 4;
@@ -62,7 +62,7 @@
             this.lblPassword_675MS.BackColor = System.Drawing.Color.Transparent;
             this.lblPassword_675MS.Font = new System.Drawing.Font("Segoe UI Black", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPassword_675MS.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblPassword_675MS.Location = new System.Drawing.Point(417, 247);
+            this.lblPassword_675MS.Location = new System.Drawing.Point(651, 283);
             this.lblPassword_675MS.Name = "lblPassword_675MS";
             this.lblPassword_675MS.Size = new System.Drawing.Size(151, 28);
             this.lblPassword_675MS.TabIndex = 5;
@@ -74,7 +74,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe UI Black", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label1.Location = new System.Drawing.Point(494, 110);
+            this.label1.Location = new System.Drawing.Point(675, 167);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(336, 38);
             this.label1.TabIndex = 6;
@@ -86,7 +86,7 @@
             this.lblIdEmpleado_675MS.BackColor = System.Drawing.Color.Transparent;
             this.lblIdEmpleado_675MS.Font = new System.Drawing.Font("Segoe UI Black", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIdEmpleado_675MS.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblIdEmpleado_675MS.Location = new System.Drawing.Point(396, 331);
+            this.lblIdEmpleado_675MS.Location = new System.Drawing.Point(635, 367);
             this.lblIdEmpleado_675MS.Name = "lblIdEmpleado_675MS";
             this.lblIdEmpleado_675MS.Size = new System.Drawing.Size(167, 28);
             this.lblIdEmpleado_675MS.TabIndex = 7;
@@ -98,7 +98,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Segoe UI Black", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label2.Location = new System.Drawing.Point(633, 8);
+            this.label2.Location = new System.Drawing.Point(884, 53);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(91, 28);
             this.label2.TabIndex = 10;
@@ -107,32 +107,33 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(773, 15);
+            this.comboBox1.Location = new System.Drawing.Point(981, 31);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(141, 24);
             this.comboBox1.TabIndex = 9;
             // 
             // bntRegistrar_675MS
             // 
+            this.bntRegistrar_675MS.BackColor = System.Drawing.Color.PapayaWhip;
             this.bntRegistrar_675MS.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bntRegistrar_675MS.Location = new System.Drawing.Point(402, 380);
+            this.bntRegistrar_675MS.Location = new System.Drawing.Point(592, 412);
             this.bntRegistrar_675MS.Name = "bntRegistrar_675MS";
             this.bntRegistrar_675MS.Size = new System.Drawing.Size(491, 37);
             this.bntRegistrar_675MS.TabIndex = 11;
             this.bntRegistrar_675MS.Text = "Registrar";
-            this.bntRegistrar_675MS.UseVisualStyleBackColor = true;
+            this.bntRegistrar_675MS.UseVisualStyleBackColor = false;
             this.bntRegistrar_675MS.Click += new System.EventHandler(this.bntRegistrar_675MS_Click);
             // 
             // txtUsuario_675MS
             // 
-            this.txtUsuario_675MS.Location = new System.Drawing.Point(618, 216);
+            this.txtUsuario_675MS.Location = new System.Drawing.Point(808, 248);
             this.txtUsuario_675MS.Name = "txtUsuario_675MS";
             this.txtUsuario_675MS.Size = new System.Drawing.Size(275, 22);
             this.txtUsuario_675MS.TabIndex = 12;
             // 
             // txtPassword_675MS
             // 
-            this.txtPassword_675MS.Location = new System.Drawing.Point(618, 257);
+            this.txtPassword_675MS.Location = new System.Drawing.Point(808, 289);
             this.txtPassword_675MS.Name = "txtPassword_675MS";
             this.txtPassword_675MS.PasswordChar = '*';
             this.txtPassword_675MS.Size = new System.Drawing.Size(275, 22);
@@ -140,7 +141,7 @@
             // 
             // txtDni_675MS
             // 
-            this.txtDni_675MS.Location = new System.Drawing.Point(618, 339);
+            this.txtDni_675MS.Location = new System.Drawing.Point(808, 371);
             this.txtDni_675MS.Name = "txtDni_675MS";
             this.txtDni_675MS.Size = new System.Drawing.Size(275, 22);
             this.txtDni_675MS.TabIndex = 15;
@@ -151,14 +152,14 @@
             this.lblResultado_675MS.BackColor = System.Drawing.Color.Transparent;
             this.lblResultado_675MS.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblResultado_675MS.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblResultado_675MS.Location = new System.Drawing.Point(410, 453);
+            this.lblResultado_675MS.Location = new System.Drawing.Point(600, 485);
             this.lblResultado_675MS.Name = "lblResultado_675MS";
             this.lblResultado_675MS.Size = new System.Drawing.Size(0, 25);
             this.lblResultado_675MS.TabIndex = 15;
             // 
             // txtxRepetirPass_675MS
             // 
-            this.txtxRepetirPass_675MS.Location = new System.Drawing.Point(618, 297);
+            this.txtxRepetirPass_675MS.Location = new System.Drawing.Point(808, 329);
             this.txtxRepetirPass_675MS.Name = "txtxRepetirPass_675MS";
             this.txtxRepetirPass_675MS.PasswordChar = '*';
             this.txtxRepetirPass_675MS.Size = new System.Drawing.Size(275, 22);
@@ -170,7 +171,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Segoe UI Black", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label3.Location = new System.Drawing.Point(308, 288);
+            this.label3.Location = new System.Drawing.Point(562, 324);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(240, 28);
             this.label3.TabIndex = 16;
@@ -178,11 +179,10 @@
             // 
             // FormRegistro
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(926, 563);
+            this.ClientSize = new System.Drawing.Size(1134, 711);
             this.Controls.Add(this.txtxRepetirPass_675MS);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblResultado_675MS);

@@ -118,7 +118,7 @@ namespace DAL
                 clienteAuxiliar_675MS.Domicilio_675MS = row["Domicilio"].ToString();
                 clienteAuxiliar_675MS.Telefono_675MS = int.Parse(row["Telefono"].ToString());
                 clienteAuxiliar_675MS.FechaNacimiento_675MS = Convert.ToDateTime(row["FechaNacimiento"]);
-                clienteAuxiliar_675MS.DigitoVerificadorHorizontal_675MS = Convert.ToInt32(row["DVH"]);
+                clienteAuxiliar_675MS.DigitoVerificadorHorizontal_675MS = Convert.ToInt32(row["DigitoVerificadorHorizontal"]);
 
                 clientes_675MS.Add(clienteAuxiliar_675MS);
             }

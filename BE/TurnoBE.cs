@@ -64,6 +64,21 @@ namespace BE
             }
         }
 
+		private bool activo_675MS;
 
-    }
+		public bool Activo_675MS
+		{
+			get { return activo_675MS; }
+			set { activo_675MS = value; }
+		}
+
+		private DateTime fechaBaja_675MS;
+
+		public DateTime FechaBaja_675MS
+		{
+			get { return fechaBaja_675MS; }
+			set { fechaBaja_675MS = value; }
+		}
+
+	}
 }
