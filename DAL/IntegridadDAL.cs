@@ -11,7 +11,6 @@ namespace DAL
 {
     public class IntegridadDAL
     {
-        private  string connectionString;
         private  ClienteDAL clienteDAL;
 
 
@@ -26,27 +25,37 @@ namespace DAL
             clienteDAL.ActualizarDigitoVerificadorHorizontal_675MS(dni_675MS, digitoVerificadorHorizontal_675MS);
         }
 
-        public Dictionary<string, int> ObtenerDigitosVerticales_675MS(string entidad)
+        public Dictionary<string, int> ObtenerDigitosVerticales_675MS(string entidad_675MS)
         {
-            Dictionary<string, int> digitos = new Dictionary<string, int>();
+            Dictionary<string, int> digitos_675MS = new Dictionary<string, int>();
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            using (SqlCommand command = new SqlCommand("ConsultarDigitosVerticales", connection))
+            Acceso acceso_675MS = new Acceso();
+
+            try
             {
-                command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add("@entidad", SqlDbType.NVarChar, 100).Value = entidad;
-                connection.Open();
+                acceso_675MS.Conectar_675MS();
 
-                using (SqlDataReader reader = command.ExecuteReader())
+                List<SqlParameter> parametros_675MS = new List<SqlParameter>();
+
+                parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@entidad",entidad_675MS));
+
+                DataTable tabla_675MS = acceso_675MS.Leer_675MS("ConsultarDigitosVerticales", parametros_675MS);
+
+                foreach (DataRow fila_675MS in tabla_675MS.Rows)
                 {
-                    while (reader.Read())
-                    {
-                        digitos[reader["Campo"].ToString()] = Convert.ToInt32(reader["Valor"]);
-                    }
+                    string campo_675MS = fila_675MS["Campo"].ToString();
+
+                    int valor_675MS = Convert.ToInt32(fila_675MS["Valor"]);
+
+                    digitos_675MS[campo_675MS] = valor_675MS;
                 }
             }
+            finally
+            {
+                acceso_675MS.Desconectar_675MS();
+            }
 
-            return digitos;
+            return digitos_675MS;
         }
 
         public void GuardarDigitosVerticales_675MS(string entidad_675MS, Dictionary<string, int> digitos_675MS)

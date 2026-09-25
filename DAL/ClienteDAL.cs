@@ -58,7 +58,7 @@ namespace DAL
             }
 
         }
-        
+
 
 
         public int ActualizarDigitoVerificadorHorizontal_675MS(int dni_675MS, int digitoVerificadorHorizontal_675MS)
@@ -73,33 +73,31 @@ namespace DAL
 
             try
             {
-                string sql = "MODIF_DIGITO";
-                parametros_675MS.Clear();
                 parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@dni", dni_675MS));
-                int resultado_675MS = acceso_675MS.Escribir_675MS(sql, parametros_675MS);
+
+                parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@dv", digitoVerificadorHorizontal_675MS));
+
+                int resultado_675MS = acceso_675MS.Escribir_675MS("MODIF_DIGITO", parametros_675MS);
 
                 if (resultado_675MS != -1)
                 {
                     acceso_675MS.ConfirmarTx_675MS();
-                    acceso_675MS.Desconectar_675MS();
-                    return resultado_675MS;
-                }
-                else
-                {
-                    acceso_675MS.Desconectar_675MS();
                     return resultado_675MS;
                 }
 
+                return resultado_675MS;
             }
-            catch (Exception ex)
+            catch
             {
                 acceso_675MS.RevertirTx_675MS();
+                throw;
+            }
+            finally
+            {
                 acceso_675MS.Desconectar_675MS();
-                throw new Exception("Error al modificar cliente");
             }
 
         }
-        
 
         public List<ClienteBE> ListarClientes_675MS()
         {
@@ -120,6 +118,7 @@ namespace DAL
                 clienteAuxiliar_675MS.Domicilio_675MS = row["Domicilio"].ToString();
                 clienteAuxiliar_675MS.Telefono_675MS = int.Parse(row["Telefono"].ToString());
                 clienteAuxiliar_675MS.FechaNacimiento_675MS = Convert.ToDateTime(row["FechaNacimiento"]);
+                clienteAuxiliar_675MS.DigitoVerificadorHorizontal_675MS = Convert.ToInt32(row["DVH"]);
 
                 clientes_675MS.Add(clienteAuxiliar_675MS);
             }

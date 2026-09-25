@@ -16,7 +16,19 @@ namespace BE
 			set { dniEmpleado = value; }
 		}
 
+        private int digitoVerificadorHorizontal_675MS;
 
+        public int DigitoVerificadorHorizontal_675MS
+        {
+            get
+            {
+                return digitoVerificadorHorizontal_675MS;
+            }
+            set
+            {
+                digitoVerificadorHorizontal_675MS = value;
+            }
+        }
 
-	}
+    }
 }

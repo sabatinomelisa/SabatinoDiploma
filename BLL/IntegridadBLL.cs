@@ -161,7 +161,8 @@ namespace BLL
                 fila_675MS.Add("Apellido", cliente_675MS.Apellido_675MS);
                 fila_675MS.Add("FechaNacimiento", cliente_675MS.FechaNacimiento_675MS.ToString("yyyyMMdd"));
                 fila_675MS.Add("Email", cliente_675MS.Mail_675MS);
-                fila_675MS.Add("Telefono", cliente_675MS.Domicilio_675MS);
+                fila_675MS.Add("Domicilio",cliente_675MS.Domicilio_675MS);
+                fila_675MS.Add("Telefono", cliente_675MS.Telefono_675MS.ToString());
                 fila_675MS.Add("DVH",cliente_675MS.DigitoVerificadorHorizontal_675MS.ToString(CultureInfo.InvariantCulture));
                 filas_675MS.Add(fila_675MS);
             }
