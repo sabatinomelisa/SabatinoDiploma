@@ -53,6 +53,7 @@
     <Compile Include="IdiomaBE.cs" />
     <Compile Include="ResultadoIntegridadBE.cs" />
     <Compile Include="TraduccionBE.cs" />
+    <Compile Include="TurnoBE.cs" />
     <Compile Include="UsuarioBE.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VehiculoBE.cs" />

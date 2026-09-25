@@ -21,3 +21,5 @@ C:\Users\Morsicasa\source\repos\PitBox\PitBox\bin\Debug\Servicios.dll
 C:\Users\Morsicasa\source\repos\PitBox\PitBox\bin\Debug\BCrypt.Net-Core.dll
 C:\Users\Morsicasa\source\repos\PitBox\PitBox\bin\Debug\Servicios.pdb
 C:\Users\Morsicasa\source\repos\PitBox\PitBox\bin\Debug\BCrypt.Net-Core.pdb
+C:\Users\Morsicasa\source\repos\PitBox\PitBox\obj\Debug\PitBox.FormMenuEmpleado.resources
+C:\Users\Morsicasa\source\repos\PitBox\PitBox\obj\Debug\PitBox.FormTurnos.resources

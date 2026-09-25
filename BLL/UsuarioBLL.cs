@@ -49,6 +49,7 @@ namespace BLL
 
         public UsuarioBE Login_675MS(string username_675MS, string password_675MS)
         {
+            integridadBLL_675MS = new IntegridadBLL();
             ValidarCredencialesIngresadas_675MS(username_675MS, password_675MS);
             integridadBLL_675MS.ValidarIntegridadParaLogin_675MS();
 
@@ -111,6 +112,7 @@ namespace BLL
         {
             usuarioDAL_675MS= new UsuarioDAL();
             integridadBLL_675MS = new IntegridadBLL();
+            bitacoraBLL_675MS = new BitacoraBLL();
 
             ValidarDatosRegistro_675MS(usuario_675MS);
             usuario_675MS.Password_675MS = Seguridad.GenerarHash_675MS(usuario_675MS.Password_675MS);
@@ -119,7 +121,7 @@ namespace BLL
 
             if (resultado_675MS > 0)
             {
-                integridadBLL_675MS.RecalcularIntegridad_675MS();
+                //integridadBLL_675MS.RecalcularIntegridad_675MS();
                 bitacoraBLL_675MS.RegistrarAlta_675MS(usuario_675MS.Username_675MS , "Usuarios", "Usuario registrado correctamente.");
             }
 

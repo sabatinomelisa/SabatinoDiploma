@@ -40,7 +40,7 @@
             this.txtPassword_675MS = new System.Windows.Forms.TextBox();
             this.txtDni_675MS = new System.Windows.Forms.TextBox();
             this.lblResultado_675MS = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtxRepetirPass_675MS = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -52,7 +52,7 @@
             this.lblUsuario_675MS.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblUsuario_675MS.Location = new System.Drawing.Point(472, 206);
             this.lblUsuario_675MS.Name = "lblUsuario_675MS";
-            this.lblUsuario_675MS.Size = new System.Drawing.Size(131, 35);
+            this.lblUsuario_675MS.Size = new System.Drawing.Size(104, 28);
             this.lblUsuario_675MS.TabIndex = 4;
             this.lblUsuario_675MS.Text = "USUARIO";
             // 
@@ -64,7 +64,7 @@
             this.lblPassword_675MS.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblPassword_675MS.Location = new System.Drawing.Point(417, 247);
             this.lblPassword_675MS.Name = "lblPassword_675MS";
-            this.lblPassword_675MS.Size = new System.Drawing.Size(189, 35);
+            this.lblPassword_675MS.Size = new System.Drawing.Size(151, 28);
             this.lblPassword_675MS.TabIndex = 5;
             this.lblPassword_675MS.Text = "CONTRASEÑA";
             // 
@@ -76,7 +76,7 @@
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.label1.Location = new System.Drawing.Point(494, 110);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(420, 47);
+            this.label1.Size = new System.Drawing.Size(336, 38);
             this.label1.TabIndex = 6;
             this.label1.Text = "REGISTRO DE USUARIO";
             // 
@@ -88,7 +88,7 @@
             this.lblIdEmpleado_675MS.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblIdEmpleado_675MS.Location = new System.Drawing.Point(396, 331);
             this.lblIdEmpleado_675MS.Name = "lblIdEmpleado_675MS";
-            this.lblIdEmpleado_675MS.Size = new System.Drawing.Size(210, 35);
+            this.lblIdEmpleado_675MS.Size = new System.Drawing.Size(167, 28);
             this.lblIdEmpleado_675MS.TabIndex = 7;
             this.lblIdEmpleado_675MS.Text = "DNI EMPLEADO";
             // 
@@ -100,7 +100,7 @@
             this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label2.Location = new System.Drawing.Point(633, 8);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(115, 35);
+            this.label2.Size = new System.Drawing.Size(91, 28);
             this.label2.TabIndex = 10;
             this.label2.Text = "IDIOMA";
             // 
@@ -134,6 +134,7 @@
             // 
             this.txtPassword_675MS.Location = new System.Drawing.Point(618, 257);
             this.txtPassword_675MS.Name = "txtPassword_675MS";
+            this.txtPassword_675MS.PasswordChar = '*';
             this.txtPassword_675MS.Size = new System.Drawing.Size(275, 22);
             this.txtPassword_675MS.TabIndex = 13;
             // 
@@ -142,7 +143,7 @@
             this.txtDni_675MS.Location = new System.Drawing.Point(618, 339);
             this.txtDni_675MS.Name = "txtDni_675MS";
             this.txtDni_675MS.Size = new System.Drawing.Size(275, 22);
-            this.txtDni_675MS.TabIndex = 14;
+            this.txtDni_675MS.TabIndex = 15;
             // 
             // lblResultado_675MS
             // 
@@ -152,15 +153,16 @@
             this.lblResultado_675MS.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblResultado_675MS.Location = new System.Drawing.Point(410, 453);
             this.lblResultado_675MS.Name = "lblResultado_675MS";
-            this.lblResultado_675MS.Size = new System.Drawing.Size(0, 36);
+            this.lblResultado_675MS.Size = new System.Drawing.Size(0, 25);
             this.lblResultado_675MS.TabIndex = 15;
             // 
-            // textBox1
+            // txtxRepetirPass_675MS
             // 
-            this.textBox1.Location = new System.Drawing.Point(618, 297);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(275, 22);
-            this.textBox1.TabIndex = 17;
+            this.txtxRepetirPass_675MS.Location = new System.Drawing.Point(618, 297);
+            this.txtxRepetirPass_675MS.Name = "txtxRepetirPass_675MS";
+            this.txtxRepetirPass_675MS.PasswordChar = '*';
+            this.txtxRepetirPass_675MS.Size = new System.Drawing.Size(275, 22);
+            this.txtxRepetirPass_675MS.TabIndex = 14;
             // 
             // label3
             // 
@@ -170,7 +172,7 @@
             this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label3.Location = new System.Drawing.Point(308, 288);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(299, 35);
+            this.label3.Size = new System.Drawing.Size(240, 28);
             this.label3.TabIndex = 16;
             this.label3.Text = "REPETIR CONTRASEÑA";
             // 
@@ -181,7 +183,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(926, 563);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtxRepetirPass_675MS);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblResultado_675MS);
             this.Controls.Add(this.txtDni_675MS);
@@ -216,7 +218,7 @@
         private System.Windows.Forms.TextBox txtPassword_675MS;
         private System.Windows.Forms.TextBox txtDni_675MS;
         private System.Windows.Forms.Label lblResultado_675MS;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtxRepetirPass_675MS;
         private System.Windows.Forms.Label label3;
     }
 }
