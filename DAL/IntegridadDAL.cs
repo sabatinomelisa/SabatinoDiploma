@@ -39,7 +39,7 @@ namespace DAL
 
                 parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@entidad",entidad_675MS));
 
-                DataTable tabla_675MS = acceso_675MS.Leer_675MS("ConsultarDigitosVerticales", parametros_675MS);
+                DataTable tabla_675MS = acceso_675MS.Leer_675MS("CONSULTAR_DIGITOS_VERTICALES", parametros_675MS);
 
                 foreach (DataRow fila_675MS in tabla_675MS.Rows)
                 {

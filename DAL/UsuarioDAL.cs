@@ -197,7 +197,7 @@ namespace DAL
                 List<SqlParameter> parametros_675MS = new List<SqlParameter>();
                 parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@usu", usuarioIngresado_675MS));
 
-                DataTable tabla = acceso_675MS.Leer_675MS("ObtenerUsuarioPorNombre", parametros_675MS);
+                DataTable tabla = acceso_675MS.Leer_675MS("OBTENER_USUARIO_NOMBRE", parametros_675MS);
 
                 if (tabla.Rows.Count == 0)
                 {
