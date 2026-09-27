@@ -22,7 +22,7 @@ namespace PitBox
         private void bntRegistrar_675MS_Click(object sender, EventArgs e)
         {
             UsuarioBE usuario_675MS = new UsuarioBE();
-            usuario_675MS.Empleado_675MS = new EmpleadoBE();
+            EmpleadoBE Empleado_675MS = new EmpleadoBE();
 
             bool errorValidacion = false;
 
@@ -64,7 +64,7 @@ namespace PitBox
             {
                 usuario_675MS.Username_675MS = txtUsuario_675MS.Text;
                 usuario_675MS.Password_675MS = txtPassword_675MS.Text;
-                usuario_675MS.Empleado_675MS.DniEmpleado = Convert.ToInt32(txtDni_675MS.Text);
+                Empleado_675MS.DniEmpleado = Convert.ToInt32(txtDni_675MS.Text);
 
                 UsuarioBLL usuarioBLL_675MS = new UsuarioBLL();
 

@@ -145,9 +145,11 @@ namespace DAL
                 parametros.Add(acceso_675MS.CrearParametro_675MS("@fechahora", turnoBE_675MS.FechaHora_675MS));
                 parametros.Add(acceso_675MS.CrearParametro_675MS("@duracionestimada", turnoBE_675MS.DuracionEstimada_675MS));
                 parametros.Add(acceso_675MS.CrearParametro_675MS("@dv", turnoBE_675MS.DigitoVerificadorHorizontal_675MS));
+                parametros.Add(acceso_675MS.CrearParametro_675MS("@idEmp", turnoBE_675MS.IdEmpleado_675MS));
 
-
-                return acceso_675MS.Escribir_675MS("ALTA_TURNO", parametros);
+                int filasAfectadas_675MS = acceso_675MS.Escribir_675MS("ALTA_TURNO", parametros);
+                
+                return filasAfectadas_675MS;
             }
             finally
             {

@@ -13,7 +13,6 @@ C:\Users\Morsicasa\source\repos\PitBox\PitBox\bin\Debug\BLL.pdb
 C:\Users\Morsicasa\source\repos\PitBox\PitBox\obj\Debug\PitBox.csproj.Up2Date
 C:\Users\Morsicasa\source\repos\PitBox\PitBox\obj\Debug\PitBox.exe
 C:\Users\Morsicasa\source\repos\PitBox\PitBox\obj\Debug\PitBox.pdb
-C:\Users\Morsicasa\source\repos\PitBox\PitBox\bin\Debug\MaterialSkin.dll
 C:\Users\Morsicasa\source\repos\PitBox\PitBox\bin\Debug\DAL.dll
 C:\Users\Morsicasa\source\repos\PitBox\PitBox\bin\Debug\DAL.pdb
 C:\Users\Morsicasa\source\repos\PitBox\PitBox\obj\Debug\PitBox.FormRegistro.resources
@@ -25,3 +24,4 @@ C:\Users\Morsicasa\source\repos\PitBox\PitBox\obj\Debug\PitBox.FormMenuEmpleado.
 C:\Users\Morsicasa\source\repos\PitBox\PitBox\obj\Debug\PitBox.FormTurnos.resources
 C:\Users\Morsicasa\source\repos\PitBox\PitBox\obj\Debug\PitBox.FormUsuarios.resources
 C:\Users\Morsicasa\source\repos\PitBox\PitBox\obj\Debug\PitBox.FormVehiculos.resources
+C:\Users\Morsicasa\source\repos\PitBox\PitBox\obj\Debug\PitBox.FormClientes.resources

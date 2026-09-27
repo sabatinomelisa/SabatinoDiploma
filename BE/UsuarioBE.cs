@@ -74,12 +74,12 @@ namespace BE
             set { nombreRol_675MS = value; }
         }
 
-        private EmpleadoBE empleado_675MS;
+        private int idEmpleado_675MS;
 
-        public EmpleadoBE Empleado_675MS
+        public int IdEmpleado_675MS
         {
-            get { return empleado_675MS; }
-            set { empleado_675MS = value; }
+            get { return idEmpleado_675MS; }
+            set { idEmpleado_675MS = value; }
         }
 
         private int digitoVerificadorHorizontal_675MS;

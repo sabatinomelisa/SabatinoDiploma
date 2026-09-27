@@ -9,7 +9,6 @@ C:\Users\Morsicasa\source\repos\PitBox\BLL\bin\Debug\DAL.pdb
 C:\Users\Morsicasa\source\repos\PitBox\BLL\obj\Debug\BLL.csproj.Up2Date
 C:\Users\Morsicasa\source\repos\PitBox\BLL\obj\Debug\BLL.dll
 C:\Users\Morsicasa\source\repos\PitBox\BLL\obj\Debug\BLL.pdb
-C:\Users\Morsicasa\source\repos\PitBox\BLL\bin\Debug\MaterialSkin.dll
 C:\Users\Morsicasa\source\repos\PitBox\BLL\bin\Debug\Servicios.dll
 C:\Users\Morsicasa\source\repos\PitBox\BLL\bin\Debug\BCrypt.Net-Core.dll
 C:\Users\Morsicasa\source\repos\PitBox\BLL\bin\Debug\Servicios.pdb

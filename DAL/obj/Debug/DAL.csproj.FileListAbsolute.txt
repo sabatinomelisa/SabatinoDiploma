@@ -11,4 +11,3 @@ C:\Users\Morsicasa\source\repos\PitBox\DAL\obj\Debug\DAL.dll
 C:\Users\Morsicasa\source\repos\PitBox\DAL\obj\Debug\DAL.pdb
 C:\Users\Morsicasa\source\repos\PitBox\DAL\bin\Debug\BCrypt.Net-Core.dll
 C:\Users\Morsicasa\source\repos\PitBox\DAL\bin\Debug\BCrypt.Net-Core.pdb
-C:\Users\Morsicasa\source\repos\PitBox\DAL\bin\Debug\MaterialSkin.dll

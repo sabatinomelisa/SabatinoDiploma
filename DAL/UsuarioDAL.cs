@@ -86,7 +86,7 @@ namespace DAL
 
         }
 
-        public UsuarioBE DevolverUser(string usrIngresado, string password = null)
+        public UsuarioBE DevolverUser_675MS(string usrIngresado, string password = null)
         {
             Acceso acceso = new Acceso();
             UsuarioBE usrAux = new UsuarioBE();
@@ -116,6 +116,7 @@ namespace DAL
                 {
                     usrAux.Username_675MS = row["NombreUsuario"].ToString();
                     usrAux.Password_675MS = row["Contraseña"].ToString();
+                    usrAux.IdEmpleado_675MS = row["IdEmpleado"] != DBNull.Value ? Convert.ToInt32(row["IdEmpleado"]) : 0;
 
                 }
 
@@ -221,7 +222,8 @@ namespace DAL
             usuario_675MS.Bloqueado_675MS = fila_675MS["Bloqueado"].ToString();
             usuario_675MS.IntentosFallidos_675MS = Convert.ToInt32(fila_675MS["IntentosFallidos"]);
             usuario_675MS.IdRol_675MS = Convert.ToInt32(fila_675MS["IdRol"].ToString());
-  
+            usuario_675MS.IdEmpleado_675MS = fila_675MS["IdEmpleado"] != DBNull.Value ? Convert.ToInt32(fila_675MS["IdEmpleado"]) : 0;
+
             return usuario_675MS;
         }
 
