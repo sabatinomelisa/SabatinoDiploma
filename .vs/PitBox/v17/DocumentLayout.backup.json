@@ -3,8 +3,44 @@
   "WorkspaceRootPath": "C:\\Users\\Morsicasa\\source\\repos\\PitBox\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{AE7C7190-75F7-4701-BAA7-F0A45F587414}|BLL\\BLL.csproj|C:\\Users\\Morsicasa\\source\\repos\\PitBox\\bll\\clientebll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE7C7190-75F7-4701-BAA7-F0A45F587414}|BLL\\BLL.csproj|solutionrelative:bll\\clientebll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A753E06-7020-47DD-A9AE-1503F72D5DA4}|DAL\\DAL.csproj|C:\\Users\\Morsicasa\\source\\repos\\PitBox\\dal\\clientedal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A753E06-7020-47DD-A9AE-1503F72D5DA4}|DAL\\DAL.csproj|solutionrelative:dal\\clientedal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{F52A3C5E-D431-4573-B47C-C0D26D3CAD69}|Servicios\\Servicios.csproj|c:\\users\\morsicasa\\source\\repos\\pitbox\\servicios\\calculadordigitoverificador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F52A3C5E-D431-4573-B47C-C0D26D3CAD69}|Servicios\\Servicios.csproj|solutionrelative:servicios\\calculadordigitoverificador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A753E06-7020-47DD-A9AE-1503F72D5DA4}|DAL\\DAL.csproj|C:\\Users\\Morsicasa\\source\\repos\\PitBox\\dal\\turnodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A753E06-7020-47DD-A9AE-1503F72D5DA4}|DAL\\DAL.csproj|solutionrelative:dal\\turnodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE7C7190-75F7-4701-BAA7-F0A45F587414}|BLL\\BLL.csproj|C:\\Users\\Morsicasa\\source\\repos\\PitBox\\bll\\turnobll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE7C7190-75F7-4701-BAA7-F0A45F587414}|BLL\\BLL.csproj|solutionrelative:bll\\turnobll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AD6C5F7-A72A-4717-A21B-603DC11CAD18}|PitBox\\PitBox.csproj|C:\\Users\\Morsicasa\\source\\repos\\PitBox\\pitbox\\formclientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0AD6C5F7-A72A-4717-A21B-603DC11CAD18}|PitBox\\PitBox.csproj|solutionrelative:pitbox\\formclientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AD6C5F7-A72A-4717-A21B-603DC11CAD18}|PitBox\\PitBox.csproj|c:\\users\\morsicasa\\source\\repos\\pitbox\\pitbox\\formclientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{0AD6C5F7-A72A-4717-A21B-603DC11CAD18}|PitBox\\PitBox.csproj|solutionrelative:pitbox\\formclientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AD6C5F7-A72A-4717-A21B-603DC11CAD18}|PitBox\\PitBox.csproj|c:\\users\\morsicasa\\source\\repos\\pitbox\\pitbox\\formturnos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0AD6C5F7-A72A-4717-A21B-603DC11CAD18}|PitBox\\PitBox.csproj|solutionrelative:pitbox\\formturnos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F52A3C5E-D431-4573-B47C-C0D26D3CAD69}|Servicios\\Servicios.csproj|c:\\users\\morsicasa\\source\\repos\\pitbox\\servicios\\gestorxml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F52A3C5E-D431-4573-B47C-C0D26D3CAD69}|Servicios\\Servicios.csproj|solutionrelative:servicios\\gestorxml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30BB0428-BBA5-4754-8DA6-1AAC69203718}|BE\\BE.csproj|C:\\Users\\Morsicasa\\source\\repos\\PitBox\\be\\clientebe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30BB0428-BBA5-4754-8DA6-1AAC69203718}|BE\\BE.csproj|solutionrelative:be\\clientebe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F52A3C5E-D431-4573-B47C-C0D26D3CAD69}|Servicios\\Servicios.csproj|C:\\Users\\Morsicasa\\source\\repos\\PitBox\\servicios\\packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
@@ -19,30 +55,6 @@
       "RelativeMoniker": "D:0:0:{AE7C7190-75F7-4701-BAA7-F0A45F587414}|BLL\\BLL.csproj|solutionrelative:bll\\usuariobll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AE7C7190-75F7-4701-BAA7-F0A45F587414}|BLL\\BLL.csproj|C:\\Users\\Morsicasa\\source\\repos\\PitBox\\bll\\turnobll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AE7C7190-75F7-4701-BAA7-F0A45F587414}|BLL\\BLL.csproj|solutionrelative:bll\\turnobll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30BB0428-BBA5-4754-8DA6-1AAC69203718}|BE\\BE.csproj|C:\\Users\\Morsicasa\\source\\repos\\PitBox\\be\\turnobe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30BB0428-BBA5-4754-8DA6-1AAC69203718}|BE\\BE.csproj|solutionrelative:be\\turnobe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1A753E06-7020-47DD-A9AE-1503F72D5DA4}|DAL\\DAL.csproj|C:\\Users\\Morsicasa\\source\\repos\\PitBox\\dal\\turnodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1A753E06-7020-47DD-A9AE-1503F72D5DA4}|DAL\\DAL.csproj|solutionrelative:dal\\turnodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0AD6C5F7-A72A-4717-A21B-603DC11CAD18}|PitBox\\PitBox.csproj|C:\\Users\\Morsicasa\\source\\repos\\PitBox\\pitbox\\formclientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0AD6C5F7-A72A-4717-A21B-603DC11CAD18}|PitBox\\PitBox.csproj|solutionrelative:pitbox\\formclientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0AD6C5F7-A72A-4717-A21B-603DC11CAD18}|PitBox\\PitBox.csproj|C:\\Users\\Morsicasa\\source\\repos\\PitBox\\pitbox\\formvehiculos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0AD6C5F7-A72A-4717-A21B-603DC11CAD18}|PitBox\\PitBox.csproj|solutionrelative:pitbox\\formvehiculos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0AD6C5F7-A72A-4717-A21B-603DC11CAD18}|PitBox\\PitBox.csproj|C:\\Users\\Morsicasa\\source\\repos\\PitBox\\pitbox\\formvehiculos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{0AD6C5F7-A72A-4717-A21B-603DC11CAD18}|PitBox\\PitBox.csproj|solutionrelative:pitbox\\formvehiculos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{0AD6C5F7-A72A-4717-A21B-603DC11CAD18}|PitBox\\PitBox.csproj|C:\\Users\\Morsicasa\\source\\repos\\PitBox\\pitbox\\formmenuempleado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0AD6C5F7-A72A-4717-A21B-603DC11CAD18}|PitBox\\PitBox.csproj|solutionrelative:pitbox\\formmenuempleado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -53,10 +65,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{1A753E06-7020-47DD-A9AE-1503F72D5DA4}|DAL\\DAL.csproj|C:\\Users\\Morsicasa\\source\\repos\\PitBox\\dal\\usuariodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1A753E06-7020-47DD-A9AE-1503F72D5DA4}|DAL\\DAL.csproj|solutionrelative:dal\\usuariodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0AD6C5F7-A72A-4717-A21B-603DC11CAD18}|PitBox\\PitBox.csproj|C:\\Users\\Morsicasa\\source\\repos\\PitBox\\pitbox\\formturnos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{0AD6C5F7-A72A-4717-A21B-603DC11CAD18}|PitBox\\PitBox.csproj|solutionrelative:pitbox\\formturnos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0AD6C5F7-A72A-4717-A21B-603DC11CAD18}|PitBox\\PitBox.csproj|C:\\Users\\Morsicasa\\source\\repos\\PitBox\\pitbox\\formregistro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -71,24 +79,12 @@
       "RelativeMoniker": "D:0:0:{1A753E06-7020-47DD-A9AE-1503F72D5DA4}|DAL\\DAL.csproj|solutionrelative:dal\\integridaddal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AE7C7190-75F7-4701-BAA7-F0A45F587414}|BLL\\BLL.csproj|C:\\Users\\Morsicasa\\source\\repos\\PitBox\\bll\\clientebll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AE7C7190-75F7-4701-BAA7-F0A45F587414}|BLL\\BLL.csproj|solutionrelative:bll\\clientebll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{AE7C7190-75F7-4701-BAA7-F0A45F587414}|BLL\\BLL.csproj|C:\\Users\\Morsicasa\\source\\repos\\PitBox\\bll\\vehiculobll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AE7C7190-75F7-4701-BAA7-F0A45F587414}|BLL\\BLL.csproj|solutionrelative:bll\\vehiculobll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1A753E06-7020-47DD-A9AE-1503F72D5DA4}|DAL\\DAL.csproj|C:\\Users\\Morsicasa\\source\\repos\\PitBox\\dal\\vehiculodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1A753E06-7020-47DD-A9AE-1503F72D5DA4}|DAL\\DAL.csproj|solutionrelative:dal\\vehiculodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1A753E06-7020-47DD-A9AE-1503F72D5DA4}|DAL\\DAL.csproj|C:\\Users\\Morsicasa\\source\\repos\\PitBox\\dal\\clientedal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1A753E06-7020-47DD-A9AE-1503F72D5DA4}|DAL\\DAL.csproj|solutionrelative:dal\\clientedal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30BB0428-BBA5-4754-8DA6-1AAC69203718}|BE\\BE.csproj|C:\\Users\\Morsicasa\\source\\repos\\PitBox\\be\\clientebe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30BB0428-BBA5-4754-8DA6-1AAC69203718}|BE\\BE.csproj|solutionrelative:be\\clientebe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AE7C7190-75F7-4701-BAA7-F0A45F587414}|BLL\\BLL.csproj|C:\\Users\\Morsicasa\\source\\repos\\PitBox\\bll\\traduccionbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -118,7 +114,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -142,7 +138,136 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ClienteBLL.cs",
+              "DocumentMoniker": "C:\\Users\\Morsicasa\\source\\repos\\PitBox\\BLL\\ClienteBLL.cs",
+              "RelativeDocumentMoniker": "BLL\\ClienteBLL.cs",
+              "ToolTip": "C:\\Users\\Morsicasa\\source\\repos\\PitBox\\BLL\\ClienteBLL.cs",
+              "RelativeToolTip": "BLL\\ClienteBLL.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADgAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-25T21:34:05.653Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "FormClientes.cs",
+              "DocumentMoniker": "C:\\Users\\Morsicasa\\source\\repos\\PitBox\\PitBox\\FormClientes.cs",
+              "RelativeDocumentMoniker": "PitBox\\FormClientes.cs",
+              "ToolTip": "C:\\Users\\Morsicasa\\source\\repos\\PitBox\\PitBox\\FormClientes.cs",
+              "RelativeToolTip": "PitBox\\FormClientes.cs",
+              "ViewState": "AgIAAPYAAAAAAAAAAAAwwAwBAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-26T11:32:05.567Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "TurnoBLL.cs",
+              "DocumentMoniker": "C:\\Users\\Morsicasa\\source\\repos\\PitBox\\BLL\\TurnoBLL.cs",
+              "RelativeDocumentMoniker": "BLL\\TurnoBLL.cs",
+              "ToolTip": "C:\\Users\\Morsicasa\\source\\repos\\PitBox\\BLL\\TurnoBLL.cs",
+              "RelativeToolTip": "BLL\\TurnoBLL.cs",
+              "ViewState": "AgIAAHkAAAAAAAAAAAAqwIMAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-25T15:00:00.9Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "TurnoDAL.cs",
+              "DocumentMoniker": "C:\\Users\\Morsicasa\\source\\repos\\PitBox\\DAL\\TurnoDAL.cs",
+              "RelativeDocumentMoniker": "DAL\\TurnoDAL.cs",
+              "ToolTip": "C:\\Users\\Morsicasa\\source\\repos\\PitBox\\DAL\\TurnoDAL.cs",
+              "RelativeToolTip": "DAL\\TurnoDAL.cs",
+              "ViewState": "AgIAAIIAAAAAAAAAAAAiwI4AAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-25T14:23:57.545Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "ClienteDAL.cs",
+              "DocumentMoniker": "C:\\Users\\Morsicasa\\source\\repos\\PitBox\\DAL\\ClienteDAL.cs",
+              "RelativeDocumentMoniker": "DAL\\ClienteDAL.cs",
+              "ToolTip": "C:\\Users\\Morsicasa\\source\\repos\\PitBox\\DAL\\ClienteDAL.cs",
+              "RelativeToolTip": "DAL\\ClienteDAL.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAIAwwDQAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-25T13:33:54.559Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CalculadorDigitoVerificador.cs",
+              "DocumentMoniker": "C:\\Users\\Morsicasa\\source\\repos\\PitBox\\Servicios\\CalculadorDigitoVerificador.cs",
+              "RelativeDocumentMoniker": "Servicios\\CalculadorDigitoVerificador.cs",
+              "ToolTip": "C:\\Users\\Morsicasa\\source\\repos\\PitBox\\Servicios\\CalculadorDigitoVerificador.cs",
+              "RelativeToolTip": "Servicios\\CalculadorDigitoVerificador.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAuwAsAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-25T18:02:34.519Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "FormClientes.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\Morsicasa\\source\\repos\\PitBox\\PitBox\\FormClientes.cs",
+              "RelativeDocumentMoniker": "PitBox\\FormClientes.cs",
+              "ToolTip": "C:\\Users\\Morsicasa\\source\\repos\\PitBox\\PitBox\\FormClientes.cs [Dise\u00F1o]",
+              "RelativeToolTip": "PitBox\\FormClientes.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-27T22:04:10.398Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "FormTurnos.cs",
+              "DocumentMoniker": "C:\\Users\\Morsicasa\\source\\repos\\PitBox\\PitBox\\FormTurnos.cs",
+              "RelativeDocumentMoniker": "PitBox\\FormTurnos.cs",
+              "ToolTip": "C:\\Users\\Morsicasa\\source\\repos\\PitBox\\PitBox\\FormTurnos.cs",
+              "RelativeToolTip": "PitBox\\FormTurnos.cs",
+              "ViewState": "AgIAAO4AAAAAAAAAAAAswAsBAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-27T22:29:57.836Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "GestorXML.cs",
+              "DocumentMoniker": "C:\\Users\\Morsicasa\\source\\repos\\PitBox\\Servicios\\GestorXML.cs",
+              "RelativeDocumentMoniker": "Servicios\\GestorXML.cs",
+              "ToolTip": "C:\\Users\\Morsicasa\\source\\repos\\PitBox\\Servicios\\GestorXML.cs",
+              "RelativeToolTip": "Servicios\\GestorXML.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAABSAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-27T21:50:45.396Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ClienteBE.cs",
+              "DocumentMoniker": "C:\\Users\\Morsicasa\\source\\repos\\PitBox\\BE\\ClienteBE.cs",
+              "RelativeDocumentMoniker": "BE\\ClienteBE.cs",
+              "ToolTip": "C:\\Users\\Morsicasa\\source\\repos\\PitBox\\BE\\ClienteBE.cs",
+              "RelativeToolTip": "BE\\ClienteBE.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAA7wEsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-25T21:40:44.042Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "packages.config",
               "DocumentMoniker": "C:\\Users\\Morsicasa\\source\\repos\\PitBox\\Servicios\\packages.config",
               "RelativeDocumentMoniker": "Servicios\\packages.config",
@@ -154,7 +279,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 11,
               "Title": "SessionManager.cs",
               "DocumentMoniker": "C:\\Users\\Morsicasa\\source\\repos\\PitBox\\Servicios\\SessionManager.cs",
               "RelativeDocumentMoniker": "Servicios\\SessionManager.cs",
@@ -166,79 +291,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "TurnoBE.cs",
-              "DocumentMoniker": "C:\\Users\\Morsicasa\\source\\repos\\PitBox\\BE\\TurnoBE.cs",
-              "RelativeDocumentMoniker": "BE\\TurnoBE.cs",
-              "ToolTip": "C:\\Users\\Morsicasa\\source\\repos\\PitBox\\BE\\TurnoBE.cs",
-              "RelativeToolTip": "BE\\TurnoBE.cs",
-              "ViewState": "AgIAAC8AAAAAAAAAAADwv10AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-25T14:00:39.152Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "TurnoDAL.cs",
-              "DocumentMoniker": "C:\\Users\\Morsicasa\\source\\repos\\PitBox\\DAL\\TurnoDAL.cs",
-              "RelativeDocumentMoniker": "DAL\\TurnoDAL.cs",
-              "ToolTip": "C:\\Users\\Morsicasa\\source\\repos\\PitBox\\DAL\\TurnoDAL.cs",
-              "RelativeToolTip": "DAL\\TurnoDAL.cs",
-              "ViewState": "AgIAAG8AAAAAAAAAAAA6wKAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-25T14:23:57.545Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "CalculadorDigitoVerificador.cs",
-              "DocumentMoniker": "C:\\Users\\Morsicasa\\source\\repos\\PitBox\\Servicios\\CalculadorDigitoVerificador.cs",
-              "RelativeDocumentMoniker": "Servicios\\CalculadorDigitoVerificador.cs",
-              "ToolTip": "C:\\Users\\Morsicasa\\source\\repos\\PitBox\\Servicios\\CalculadorDigitoVerificador.cs",
-              "RelativeToolTip": "Servicios\\CalculadorDigitoVerificador.cs",
-              "ViewState": "AgIAACYAAAAAAAAAAAA8wEIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-25T18:02:34.519Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "FormClientes.cs",
-              "DocumentMoniker": "C:\\Users\\Morsicasa\\source\\repos\\PitBox\\PitBox\\FormClientes.cs",
-              "RelativeDocumentMoniker": "PitBox\\FormClientes.cs",
-              "ToolTip": "C:\\Users\\Morsicasa\\source\\repos\\PitBox\\PitBox\\FormClientes.cs",
-              "RelativeToolTip": "PitBox\\FormClientes.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-26T11:32:05.567Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "FormVehiculos.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\Morsicasa\\source\\repos\\PitBox\\PitBox\\FormVehiculos.cs",
-              "RelativeDocumentMoniker": "PitBox\\FormVehiculos.cs",
-              "ToolTip": "C:\\Users\\Morsicasa\\source\\repos\\PitBox\\PitBox\\FormVehiculos.cs [Dise\u00F1o]",
-              "RelativeToolTip": "PitBox\\FormVehiculos.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-25T20:47:24.142Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "FormVehiculos.cs",
-              "DocumentMoniker": "C:\\Users\\Morsicasa\\source\\repos\\PitBox\\PitBox\\FormVehiculos.cs",
-              "RelativeDocumentMoniker": "PitBox\\FormVehiculos.cs",
-              "ToolTip": "C:\\Users\\Morsicasa\\source\\repos\\PitBox\\PitBox\\FormVehiculos.cs",
-              "RelativeToolTip": "PitBox\\FormVehiculos.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-25T20:01:33.263Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 14,
               "Title": "FormMenuEmpleado.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\Morsicasa\\source\\repos\\PitBox\\PitBox\\FormMenuEmpleado.cs",
               "RelativeDocumentMoniker": "PitBox\\FormMenuEmpleado.cs",
@@ -249,19 +302,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "TurnoBLL.cs",
-              "DocumentMoniker": "C:\\Users\\Morsicasa\\source\\repos\\PitBox\\BLL\\TurnoBLL.cs",
-              "RelativeDocumentMoniker": "BLL\\TurnoBLL.cs",
-              "ToolTip": "C:\\Users\\Morsicasa\\source\\repos\\PitBox\\BLL\\TurnoBLL.cs",
-              "RelativeToolTip": "BLL\\TurnoBLL.cs",
-              "ViewState": "AgIAAGAAAAAAAAAAAAAiwJAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-25T15:00:00.9Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 12,
               "Title": "UsuarioBLL.cs",
               "DocumentMoniker": "C:\\Users\\Morsicasa\\source\\repos\\PitBox\\BLL\\UsuarioBLL.cs",
               "RelativeDocumentMoniker": "BLL\\UsuarioBLL.cs",
@@ -273,7 +314,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 18,
               "Title": "IntegridadDAL.cs",
               "DocumentMoniker": "C:\\Users\\Morsicasa\\source\\repos\\PitBox\\DAL\\IntegridadDAL.cs",
               "RelativeDocumentMoniker": "DAL\\IntegridadDAL.cs",
@@ -285,7 +326,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 15,
               "Title": "UsuarioDAL.cs",
               "DocumentMoniker": "C:\\Users\\Morsicasa\\source\\repos\\PitBox\\DAL\\UsuarioDAL.cs",
               "RelativeDocumentMoniker": "DAL\\UsuarioDAL.cs",
@@ -297,7 +338,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 13,
               "Title": "FormMenuEmpleado.cs",
               "DocumentMoniker": "C:\\Users\\Morsicasa\\source\\repos\\PitBox\\PitBox\\FormMenuEmpleado.cs",
               "RelativeDocumentMoniker": "PitBox\\FormMenuEmpleado.cs",
@@ -309,18 +350,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "FormTurnos.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\Morsicasa\\source\\repos\\PitBox\\PitBox\\FormTurnos.cs",
-              "RelativeDocumentMoniker": "PitBox\\FormTurnos.cs",
-              "ToolTip": "C:\\Users\\Morsicasa\\source\\repos\\PitBox\\PitBox\\FormTurnos.cs [Dise\u00F1o]",
-              "RelativeToolTip": "PitBox\\FormTurnos.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-26T10:49:09.169Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 16,
               "Title": "FormRegistro.cs",
               "DocumentMoniker": "C:\\Users\\Morsicasa\\source\\repos\\PitBox\\PitBox\\FormRegistro.cs",
               "RelativeDocumentMoniker": "PitBox\\FormRegistro.cs",
@@ -332,7 +362,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 17,
               "Title": "UsuarioBE.cs",
               "DocumentMoniker": "C:\\Users\\Morsicasa\\source\\repos\\PitBox\\BE\\UsuarioBE.cs",
               "RelativeDocumentMoniker": "BE\\UsuarioBE.cs",
@@ -344,7 +374,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 20,
               "Title": "VehiculoDAL.cs",
               "DocumentMoniker": "C:\\Users\\Morsicasa\\source\\repos\\PitBox\\DAL\\VehiculoDAL.cs",
               "RelativeDocumentMoniker": "DAL\\VehiculoDAL.cs",
@@ -356,31 +386,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "ClienteBLL.cs",
-              "DocumentMoniker": "C:\\Users\\Morsicasa\\source\\repos\\PitBox\\BLL\\ClienteBLL.cs",
-              "RelativeDocumentMoniker": "BLL\\ClienteBLL.cs",
-              "ToolTip": "C:\\Users\\Morsicasa\\source\\repos\\PitBox\\BLL\\ClienteBLL.cs",
-              "RelativeToolTip": "BLL\\ClienteBLL.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-25T21:34:05.653Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "ClienteDAL.cs",
-              "DocumentMoniker": "C:\\Users\\Morsicasa\\source\\repos\\PitBox\\DAL\\ClienteDAL.cs",
-              "RelativeDocumentMoniker": "DAL\\ClienteDAL.cs",
-              "ToolTip": "C:\\Users\\Morsicasa\\source\\repos\\PitBox\\DAL\\ClienteDAL.cs",
-              "RelativeToolTip": "DAL\\ClienteDAL.cs",
-              "ViewState": "AgIAAEwAAAAAAAAAAAAswHoAAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-25T13:33:54.559Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 19,
               "Title": "VehiculoBLL.cs",
               "DocumentMoniker": "C:\\Users\\Morsicasa\\source\\repos\\PitBox\\BLL\\VehiculoBLL.cs",
               "RelativeDocumentMoniker": "BLL\\VehiculoBLL.cs",
@@ -392,19 +398,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "ClienteBE.cs",
-              "DocumentMoniker": "C:\\Users\\Morsicasa\\source\\repos\\PitBox\\BE\\ClienteBE.cs",
-              "RelativeDocumentMoniker": "BE\\ClienteBE.cs",
-              "ToolTip": "C:\\Users\\Morsicasa\\source\\repos\\PitBox\\BE\\ClienteBE.cs",
-              "RelativeToolTip": "BE\\ClienteBE.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAAAowEsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-25T21:40:44.042Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 22,
               "Title": "TraduccionBE.cs",
               "DocumentMoniker": "C:\\Users\\Morsicasa\\source\\repos\\PitBox\\BE\\TraduccionBE.cs",
               "RelativeDocumentMoniker": "BE\\TraduccionBE.cs",
@@ -416,7 +410,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 21,
               "Title": "TraduccionBLL.cs",
               "DocumentMoniker": "C:\\Users\\Morsicasa\\source\\repos\\PitBox\\BLL\\TraduccionBLL.cs",
               "RelativeDocumentMoniker": "BLL\\TraduccionBLL.cs",
@@ -428,7 +422,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 23,
               "Title": "FormUsuarios.cs",
               "DocumentMoniker": "C:\\Users\\Morsicasa\\source\\repos\\PitBox\\PitBox\\FormUsuarios.cs",
               "RelativeDocumentMoniker": "PitBox\\FormUsuarios.cs",
@@ -440,7 +434,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 25,
               "Title": "VehiculoBE.cs",
               "DocumentMoniker": "C:\\Users\\Morsicasa\\source\\repos\\PitBox\\BE\\VehiculoBE.cs",
               "RelativeDocumentMoniker": "BE\\VehiculoBE.cs",
@@ -452,7 +446,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 24,
               "Title": "FormVehiculos.Designer.cs",
               "DocumentMoniker": "C:\\Users\\Morsicasa\\source\\repos\\PitBox\\PitBox\\FormVehiculos.Designer.cs",
               "RelativeDocumentMoniker": "PitBox\\FormVehiculos.Designer.cs",
@@ -460,7 +454,8 @@
               "RelativeToolTip": "PitBox\\FormVehiculos.Designer.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAABBAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-25T19:59:06.773Z"
+              "WhenOpened": "2026-09-25T19:59:06.773Z",
+              "EditorCaption": ""
             }
           ]
         }
