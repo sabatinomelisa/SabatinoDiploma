@@ -127,5 +127,62 @@ namespace DAL
             return clientes_675MS;
 
         }
+
+        public int RegistrarClienteDAL_675MS(ClienteBE clienteBE_675MS)
+        {
+            Acceso acceso_675MS = new Acceso();
+            acceso_675MS.Conectar_675MS();
+
+            try
+            {
+                List<SqlParameter> parametros = new List<SqlParameter>();
+
+                parametros.Add(acceso_675MS.CrearParametro_675MS("@dni", clienteBE_675MS.Dni_675MS));
+                parametros.Add(acceso_675MS.CrearParametro_675MS("@nombre", clienteBE_675MS.Nombre_675MS));
+                parametros.Add(acceso_675MS.CrearParametro_675MS("@apellido", clienteBE_675MS.Apellido_675MS));
+                parametros.Add(acceso_675MS.CrearParametro_675MS("@fechanacimiento", clienteBE_675MS.FechaNacimiento_675MS));
+                parametros.Add(acceso_675MS.CrearParametro_675MS("@mail", clienteBE_675MS.Mail_675MS));
+                parametros.Add(acceso_675MS.CrearParametro_675MS("@domicilio", clienteBE_675MS.Domicilio_675MS));
+                parametros.Add(acceso_675MS.CrearParametro_675MS("@telefono", clienteBE_675MS.Telefono_675MS));
+                parametros.Add(acceso_675MS.CrearParametro_675MS("@dv", clienteBE_675MS.DigitoVerificadorHorizontal_675MS));
+
+                int filasAfectadas_675MS = acceso_675MS.Escribir_675MS("ALTA_CLIENTE", parametros);
+
+                return filasAfectadas_675MS;
+            }
+            finally
+            {
+                acceso_675MS.Desconectar_675MS();
+            }
+        }
+
+        public int ModificarClienteDAL_675MS(ClienteBE clienteBE_675MS)
+        {
+            Acceso acceso_675MS = new Acceso();
+            acceso_675MS.Conectar_675MS();
+
+            try
+            {
+                List<SqlParameter> parametros = new List<SqlParameter>();
+
+                parametros.Add(acceso_675MS.CrearParametro_675MS("@dni", clienteBE_675MS.Dni_675MS));
+                parametros.Add(acceso_675MS.CrearParametro_675MS("@nombre", clienteBE_675MS.Nombre_675MS));
+                parametros.Add(acceso_675MS.CrearParametro_675MS("@apellido", clienteBE_675MS.Apellido_675MS));
+                parametros.Add(acceso_675MS.CrearParametro_675MS("@fechanacimiento", clienteBE_675MS.FechaNacimiento_675MS));
+                parametros.Add(acceso_675MS.CrearParametro_675MS("@mail", clienteBE_675MS.Mail_675MS));
+                parametros.Add(acceso_675MS.CrearParametro_675MS("@domicilio", clienteBE_675MS.Domicilio_675MS));
+                parametros.Add(acceso_675MS.CrearParametro_675MS("@telefono", clienteBE_675MS.Telefono_675MS));
+                parametros.Add(acceso_675MS.CrearParametro_675MS("@dv", clienteBE_675MS.DigitoVerificadorHorizontal_675MS));
+
+                int filasAfectadas_675MS = acceso_675MS.Escribir_675MS("MODIFICAR_CLIENTE", parametros);
+
+                return filasAfectadas_675MS;
+            }
+            finally
+            {
+                acceso_675MS.Desconectar_675MS();
+            }
+        }
+    
     }
 }

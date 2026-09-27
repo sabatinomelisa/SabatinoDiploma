@@ -88,27 +88,27 @@ namespace PitBox
 
         private void dgvTurnos_675MS_SelectionChanged(object sender, EventArgs e)
         {
-            TurnoBE turnoSeleccionado = new TurnoBE();
+                TurnoBE turnoSeleccionado = new TurnoBE();
 
-            if (dgvTurnos_675MS.CurrentRow != null)
-            {
+                if (dgvTurnos_675MS.CurrentRow != null)
+                {
 
-                // Recuperamos el valor del registro seleccionado en el Data Grid View
-                turnoSeleccionado.IdTurno_675MS = Convert.ToInt32(dgvTurnos_675MS.CurrentRow.Cells["IdTurno_675MS"].Value);
-                turnoSeleccionado.Dni_675MS = Convert.ToInt32(dgvTurnos_675MS.CurrentRow.Cells["Dni_675MS"].Value);
-                turnoSeleccionado.Dominio_675MS = dgvTurnos_675MS.CurrentRow.Cells["Dominio_675MS"].Value.ToString();
-                turnoSeleccionado.FechaHora_675MS = Convert.ToDateTime(dgvTurnos_675MS.CurrentRow.Cells["FechaHora_675MS"].Value);
-                turnoSeleccionado.DuracionEstimada_675MS = Convert.ToInt32(dgvTurnos_675MS.CurrentRow.Cells["DuracionEstimada_675MS"].Value);
-                turnoSeleccionado.DigitoVerificadorHorizontal_675MS = Convert.ToInt32(dgvTurnos_675MS.CurrentRow.Cells["DigitoVerificadorHorizontal_675MS"].Value);
-                turnoSeleccionado.FechaBaja_675MS = Convert.ToDateTime(dgvTurnos_675MS.CurrentRow.Cells["FechaBaja_675MS"].Value);
-                turnoSeleccionado.Activo_675MS = Convert.ToBoolean(dgvTurnos_675MS.CurrentRow.Cells["Activo_675MS"].Value);
-                turnoSeleccionado.IdEmpleado_675MS = Convert.ToInt32(dgvTurnos_675MS.CurrentRow.Cells["IdEmpleado_675MS"].Value);
+                    // Recuperamos el valor del registro seleccionado en el Data Grid View
+                    turnoSeleccionado.IdTurno_675MS = Convert.ToInt32(dgvTurnos_675MS.CurrentRow.Cells["IdTurno_675MS"].Value);
+                    turnoSeleccionado.Dni_675MS = Convert.ToInt32(dgvTurnos_675MS.CurrentRow.Cells["Dni_675MS"].Value);
+                    turnoSeleccionado.Dominio_675MS = dgvTurnos_675MS.CurrentRow.Cells["Dominio_675MS"].Value.ToString();
+                    turnoSeleccionado.FechaHora_675MS = Convert.ToDateTime(dgvTurnos_675MS.CurrentRow.Cells["FechaHora_675MS"].Value);
+                    turnoSeleccionado.DuracionEstimada_675MS = Convert.ToInt32(dgvTurnos_675MS.CurrentRow.Cells["DuracionEstimada_675MS"].Value);
+                    turnoSeleccionado.DigitoVerificadorHorizontal_675MS = Convert.ToInt32(dgvTurnos_675MS.CurrentRow.Cells["DigitoVerificadorHorizontal_675MS"].Value);
+                    turnoSeleccionado.FechaBaja_675MS = Convert.ToDateTime(dgvTurnos_675MS.CurrentRow.Cells["FechaBaja_675MS"].Value);
+                    turnoSeleccionado.Activo_675MS = Convert.ToBoolean(dgvTurnos_675MS.CurrentRow.Cells["Activo_675MS"].Value);
+                    turnoSeleccionado.IdEmpleado_675MS = Convert.ToInt32(dgvTurnos_675MS.CurrentRow.Cells["IdEmpleado_675MS"].Value);
 
 
-                txtDNI_675MS.Text = turnoSeleccionado.Dni_675MS.ToString();
-                cmbVehiculos_675MS.Text = turnoSeleccionado.Dominio_675MS.ToString();
-                txtDuracion_675MS.Text = turnoSeleccionado.DuracionEstimada_675MS.ToString();
-            }
+                    txtDNI_675MS.Text = turnoSeleccionado.Dni_675MS.ToString();
+                    cmbVehiculos_675MS.Text = turnoSeleccionado.Dominio_675MS.ToString();
+                    txtDuracion_675MS.Text = turnoSeleccionado.DuracionEstimada_675MS.ToString();
+                }
       }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
@@ -259,6 +259,11 @@ namespace PitBox
             {
                 MessageBox.Show("Ocurrió un error al intentar registrar el turno en la base de datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnVolver_675MS_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
