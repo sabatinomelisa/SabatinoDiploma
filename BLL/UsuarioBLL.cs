@@ -144,11 +144,6 @@ namespace BLL
                 throw new Exception("Ingresar Contraseña.");
             }
 
-            if (usuario_675MS.Empleado_675MS.DniEmpleado <= 0)
-            {
-                throw new Exception("Ingresar número de documento válido.");
-            }
-
         
         }
 

@@ -80,5 +80,14 @@ namespace BE
 			set { fechaBaja_675MS = value; }
 		}
 
+		private int idEmpleado_675MS;
+
+		public int IdEmpleado_675MS
+		{
+			get { return idEmpleado_675MS; }
+			set { idEmpleado_675MS = value; }
+		}
+
+
 	}
 }

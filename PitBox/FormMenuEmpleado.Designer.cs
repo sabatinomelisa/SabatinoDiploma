@@ -37,7 +37,6 @@
             this.listadoDeEmpleadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.altaDeClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.modificarClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarPorDNIToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.porDNIToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.porApellidoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -70,11 +69,11 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.usuariosToolStripMenuItem,
             this.empleadosToolStripMenuItem,
             this.clientesToolStripMenuItem,
             this.vehiculosToolStripMenuItem,
             this.turnosToolStripMenuItem,
-            this.usuariosToolStripMenuItem,
             this.cerrarSesiónToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -122,7 +121,6 @@
             // 
             this.clientesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.altaDeClienteToolStripMenuItem,
-            this.modificarClienteToolStripMenuItem,
             this.consultarPorDNIToolStripMenuItem1,
             this.listadoDeClientesToolStripMenuItem});
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
@@ -132,14 +130,9 @@
             // altaDeClienteToolStripMenuItem
             // 
             this.altaDeClienteToolStripMenuItem.Name = "altaDeClienteToolStripMenuItem";
-            this.altaDeClienteToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
-            this.altaDeClienteToolStripMenuItem.Text = "Alta de Cliente";
-            // 
-            // modificarClienteToolStripMenuItem
-            // 
-            this.modificarClienteToolStripMenuItem.Name = "modificarClienteToolStripMenuItem";
-            this.modificarClienteToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
-            this.modificarClienteToolStripMenuItem.Text = "Modificar Cliente";
+            this.altaDeClienteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.altaDeClienteToolStripMenuItem.Text = "Gestionar Clientes";
+            this.altaDeClienteToolStripMenuItem.Click += new System.EventHandler(this.altaDeClienteToolStripMenuItem_Click);
             // 
             // consultarPorDNIToolStripMenuItem1
             // 
@@ -148,32 +141,32 @@
             this.porApellidoToolStripMenuItem,
             this.porVehículoToolStripMenuItem});
             this.consultarPorDNIToolStripMenuItem1.Name = "consultarPorDNIToolStripMenuItem1";
-            this.consultarPorDNIToolStripMenuItem1.Size = new System.Drawing.Size(173, 22);
+            this.consultarPorDNIToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.consultarPorDNIToolStripMenuItem1.Text = "Consultar";
             this.consultarPorDNIToolStripMenuItem1.Click += new System.EventHandler(this.consultarPorDNIToolStripMenuItem1_Click);
             // 
             // porDNIToolStripMenuItem2
             // 
             this.porDNIToolStripMenuItem2.Name = "porDNIToolStripMenuItem2";
-            this.porDNIToolStripMenuItem2.Size = new System.Drawing.Size(140, 22);
+            this.porDNIToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
             this.porDNIToolStripMenuItem2.Text = "Por DNI";
             // 
             // porApellidoToolStripMenuItem
             // 
             this.porApellidoToolStripMenuItem.Name = "porApellidoToolStripMenuItem";
-            this.porApellidoToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.porApellidoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.porApellidoToolStripMenuItem.Text = "Por Apellido";
             // 
             // porVehículoToolStripMenuItem
             // 
             this.porVehículoToolStripMenuItem.Name = "porVehículoToolStripMenuItem";
-            this.porVehículoToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.porVehículoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.porVehículoToolStripMenuItem.Text = "Por Vehículo";
             // 
             // listadoDeClientesToolStripMenuItem
             // 
             this.listadoDeClientesToolStripMenuItem.Name = "listadoDeClientesToolStripMenuItem";
-            this.listadoDeClientesToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.listadoDeClientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.listadoDeClientesToolStripMenuItem.Text = "Listado de Clientes";
             // 
             // vehiculosToolStripMenuItem
@@ -360,7 +353,6 @@
         private System.Windows.Forms.ToolStripMenuItem consultarPorDNIToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listadoDeEmpleadosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem altaDeClienteToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem modificarClienteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultarPorDNIToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem listadoDeClientesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem altaVehículoToolStripMenuItem;

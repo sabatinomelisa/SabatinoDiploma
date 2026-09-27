@@ -118,28 +118,23 @@ namespace BLL
 
             // Instancio servicio para calcular digito verificador
             Servicios.CalculadorDigitoVerificador calculadorDV_675MS = new Servicios.CalculadorDigitoVerificador();
+            // Buesco el Id Empleado
+            if (Servicios.SessionManager.SesionIniciada_675MS)
+            {
+                // Obterngo el usuario que está logueado en este momento a través de la clase de Servicios SessionManager
+                BE.UsuarioBE usuarioLogueado = Servicios.SessionManager.ObtenerUsuarioActual_675MS();
 
-            // Paso los datos a texto
-            string dniStr_675MS = turnoBE_675MS.Dni_675MS.ToString();
-            string dominioStr_675MS = turnoBE_675MS.Dominio_675MS;
-            string fechaStr_675MS = turnoBE_675MS.FechaHora_675MS.ToString("yyyyMMddHHmm");
-            string duracionStr_675MS = turnoBE_675MS.DuracionEstimada_675MS.ToString();
-            string activoStr_675MS = turnoBE_675MS.Activo_675MS.ToString();
+                //Guardo el ID de ese empleado a la entidad TurnoBE
+                turnoBE_675MS.IdEmpleado_675MS = usuarioLogueado.IdEmpleado_675MS;
 
-            //Calculo DV
-            turnoBE_675MS.DigitoVerificadorHorizontal_675MS = calculadorDV_675MS.CalcularHorizontal_675MS(
-                dniStr_675MS,
-                dominioStr_675MS,
-                fechaStr_675MS,
-                duracionStr_675MS,
-                activoStr_675MS
-            );
-
-            // Intancio la DAL
-            TurnoDAL turnoDAL_675MS = new TurnoDAL();
-
-            //Registro en la base de datos
-            filasAfectadas_675MS = turnoDAL_675MS.RegistrarTurnoDAL_675MS(turnoBE_675MS);
+                //Registro el turno 
+                TurnoDAL turnoDal = new TurnoDAL();
+                filasAfectadas_675MS = turnoDal.RegistrarTurnoDAL_675MS(turnoBE_675MS);
+            }
+            else
+            {
+                throw new Exception("No hay ningún empleado logueado en el sistema.");
+            }
 
             return filasAfectadas_675MS;
         }

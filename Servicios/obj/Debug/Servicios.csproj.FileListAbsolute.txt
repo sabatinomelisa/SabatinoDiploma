@@ -9,4 +9,3 @@ C:\Users\Morsicasa\source\repos\PitBox\Servicios\obj\Debug\Servicios.dll
 C:\Users\Morsicasa\source\repos\PitBox\Servicios\obj\Debug\Servicios.pdb
 C:\Users\Morsicasa\source\repos\PitBox\Servicios\bin\Debug\BCrypt.Net-Core.dll
 C:\Users\Morsicasa\source\repos\PitBox\Servicios\bin\Debug\BCrypt.Net-Core.pdb
-C:\Users\Morsicasa\source\repos\PitBox\Servicios\bin\Debug\MaterialSkin.dll

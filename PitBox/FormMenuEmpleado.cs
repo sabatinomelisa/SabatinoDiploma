@@ -148,5 +148,35 @@ namespace PitBox
             // Cerramos el menú actual
             this.Close();
         }
+
+        private void altaDeClienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormClientes formExistente_675MS = null;
+            // Buscamos manualmente si el formulario ya se encuentra abierto
+            foreach (Form formulario_675MS in Application.OpenForms)
+            {
+                if (formulario_675MS is FormClientes)
+                {
+                    formExistente_675MS = (FormClientes)formulario_675MS;
+                    break;
+                }
+            }
+            if (formExistente_675MS != null)
+            {
+                // Si ya hay uno abiert, lo traemos al frente para que el usuario no pierda el foco
+                formExistente_675MS.BringToFront();
+            }
+            else
+            {
+                //Si no está abierto lo creo
+                FormClientes formUsuarios_675MS = new FormClientes();
+
+                // Lo vinculo al contenedor MDI 
+                formUsuarios_675MS.MdiParent = this;
+
+                // Mostrar dentro del contenedor
+                formUsuarios_675MS.Show();
+            }
+        }
     }
 }

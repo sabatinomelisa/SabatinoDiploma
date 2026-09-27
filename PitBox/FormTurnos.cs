@@ -53,6 +53,8 @@ namespace PitBox
             dgvTurnos_675MS.Columns["DigitoVerificadorHorizontal_675MS"].Visible = false;
             dgvTurnos_675MS.Columns["Activo_675MS"].Visible = false;
             dgvTurnos_675MS.Columns["FechaBaja_675MS"].Visible = false;
+            dgvTurnos_675MS.Columns["IdEmpleado_675MS"].Visible = false;
+
 
 
             // Cambiar los títulos para que la interfaz quede prolija
@@ -100,7 +102,7 @@ namespace PitBox
                 turnoSeleccionado.DigitoVerificadorHorizontal_675MS = Convert.ToInt32(dgvTurnos_675MS.CurrentRow.Cells["DigitoVerificadorHorizontal_675MS"].Value);
                 turnoSeleccionado.FechaBaja_675MS = Convert.ToDateTime(dgvTurnos_675MS.CurrentRow.Cells["FechaBaja_675MS"].Value);
                 turnoSeleccionado.Activo_675MS = Convert.ToBoolean(dgvTurnos_675MS.CurrentRow.Cells["Activo_675MS"].Value);
-
+                turnoSeleccionado.IdEmpleado_675MS = Convert.ToInt32(dgvTurnos_675MS.CurrentRow.Cells["IdEmpleado_675MS"].Value);
 
 
                 txtDNI_675MS.Text = turnoSeleccionado.Dni_675MS.ToString();
