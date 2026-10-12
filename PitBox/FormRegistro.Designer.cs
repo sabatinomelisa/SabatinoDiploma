@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRegistro));
             this.lblUsuario_675MS = new System.Windows.Forms.Label();
             this.lblPassword_675MS = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -52,7 +51,7 @@
             this.lblUsuario_675MS.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblUsuario_675MS.Location = new System.Drawing.Point(698, 242);
             this.lblUsuario_675MS.Name = "lblUsuario_675MS";
-            this.lblUsuario_675MS.Size = new System.Drawing.Size(104, 28);
+            this.lblUsuario_675MS.Size = new System.Drawing.Size(131, 35);
             this.lblUsuario_675MS.TabIndex = 4;
             this.lblUsuario_675MS.Text = "USUARIO";
             // 
@@ -64,7 +63,7 @@
             this.lblPassword_675MS.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblPassword_675MS.Location = new System.Drawing.Point(651, 283);
             this.lblPassword_675MS.Name = "lblPassword_675MS";
-            this.lblPassword_675MS.Size = new System.Drawing.Size(151, 28);
+            this.lblPassword_675MS.Size = new System.Drawing.Size(189, 35);
             this.lblPassword_675MS.TabIndex = 5;
             this.lblPassword_675MS.Text = "CONTRASEÑA";
             // 
@@ -76,7 +75,7 @@
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.label1.Location = new System.Drawing.Point(675, 167);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(336, 38);
+            this.label1.Size = new System.Drawing.Size(420, 47);
             this.label1.TabIndex = 6;
             this.label1.Text = "REGISTRO DE USUARIO";
             // 
@@ -88,7 +87,7 @@
             this.lblIdEmpleado_675MS.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblIdEmpleado_675MS.Location = new System.Drawing.Point(635, 367);
             this.lblIdEmpleado_675MS.Name = "lblIdEmpleado_675MS";
-            this.lblIdEmpleado_675MS.Size = new System.Drawing.Size(167, 28);
+            this.lblIdEmpleado_675MS.Size = new System.Drawing.Size(210, 35);
             this.lblIdEmpleado_675MS.TabIndex = 7;
             this.lblIdEmpleado_675MS.Text = "DNI EMPLEADO";
             // 
@@ -100,7 +99,7 @@
             this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label2.Location = new System.Drawing.Point(884, 53);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(91, 28);
+            this.label2.Size = new System.Drawing.Size(115, 35);
             this.label2.TabIndex = 10;
             this.label2.Text = "IDIOMA";
             // 
@@ -154,7 +153,7 @@
             this.lblResultado_675MS.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblResultado_675MS.Location = new System.Drawing.Point(600, 485);
             this.lblResultado_675MS.Name = "lblResultado_675MS";
-            this.lblResultado_675MS.Size = new System.Drawing.Size(0, 25);
+            this.lblResultado_675MS.Size = new System.Drawing.Size(0, 29);
             this.lblResultado_675MS.TabIndex = 15;
             // 
             // txtxRepetirPass_675MS
@@ -173,14 +172,13 @@
             this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label3.Location = new System.Drawing.Point(562, 324);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(240, 28);
+            this.label3.Size = new System.Drawing.Size(299, 35);
             this.label3.TabIndex = 16;
             this.label3.Text = "REPETIR CONTRASEÑA";
             // 
             // FormRegistro
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1134, 711);
             this.Controls.Add(this.txtxRepetirPass_675MS);
@@ -200,6 +198,7 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PitBox -Registro de Usuario";
+            this.Load += new System.EventHandler(this.FormRegistro_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

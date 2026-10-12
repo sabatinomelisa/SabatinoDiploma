@@ -18,6 +18,8 @@ namespace PitBox
         public FormTurnos()
         {
             InitializeComponent();
+            this.BackgroundImage = Properties.Resources.FondoRepetido;
+            this.BackgroundImageLayout = ImageLayout.Stretch;
         }
 
         List<TurnoBE> turnos_675MS = new List<TurnoBE>();
@@ -35,40 +37,52 @@ namespace PitBox
             // Hago que ocupe todo el espacio disponible dentro del contenedor MDI sin salirse
             this.Dock = DockStyle.Fill;
             // Refrescar la grilla para que aparezca el nuevo turno
-            ActualizarPantalla();
+            CargoPatentes_675MS();
+            CargoHorarios_675MS();
+            ActualizarPantalla_675MS();
+
         }
 
-        public void ActualizarPantalla()
+        public void ActualizarPantalla_675MS()
         {
 
             TurnoBLL turnoBLL_675MS = new TurnoBLL();
 
-            turnos_675MS = turnoBLL_675MS.ListarTurnosturnos_675MS();
+            turnos_675MS =
+                turnoBLL_675MS.ListarTurnosturnos_675MS();
 
             dgvTurnos_675MS.DataSource = null;
             dgvTurnos_675MS.DataSource = turnos_675MS;
 
-            // Ocultar las columnas que no es necesario mostrar
-            dgvTurnos_675MS.Columns["IdTurno_675MS"].Visible = false;
-            dgvTurnos_675MS.Columns["DigitoVerificadorHorizontal_675MS"].Visible = false;
-            dgvTurnos_675MS.Columns["Activo_675MS"].Visible = false;
-            dgvTurnos_675MS.Columns["FechaBaja_675MS"].Visible = false;
-            dgvTurnos_675MS.Columns["IdEmpleado_675MS"].Visible = false;
+            dgvTurnos_675MS.Columns[
+                "IdTurno_675MS"].Visible = false;
 
+            dgvTurnos_675MS.Columns[
+                "DigitoVerificadorHorizontal_675MS"].Visible = false;
 
+            dgvTurnos_675MS.Columns[
+                "Activo_675MS"].Visible = false;
 
-            // Cambiar los títulos para que la interfaz quede prolija
-            dgvTurnos_675MS.Columns["Dni_675MS"].HeaderText = "DNI Cliente";
-            dgvTurnos_675MS.Columns["Dominio_675MS"].HeaderText = "Patente";
-            dgvTurnos_675MS.Columns["FechaHora_675MS"].HeaderText = "Fecha/Hora";
-            dgvTurnos_675MS.Columns["DuracionEstimada_675MS"].HeaderText = "Duracion(')";
+            dgvTurnos_675MS.Columns[
+                "FechaBaja_675MS"].Visible = false;
 
-            //Cargo el combo de horarioc
-            CargoHorarios();
-            CargoPatentes();
+            dgvTurnos_675MS.Columns[
+                "IdEmpleado_675MS"].Visible = false;
+
+            dgvTurnos_675MS.Columns[
+                "Dni_675MS"].HeaderText = "DNI Cliente";
+
+            dgvTurnos_675MS.Columns[
+                "Dominio_675MS"].HeaderText = "Patente";
+
+            dgvTurnos_675MS.Columns[
+                "FechaHora_675MS"].HeaderText = "Fecha/Hora";
+
+            dgvTurnos_675MS.Columns[
+                "DuracionEstimada_675MS"].HeaderText = "Duración (minutos)";
         }
 
-        private void CargoPatentes()
+        private void CargoPatentes_675MS()
         {
             cmbVehiculos_675MS.Items.Clear();
 
@@ -113,11 +127,11 @@ namespace PitBox
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-            CargoHorarios();
+            CargoHorarios_675MS();
 
         }
 
-        private void CargoHorarios()
+        private void CargoHorarios_675MS()
         {
             cmbHorario_675MS.Items.Clear();
             DateTime fechaSeleccionada = dateTimePicker1.Value.Date;
@@ -157,7 +171,7 @@ namespace PitBox
                 if (resultado_675MS==1)
                 {
                     // Refrescar la grilla para que aparezca el nuevo turno
-                    ActualizarPantalla();
+                    ActualizarPantalla_675MS();
                     MessageBox.Show("Baja Correcta");
                 }
             }
@@ -185,7 +199,7 @@ namespace PitBox
                 if (resultado_675MS == 1)
                 {
                     // Refrescar la grilla para que aparezca el nuevo turno
-                    ActualizarPantalla();
+                    ActualizarPantalla_675MS();
                     MessageBox.Show("El turno se ha reprogramado de manera Correcta");
                 }
             }
@@ -253,7 +267,7 @@ namespace PitBox
                 MessageBox.Show("El turno para el vehículo " + nuevoTurno_675MS.Dominio_675MS + " se registró correctamente.", "PitBox", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 // Refrescar la grilla para que aparezca el nuevo turno
-                ActualizarPantalla();
+                ActualizarPantalla_675MS();
             }
             else
             {

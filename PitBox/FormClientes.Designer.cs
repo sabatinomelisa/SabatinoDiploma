@@ -49,12 +49,12 @@
             this.dgvClientes_675MS = new System.Windows.Forms.DataGridView();
             this.txtTelefono_675MS = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtSerializacion_675MS = new System.Windows.Forms.TextBox();
-            this.txtDeserializacion_675MS = new System.Windows.Forms.TextBox();
-            this.btnSerializacion_675MS = new System.Windows.Forms.Button();
-            this.btnDeserializacion_675MS = new System.Windows.Forms.Button();
-            this.btnCarpeta1_675MS = new System.Windows.Forms.Button();
             this.btnCarpeta2_675MS = new System.Windows.Forms.Button();
+            this.btnCarpeta1_675MS = new System.Windows.Forms.Button();
+            this.btnDeserializacion_675MS = new System.Windows.Forms.Button();
+            this.btnSerializacion_675MS = new System.Windows.Forms.Button();
+            this.txtDeserializacion_675MS = new System.Windows.Forms.TextBox();
+            this.txtSerializacion_675MS = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes_675MS)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -273,32 +273,27 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Serialización";
             // 
-            // txtSerializacion_675MS
+            // btnCarpeta2_675MS
             // 
-            this.txtSerializacion_675MS.Location = new System.Drawing.Point(59, 87);
-            this.txtSerializacion_675MS.Name = "txtSerializacion_675MS";
-            this.txtSerializacion_675MS.Size = new System.Drawing.Size(223, 32);
-            this.txtSerializacion_675MS.TabIndex = 0;
+            this.btnCarpeta2_675MS.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCarpeta2_675MS.BackgroundImage")));
+            this.btnCarpeta2_675MS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCarpeta2_675MS.Location = new System.Drawing.Point(561, 89);
+            this.btnCarpeta2_675MS.Name = "btnCarpeta2_675MS";
+            this.btnCarpeta2_675MS.Size = new System.Drawing.Size(31, 30);
+            this.btnCarpeta2_675MS.TabIndex = 72;
+            this.btnCarpeta2_675MS.UseVisualStyleBackColor = true;
+            this.btnCarpeta2_675MS.Click += new System.EventHandler(this.btnCarpeta2_675MS_Click);
             // 
-            // txtDeserializacion_675MS
+            // btnCarpeta1_675MS
             // 
-            this.txtDeserializacion_675MS.Location = new System.Drawing.Point(369, 87);
-            this.txtDeserializacion_675MS.Name = "txtDeserializacion_675MS";
-            this.txtDeserializacion_675MS.Size = new System.Drawing.Size(223, 32);
-            this.txtDeserializacion_675MS.TabIndex = 1;
-            // 
-            // btnSerializacion_675MS
-            // 
-            this.btnSerializacion_675MS.BackColor = System.Drawing.Color.Plum;
-            this.btnSerializacion_675MS.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSerializacion_675MS.ForeColor = System.Drawing.Color.Black;
-            this.btnSerializacion_675MS.Location = new System.Drawing.Point(59, 38);
-            this.btnSerializacion_675MS.Name = "btnSerializacion_675MS";
-            this.btnSerializacion_675MS.Size = new System.Drawing.Size(223, 30);
-            this.btnSerializacion_675MS.TabIndex = 69;
-            this.btnSerializacion_675MS.Text = "Serialización";
-            this.btnSerializacion_675MS.UseVisualStyleBackColor = false;
-            this.btnSerializacion_675MS.Click += new System.EventHandler(this.btnSerializacion_675MS_Click);
+            this.btnCarpeta1_675MS.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCarpeta1_675MS.BackgroundImage")));
+            this.btnCarpeta1_675MS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCarpeta1_675MS.Location = new System.Drawing.Point(251, 87);
+            this.btnCarpeta1_675MS.Name = "btnCarpeta1_675MS";
+            this.btnCarpeta1_675MS.Size = new System.Drawing.Size(31, 30);
+            this.btnCarpeta1_675MS.TabIndex = 71;
+            this.btnCarpeta1_675MS.UseVisualStyleBackColor = true;
+            this.btnCarpeta1_675MS.Click += new System.EventHandler(this.btnCarpeta1_675MS_Click);
             // 
             // btnDeserializacion_675MS
             // 
@@ -313,32 +308,37 @@
             this.btnDeserializacion_675MS.UseVisualStyleBackColor = false;
             this.btnDeserializacion_675MS.Click += new System.EventHandler(this.btnDeserializacion_675MS_Click);
             // 
-            // btnCarpeta1_675MS
+            // btnSerializacion_675MS
             // 
-            this.btnCarpeta1_675MS.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCarpeta1_675MS.BackgroundImage")));
-            this.btnCarpeta1_675MS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnCarpeta1_675MS.Location = new System.Drawing.Point(251, 87);
-            this.btnCarpeta1_675MS.Name = "btnCarpeta1_675MS";
-            this.btnCarpeta1_675MS.Size = new System.Drawing.Size(31, 30);
-            this.btnCarpeta1_675MS.TabIndex = 71;
-            this.btnCarpeta1_675MS.UseVisualStyleBackColor = true;
-            this.btnCarpeta1_675MS.Click += new System.EventHandler(this.btnCarpeta1_675MS_Click);
+            this.btnSerializacion_675MS.BackColor = System.Drawing.Color.Plum;
+            this.btnSerializacion_675MS.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSerializacion_675MS.ForeColor = System.Drawing.Color.Black;
+            this.btnSerializacion_675MS.Location = new System.Drawing.Point(59, 38);
+            this.btnSerializacion_675MS.Name = "btnSerializacion_675MS";
+            this.btnSerializacion_675MS.Size = new System.Drawing.Size(223, 30);
+            this.btnSerializacion_675MS.TabIndex = 69;
+            this.btnSerializacion_675MS.Text = "Serialización";
+            this.btnSerializacion_675MS.UseVisualStyleBackColor = false;
+            this.btnSerializacion_675MS.Click += new System.EventHandler(this.btnSerializacion_675MS_Click);
             // 
-            // btnCarpeta2_675MS
+            // txtDeserializacion_675MS
             // 
-            this.btnCarpeta2_675MS.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCarpeta2_675MS.BackgroundImage")));
-            this.btnCarpeta2_675MS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnCarpeta2_675MS.Location = new System.Drawing.Point(561, 89);
-            this.btnCarpeta2_675MS.Name = "btnCarpeta2_675MS";
-            this.btnCarpeta2_675MS.Size = new System.Drawing.Size(31, 30);
-            this.btnCarpeta2_675MS.TabIndex = 72;
-            this.btnCarpeta2_675MS.UseVisualStyleBackColor = true;
-            this.btnCarpeta2_675MS.Click += new System.EventHandler(this.btnCarpeta2_675MS_Click);
+            this.txtDeserializacion_675MS.Location = new System.Drawing.Point(369, 87);
+            this.txtDeserializacion_675MS.Name = "txtDeserializacion_675MS";
+            this.txtDeserializacion_675MS.Size = new System.Drawing.Size(223, 32);
+            this.txtDeserializacion_675MS.TabIndex = 1;
+            // 
+            // txtSerializacion_675MS
+            // 
+            this.txtSerializacion_675MS.Location = new System.Drawing.Point(59, 87);
+            this.txtSerializacion_675MS.Name = "txtSerializacion_675MS";
+            this.txtSerializacion_675MS.Size = new System.Drawing.Size(223, 32);
+            this.txtSerializacion_675MS.TabIndex = 0;
             // 
             // FormClientes
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1134, 711);
             this.Controls.Add(this.groupBox1);

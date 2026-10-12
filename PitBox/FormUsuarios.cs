@@ -15,6 +15,8 @@ namespace PitBox
         public FormUsuarios()
         {
             InitializeComponent();
+            this.BackgroundImage = Properties.Resources.FondoRepetido;
+            this.BackgroundImageLayout = ImageLayout.Stretch;
         }
 
         private void FormUsuarios_Load(object sender, EventArgs e)

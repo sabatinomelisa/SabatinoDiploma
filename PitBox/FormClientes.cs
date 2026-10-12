@@ -17,6 +17,8 @@ namespace PitBox
         public FormClientes()
         {
             InitializeComponent();
+            this.BackgroundImage = Properties.Resources.FondoRepetido;
+            this.BackgroundImageLayout = ImageLayout.Stretch;
         }
 
         // Instancio a la BLL

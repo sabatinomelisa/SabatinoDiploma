@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormVehiculos));
             this.cmbClientes_675MS = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnVolver_675MS = new System.Windows.Forms.Button();
@@ -67,7 +66,7 @@
             this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label4.Location = new System.Drawing.Point(808, 366);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(38, 19);
+            this.label4.Size = new System.Drawing.Size(45, 23);
             this.label4.TabIndex = 40;
             this.label4.Text = "Año";
             // 
@@ -114,7 +113,7 @@
             this.lblDuracion.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblDuracion.Location = new System.Drawing.Point(784, 337);
             this.lblDuracion.Name = "lblDuracion";
-            this.lblDuracion.Size = new System.Drawing.Size(62, 19);
+            this.lblDuracion.Size = new System.Drawing.Size(74, 23);
             this.lblDuracion.TabIndex = 36;
             this.lblDuracion.Text = "Versión";
             // 
@@ -133,7 +132,7 @@
             this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label3.Location = new System.Drawing.Point(784, 313);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(62, 19);
+            this.label3.Size = new System.Drawing.Size(75, 23);
             this.label3.TabIndex = 34;
             this.label3.Text = "Modelo";
             // 
@@ -145,7 +144,7 @@
             this.lblDominio_675MS.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblDominio_675MS.Location = new System.Drawing.Point(758, 282);
             this.lblDominio_675MS.Name = "lblDominio_675MS";
-            this.lblDominio_675MS.Size = new System.Drawing.Size(88, 19);
+            this.lblDominio_675MS.Size = new System.Drawing.Size(107, 23);
             this.lblDominio_675MS.TabIndex = 32;
             this.lblDominio_675MS.Text = "DNI Cliente";
             // 
@@ -157,7 +156,7 @@
             this.lblDNI_675MS.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblDNI_675MS.Location = new System.Drawing.Point(778, 253);
             this.lblDNI_675MS.Name = "lblDNI_675MS";
-            this.lblDNI_675MS.Size = new System.Drawing.Size(68, 19);
+            this.lblDNI_675MS.Size = new System.Drawing.Size(82, 23);
             this.lblDNI_675MS.TabIndex = 31;
             this.lblDNI_675MS.Text = "Dominio";
             // 
@@ -169,7 +168,7 @@
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.label1.Location = new System.Drawing.Point(861, 188);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(242, 28);
+            this.label1.Size = new System.Drawing.Size(303, 35);
             this.label1.TabIndex = 30;
             this.label1.Text = "GESTOR DE VEHICULOS";
             // 
@@ -187,9 +186,11 @@
             this.dgvVehiculos_675MS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvVehiculos_675MS.Location = new System.Drawing.Point(34, 188);
             this.dgvVehiculos_675MS.Name = "dgvVehiculos_675MS";
+            this.dgvVehiculos_675MS.RowHeadersWidth = 51;
             this.dgvVehiculos_675MS.RowTemplate.Height = 24;
             this.dgvVehiculos_675MS.Size = new System.Drawing.Size(661, 436);
             this.dgvVehiculos_675MS.TabIndex = 28;
+            this.dgvVehiculos_675MS.SelectionChanged += new System.EventHandler(this.dgvVehiculos_675MS_SelectionChanged);
             // 
             // dateTimePicker1
             // 
@@ -197,7 +198,7 @@
             this.dateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker1.Location = new System.Drawing.Point(873, 418);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(220, 22);
+            this.dateTimePicker1.Size = new System.Drawing.Size(220, 25);
             this.dateTimePicker1.TabIndex = 33;
             // 
             // label2
@@ -208,7 +209,7 @@
             this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label2.Location = new System.Drawing.Point(763, 393);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(83, 19);
+            this.label2.Size = new System.Drawing.Size(99, 23);
             this.label2.TabIndex = 43;
             this.label2.Text = "Nro Chasis";
             // 
@@ -220,7 +221,7 @@
             this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label5.Location = new System.Drawing.Point(759, 420);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(87, 19);
+            this.label5.Size = new System.Drawing.Size(106, 23);
             this.label5.TabIndex = 44;
             this.label5.Text = "Última VTV";
             // 
@@ -248,7 +249,7 @@
             // FormVehiculos
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1134, 711);
             this.Controls.Add(this.txtChasis_675MS);
