@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincipal));
             this.txtUsuario_675MS = new System.Windows.Forms.TextBox();
             this.txtPassword_675MS = new System.Windows.Forms.TextBox();
             this.lblUsuario_675MS = new System.Windows.Forms.Label();
@@ -43,17 +42,18 @@
             // txtUsuario_675MS
             // 
             this.txtUsuario_675MS.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuario_675MS.Location = new System.Drawing.Point(807, 380);
+            this.txtUsuario_675MS.Location = new System.Drawing.Point(830, 456);
             this.txtUsuario_675MS.Name = "txtUsuario_675MS";
-            this.txtUsuario_675MS.Size = new System.Drawing.Size(275, 24);
+            this.txtUsuario_675MS.Size = new System.Drawing.Size(275, 28);
             this.txtUsuario_675MS.TabIndex = 1;
             // 
             // txtPassword_675MS
             // 
             this.txtPassword_675MS.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword_675MS.Location = new System.Drawing.Point(807, 418);
+            this.txtPassword_675MS.Location = new System.Drawing.Point(830, 494);
             this.txtPassword_675MS.Name = "txtPassword_675MS";
-            this.txtPassword_675MS.Size = new System.Drawing.Size(275, 24);
+            this.txtPassword_675MS.PasswordChar = '*';
+            this.txtPassword_675MS.Size = new System.Drawing.Size(275, 28);
             this.txtPassword_675MS.TabIndex = 2;
             // 
             // lblUsuario_675MS
@@ -62,9 +62,9 @@
             this.lblUsuario_675MS.BackColor = System.Drawing.Color.Transparent;
             this.lblUsuario_675MS.Font = new System.Drawing.Font("Segoe UI Black", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsuario_675MS.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblUsuario_675MS.Location = new System.Drawing.Point(653, 375);
+            this.lblUsuario_675MS.Location = new System.Drawing.Point(676, 451);
             this.lblUsuario_675MS.Name = "lblUsuario_675MS";
-            this.lblUsuario_675MS.Size = new System.Drawing.Size(104, 28);
+            this.lblUsuario_675MS.Size = new System.Drawing.Size(131, 35);
             this.lblUsuario_675MS.TabIndex = 3;
             this.lblUsuario_675MS.Text = "USUARIO";
             // 
@@ -74,9 +74,9 @@
             this.lblPassword_675MS.BackColor = System.Drawing.Color.Transparent;
             this.lblPassword_675MS.Font = new System.Drawing.Font("Segoe UI Black", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPassword_675MS.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblPassword_675MS.Location = new System.Drawing.Point(606, 415);
+            this.lblPassword_675MS.Location = new System.Drawing.Point(629, 491);
             this.lblPassword_675MS.Name = "lblPassword_675MS";
-            this.lblPassword_675MS.Size = new System.Drawing.Size(151, 28);
+            this.lblPassword_675MS.Size = new System.Drawing.Size(189, 35);
             this.lblPassword_675MS.TabIndex = 4;
             this.lblPassword_675MS.Text = "CONTRASEÑA";
             // 
@@ -84,7 +84,7 @@
             // 
             this.btnIngresar_675MS.BackColor = System.Drawing.Color.PaleGreen;
             this.btnIngresar_675MS.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIngresar_675MS.Location = new System.Drawing.Point(807, 481);
+            this.btnIngresar_675MS.Location = new System.Drawing.Point(830, 557);
             this.btnIngresar_675MS.Name = "btnIngresar_675MS";
             this.btnIngresar_675MS.Size = new System.Drawing.Size(275, 37);
             this.btnIngresar_675MS.TabIndex = 5;
@@ -96,7 +96,7 @@
             // 
             this.bntRegistrar_675MS.BackColor = System.Drawing.Color.Moccasin;
             this.bntRegistrar_675MS.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bntRegistrar_675MS.Location = new System.Drawing.Point(807, 526);
+            this.bntRegistrar_675MS.Location = new System.Drawing.Point(830, 602);
             this.bntRegistrar_675MS.Name = "bntRegistrar_675MS";
             this.bntRegistrar_675MS.Size = new System.Drawing.Size(275, 37);
             this.bntRegistrar_675MS.TabIndex = 6;
@@ -120,7 +120,7 @@
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label1.Location = new System.Drawing.Point(884, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 28);
+            this.label1.Size = new System.Drawing.Size(115, 35);
             this.label1.TabIndex = 8;
             this.label1.Text = "IDIOMA";
             // 
@@ -128,7 +128,7 @@
             // 
             this.btnSalir_675MS.BackColor = System.Drawing.Color.LightCoral;
             this.btnSalir_675MS.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalir_675MS.Location = new System.Drawing.Point(807, 569);
+            this.btnSalir_675MS.Location = new System.Drawing.Point(830, 645);
             this.btnSalir_675MS.Name = "btnSalir_675MS";
             this.btnSalir_675MS.Size = new System.Drawing.Size(275, 37);
             this.btnSalir_675MS.TabIndex = 9;
@@ -140,7 +140,6 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1134, 711);
             this.Controls.Add(this.btnSalir_675MS);
@@ -156,6 +155,7 @@
             this.Name = "FormPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bienvenido a PitBox!";
+            this.Load += new System.EventHandler(this.FormPrincipal_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

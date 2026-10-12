@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTurnos));
             this.dgvTurnos_675MS = new System.Windows.Forms.DataGridView();
             this.txtDNI_675MS = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -245,7 +244,7 @@
             // FormTurnos
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1134, 711);
             this.Controls.Add(this.btnVolver_675MS);

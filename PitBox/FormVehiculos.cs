@@ -17,6 +17,8 @@ namespace PitBox
         public FormVehiculos()
         {
             InitializeComponent();
+            this.BackgroundImage = Properties.Resources.FondoRepetido;
+            this.BackgroundImageLayout = ImageLayout.Stretch;
         }
         List<VehiculoBE> vehiculos_675MS = new List<VehiculoBE>();
 
@@ -40,15 +42,27 @@ namespace PitBox
 
         private void CargoClientes_675MS()
         {
-            //Instancio la BLL de Cliente
-            ClienteBLL clienteBLL_675MS = new ClienteBLL();
+            cmbClientes_675MS.BeginUpdate();
 
-
-            List<ClienteBE> clientes_675MS= clienteBLL_675MS.ListarClientes_675MS();
-
-            foreach(ClienteBE cliente_675MS in clientes_675MS)
+            try
             {
-                cmbClientes_675MS.Items.Add(cliente_675MS.Dni_675MS);
+                //Limpio el combo
+                cmbClientes_675MS.Items.Clear();
+                //Instancio la BLL de Cliente
+                ClienteBLL clienteBLL_675MS = new ClienteBLL();
+
+                List<ClienteBE> clientes_675MS =
+                    clienteBLL_675MS.ListarClientes_675MS();
+
+                foreach (ClienteBE cliente_675MS in clientes_675MS)
+                {
+                    cmbClientes_675MS.Items.Add(
+                        cliente_675MS.Dni_675MS);
+                }
+            }
+            finally
+            {
+                cmbClientes_675MS.EndUpdate();
             }
         }
 
@@ -151,6 +165,33 @@ namespace PitBox
             else
             {
                 MessageBox.Show("Ocurrió un error al intentar registrar el vehículo en la base de datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void dgvVehiculos_675MS_SelectionChanged(object sender, EventArgs e)
+        {
+            VehiculoBE vehiculoSeleccionado = new VehiculoBE();
+
+            if (dgvVehiculos_675MS.CurrentRow != null)
+            {
+                // Recupero los valores del registro seleccionado en el Data Grid View de Clientes
+                vehiculoSeleccionado.Dni_675MS = Convert.ToInt32(dgvVehiculos_675MS.CurrentRow.Cells["Dni_675MS"].Value);
+                vehiculoSeleccionado.Dominio_675MS = dgvVehiculos_675MS.CurrentRow.Cells["Dominio_675MS"].Value.ToString();
+                vehiculoSeleccionado.Modelo_675MS = dgvVehiculos_675MS.CurrentRow.Cells["Modelo_675MS"].Value.ToString();
+                vehiculoSeleccionado.UltimaVTV_675MS = Convert.ToDateTime(dgvVehiculos_675MS.CurrentRow.Cells["UltimaVTV_675MS"].Value);
+                vehiculoSeleccionado.Anio_675MS = Convert.ToInt32(dgvVehiculos_675MS.CurrentRow.Cells["Anio_675MS"].Value);
+                vehiculoSeleccionado.NroChasis_675MS = dgvVehiculos_675MS.CurrentRow.Cells["Nrochasis_675MS"].Value.ToString();
+                vehiculoSeleccionado.Version_675MS = dgvVehiculos_675MS.CurrentRow.Cells["Version_675MS"].Value.ToString();
+                vehiculoSeleccionado.DigitoVerificadorHorizontal_675MS = Convert.ToInt32(dgvVehiculos_675MS.CurrentRow.Cells["DigitoVerificadorHorizontal_675MS"].Value);
+
+                // Vuelco los datos en los TextBox del panel izquierdo de la interfaz
+                cmbClientes_675MS.Text = vehiculoSeleccionado.Dni_675MS.ToString();
+                txtDominio_675MS.Text = vehiculoSeleccionado.Dominio_675MS;
+                txtModelo_675MS.Text = vehiculoSeleccionado.Modelo_675MS;
+                txtAnio_675MS.Text = vehiculoSeleccionado.Anio_675MS.ToString();
+                txtChasis_675MS.Text = vehiculoSeleccionado.NroChasis_675MS.ToString();
+                txtVersion_675MS.Text = vehiculoSeleccionado.Version_675MS;
+                dateTimePicker1.Value = vehiculoSeleccionado.UltimaVTV_675MS;
             }
         }
     }

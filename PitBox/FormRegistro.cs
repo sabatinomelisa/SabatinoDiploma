@@ -17,6 +17,8 @@ namespace PitBox
         public FormRegistro()
         {
             InitializeComponent();
+            this.BackgroundImage = Properties.Resources.FondoRepetido;
+            this.BackgroundImageLayout = ImageLayout.Stretch;
         }
 
         private void bntRegistrar_675MS_Click(object sender, EventArgs e)
@@ -88,6 +90,11 @@ namespace PitBox
                 }
             }
 
+
+        }
+
+        private void FormRegistro_Load(object sender, EventArgs e)
+        {
 
         }
     }

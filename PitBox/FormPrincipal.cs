@@ -16,6 +16,8 @@ namespace PitBox
         public FormPrincipal()
         {
             InitializeComponent();
+            this.BackgroundImage = Properties.Resources.BienvenidoPitBox;
+            this.BackgroundImageLayout = ImageLayout.Stretch;
         }
 
         private void bntRegistrar_675MS_Click(object sender, EventArgs e)
@@ -63,6 +65,11 @@ namespace PitBox
                 }
             }
 
+
+        }
+
+        private void FormPrincipal_Load(object sender, EventArgs e)
+        {
 
         }
     }

@@ -62,7 +62,7 @@ namespace DAL
                 parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@idEmp", 1));
 
 
-                 int resultado = acceso_675MS.Escribir_675MS(sql, parametros_675MS);
+                int resultado = acceso_675MS.Escribir_675MS(sql, parametros_675MS);
 
                 if (resultado != -1)
                 {
@@ -227,5 +227,36 @@ namespace DAL
             return usuario_675MS;
         }
 
+        public List<UsuarioBloqueadoBE> ListarUsuariosBloqueados_675MS()
+        {
+            Acceso acceso_675MS = new Acceso();
+            List<UsuarioBloqueadoBE> usuariosBloqueados_675MS = new List<UsuarioBloqueadoBE>();
+
+            acceso_675MS.Conectar_675MS();
+
+            try
+            {
+                DataTable tabla_675MS = acceso_675MS.Leer_675MS("OBTENER_USUARIOS_BLOQUEADOS");
+
+                foreach (DataRow row in tabla_675MS.Rows)
+                {
+                    UsuarioBloqueadoBE usuarioBloqueadoAuxiliar_675MS = new UsuarioBloqueadoBE();
+                    usuarioBloqueadoAuxiliar_675MS.IdUsuario_675MS = int.Parse(row["Id"].ToString());
+                    usuarioBloqueadoAuxiliar_675MS.Usuario_675MS = row["Usuario"].ToString();
+                    usuarioBloqueadoAuxiliar_675MS.Nombre_675MS = row["Nombre"].ToString();
+                    usuarioBloqueadoAuxiliar_675MS.Apellido_675MS = row["Apellido"].ToString();
+                    usuarioBloqueadoAuxiliar_675MS.Mail_675MS = row["Mail"].ToString();
+                    usuarioBloqueadoAuxiliar_675MS.DescripcionRol_675MS = row["DescripcionRol"].ToString();
+
+                    usuariosBloqueados_675MS.Add(usuarioBloqueadoAuxiliar_675MS);
+                }
+
+                return usuariosBloqueados_675MS;
+            }
+            finally
+            {
+                acceso_675MS.Desconectar_675MS();
+            }
+        }
     }
 }

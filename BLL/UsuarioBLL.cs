@@ -147,5 +147,13 @@ namespace BLL
         
         }
 
+        public List<UsuarioBloqueadoBE> ObtenerUsuariosBloqueados()
+        {
+            usuarioDAL_675MS = new UsuarioDAL();
+
+            List<UsuarioBloqueadoBE> usuariosBloqueados_675MS = usuarioDAL_675MS.ListarUsuariosBloqueados_675MS();
+
+            return usuariosBloqueados_675MS;
+        }
     }
 }

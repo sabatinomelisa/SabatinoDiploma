@@ -95,5 +95,14 @@ namespace BE
                 digitoVerificadorHorizontal_675MS = value;
             }
         }
+
+        private RolBE rol_675MS;
+
+        public RolBE Rol_675MS
+        {
+            get { return rol_675MS; }
+            set { rol_675MS = value; }
+        }
+
     }
 }

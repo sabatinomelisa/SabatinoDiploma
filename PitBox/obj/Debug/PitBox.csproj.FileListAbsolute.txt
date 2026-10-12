@@ -25,3 +25,4 @@ C:\Users\Morsicasa\source\repos\PitBox\PitBox\obj\Debug\PitBox.FormTurnos.resour
 C:\Users\Morsicasa\source\repos\PitBox\PitBox\obj\Debug\PitBox.FormUsuarios.resources
 C:\Users\Morsicasa\source\repos\PitBox\PitBox\obj\Debug\PitBox.FormVehiculos.resources
 C:\Users\Morsicasa\source\repos\PitBox\PitBox\obj\Debug\PitBox.FormClientes.resources
+C:\Users\Morsicasa\source\repos\PitBox\PitBox\obj\Debug\PitBox.FormDesbloquear.resources

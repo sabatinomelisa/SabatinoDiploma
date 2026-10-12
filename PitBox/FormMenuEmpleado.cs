@@ -15,6 +15,8 @@ namespace PitBox
         public FormMenuEmpleado()
         {
             InitializeComponent();
+            this.BackgroundImage = Properties.Resources.FondoPrincipal;
+            this.BackgroundImageLayout = ImageLayout.Stretch;
         }
 
         private void vTVToolStripMenuItem_Click(object sender, EventArgs e)
@@ -177,6 +179,47 @@ namespace PitBox
                 // Mostrar dentro del contenedor
                 formUsuarios_675MS.Show();
             }
+        }
+
+        private void FormMenuEmpleado_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gestionarRolesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void desbloquearUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormDesbloquear formExistente_675MS = null;
+            // Buscamos manualmente si el formulario ya se encuentra abierto
+            foreach (Form formulario_675MS in Application.OpenForms)
+            {
+                if (formulario_675MS is FormUsuarios)
+                {
+                    formExistente_675MS = (FormDesbloquear)formulario_675MS;
+                    break;
+                }
+            }
+            if (formExistente_675MS != null)
+            {
+                // Si ya hay uno abiert, lo traemos al frente para que el usuario no pierda el foco
+                formExistente_675MS.BringToFront();
+            }
+            else
+            {
+                //Si no está abierto lo creo
+                FormDesbloquear formDesbloquear_675MS = new FormDesbloquear();
+
+                // Lo vinculo al contenedor MDI 
+                formDesbloquear_675MS.MdiParent = this;
+
+                // Mostrar dentro del contenedor
+                formDesbloquear_675MS.Show();
+            }
+
         }
     }
 }
