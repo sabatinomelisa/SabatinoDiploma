@@ -92,6 +92,7 @@
             this.btnModificar_675MS.TabIndex = 38;
             this.btnModificar_675MS.Text = "Modificar";
             this.btnModificar_675MS.UseVisualStyleBackColor = false;
+            this.btnModificar_675MS.Click += new System.EventHandler(this.btnModificar_675MS_Click);
             // 
             // bntRegistrar_675MS
             // 

@@ -18,7 +18,7 @@ namespace DAL
             List<TraduccionBE> traducciones_675MS = new List<TraduccionBE>();
 
             acceso_675MS.Conectar_675MS();
-            string sql_675MS = "ConsultaTraducciones";
+            string sql_675MS = "CONSULTA_TRADUCCIONES";
             List<SqlParameter> parametros_675MS = new List<SqlParameter>();
             DataTable tabla = new DataTable();
 

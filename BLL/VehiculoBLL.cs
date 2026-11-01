@@ -37,6 +37,25 @@ namespace BLL
             return vehiculos_675MS;
         }
 
+        public int ModificarVehiculo_675MS(VehiculoBE vehiculoModificado_675MS)
+        {
+            // Recalculo el DVH al modificar los datos del vehiculo
+            Servicios.CalculadorDigitoVerificador calculadorDV_675MS = new Servicios.CalculadorDigitoVerificador();
+
+            vehiculoModificado_675MS.DigitoVerificadorHorizontal_675MS = calculadorDV_675MS.CalcularHorizontal_675MS(
+                        vehiculoModificado_675MS.Dominio_675MS,
+                        vehiculoModificado_675MS.Dni_675MS.ToString(),
+                        vehiculoModificado_675MS.Modelo_675MS,
+                        vehiculoModificado_675MS.Version_675MS,
+                        vehiculoModificado_675MS.Anio_675MS.ToString(),
+                        vehiculoModificado_675MS.NroChasis_675MS,
+                        vehiculoModificado_675MS.UltimaVTV_675MS.ToString("yyyy-MM-dd")
+                    );
+
+            vehiculoDAL_675MS = new VehiculoDAL();
+            return vehiculoDAL_675MS.ModificarVehiculoDAL_675MS(vehiculoModificado_675MS);
+        }
+
         public int RegistrarVehiculo_675MS(VehiculoBE nuevoVehiculo_675MS)
         {
             //Instancio Calculadora de Digito Verificador

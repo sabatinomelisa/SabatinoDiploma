@@ -20,5 +20,7 @@ namespace BLL
 
             return traducciones_675MS;
         }
+
+
     }
 }

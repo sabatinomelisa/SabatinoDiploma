@@ -7,6 +7,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace BLL
 {
@@ -52,7 +53,14 @@ namespace BLL
             {
                 if (!resultado_675MS.Correcto_675MS)
                 {
-                    throw new Exception("Error de integridad en " + operacion_675MS + ": " + resultado_675MS.Mensaje_675MS);
+                    throw new Exception(
+                        "Error de integridad en " + operacion_675MS +
+                        ". Entidad: " + resultado_675MS.Entidad_675MS +
+                        ". Tipo: " + resultado_675MS.TipoDigito_675MS +
+                        ". Identificador: " + resultado_675MS.Identificador_675MS +
+                        ". Valor esperado: " + resultado_675MS.ValorEsperado_675MS +
+                        ". Valor actual: " + resultado_675MS.ValorActual_675MS
+                    );
                 }
             }
         }
@@ -64,7 +72,25 @@ namespace BLL
 
             foreach (ClienteBE cliente_675MS in clientes_675MS)
             {
+
                 int digitoEsperado = CalcularDigitoHorizontalCliente_675MS(cliente_675MS);
+
+                //Sacar
+                if (cliente_675MS.Dni_675MS == 112255447)
+                {
+                    MessageBox.Show(
+                        "DNI: " + cliente_675MS.Dni_675MS +
+                        "\nNombre: " + cliente_675MS.Nombre_675MS +
+                        "\nApellido: " + cliente_675MS.Apellido_675MS +
+                        "\nFecha: " + cliente_675MS.FechaNacimiento_675MS.ToString("yyyyMMdd") +
+                        "\nMail: " + cliente_675MS.Mail_675MS +
+                        "\nDomicilio: " + cliente_675MS.Domicilio_675MS +
+                        "\nTelefono: " + cliente_675MS.Telefono_675MS +
+                        "\nDVH calculado: " + digitoEsperado +
+                        "\nDVH guardado: " + cliente_675MS.DigitoVerificadorHorizontal_675MS
+                    );
+                }
+
                 bool correcto = digitoEsperado == cliente_675MS.DigitoVerificadorHorizontal_675MS;
 
                 if (!correcto)
@@ -123,12 +149,30 @@ namespace BLL
 
         public void RecalcularIntegridad_675MS()
         {
+            //sacar
+            MessageBox.Show("ENTRÓ A RECALCULAR INTEGRIDAD");
+
+            
             List<ClienteBE> clientes_675MS = integridadDAL_675MS.ListarClientesParaIntegridad_675MS();
+
+            //sacar
+            MessageBox.Show("Cantidad de clientes: " + clientes_675MS.Count);
+
 
             foreach (ClienteBE cliente_675MS in clientes_675MS)
             {
                 int digitoHorizontal = CalcularDigitoHorizontalCliente_675MS(cliente_675MS);
                 integridadDAL_675MS.ActualizarDigitoHorizontalCliente_675MS(cliente_675MS.Dni_675MS, digitoHorizontal);
+
+                //Sacar
+
+                if (cliente_675MS.Dni_675MS == 112255447)
+                {
+                    MessageBox.Show(
+                        "DNI: " + cliente_675MS.Dni_675MS +
+                        "\nDVH calculado en recálculo: " + digitoHorizontal
+                    );
+                }
                 cliente_675MS.DigitoVerificadorHorizontal_675MS = digitoHorizontal;
             }
 
@@ -136,12 +180,23 @@ namespace BLL
             integridadDAL_675MS.GuardarDigitosVerticales_675MS(EntidadCliente_675MS, digitosVerticales);
         }
 
+        public void ActualizarDigitosVerticalesCliente_675MS()
+        {
+            // Obtengo todos los clientes actualizados desde la base de datos
+            List<ClienteBE> clientes_675MS =  integridadDAL_675MS.ListarClientesParaIntegridad_675MS();
+
+            // Calculo los DVV de todas las columnas
+            Dictionary<string, int> digitosVerticales_675MS = CalcularDigitosVerticales_675MS(clientes_675MS);
+
+            // Guardo los nuevos DVV
+            integridadDAL_675MS.GuardarDigitosVerticales_675MS(EntidadCliente_675MS,digitosVerticales_675MS);
+        }
         public int CalcularDigitoHorizontalCliente_675MS(ClienteBE cliente_675MS)
         {
             return calculadorDigitoVerificador_675MS.CalcularHorizontal_675MS(
                 cliente_675MS.Dni_675MS.ToString(),
                 cliente_675MS.Apellido_675MS,
-                cliente_675MS.Nombre_675MS,                
+                cliente_675MS.Nombre_675MS,
                 cliente_675MS.FechaNacimiento_675MS.ToString("yyyyMMdd"),
                 cliente_675MS.Mail_675MS,
                 cliente_675MS.Domicilio_675MS,
@@ -153,7 +208,7 @@ namespace BLL
         {
             List<Dictionary<string, string>> filas_675MS = new List<Dictionary<string, string>>();
 
-            foreach (ClienteBE cliente_675MS in clientes_675MS)
+            foreach (ClienteBE cliente_675MS in clientes_675MS.OrderBy(c => c.Dni_675MS))
             {
                 Dictionary<string, string> fila_675MS = new Dictionary<string, string>();
                 fila_675MS.Add("DNI",cliente_675MS.Dni_675MS.ToString());

@@ -66,6 +66,12 @@
     <Compile Include="FormEmpleado.Designer.cs">
       <DependentUpon>FormEmpleado.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormIdiomas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormIdiomas.Designer.cs">
+      <DependentUpon>FormIdiomas.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +115,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormDesbloquear.resx">
       <DependentUpon>FormDesbloquear.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEmpleado.resx">
+      <DependentUpon>FormEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormIdiomas.resx">
+      <DependentUpon>FormIdiomas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMenuEmpleado.resx">
       <DependentUpon>FormMenuEmpleado.cs</DependentUpon>

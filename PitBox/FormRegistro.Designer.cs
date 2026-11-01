@@ -97,7 +97,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Segoe UI Black", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label2.Location = new System.Drawing.Point(884, 53);
+            this.label2.Location = new System.Drawing.Point(860, 20);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(115, 35);
             this.label2.TabIndex = 10;
@@ -106,7 +106,7 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(981, 31);
+            this.comboBox1.Location = new System.Drawing.Point(981, 24);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(141, 24);
             this.comboBox1.TabIndex = 9;
@@ -179,6 +179,7 @@
             // FormRegistro
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1134, 711);
             this.Controls.Add(this.txtxRepetirPass_675MS);

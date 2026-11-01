@@ -48,38 +48,19 @@ namespace PitBox
 
             TurnoBLL turnoBLL_675MS = new TurnoBLL();
 
-            turnos_675MS =
-                turnoBLL_675MS.ListarTurnosturnos_675MS();
+            turnos_675MS =  turnoBLL_675MS.ListarTurnosturnos_675MS();
 
             dgvTurnos_675MS.DataSource = null;
             dgvTurnos_675MS.DataSource = turnos_675MS;
-
-            dgvTurnos_675MS.Columns[
-                "IdTurno_675MS"].Visible = false;
-
-            dgvTurnos_675MS.Columns[
-                "DigitoVerificadorHorizontal_675MS"].Visible = false;
-
-            dgvTurnos_675MS.Columns[
-                "Activo_675MS"].Visible = false;
-
-            dgvTurnos_675MS.Columns[
-                "FechaBaja_675MS"].Visible = false;
-
-            dgvTurnos_675MS.Columns[
-                "IdEmpleado_675MS"].Visible = false;
-
-            dgvTurnos_675MS.Columns[
-                "Dni_675MS"].HeaderText = "DNI Cliente";
-
-            dgvTurnos_675MS.Columns[
-                "Dominio_675MS"].HeaderText = "Patente";
-
-            dgvTurnos_675MS.Columns[
-                "FechaHora_675MS"].HeaderText = "Fecha/Hora";
-
-            dgvTurnos_675MS.Columns[
-                "DuracionEstimada_675MS"].HeaderText = "Duración (minutos)";
+            dgvTurnos_675MS.Columns["IdTurno_675MS"].Visible = false;
+            dgvTurnos_675MS.Columns["DigitoVerificadorHorizontal_675MS"].Visible = false;
+            dgvTurnos_675MS.Columns["Activo_675MS"].Visible = false;
+            dgvTurnos_675MS.Columns["FechaBaja_675MS"].Visible = false;
+            dgvTurnos_675MS.Columns["IdEmpleado_675MS"].Visible = false;
+            dgvTurnos_675MS.Columns["Dni_675MS"].HeaderText = "DNI Cliente";
+            dgvTurnos_675MS.Columns["Dominio_675MS"].HeaderText = "Patente";
+            dgvTurnos_675MS.Columns["FechaHora_675MS"].HeaderText = "Fecha/Hora";
+            dgvTurnos_675MS.Columns["DuracionEstimada_675MS"].HeaderText = "Duración (minutos)";
         }
 
         private void CargoPatentes_675MS()

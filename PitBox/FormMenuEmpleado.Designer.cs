@@ -32,6 +32,7 @@
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gesionarUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.desbloquearUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gestionarRolesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.empleadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.altaEmpleadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarPorDNIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -62,7 +63,8 @@
             this.porMesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gestionarRolesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.idiomasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gesionarIdiomasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,6 +77,7 @@
             this.clientesToolStripMenuItem,
             this.vehiculosToolStripMenuItem,
             this.turnosToolStripMenuItem,
+            this.idiomasToolStripMenuItem,
             this.cerrarSesiónToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -106,6 +109,13 @@
             this.desbloquearUsuarioToolStripMenuItem.Text = "Desbloquear Usuario";
             this.desbloquearUsuarioToolStripMenuItem.Click += new System.EventHandler(this.desbloquearUsuarioToolStripMenuItem_Click);
             // 
+            // gestionarRolesToolStripMenuItem
+            // 
+            this.gestionarRolesToolStripMenuItem.Name = "gestionarRolesToolStripMenuItem";
+            this.gestionarRolesToolStripMenuItem.Size = new System.Drawing.Size(231, 26);
+            this.gestionarRolesToolStripMenuItem.Text = "Gestionar Roles";
+            this.gestionarRolesToolStripMenuItem.Click += new System.EventHandler(this.gestionarRolesToolStripMenuItem_Click);
+            // 
             // empleadosToolStripMenuItem
             // 
             this.empleadosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -121,6 +131,7 @@
             this.altaEmpleadoToolStripMenuItem.Name = "altaEmpleadoToolStripMenuItem";
             this.altaEmpleadoToolStripMenuItem.Size = new System.Drawing.Size(239, 26);
             this.altaEmpleadoToolStripMenuItem.Text = "Gestionar Empleados";
+            this.altaEmpleadoToolStripMenuItem.Click += new System.EventHandler(this.altaEmpleadoToolStripMenuItem_Click);
             // 
             // consultarPorDNIToolStripMenuItem
             // 
@@ -273,7 +284,7 @@
             // altaDeTurnoToolStripMenuItem
             // 
             this.altaDeTurnoToolStripMenuItem.Name = "altaDeTurnoToolStripMenuItem";
-            this.altaDeTurnoToolStripMenuItem.Size = new System.Drawing.Size(203, 26);
+            this.altaDeTurnoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.altaDeTurnoToolStripMenuItem.Text = "Gestionar Turnos";
             this.altaDeTurnoToolStripMenuItem.Click += new System.EventHandler(this.altaDeTurnoToolStripMenuItem_Click);
             // 
@@ -285,7 +296,7 @@
             this.porSemanaToolStripMenuItem,
             this.porMesToolStripMenuItem});
             this.modificarTurnoToolStripMenuItem.Name = "modificarTurnoToolStripMenuItem";
-            this.modificarTurnoToolStripMenuItem.Size = new System.Drawing.Size(203, 26);
+            this.modificarTurnoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.modificarTurnoToolStripMenuItem.Text = "Consultar ";
             // 
             // porClienteToolStripMenuItem
@@ -315,7 +326,7 @@
             // listadoToolStripMenuItem
             // 
             this.listadoToolStripMenuItem.Name = "listadoToolStripMenuItem";
-            this.listadoToolStripMenuItem.Size = new System.Drawing.Size(203, 26);
+            this.listadoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.listadoToolStripMenuItem.Text = "Listado";
             // 
             // cerrarSesiónToolStripMenuItem
@@ -325,12 +336,20 @@
             this.cerrarSesiónToolStripMenuItem.Text = "Cerrar Sesión";
             this.cerrarSesiónToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesiónToolStripMenuItem_Click);
             // 
-            // gestionarRolesToolStripMenuItem
+            // idiomasToolStripMenuItem
             // 
-            this.gestionarRolesToolStripMenuItem.Name = "gestionarRolesToolStripMenuItem";
-            this.gestionarRolesToolStripMenuItem.Size = new System.Drawing.Size(231, 26);
-            this.gestionarRolesToolStripMenuItem.Text = "Gestionar Roles";
-            this.gestionarRolesToolStripMenuItem.Click += new System.EventHandler(this.gestionarRolesToolStripMenuItem_Click);
+            this.idiomasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.gesionarIdiomasToolStripMenuItem});
+            this.idiomasToolStripMenuItem.Name = "idiomasToolStripMenuItem";
+            this.idiomasToolStripMenuItem.Size = new System.Drawing.Size(76, 24);
+            this.idiomasToolStripMenuItem.Text = "Idiomas";
+            // 
+            // gesionarIdiomasToolStripMenuItem
+            // 
+            this.gesionarIdiomasToolStripMenuItem.Name = "gesionarIdiomasToolStripMenuItem";
+            this.gesionarIdiomasToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.gesionarIdiomasToolStripMenuItem.Text = "Gesionar Idiomas";
+            this.gesionarIdiomasToolStripMenuItem.Click += new System.EventHandler(this.gesionarIdiomasToolStripMenuItem_Click);
             // 
             // FormMenuEmpleado
             // 
@@ -388,5 +407,7 @@
         private System.Windows.Forms.ToolStripMenuItem desbloquearUsuarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cerrarSesiónToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gestionarRolesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem idiomasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gesionarIdiomasToolStripMenuItem;
     }
 }

@@ -9,9 +9,9 @@ namespace Servicios.Observer
 {
     public interface IObserverSubjectIdioma
     {
-        void Suscribir_675MS(IOberverIdioma observer_675MS);
+        void Suscribir_675MS(IObserverIdioma observer_675MS);
 
-        void Desuscribir_675MS(IOberverIdioma observer_675MS);
+        void Desuscribir_675MS(IObserverIdioma observer_675MS);
         void Notificar_675MS();
 
     }
