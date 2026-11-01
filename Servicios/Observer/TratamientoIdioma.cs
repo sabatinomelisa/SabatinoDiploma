@@ -1,19 +1,13 @@
 ﻿using BE;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static Servicios.Observer.IObserverIdioma;
 
 namespace Servicios.Observer
 {
     public class TratamientoIdioma
     {
-        //Utilizamos  un Singleton para gestionar el Observer para que solamente exista un idioma activo a la vez
         private static TratamientoIdioma instancia_675MS;
 
-        private List<IOberverIdioma> observadores_675MS;
+        private List<IObserverIdioma> observadores_675MS;
 
         private IdiomaBE idiomaActual_675MS;
 
@@ -25,32 +19,36 @@ namespace Servicios.Observer
 
         private TratamientoIdioma()
         {
-            observadores_675MS = new List<IOberverIdioma>();
+            observadores_675MS = new List<IObserverIdioma>();
         }
+
         public static TratamientoIdioma Instancia
         {
             get
             {
                 if (instancia_675MS == null)
                     instancia_675MS = new TratamientoIdioma();
+
                 return instancia_675MS;
             }
         }
-        public void Suscribir(IOberverIdioma observer)
+
+        public void Suscribir(IObserverIdioma observer)
         {
-            observadores_675MS.Add(observer);
+            if (!observadores_675MS.Contains(observer))
+                observadores_675MS.Add(observer);
         }
 
-        public void Desuscribir(IOberverIdioma observer)
+        public void Desuscribir(IObserverIdioma observer)
         {
             observadores_675MS.Remove(observer);
         }
 
         public void Notificar()
         {
-            foreach (var o in observadores_675MS)
+            foreach (IObserverIdioma observer in observadores_675MS.ToArray())
             {
-                o.ActualizarIdioma_675MS();
+                observer.ActualizarIdioma_675MS();
             }
         }
     }

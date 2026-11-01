@@ -221,5 +221,65 @@ namespace PitBox
             }
 
         }
+
+        private void altaEmpleadoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormEmpleado formExistente_675MS = null;
+            // Buscamos manualmente si el formulario ya se encuentra abierto
+            foreach (Form formulario_675MS in Application.OpenForms)
+            {
+                if (formulario_675MS is FormClientes)
+                {
+                    formExistente_675MS = (FormEmpleado)formulario_675MS;
+                    break;
+                }
+            }
+            if (formExistente_675MS != null)
+            {
+                // Si ya hay uno abiert, lo traemos al frente para que el usuario no pierda el foco
+                formExistente_675MS.BringToFront();
+            }
+            else
+            {
+                //Si no está abierto lo creo
+                FormEmpleado formUsuarios_675MS = new FormEmpleado();
+
+                // Lo vinculo al contenedor MDI 
+                formUsuarios_675MS.MdiParent = this;
+
+                // Mostrar dentro del contenedor
+                formUsuarios_675MS.Show();
+            }
+        }
+
+        private void gesionarIdiomasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormIdiomas formExistente_675MS = null;
+            // Buscamos manualmente si el formulario ya se encuentra abierto
+            foreach (Form formulario_675MS in Application.OpenForms)
+            {
+                if (formulario_675MS is FormIdiomas)
+                {
+                    formExistente_675MS = (FormIdiomas)formulario_675MS;
+                    break;
+                }
+            }
+            if (formExistente_675MS != null)
+            {
+                // Si ya hay uno abiert, lo traemos al frente para que el usuario no pierda el foco
+                formExistente_675MS.BringToFront();
+            }
+            else
+            {
+                //Si no está abierto lo creo
+                FormIdiomas formIdiomas_675MS = new FormIdiomas();
+
+                // Lo vinculo al contenedor MDI 
+                formIdiomas_675MS.MdiParent = this;
+
+                // Mostrar dentro del contenedor
+                formIdiomas_675MS.Show();
+            }
+        }
     }
 }

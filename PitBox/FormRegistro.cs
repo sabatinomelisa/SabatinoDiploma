@@ -66,7 +66,7 @@ namespace PitBox
             {
                 usuario_675MS.Username_675MS = txtUsuario_675MS.Text;
                 usuario_675MS.Password_675MS = txtPassword_675MS.Text;
-                Empleado_675MS.DniEmpleado = Convert.ToInt32(txtDni_675MS.Text);
+                Empleado_675MS.DniEmpleado_675MS = Convert.ToInt32(txtDni_675MS.Text);
 
                 UsuarioBLL usuarioBLL_675MS = new UsuarioBLL();
 

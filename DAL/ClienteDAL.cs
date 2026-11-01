@@ -11,55 +11,7 @@ namespace DAL
 {
     public class ClienteDAL
     {
-        internal int AltaCliente_675MS(ClienteBE cliente_675MS)
-        {
-            Acceso acceso_675MS = new Acceso();
-
-            acceso_675MS.Conectar_675MS();
-
-            List<SqlParameter> parametros_675MS = new List<SqlParameter>();
-
-            acceso_675MS.IniciarTx_675MS();
-
-            try
-            {
-                //Genero parámetros para el alta del cliente
-                string sql = "ALTA_CLIENTE";
-                parametros_675MS.Clear();
-                parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@dni", cliente_675MS.Dni_675MS));
-                parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@nombre", cliente_675MS.Nombre_675MS));
-                parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@apellido", cliente_675MS.Apellido_675MS));
-                parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@fechaNac", cliente_675MS.FechaNacimiento_675MS));
-                parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@mail", cliente_675MS.Mail_675MS));
-                parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@domicilio", cliente_675MS.Domicilio_675MS));
-                parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@telefono", cliente_675MS.Telefono_675MS));
-                parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@dv",cliente_675MS.DigitoVerificadorHorizontal_675MS));
-
-                int resultado_675MS = acceso_675MS.Escribir_675MS(sql, parametros_675MS);
-
-                if (resultado_675MS != -1)
-                {
-                    acceso_675MS.ConfirmarTx_675MS();
-                    acceso_675MS.Desconectar_675MS();
-                    return resultado_675MS;
-                }
-                else
-                {
-                    acceso_675MS.Desconectar_675MS();
-                    return resultado_675MS;
-                }
-
-            }
-            catch (Exception ex)
-            {
-                acceso_675MS.RevertirTx_675MS();
-                acceso_675MS.Desconectar_675MS();
-                throw new Exception("Error al registrar al usuario");
-            }
-
-        }
-
-
+  
 
         public int ActualizarDigitoVerificadorHorizontal_675MS(int dni_675MS, int digitoVerificadorHorizontal_675MS)
         {
@@ -140,7 +92,7 @@ namespace DAL
                 parametros.Add(acceso_675MS.CrearParametro_675MS("@dni", clienteBE_675MS.Dni_675MS));
                 parametros.Add(acceso_675MS.CrearParametro_675MS("@nombre", clienteBE_675MS.Nombre_675MS));
                 parametros.Add(acceso_675MS.CrearParametro_675MS("@apellido", clienteBE_675MS.Apellido_675MS));
-                parametros.Add(acceso_675MS.CrearParametro_675MS("@fechanacimiento", clienteBE_675MS.FechaNacimiento_675MS));
+                parametros.Add(acceso_675MS.CrearParametroDateSolo_675MS("@fechanac", clienteBE_675MS.FechaNacimiento_675MS));
                 parametros.Add(acceso_675MS.CrearParametro_675MS("@mail", clienteBE_675MS.Mail_675MS));
                 parametros.Add(acceso_675MS.CrearParametro_675MS("@domicilio", clienteBE_675MS.Domicilio_675MS));
                 parametros.Add(acceso_675MS.CrearParametro_675MS("@telefono", clienteBE_675MS.Telefono_675MS));
@@ -168,7 +120,7 @@ namespace DAL
                 parametros.Add(acceso_675MS.CrearParametro_675MS("@dni", clienteBE_675MS.Dni_675MS));
                 parametros.Add(acceso_675MS.CrearParametro_675MS("@nombre", clienteBE_675MS.Nombre_675MS));
                 parametros.Add(acceso_675MS.CrearParametro_675MS("@apellido", clienteBE_675MS.Apellido_675MS));
-                parametros.Add(acceso_675MS.CrearParametro_675MS("@fechanacimiento", clienteBE_675MS.FechaNacimiento_675MS));
+                parametros.Add(acceso_675MS.CrearParametroDateSolo_675MS("@fechanacimiento", clienteBE_675MS.FechaNacimiento_675MS));
                 parametros.Add(acceso_675MS.CrearParametro_675MS("@mail", clienteBE_675MS.Mail_675MS));
                 parametros.Add(acceso_675MS.CrearParametro_675MS("@domicilio", clienteBE_675MS.Domicilio_675MS));
                 parametros.Add(acceso_675MS.CrearParametro_675MS("@telefono", clienteBE_675MS.Telefono_675MS));

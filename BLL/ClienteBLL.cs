@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace BLL
 {
     public class ClienteBLL
@@ -42,25 +43,20 @@ namespace BLL
         {
             int filasAfectadas_675MS = 0;
 
-            // Instancio servicio para calcular dígito verificador horizontal (DVH)
-            Servicios.CalculadorDigitoVerificador calculadorDV_675MS = new Servicios.CalculadorDigitoVerificador();
-
             // Calculo y asigno el dígito verificador horizontal al cliente
-            clienteBE_675MS.DigitoVerificadorHorizontal_675MS = calculadorDV_675MS.CalcularHorizontal_675MS(
-                    clienteBE_675MS.Dni_675MS.ToString(),
-                    clienteBE_675MS.Nombre_675MS,
-                    clienteBE_675MS.Apellido_675MS,
-                    clienteBE_675MS.FechaNacimiento_675MS.ToString("yyyy-MM-dd"), 
-                    clienteBE_675MS.Mail_675MS,
-                    clienteBE_675MS.Domicilio_675MS,
-                    clienteBE_675MS.Telefono_675MS.ToString()
-                );            
-            
+            nuevoCliente_675MS.DigitoVerificadorHorizontal_675MS = CalcularDVHCliente_675MS(nuevoCliente_675MS);
+
             // Valido que haya una sesión iniciada en el sistema
             if (Servicios.SessionManager.SesionIniciada_675MS)
             {
                 ClienteDAL clienteDAL_675MS = new ClienteDAL();
-                filasAfectadas_675MS = clienteDAL_675MS.RegistrarClienteDAL_675MS(clienteBE_675MS);
+                filasAfectadas_675MS = clienteDAL_675MS.RegistrarClienteDAL_675MS(nuevoCliente_675MS);
+
+                if (filasAfectadas_675MS > 0)
+                {
+                    IntegridadBLL integridadBLL_675MS = new IntegridadBLL();
+                    integridadBLL_675MS.ActualizarDigitosVerticalesCliente_675MS();
+                }
             }
             else
             {
@@ -72,20 +68,34 @@ namespace BLL
 
         public int ModificarCliente_675MS(ClienteBE clienteModificado_675MS)
         {
-            // Recalculo el DVH al modificar los datos del cliente
-            Servicios.CalculadorDigitoVerificador calculadorDV_675MS = new Servicios.CalculadorDigitoVerificador();
+            // Recalculo el DVH con los datos nuevos del cliente
+            clienteModificado_675MS.DigitoVerificadorHorizontal_675MS =  CalcularDVHCliente_675MS(clienteModificado_675MS);
 
-            clienteBE_675MS.DigitoVerificadorHorizontal_675MS = calculadorDV_675MS.CalcularHorizontal_675MS(
-                    clienteBE_675MS.Dni_675MS.ToString(),
-                    clienteBE_675MS.Nombre_675MS,
-                    clienteBE_675MS.Apellido_675MS,
-                    clienteBE_675MS.FechaNacimiento_675MS.ToString("yyyy-MM-dd"),
-                    clienteBE_675MS.Mail_675MS,
-                    clienteBE_675MS.Domicilio_675MS,
-                    clienteBE_675MS.Telefono_675MS.ToString()
-                );
-            ClienteDAL clienteDAL_675MS = new ClienteDAL();
-            return clienteDAL_675MS.ModificarClienteDAL_675MS(clienteBE_675MS);
+            int filasAfectadas_675MS =  clienteDAL675MS.ModificarClienteDAL_675MS(clienteModificado_675MS);
+
+            // Actualizo los DVV si la modificación fue exitosa
+            if (filasAfectadas_675MS > 0)
+            {
+                IntegridadBLL integridadBLL_675MS = new IntegridadBLL();
+                integridadBLL_675MS.ActualizarDigitosVerticalesCliente_675MS();
+            }
+
+            return filasAfectadas_675MS;
+        }
+
+        private int CalcularDVHCliente_675MS(ClienteBE cliente)
+        {
+            CalculadorDigitoVerificador calculador =  new CalculadorDigitoVerificador();
+
+            return calculador.CalcularHorizontal_675MS(
+                cliente.Dni_675MS.ToString(),
+                cliente.Apellido_675MS,
+                cliente.Nombre_675MS,
+                cliente.FechaNacimiento_675MS.ToString("yyyyMMdd"),
+                cliente.Mail_675MS,
+                cliente.Domicilio_675MS,
+                cliente.Telefono_675MS.ToString()
+            );
         }
     }
 }

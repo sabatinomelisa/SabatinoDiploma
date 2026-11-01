@@ -258,5 +258,17 @@ namespace DAL
                 acceso_675MS.Desconectar_675MS();
             }
         }
+
+        private RolBE ObtenerRolConPermisos_675MS(int idRol_675MS)
+        {
+            RolBE rol_675MS = new RolBE();
+
+            PermisoBE permiso_675MS = new PermisoBE();
+            permiso_675MS.Nombre_675MS = "CLIENTES.GESTIONAR";
+
+            rol_675MS.Agregar_675MS(permiso_675MS);
+
+            return rol_675MS;
+        }
     }
 }

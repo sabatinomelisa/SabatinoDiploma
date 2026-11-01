@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace Servicios.Observer
 {
-    public class IObserverIdioma
+    public interface IObserverIdioma
     {
-        public interface IOberverIdioma
-        {
-            void ActualizarIdioma_675MS();
-        }
+        void ActualizarIdioma_675MS();
     }
 }

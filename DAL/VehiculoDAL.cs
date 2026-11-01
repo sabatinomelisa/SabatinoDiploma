@@ -49,12 +49,41 @@ namespace DAL
             return vehiculos_675MS;
         }
 
+        public int ModificarVehiculoDAL_675MS(VehiculoBE vehiculoModificado_675MS)
+        {
+            Acceso acceso_675MS = new Acceso();
+            acceso_675MS.Conectar_675MS();
+
+            try
+            {
+                List<SqlParameter> parametros = new List<SqlParameter>();
+
+                parametros.Add(acceso_675MS.CrearParametro_675MS("@Dominio", vehiculoModificado_675MS.Dominio_675MS));
+                parametros.Add(acceso_675MS.CrearParametro_675MS("@DNI", vehiculoModificado_675MS.Dni_675MS));
+                parametros.Add(acceso_675MS.CrearParametro_675MS("@Modelo", vehiculoModificado_675MS.Modelo_675MS));
+                parametros.Add(acceso_675MS.CrearParametro_675MS("@VersionVehiculo", vehiculoModificado_675MS.Version_675MS));
+                parametros.Add(acceso_675MS.CrearParametro_675MS("@Anio", vehiculoModificado_675MS.Anio_675MS));
+                parametros.Add(acceso_675MS.CrearParametro_675MS("@NroChasis", vehiculoModificado_675MS.NroChasis_675MS));
+                parametros.Add(acceso_675MS.CrearParametro_675MS("@UltimaVTV", vehiculoModificado_675MS.UltimaVTV_675MS));
+                parametros.Add(acceso_675MS.CrearParametro_675MS("@DigitoVerificadorHorizontal", vehiculoModificado_675MS.DigitoVerificadorHorizontal_675MS));
+
+                int filasAfectadas_675MS = acceso_675MS.Escribir_675MS("MODIFICAR_VEHICULO", parametros);
+
+                return filasAfectadas_675MS;
+            }
+            finally
+            {
+                acceso_675MS.Desconectar_675MS();
+            }
+        }
+
         public int RegistrarVehiculoDAL_675MS(VehiculoBE vehiculoBE_675MS)
         {
             int filasAfectadas_675MS = 0;
 
             // Instancio la clase Acceso
             Acceso acceso_675MS = new Acceso();
+            acceso_675MS.Conectar_675MS();
 
             // Preparo la lista de parámetros para el Stored Procedure
             List<SqlParameter> parametros_675MS = new List<SqlParameter>();
@@ -62,11 +91,11 @@ namespace DAL
             parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@Dominio", vehiculoBE_675MS.Dominio_675MS));
             parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@DNI", vehiculoBE_675MS.Dni_675MS));
             parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@Modelo", vehiculoBE_675MS.Modelo_675MS));
-            parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@VersionVehiculo", vehiculoBE_675MS.Version_675MS));
+            parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@Version", vehiculoBE_675MS.Version_675MS));
             parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@Anio", vehiculoBE_675MS.Anio_675MS));
-            parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@NroChasis", vehiculoBE_675MS.NroChasis_675MS));
-            parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@UltimaVTV", vehiculoBE_675MS.UltimaVTV_675MS));
-            parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@DigitoVerificadorHorizontal", vehiculoBE_675MS.DigitoVerificadorHorizontal_675MS));
+            parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@Chasis", vehiculoBE_675MS.NroChasis_675MS));
+            parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@vtv", vehiculoBE_675MS.UltimaVTV_675MS));
+            parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@dv", vehiculoBE_675MS.DigitoVerificadorHorizontal_675MS));
 
             //Ejecuto el SP de ALTA
             filasAfectadas_675MS = acceso_675MS.Escribir_675MS("ALTA_VEHICULO", parametros_675MS);

@@ -17,7 +17,7 @@ namespace DAL
 
             acceso_675MS.Conectar_675MS();
 
-            string sql_675MS = "ConsultaIdiomas";
+            string sql_675MS = "CONSULTA_IDIOMAS";
 
             DataTable respuesta_675MS = new DataTable();
 

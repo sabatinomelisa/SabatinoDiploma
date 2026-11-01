@@ -82,9 +82,10 @@ namespace PitBox
             dgvVehiculos_675MS.Columns["Dominio_675MS"].HeaderText = "Patente";
             dgvVehiculos_675MS.Columns["Dni_675MS"].HeaderText = "DNI Cliente";
             dgvVehiculos_675MS.Columns["Modelo_675MS"].HeaderText = "Modelo";
+            dgvVehiculos_675MS.Columns["Version_675MS"].HeaderText = "Version";
             dgvVehiculos_675MS.Columns["Anio_675MS"].HeaderText = "Año";
             dgvVehiculos_675MS.Columns["NroChasis_675MS"].HeaderText = "Chasis";
-            dgvVehiculos_675MS.Columns["UltimaVTV_675MS"].HeaderText = "Version";
+            dgvVehiculos_675MS.Columns["UltimaVTV_675MS"].HeaderText = "Ultima VTV";
 
             //Cargo el combo de clientes
             CargoClientes_675MS();
@@ -193,6 +194,52 @@ namespace PitBox
                 txtVersion_675MS.Text = vehiculoSeleccionado.Version_675MS;
                 dateTimePicker1.Value = vehiculoSeleccionado.UltimaVTV_675MS;
             }
+        }
+
+        private void btnModificar_675MS_Click(object sender, EventArgs e)
+        {
+            if (dgvVehiculos_675MS.CurrentRow == null)
+            {
+                MessageBox.Show("Seleccione un cliente de la grilla para modificar.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Valido campos vacios
+            if (string.IsNullOrWhiteSpace(txtDominio_675MS.Text) ||
+                string.IsNullOrWhiteSpace(txtModelo_675MS.Text) ||
+                string.IsNullOrWhiteSpace(txtVersion_675MS.Text) ||
+                string.IsNullOrWhiteSpace(txtAnio_675MS.Text) ||
+                string.IsNullOrWhiteSpace(cmbClientes_675MS.Text) ||
+                string.IsNullOrWhiteSpace(dateTimePicker1.Text) ||
+                string.IsNullOrWhiteSpace(txtChasis_675MS.Text))
+            {
+                MessageBox.Show("Por favor, complete todos los campos de texto.", "Faltan datos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+
+            VehiculoBE vehiculoModificado_675MS = new VehiculoBE();
+            vehiculoModificado_675MS.Dni_675MS = int.Parse(cmbClientes_675MS.Text);
+            vehiculoModificado_675MS.Dominio_675MS = txtDominio_675MS.Text.Trim();
+            vehiculoModificado_675MS.Modelo_675MS = txtModelo_675MS.Text.Trim();
+            vehiculoModificado_675MS.UltimaVTV_675MS = dateTimePicker1.Value.Date;
+            vehiculoModificado_675MS.Version_675MS = txtVersion_675MS.Text.Trim();
+            vehiculoModificado_675MS.Anio_675MS = int.Parse( txtAnio_675MS.Text.Trim());
+            vehiculoModificado_675MS.NroChasis_675MS = txtChasis_675MS.Text.Trim();
+
+            VehiculoBLL vehiculoBLL_675MS = new VehiculoBLL();
+            int resultado_675MS = vehiculoBLL_675MS.ModificarVehiculo_675MS(vehiculoModificado_675MS);
+
+            if (resultado_675MS == -1)
+            {
+                MessageBox.Show("Error en la modificación del vehículo.");
+            }
+            else if (resultado_675MS > 0 || resultado_675MS == 1)
+            {
+                ActualizarPantalla_675MS();
+                MessageBox.Show("El vehículo se ha modificado de manera correcta.");
+            }
+
         }
     }
 }

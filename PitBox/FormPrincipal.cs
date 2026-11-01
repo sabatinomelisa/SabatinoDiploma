@@ -36,8 +36,7 @@ namespace PitBox
 
         private void btnSalir_675MS_Click(object sender, EventArgs e)
         {
-            Application.Exit();
-
+            Environment.Exit(0);
         }
 
         private void btnIngresar_675MS_Click(object sender, EventArgs e)

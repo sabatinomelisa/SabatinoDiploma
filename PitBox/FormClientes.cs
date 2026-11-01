@@ -32,12 +32,12 @@ namespace PitBox
                 // Hago que ocupe todo el espacio disponible dentro del contenedor MDI sin salirse
                 this.Dock = DockStyle.Fill;
 
-                ActualizarPantalla();
+                ActualizarPantalla_675MS();
 
             }
         }
 
-        private void ActualizarPantalla()
+        private void ActualizarPantalla_675MS()
         {
 
             // Traigo la lista de clientes desde la base de datos
@@ -218,7 +218,7 @@ namespace PitBox
             if (resultado_675MS > 0)
             {
                 MessageBox.Show("El cliente " + nuevoCliente_675MS.Nombre_675MS + " se registró correctamente.", "PitBox", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ActualizarPantalla();
+                ActualizarPantalla_675MS();
             }
             else
             {
@@ -276,7 +276,7 @@ namespace PitBox
             }
             else if (resultado_675MS > 0 || resultado_675MS == 1)
             {
-                ActualizarPantalla();
+                ActualizarPantalla_675MS();
                 MessageBox.Show("El cliente se ha modificado de manera correcta.");
             }
         }

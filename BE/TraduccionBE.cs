@@ -29,8 +29,8 @@ namespace BE
 
         public IdiomaBE Idioma_675MS
 {
-            get { return Idioma_675MS; }
-            set { Idioma_675MS = value; }
+            get { return idioma_675MS; }
+            set { idioma_675MS = value; }
         }
 
         private string traduccion_675MS;
