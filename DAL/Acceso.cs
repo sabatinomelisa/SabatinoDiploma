@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Util;
 
 namespace DAL
 {
@@ -18,7 +19,8 @@ namespace DAL
         public void Conectar_675MS()
         {
             conexion_675MS = new SqlConnection();
-            conexion_675MS.ConnectionString = "DATA SOURCE = DESKTOP-BJDMH9N\\SQLEXPRESS;" + "Initial Catalog=PITBOX;" + "Integrated Security=true;";
+            // conexion_675MS.ConnectionString = "DATA SOURCE = DESKTOP-BJDMH9N\\SQLEXPRESS;" + "Initial Catalog=PITBOX;" + "Integrated Security=true;";
+            conexion_675MS.ConnectionString = "Data Source=.\\SQLEXPRESS;" + "Initial Catalog=PITBOX;" + "Integrated Security=True;";
             conexion_675MS.Open();
         }
         //Desconectar de la Base de Datos
@@ -36,12 +38,24 @@ namespace DAL
 
         public void ConfirmarTx_675MS()
         {
-            tx_675MS.Commit();
+            if (tx_675MS != null)
+            {
+                tx_675MS.Commit();
+                tx_675MS = null; 
+            }
         }
 
         public void RevertirTx_675MS()
         {
-            tx_675MS.Rollback();
+            if (tx_675MS != null)
+            {
+                try { 
+                    tx_675MS.Rollback(); 
+                } catch { 
+
+                }
+                tx_675MS = null;
+            }
         }
 
         public SqlCommand CrearComando_675MS(string sql_675MS, List<SqlParameter> parametros_675MS = null)
@@ -100,10 +114,18 @@ namespace DAL
         public SqlParameter CrearParametroDateSolo_675MS(string nombre_675MS, DateTime valor_675MS)
         {
             SqlParameter parametro_675MS = new SqlParameter();
+            parametro_675MS .ParameterName = nombre_675MS;
 
-            parametro_675MS.ParameterName = nombre_675MS;
-            parametro_675MS.Value = valor_675MS;
-            parametro_675MS.DbType = System.Data.DbType.Date;
+            // Si la fecha es DateTime.MinValue (0001-01-01), mandamos DBNull a la base para evitar problemas
+            if (valor_675MS == DateTime.MinValue)
+            {
+                parametro_675MS.Value = DBNull.Value;
+            }
+            else
+            {
+                parametro_675MS.Value = valor_675MS;
+                parametro_675MS.SqlDbType = SqlDbType.Date; // Forzamos explícitamente el tipo Date de SQL Server
+            }
 
             return parametro_675MS;
         }
@@ -156,6 +178,20 @@ namespace DAL
 
             return resultado_675MS.ToString();
 
+        }
+
+        public object DevolverEscalarObjeto_675MS(string sql_675MS, List<SqlParameter> parameters_675MS = null)
+        {
+            SqlCommand comando_675MS = CrearComando_675MS(sql_675MS, parameters_675MS);
+
+            object resultado_675MS = comando_675MS.ExecuteScalar();
+
+            if (resultado_675MS == null || resultado_675MS == DBNull.Value)
+            {
+                return null;
+            }
+
+            return resultado_675MS;
         }
 
     }

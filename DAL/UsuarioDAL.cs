@@ -58,8 +58,8 @@ namespace DAL
                 parametros_675MS.Clear();
                 parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@usuario", usr_675MS.Username_675MS));
                 parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@pass", usr_675MS.Password_675MS));
-                //consultar por dni al empleado
-                parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@idEmp", 1));
+                parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@dv", usr_675MS.DigitoVerificadorHorizontal_675MS));
+                parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@idEmp", 2));
 
 
                 int resultado = acceso_675MS.Escribir_675MS(sql, parametros_675MS);
@@ -129,22 +129,22 @@ namespace DAL
 
         public int IncrementarIntentosFallidos_675MS(string nombreUsuario_675MS)
         {
-            return EjecutarOperacionUsuario_675MS("IncrementarIntentosFallidos", nombreUsuario_675MS);
+            return EjecutarOperacionUsuario_675MS("INCREMENTAR_INTENTOS_FALLIDOS", nombreUsuario_675MS);
         }
 
         public int ReiniciarIntentosFallidos_675MS(string nombreUsuario_675MS)
         {
-            return EjecutarOperacionUsuario_675MS("ReiniciarIntentosFallidos", nombreUsuario_675MS);
+            return EjecutarOperacionUsuario_675MS("REINICIAR_INTENTOS_FALLIDOS", nombreUsuario_675MS);
         }
 
         public int BloquearUsuario_675MS(string nombreUsuario_675MS)
         {
-            return EjecutarOperacionUsuario_675MS("BloquearUsuario", nombreUsuario_675MS);
+            return EjecutarOperacionUsuario_675MS("BLOQUEAR_USUARIO", nombreUsuario_675MS);
         }
 
         public int DesbloquearUsuario_675MS(string nombreUsuario_675MS)
         {
-            return EjecutarOperacionUsuario_675MS("DesbloquearUsuario", nombreUsuario_675MS);
+            return EjecutarOperacionUsuario_675MS("DESBLOQUEAR_USUARIO", nombreUsuario_675MS);
         }
 
         public int ActivarUsuario_675MS(string nombreUsuario_675MS)
@@ -222,6 +222,11 @@ namespace DAL
             usuario_675MS.Bloqueado_675MS = fila_675MS["Bloqueado"].ToString();
             usuario_675MS.IntentosFallidos_675MS = Convert.ToInt32(fila_675MS["IntentosFallidos"]);
             usuario_675MS.IdRol_675MS = Convert.ToInt32(fila_675MS["IdRol"].ToString());
+
+            RolDAL rolDAL_675MS = new RolDAL();
+
+            usuario_675MS.Rol_675MS =  rolDAL_675MS.ObtenerComponentesRol(usuario_675MS.IdRol_675MS);
+
             usuario_675MS.IdEmpleado_675MS = fila_675MS["IdEmpleado"] != DBNull.Value ? Convert.ToInt32(fila_675MS["IdEmpleado"]) : 0;
 
             return usuario_675MS;
@@ -269,6 +274,61 @@ namespace DAL
             rol_675MS.Agregar_675MS(permiso_675MS);
 
             return rol_675MS;
+        }
+
+        public UsuarioBE ObtenerUsuarioPorId_675MS(int idUsuario_675MS)
+        {
+            Acceso acceso_675MS = new Acceso();
+            acceso_675MS.Conectar_675MS();
+
+            try
+            {
+                List<SqlParameter> parametros_675MS = new List<SqlParameter>();
+                parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@id", idUsuario_675MS));
+
+                DataTable tabla = acceso_675MS.Leer_675MS("OBTENER_USUARIO_POR_ID", parametros_675MS);
+
+                if (tabla.Rows.Count == 0)
+                {
+                    return null;
+                }
+
+                return MapearUsuario_675MS(tabla.Rows[0]);
+            }
+            finally
+            {
+                acceso_675MS.Desconectar_675MS();
+            }
+        }
+
+        public int ActualizarUsuarioConDVH_675MS(UsuarioBE usr_675MS)
+        {
+            Acceso acceso_675MS = new Acceso();
+            acceso_675MS.Conectar_675MS();
+            acceso_675MS.IniciarTx_675MS();
+
+            try
+            {
+                string sql = "ACTIVAR_USUARIO";
+                List<SqlParameter> parametros_675MS = new List<SqlParameter>();
+
+                parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@usu", usr_675MS.Username_675MS));
+                parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@bloqueado", usr_675MS.Bloqueado_675MS));
+                parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@dv", usr_675MS.DigitoVerificadorHorizontal_675MS));
+
+                int resultado_675MS = acceso_675MS.Escribir_675MS(sql, parametros_675MS);
+                acceso_675MS.ConfirmarTx_675MS();
+                return resultado_675MS;
+            }
+            catch
+            {
+                acceso_675MS.RevertirTx_675MS();
+                throw new Exception("Error al actualizar el usuario.");
+            }
+            finally
+            {
+                acceso_675MS.Desconectar_675MS();
+            }
         }
     }
 }

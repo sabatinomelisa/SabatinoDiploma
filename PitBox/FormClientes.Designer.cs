@@ -44,7 +44,7 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.lblDNI_675MS = new System.Windows.Forms.Label();
             this.lblNombre_675MS = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblGestorClientes_675MS = new System.Windows.Forms.Label();
             this.txtDNI_675MS = new System.Windows.Forms.TextBox();
             this.dgvClientes_675MS = new System.Windows.Forms.DataGridView();
             this.txtTelefono_675MS = new System.Windows.Forms.TextBox();
@@ -55,6 +55,8 @@
             this.btnSerializacion_675MS = new System.Windows.Forms.Button();
             this.txtDeserializacion_675MS = new System.Windows.Forms.TextBox();
             this.txtSerializacion_675MS = new System.Windows.Forms.TextBox();
+            this.lblIdioma_675MS = new System.Windows.Forms.Label();
+            this.cmbIdiomas_675MS = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes_675MS)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -82,7 +84,6 @@
             // 
             // lblTelefono_675MS
             // 
-            this.lblTelefono_675MS.AutoSize = true;
             this.lblTelefono_675MS.BackColor = System.Drawing.Color.Transparent;
             this.lblTelefono_675MS.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTelefono_675MS.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -91,10 +92,10 @@
             this.lblTelefono_675MS.Size = new System.Drawing.Size(86, 23);
             this.lblTelefono_675MS.TabIndex = 63;
             this.lblTelefono_675MS.Text = "Teléfono";
+            this.lblTelefono_675MS.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // lblDomicilio_675MS
             // 
-            this.lblDomicilio_675MS.AutoSize = true;
             this.lblDomicilio_675MS.BackColor = System.Drawing.Color.Transparent;
             this.lblDomicilio_675MS.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDomicilio_675MS.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -103,10 +104,10 @@
             this.lblDomicilio_675MS.Size = new System.Drawing.Size(89, 23);
             this.lblDomicilio_675MS.TabIndex = 62;
             this.lblDomicilio_675MS.Text = "Domicilio";
+            this.lblDomicilio_675MS.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // lblMail_675MS
             // 
-            this.lblMail_675MS.AutoSize = true;
             this.lblMail_675MS.BackColor = System.Drawing.Color.Transparent;
             this.lblMail_675MS.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMail_675MS.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -115,6 +116,7 @@
             this.lblMail_675MS.Size = new System.Drawing.Size(47, 23);
             this.lblMail_675MS.TabIndex = 60;
             this.lblMail_675MS.Text = "Mail";
+            this.lblMail_675MS.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // btnVolver_675MS
             // 
@@ -154,7 +156,6 @@
             // 
             // lblFechadeNacimiento_675MS
             // 
-            this.lblFechadeNacimiento_675MS.AutoSize = true;
             this.lblFechadeNacimiento_675MS.BackColor = System.Drawing.Color.Transparent;
             this.lblFechadeNacimiento_675MS.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFechadeNacimiento_675MS.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -163,6 +164,7 @@
             this.lblFechadeNacimiento_675MS.Size = new System.Drawing.Size(185, 23);
             this.lblFechadeNacimiento_675MS.TabIndex = 56;
             this.lblFechadeNacimiento_675MS.Text = "Fecha de Nacimiento";
+            this.lblFechadeNacimiento_675MS.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // txtApellido_675MS
             // 
@@ -173,7 +175,6 @@
             // 
             // lblApellido_675MS
             // 
-            this.lblApellido_675MS.AutoSize = true;
             this.lblApellido_675MS.BackColor = System.Drawing.Color.Transparent;
             this.lblApellido_675MS.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblApellido_675MS.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -182,6 +183,7 @@
             this.lblApellido_675MS.Size = new System.Drawing.Size(81, 23);
             this.lblApellido_675MS.TabIndex = 54;
             this.lblApellido_675MS.Text = "Apellido";
+            this.lblApellido_675MS.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // dateTimePicker1
             // 
@@ -194,7 +196,6 @@
             // 
             // lblDNI_675MS
             // 
-            this.lblDNI_675MS.AutoSize = true;
             this.lblDNI_675MS.BackColor = System.Drawing.Color.Transparent;
             this.lblDNI_675MS.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDNI_675MS.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -203,10 +204,10 @@
             this.lblDNI_675MS.Size = new System.Drawing.Size(107, 23);
             this.lblDNI_675MS.TabIndex = 52;
             this.lblDNI_675MS.Text = "DNI Cliente";
+            this.lblDNI_675MS.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // lblNombre_675MS
             // 
-            this.lblNombre_675MS.AutoSize = true;
             this.lblNombre_675MS.BackColor = System.Drawing.Color.Transparent;
             this.lblNombre_675MS.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombre_675MS.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -215,18 +216,19 @@
             this.lblNombre_675MS.Size = new System.Drawing.Size(79, 23);
             this.lblNombre_675MS.TabIndex = 51;
             this.lblNombre_675MS.Text = "Nombre";
+            this.lblNombre_675MS.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // label1
+            // lblGestorClientes_675MS
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Black", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label1.Location = new System.Drawing.Point(832, 151);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(277, 35);
-            this.label1.TabIndex = 50;
-            this.label1.Text = "GESTOR DE CLIENTES";
+            this.lblGestorClientes_675MS.AutoSize = true;
+            this.lblGestorClientes_675MS.BackColor = System.Drawing.Color.Transparent;
+            this.lblGestorClientes_675MS.Font = new System.Drawing.Font("Segoe UI Black", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGestorClientes_675MS.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.lblGestorClientes_675MS.Location = new System.Drawing.Point(832, 151);
+            this.lblGestorClientes_675MS.Name = "lblGestorClientes_675MS";
+            this.lblGestorClientes_675MS.Size = new System.Drawing.Size(277, 35);
+            this.lblGestorClientes_675MS.TabIndex = 50;
+            this.lblGestorClientes_675MS.Text = "GESTOR DE CLIENTES";
             // 
             // txtDNI_675MS
             // 
@@ -335,12 +337,35 @@
             this.txtSerializacion_675MS.Size = new System.Drawing.Size(223, 32);
             this.txtSerializacion_675MS.TabIndex = 0;
             // 
+            // lblIdioma_675MS
+            // 
+            this.lblIdioma_675MS.AutoSize = true;
+            this.lblIdioma_675MS.BackColor = System.Drawing.Color.Transparent;
+            this.lblIdioma_675MS.Font = new System.Drawing.Font("Segoe UI Black", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIdioma_675MS.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblIdioma_675MS.Location = new System.Drawing.Point(834, 19);
+            this.lblIdioma_675MS.Name = "lblIdioma_675MS";
+            this.lblIdioma_675MS.Size = new System.Drawing.Size(115, 35);
+            this.lblIdioma_675MS.TabIndex = 70;
+            this.lblIdioma_675MS.Text = "IDIOMA";
+            // 
+            // cmbIdiomas_675MS
+            // 
+            this.cmbIdiomas_675MS.FormattingEnabled = true;
+            this.cmbIdiomas_675MS.Location = new System.Drawing.Point(955, 23);
+            this.cmbIdiomas_675MS.Name = "cmbIdiomas_675MS";
+            this.cmbIdiomas_675MS.Size = new System.Drawing.Size(141, 24);
+            this.cmbIdiomas_675MS.TabIndex = 69;
+            this.cmbIdiomas_675MS.SelectedIndexChanged += new System.EventHandler(this.cmbIdiomas_675MS_SelectedIndexChanged);
+            // 
             // FormClientes
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1134, 711);
+            this.Controls.Add(this.lblIdioma_675MS);
+            this.Controls.Add(this.cmbIdiomas_675MS);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txtTelefono_675MS);
             this.Controls.Add(this.txtDomicilio_675MS);
@@ -358,7 +383,7 @@
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.lblDNI_675MS);
             this.Controls.Add(this.lblNombre_675MS);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblGestorClientes_675MS);
             this.Controls.Add(this.txtDNI_675MS);
             this.Controls.Add(this.dgvClientes_675MS);
             this.Name = "FormClientes";
@@ -389,7 +414,7 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label lblDNI_675MS;
         private System.Windows.Forms.Label lblNombre_675MS;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblGestorClientes_675MS;
         private System.Windows.Forms.TextBox txtDNI_675MS;
         private System.Windows.Forms.DataGridView dgvClientes_675MS;
         private System.Windows.Forms.TextBox txtTelefono_675MS;
@@ -400,5 +425,7 @@
         private System.Windows.Forms.TextBox txtSerializacion_675MS;
         private System.Windows.Forms.Button btnCarpeta2_675MS;
         private System.Windows.Forms.Button btnCarpeta1_675MS;
+        private System.Windows.Forms.Label lblIdioma_675MS;
+        private System.Windows.Forms.ComboBox cmbIdiomas_675MS;
     }
 }

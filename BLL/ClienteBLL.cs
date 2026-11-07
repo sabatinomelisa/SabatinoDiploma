@@ -97,5 +97,19 @@ namespace BLL
                 cliente.Telefono_675MS.ToString()
             );
         }
+
+        public bool VerificarExisteDni_675MS(int dniValidado_675MS)
+        {
+            //Instancio la DAL
+            clienteDAL675MS = new ClienteDAL();
+
+            ClienteBE clienteConsultado_675MS = clienteDAL675MS.ConsultaPorDNI_675MS(dniValidado_675MS);
+
+            if(clienteConsultado_675MS==null)
+            {
+                return false;
+            }else return true;
+;
+        }
     }
 }

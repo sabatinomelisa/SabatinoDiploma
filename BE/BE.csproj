@@ -58,6 +58,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UsuarioBloqueadoBE.cs" />
     <Compile Include="VehiculoBE.cs" />
+    <Compile Include="VtvBE.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

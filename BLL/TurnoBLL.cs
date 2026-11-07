@@ -12,7 +12,7 @@ namespace BLL
     public class TurnoBLL
     {
         TurnoDAL turnoDAL_675MS;
-        public List<TurnoBE> ListarTurnosturnos_675MS()
+        public List<TurnoBE> ListarTurnost_6755MS()
         {
             turnoDAL_675MS = new TurnoDAL();
             return turnoDAL_675MS.ListarTurnosturnos_675MS();
@@ -65,11 +65,6 @@ namespace BLL
 
         public void ValidarDatosIngresados_675MS(TurnoBE turno_675MS)
         {
-            if(turno_675MS.Dni_675MS <= 0 )
-            {
-                throw new Exception("Ingresar DNI del cliente");
-
-            }
 
             if (turno_675MS.Dominio_675MS== string.Empty)
             {

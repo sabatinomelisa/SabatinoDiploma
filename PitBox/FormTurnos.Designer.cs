@@ -29,20 +29,18 @@
         private void InitializeComponent()
         {
             this.dgvTurnos_675MS = new System.Windows.Forms.DataGridView();
-            this.txtDNI_675MS = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblDNI_675MS = new System.Windows.Forms.Label();
+            this.lblIdioma_675MS = new System.Windows.Forms.Label();
+            this.cmbIdiomas_675MS = new System.Windows.Forms.ComboBox();
+            this.lblGestorTurnos_675MS = new System.Windows.Forms.Label();
             this.lblDominio_675MS = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lblDuracion = new System.Windows.Forms.Label();
+            this.lblDia_675MS = new System.Windows.Forms.Label();
+            this.lblDuracion_675MS = new System.Windows.Forms.Label();
             this.txtDuracion_675MS = new System.Windows.Forms.TextBox();
             this.bntRegistrar_675MS = new System.Windows.Forms.Button();
             this.btnModificar_675MS = new System.Windows.Forms.Button();
             this.btnBaja_675MS = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblHora_675MS = new System.Windows.Forms.Label();
             this.cmbHorario_675MS = new System.Windows.Forms.ComboBox();
             this.cmbVehiculos_675MS = new System.Windows.Forms.ComboBox();
             this.btnVolver_675MS = new System.Windows.Forms.Button();
@@ -61,68 +59,50 @@
             this.dgvTurnos_675MS.TabIndex = 0;
             this.dgvTurnos_675MS.SelectionChanged += new System.EventHandler(this.dgvTurnos_675MS_SelectionChanged);
             // 
-            // txtDNI_675MS
+            // lblIdioma_675MS
             // 
-            this.txtDNI_675MS.Location = new System.Drawing.Point(877, 287);
-            this.txtDNI_675MS.Name = "txtDNI_675MS";
-            this.txtDNI_675MS.Size = new System.Drawing.Size(217, 22);
-            this.txtDNI_675MS.TabIndex = 1;
+            this.lblIdioma_675MS.AutoSize = true;
+            this.lblIdioma_675MS.BackColor = System.Drawing.Color.Transparent;
+            this.lblIdioma_675MS.Font = new System.Drawing.Font("Segoe UI Black", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIdioma_675MS.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblIdioma_675MS.Location = new System.Drawing.Point(872, 17);
+            this.lblIdioma_675MS.Name = "lblIdioma_675MS";
+            this.lblIdioma_675MS.Size = new System.Drawing.Size(115, 35);
+            this.lblIdioma_675MS.TabIndex = 13;
+            this.lblIdioma_675MS.Text = "IDIOMA";
             // 
-            // label2
+            // cmbIdiomas_675MS
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Black", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label2.Location = new System.Drawing.Point(872, 18);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(115, 35);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "IDIOMA";
+            this.cmbIdiomas_675MS.FormattingEnabled = true;
+            this.cmbIdiomas_675MS.Location = new System.Drawing.Point(969, 21);
+            this.cmbIdiomas_675MS.Name = "cmbIdiomas_675MS";
+            this.cmbIdiomas_675MS.Size = new System.Drawing.Size(141, 24);
+            this.cmbIdiomas_675MS.TabIndex = 12;
+            this.cmbIdiomas_675MS.SelectedIndexChanged += new System.EventHandler(this.cmbIdiomas_675MS_SelectedIndexChanged_1);
             // 
-            // comboBox1
+            // lblGestorTurnos_675MS
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(969, 21);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(141, 24);
-            this.comboBox1.TabIndex = 12;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Black", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label1.Location = new System.Drawing.Point(876, 225);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(265, 35);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "GESTOR DE TURNOS";
-            // 
-            // lblDNI_675MS
-            // 
-            this.lblDNI_675MS.AutoSize = true;
-            this.lblDNI_675MS.BackColor = System.Drawing.Color.Transparent;
-            this.lblDNI_675MS.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDNI_675MS.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblDNI_675MS.Location = new System.Drawing.Point(778, 290);
-            this.lblDNI_675MS.Name = "lblDNI_675MS";
-            this.lblDNI_675MS.Size = new System.Drawing.Size(107, 23);
-            this.lblDNI_675MS.TabIndex = 14;
-            this.lblDNI_675MS.Text = "DNI Cliente";
+            this.lblGestorTurnos_675MS.AutoSize = true;
+            this.lblGestorTurnos_675MS.BackColor = System.Drawing.Color.Transparent;
+            this.lblGestorTurnos_675MS.Font = new System.Drawing.Font("Segoe UI Black", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGestorTurnos_675MS.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.lblGestorTurnos_675MS.Location = new System.Drawing.Point(832, 225);
+            this.lblGestorTurnos_675MS.Name = "lblGestorTurnos_675MS";
+            this.lblGestorTurnos_675MS.Size = new System.Drawing.Size(265, 35);
+            this.lblGestorTurnos_675MS.TabIndex = 11;
+            this.lblGestorTurnos_675MS.Text = "GESTOR DE TURNOS";
             // 
             // lblDominio_675MS
             // 
-            this.lblDominio_675MS.AutoSize = true;
             this.lblDominio_675MS.BackColor = System.Drawing.Color.Transparent;
             this.lblDominio_675MS.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDominio_675MS.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblDominio_675MS.Location = new System.Drawing.Point(798, 318);
+            this.lblDominio_675MS.Location = new System.Drawing.Point(789, 315);
             this.lblDominio_675MS.Name = "lblDominio_675MS";
             this.lblDominio_675MS.Size = new System.Drawing.Size(82, 23);
             this.lblDominio_675MS.TabIndex = 16;
             this.lblDominio_675MS.Text = "Dominio";
+            this.lblDominio_675MS.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // dateTimePicker1
             // 
@@ -134,29 +114,29 @@
             this.dateTimePicker1.TabIndex = 17;
             this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
-            // label3
+            // lblDia_675MS
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label3.Location = new System.Drawing.Point(827, 347);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 23);
-            this.label3.TabIndex = 18;
-            this.label3.Text = "Día";
+            this.lblDia_675MS.BackColor = System.Drawing.Color.Transparent;
+            this.lblDia_675MS.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDia_675MS.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblDia_675MS.Location = new System.Drawing.Point(833, 344);
+            this.lblDia_675MS.Name = "lblDia_675MS";
+            this.lblDia_675MS.Size = new System.Drawing.Size(38, 23);
+            this.lblDia_675MS.TabIndex = 18;
+            this.lblDia_675MS.Text = "Día";
+            this.lblDia_675MS.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // lblDuracion
+            // lblDuracion_675MS
             // 
-            this.lblDuracion.AutoSize = true;
-            this.lblDuracion.BackColor = System.Drawing.Color.Transparent;
-            this.lblDuracion.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDuracion.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblDuracion.Location = new System.Drawing.Point(748, 373);
-            this.lblDuracion.Name = "lblDuracion";
-            this.lblDuracion.Size = new System.Drawing.Size(142, 23);
-            this.lblDuracion.TabIndex = 20;
-            this.lblDuracion.Text = "Duración Turno";
+            this.lblDuracion_675MS.BackColor = System.Drawing.Color.Transparent;
+            this.lblDuracion_675MS.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDuracion_675MS.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblDuracion_675MS.Location = new System.Drawing.Point(729, 370);
+            this.lblDuracion_675MS.Name = "lblDuracion_675MS";
+            this.lblDuracion_675MS.Size = new System.Drawing.Size(142, 23);
+            this.lblDuracion_675MS.TabIndex = 20;
+            this.lblDuracion_675MS.Text = "Duración Turno";
+            this.lblDuracion_675MS.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // txtDuracion_675MS
             // 
@@ -201,17 +181,17 @@
             this.btnBaja_675MS.UseVisualStyleBackColor = false;
             this.btnBaja_675MS.Click += new System.EventHandler(this.btnBaja_675MS_Click);
             // 
-            // label4
+            // lblHora_675MS
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label4.Location = new System.Drawing.Point(781, 402);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(103, 23);
-            this.label4.TabIndex = 25;
-            this.label4.Text = "Hora Inicio";
+            this.lblHora_675MS.BackColor = System.Drawing.Color.Transparent;
+            this.lblHora_675MS.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHora_675MS.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblHora_675MS.Location = new System.Drawing.Point(768, 399);
+            this.lblHora_675MS.Name = "lblHora_675MS";
+            this.lblHora_675MS.Size = new System.Drawing.Size(103, 23);
+            this.lblHora_675MS.TabIndex = 25;
+            this.lblHora_675MS.Text = "Hora Inicio";
+            this.lblHora_675MS.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // cmbHorario_675MS
             // 
@@ -250,20 +230,18 @@
             this.Controls.Add(this.btnVolver_675MS);
             this.Controls.Add(this.cmbVehiculos_675MS);
             this.Controls.Add(this.cmbHorario_675MS);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lblHora_675MS);
             this.Controls.Add(this.btnBaja_675MS);
             this.Controls.Add(this.btnModificar_675MS);
             this.Controls.Add(this.bntRegistrar_675MS);
-            this.Controls.Add(this.lblDuracion);
+            this.Controls.Add(this.lblDuracion_675MS);
             this.Controls.Add(this.txtDuracion_675MS);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblDia_675MS);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.lblDominio_675MS);
-            this.Controls.Add(this.lblDNI_675MS);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtDNI_675MS);
+            this.Controls.Add(this.lblIdioma_675MS);
+            this.Controls.Add(this.cmbIdiomas_675MS);
+            this.Controls.Add(this.lblGestorTurnos_675MS);
             this.Controls.Add(this.dgvTurnos_675MS);
             this.Name = "FormTurnos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -278,20 +256,18 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvTurnos_675MS;
-        private System.Windows.Forms.TextBox txtDNI_675MS;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lblDNI_675MS;
+        private System.Windows.Forms.Label lblIdioma_675MS;
+        private System.Windows.Forms.ComboBox cmbIdiomas_675MS;
+        private System.Windows.Forms.Label lblGestorTurnos_675MS;
         private System.Windows.Forms.Label lblDominio_675MS;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label lblDuracion;
+        private System.Windows.Forms.Label lblDia_675MS;
+        private System.Windows.Forms.Label lblDuracion_675MS;
         private System.Windows.Forms.TextBox txtDuracion_675MS;
         private System.Windows.Forms.Button bntRegistrar_675MS;
         private System.Windows.Forms.Button btnModificar_675MS;
         private System.Windows.Forms.Button btnBaja_675MS;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblHora_675MS;
         private System.Windows.Forms.ComboBox cmbHorario_675MS;
         private System.Windows.Forms.ComboBox cmbVehiculos_675MS;
         private System.Windows.Forms.Button btnVolver_675MS;

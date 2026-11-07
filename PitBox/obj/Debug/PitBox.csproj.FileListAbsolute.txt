@@ -28,3 +28,5 @@ C:\Users\Morsicasa\source\repos\PitBox\PitBox\obj\Debug\PitBox.FormClientes.reso
 C:\Users\Morsicasa\source\repos\PitBox\PitBox\obj\Debug\PitBox.FormDesbloquear.resources
 C:\Users\Morsicasa\source\repos\PitBox\PitBox\obj\Debug\PitBox.FormEmpleado.resources
 C:\Users\Morsicasa\source\repos\PitBox\PitBox\obj\Debug\PitBox.FormIdiomas.resources
+C:\Users\Morsicasa\source\repos\PitBox\PitBox\obj\Debug\PitBox.FormVTV.resources
+C:\Users\Morsicasa\source\repos\PitBox\PitBox\obj\Debug\PitBox.FormRoles.resources

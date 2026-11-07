@@ -1,5 +1,6 @@
 ﻿using BE;
 using BLL;
+using Servicios.Observer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,8 +13,13 @@ using System.Windows.Forms;
 
 namespace PitBox
 {
-    public partial class FormClientes : Form
+    public partial class FormClientes : Form,IObserverIdioma
     {
+        List<IdiomaBE> idiomas_675MS = new List<IdiomaBE>();
+        IdiomaBLL idiomaBLL_675MS = new IdiomaBLL();
+        List<TraduccionBE> traducciones_675MS = new List<TraduccionBE>();
+        private bool cargandoIdiomas_675MS = false;
+
         public FormClientes()
         {
             InitializeComponent();
@@ -34,6 +40,116 @@ namespace PitBox
 
                 ActualizarPantalla_675MS();
 
+                //Suscribo al evento del observer
+                TratamientoIdioma.Instancia.Suscribir(this);
+                //Cargo combo con los idiomas del sistema
+                CargarComboIdiomas_675MS();
+
+            }
+        }
+
+        private void CargarComboIdiomas_675MS()
+        {
+            try
+            {
+                cargandoIdiomas_675MS = true;
+
+                idiomas_675MS = idiomaBLL_675MS.ListarIdiomas_675MS();
+
+                cmbIdiomas_675MS.DataSource = null;
+                cmbIdiomas_675MS.DisplayMember = "Nombre_675MS";
+                cmbIdiomas_675MS.ValueMember = "Id_675MS";
+                cmbIdiomas_675MS.DataSource = idiomas_675MS;
+
+                if (TratamientoIdioma.Instancia.IdiomaActual_675MS != null)
+                {
+                    cmbIdiomas_675MS.SelectedValue =
+                        TratamientoIdioma.Instancia.IdiomaActual_675MS.Id_675MS;
+                }
+                else if (idiomas_675MS.Count > 0)
+                {
+                    cmbIdiomas_675MS.SelectedIndex = 0;
+
+                    TratamientoIdioma.Instancia.IdiomaActual_675MS =
+                        idiomas_675MS[0];
+                }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("No se pudieron cargar los idiomas: " + exception.Message);
+            }
+            finally
+            {
+                cargandoIdiomas_675MS = false;
+            }
+
+            ActualizarIdioma_675MS();
+        }
+
+        public void ActualizarIdioma_675MS()
+        {
+            if (TratamientoIdioma.Instancia.IdiomaActual_675MS == null)
+                return;
+
+            TraduccionBLL traduccionBLL_675MS = new TraduccionBLL();
+
+            int idiomaSeleccionado =
+                TratamientoIdioma.Instancia.IdiomaActual_675MS.Id_675MS;
+
+            List<TraduccionBE> traducciones =
+                traduccionBLL_675MS.Listar_675MS(idiomaSeleccionado);
+
+            foreach (TraduccionBE traduccion in traducciones)
+            {
+                switch (traduccion.NombreControl_675MS)
+                {
+                    case "lblIdioma_675MS":
+                        lblIdioma_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+                    case "lblApellido_675MS":
+                        lblApellido_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+                    case "lblDNI_675MS":
+                        lblDNI_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+                    case "lblDomicilio_675MS":
+                        lblDomicilio_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+                    case "lblFechadeNacimiento_675MS":
+                        lblFechadeNacimiento_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+                    case "lblGestorClientes_675MS":
+                        lblGestorClientes_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+                    case "lblMail_675MS":
+                        lblMail_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+                    case "lblNombre_675MS":
+                        lblNombre_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+                    case "lblTelefono_675MS":
+                        lblTelefono_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+                    case "btnDeserializacion_675MS":
+                        btnDeserializacion_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+                    case "btnModificar_675MS":
+                        btnModificar_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+                    case "btnVolver_675MS":
+                        btnVolver_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+                    case "btnSerializacion_675MS":
+                        btnSerializacion_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+                    case "bntRegistrar_675MS":
+                        bntRegistrar_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+                    case "groupBox1":
+                        groupBox1.Text = traduccion.Traduccion_675MS;
+                        break;
+
+                }
             }
         }
 
@@ -201,6 +317,15 @@ namespace PitBox
                 return;
             }
 
+            // Valido DNI
+            bool dniExiste_675MS = clienteBLL_675MS.VerificarExisteDni_675MS(dniValidado_675MS);
+
+            if (dniExiste_675MS)
+            {
+                MessageBox.Show("Ya existe un cliente registrado con el DNI ingresado.", "DNI Duplicado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             // Instancio el objeto ClienteBE para registrar
             ClienteBE nuevoCliente_675MS = new ClienteBE();
 
@@ -216,7 +341,7 @@ namespace PitBox
             int resultado_675MS = clienteBLL_675MS.RegistrarCliente_675MS(nuevoCliente_675MS);
 
             if (resultado_675MS > 0)
-            {
+            {   
                 MessageBox.Show("El cliente " + nuevoCliente_675MS.Nombre_675MS + " se registró correctamente.", "PitBox", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ActualizarPantalla_675MS();
             }
@@ -279,6 +404,24 @@ namespace PitBox
                 ActualizarPantalla_675MS();
                 MessageBox.Show("El cliente se ha modificado de manera correcta.");
             }
+        }
+
+        private void cmbIdiomas_675MS_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cargandoIdiomas_675MS)
+                return;
+
+            if (cmbIdiomas_675MS.SelectedItem == null)
+                return;
+
+            IdiomaBE idioma = cmbIdiomas_675MS.SelectedItem as IdiomaBE;
+
+            if (idioma == null)
+                return;
+
+            TratamientoIdioma.Instancia.IdiomaActual_675MS = idioma;
+
+            TratamientoIdioma.Instancia.Notificar();
         }
     }
 }

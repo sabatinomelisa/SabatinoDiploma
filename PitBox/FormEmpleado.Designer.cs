@@ -44,11 +44,13 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.lblDNI_675MS = new System.Windows.Forms.Label();
             this.lblNombre_675MS = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblGestionEmpleados_675MS = new System.Windows.Forms.Label();
             this.txtDNI_675MS = new System.Windows.Forms.TextBox();
             this.dgvEmpleados_675MS = new System.Windows.Forms.DataGridView();
             this.btnBaja_675MS = new System.Windows.Forms.Button();
             this.btnReactivar_675MS = new System.Windows.Forms.Button();
+            this.lblIdioma_675MS = new System.Windows.Forms.Label();
+            this.cmbIdiomas_675MS = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados_675MS)).BeginInit();
             this.SuspendLayout();
             // 
@@ -217,17 +219,17 @@
             this.lblNombre_675MS.TabIndex = 72;
             this.lblNombre_675MS.Text = "Nombre";
             // 
-            // label1
+            // lblGestionEmpleados_675MS
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Black", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label1.Location = new System.Drawing.Point(777, 183);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(314, 35);
-            this.label1.TabIndex = 71;
-            this.label1.Text = "GESTOR DE EMPLEADOS";
+            this.lblGestionEmpleados_675MS.AutoSize = true;
+            this.lblGestionEmpleados_675MS.BackColor = System.Drawing.Color.Transparent;
+            this.lblGestionEmpleados_675MS.Font = new System.Drawing.Font("Segoe UI Black", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGestionEmpleados_675MS.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.lblGestionEmpleados_675MS.Location = new System.Drawing.Point(777, 183);
+            this.lblGestionEmpleados_675MS.Name = "lblGestionEmpleados_675MS";
+            this.lblGestionEmpleados_675MS.Size = new System.Drawing.Size(314, 35);
+            this.lblGestionEmpleados_675MS.TabIndex = 71;
+            this.lblGestionEmpleados_675MS.Text = "GESTOR DE EMPLEADOS";
             // 
             // txtDNI_675MS
             // 
@@ -273,11 +275,33 @@
             this.btnReactivar_675MS.UseVisualStyleBackColor = false;
             this.btnReactivar_675MS.Click += new System.EventHandler(this.btnReactivar_675MS_Click);
             // 
+            // lblIdioma_675MS
+            // 
+            this.lblIdioma_675MS.BackColor = System.Drawing.Color.Transparent;
+            this.lblIdioma_675MS.Font = new System.Drawing.Font("Segoe UI Black", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIdioma_675MS.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblIdioma_675MS.Location = new System.Drawing.Point(772, 13);
+            this.lblIdioma_675MS.Name = "lblIdioma_675MS";
+            this.lblIdioma_675MS.Size = new System.Drawing.Size(155, 35);
+            this.lblIdioma_675MS.TabIndex = 91;
+            this.lblIdioma_675MS.Text = "IDIOMA";
+            // 
+            // cmbIdiomas_675MS
+            // 
+            this.cmbIdiomas_675MS.FormattingEnabled = true;
+            this.cmbIdiomas_675MS.Location = new System.Drawing.Point(950, 22);
+            this.cmbIdiomas_675MS.Name = "cmbIdiomas_675MS";
+            this.cmbIdiomas_675MS.Size = new System.Drawing.Size(141, 24);
+            this.cmbIdiomas_675MS.TabIndex = 90;
+            this.cmbIdiomas_675MS.SelectedIndexChanged += new System.EventHandler(this.cmbIdiomas_675MS_SelectedIndexChanged);
+            // 
             // FormEmpleado
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(1134, 711);
+            this.Controls.Add(this.lblIdioma_675MS);
+            this.Controls.Add(this.cmbIdiomas_675MS);
             this.Controls.Add(this.btnReactivar_675MS);
             this.Controls.Add(this.btnBaja_675MS);
             this.Controls.Add(this.txtTelefono_675MS);
@@ -296,7 +320,7 @@
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.lblDNI_675MS);
             this.Controls.Add(this.lblNombre_675MS);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblGestionEmpleados_675MS);
             this.Controls.Add(this.txtDNI_675MS);
             this.Controls.Add(this.dgvEmpleados_675MS);
             this.Name = "FormEmpleado";
@@ -326,10 +350,12 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label lblDNI_675MS;
         private System.Windows.Forms.Label lblNombre_675MS;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblGestionEmpleados_675MS;
         private System.Windows.Forms.TextBox txtDNI_675MS;
         private System.Windows.Forms.DataGridView dgvEmpleados_675MS;
         private System.Windows.Forms.Button btnBaja_675MS;
         private System.Windows.Forms.Button btnReactivar_675MS;
+        private System.Windows.Forms.Label lblIdioma_675MS;
+        private System.Windows.Forms.ComboBox cmbIdiomas_675MS;
     }
 }

@@ -29,24 +29,26 @@
         private void InitializeComponent()
         {
             this.cmbClientes_675MS = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblAnio_675MS = new System.Windows.Forms.Label();
             this.btnVolver_675MS = new System.Windows.Forms.Button();
             this.btnModificar_675MS = new System.Windows.Forms.Button();
             this.bntRegistrar_675MS = new System.Windows.Forms.Button();
-            this.lblDuracion = new System.Windows.Forms.Label();
+            this.lblVersion_675MS = new System.Windows.Forms.Label();
             this.txtModelo_675MS = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lblDominio_675MS = new System.Windows.Forms.Label();
+            this.lblModelo_675MS = new System.Windows.Forms.Label();
             this.lblDNI_675MS = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblDominio_675MS = new System.Windows.Forms.Label();
+            this.lblGestorVehiculos_675MS = new System.Windows.Forms.Label();
             this.txtDominio_675MS = new System.Windows.Forms.TextBox();
             this.dgvVehiculos_675MS = new System.Windows.Forms.DataGridView();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblchasis_675MS = new System.Windows.Forms.Label();
+            this.lblUltimaVTV_675MS = new System.Windows.Forms.Label();
             this.txtVersion_675MS = new System.Windows.Forms.TextBox();
             this.txtAnio_675MS = new System.Windows.Forms.TextBox();
             this.txtChasis_675MS = new System.Windows.Forms.TextBox();
+            this.lblIdioma675MS = new System.Windows.Forms.Label();
+            this.cmbIdiomas_675MS = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVehiculos_675MS)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,17 +60,17 @@
             this.cmbClientes_675MS.Size = new System.Drawing.Size(217, 24);
             this.cmbClientes_675MS.TabIndex = 42;
             // 
-            // label4
+            // lblAnio_675MS
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label4.Location = new System.Drawing.Point(808, 366);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(45, 23);
-            this.label4.TabIndex = 40;
-            this.label4.Text = "Año";
+            this.lblAnio_675MS.BackColor = System.Drawing.Color.Transparent;
+            this.lblAnio_675MS.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAnio_675MS.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblAnio_675MS.Location = new System.Drawing.Point(820, 366);
+            this.lblAnio_675MS.Name = "lblAnio_675MS";
+            this.lblAnio_675MS.Size = new System.Drawing.Size(45, 23);
+            this.lblAnio_675MS.TabIndex = 40;
+            this.lblAnio_675MS.Text = "Año";
+            this.lblAnio_675MS.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // btnVolver_675MS
             // 
@@ -106,17 +108,17 @@
             this.bntRegistrar_675MS.UseVisualStyleBackColor = false;
             this.bntRegistrar_675MS.Click += new System.EventHandler(this.bntRegistrar_675MS_Click);
             // 
-            // lblDuracion
+            // lblVersion_675MS
             // 
-            this.lblDuracion.AutoSize = true;
-            this.lblDuracion.BackColor = System.Drawing.Color.Transparent;
-            this.lblDuracion.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDuracion.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblDuracion.Location = new System.Drawing.Point(784, 337);
-            this.lblDuracion.Name = "lblDuracion";
-            this.lblDuracion.Size = new System.Drawing.Size(74, 23);
-            this.lblDuracion.TabIndex = 36;
-            this.lblDuracion.Text = "Versión";
+            this.lblVersion_675MS.BackColor = System.Drawing.Color.Transparent;
+            this.lblVersion_675MS.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVersion_675MS.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblVersion_675MS.Location = new System.Drawing.Point(791, 337);
+            this.lblVersion_675MS.Name = "lblVersion_675MS";
+            this.lblVersion_675MS.Size = new System.Drawing.Size(74, 23);
+            this.lblVersion_675MS.TabIndex = 36;
+            this.lblVersion_675MS.Text = "Versión";
+            this.lblVersion_675MS.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // txtModelo_675MS
             // 
@@ -125,53 +127,53 @@
             this.txtModelo_675MS.Size = new System.Drawing.Size(217, 22);
             this.txtModelo_675MS.TabIndex = 35;
             // 
-            // label3
+            // lblModelo_675MS
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label3.Location = new System.Drawing.Point(784, 313);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(75, 23);
-            this.label3.TabIndex = 34;
-            this.label3.Text = "Modelo";
-            // 
-            // lblDominio_675MS
-            // 
-            this.lblDominio_675MS.AutoSize = true;
-            this.lblDominio_675MS.BackColor = System.Drawing.Color.Transparent;
-            this.lblDominio_675MS.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDominio_675MS.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblDominio_675MS.Location = new System.Drawing.Point(758, 282);
-            this.lblDominio_675MS.Name = "lblDominio_675MS";
-            this.lblDominio_675MS.Size = new System.Drawing.Size(107, 23);
-            this.lblDominio_675MS.TabIndex = 32;
-            this.lblDominio_675MS.Text = "DNI Cliente";
+            this.lblModelo_675MS.BackColor = System.Drawing.Color.Transparent;
+            this.lblModelo_675MS.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblModelo_675MS.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblModelo_675MS.Location = new System.Drawing.Point(790, 313);
+            this.lblModelo_675MS.Name = "lblModelo_675MS";
+            this.lblModelo_675MS.Size = new System.Drawing.Size(75, 23);
+            this.lblModelo_675MS.TabIndex = 34;
+            this.lblModelo_675MS.Text = "Modelo";
+            this.lblModelo_675MS.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // lblDNI_675MS
             // 
-            this.lblDNI_675MS.AutoSize = true;
             this.lblDNI_675MS.BackColor = System.Drawing.Color.Transparent;
             this.lblDNI_675MS.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDNI_675MS.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblDNI_675MS.Location = new System.Drawing.Point(778, 253);
+            this.lblDNI_675MS.Location = new System.Drawing.Point(758, 282);
             this.lblDNI_675MS.Name = "lblDNI_675MS";
-            this.lblDNI_675MS.Size = new System.Drawing.Size(82, 23);
-            this.lblDNI_675MS.TabIndex = 31;
-            this.lblDNI_675MS.Text = "Dominio";
+            this.lblDNI_675MS.Size = new System.Drawing.Size(107, 23);
+            this.lblDNI_675MS.TabIndex = 32;
+            this.lblDNI_675MS.Text = "DNI Cliente";
+            this.lblDNI_675MS.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // label1
+            // lblDominio_675MS
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Black", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label1.Location = new System.Drawing.Point(861, 188);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(303, 35);
-            this.label1.TabIndex = 30;
-            this.label1.Text = "GESTOR DE VEHICULOS";
+            this.lblDominio_675MS.BackColor = System.Drawing.Color.Transparent;
+            this.lblDominio_675MS.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDominio_675MS.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblDominio_675MS.Location = new System.Drawing.Point(783, 253);
+            this.lblDominio_675MS.Name = "lblDominio_675MS";
+            this.lblDominio_675MS.Size = new System.Drawing.Size(82, 23);
+            this.lblDominio_675MS.TabIndex = 31;
+            this.lblDominio_675MS.Text = "Dominio";
+            this.lblDominio_675MS.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // lblGestorVehiculos_675MS
+            // 
+            this.lblGestorVehiculos_675MS.AutoSize = true;
+            this.lblGestorVehiculos_675MS.BackColor = System.Drawing.Color.Transparent;
+            this.lblGestorVehiculos_675MS.Font = new System.Drawing.Font("Segoe UI Black", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGestorVehiculos_675MS.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.lblGestorVehiculos_675MS.Location = new System.Drawing.Point(790, 188);
+            this.lblGestorVehiculos_675MS.Name = "lblGestorVehiculos_675MS";
+            this.lblGestorVehiculos_675MS.Size = new System.Drawing.Size(303, 35);
+            this.lblGestorVehiculos_675MS.TabIndex = 30;
+            this.lblGestorVehiculos_675MS.Text = "GESTOR DE VEHICULOS";
             // 
             // txtDominio_675MS
             // 
@@ -202,29 +204,29 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(220, 25);
             this.dateTimePicker1.TabIndex = 33;
             // 
-            // label2
+            // lblchasis_675MS
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label2.Location = new System.Drawing.Point(763, 393);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 23);
-            this.label2.TabIndex = 43;
-            this.label2.Text = "Nro Chasis";
+            this.lblchasis_675MS.BackColor = System.Drawing.Color.Transparent;
+            this.lblchasis_675MS.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblchasis_675MS.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblchasis_675MS.Location = new System.Drawing.Point(766, 393);
+            this.lblchasis_675MS.Name = "lblchasis_675MS";
+            this.lblchasis_675MS.Size = new System.Drawing.Size(99, 23);
+            this.lblchasis_675MS.TabIndex = 43;
+            this.lblchasis_675MS.Text = "Nro Chasis";
+            this.lblchasis_675MS.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // label5
+            // lblUltimaVTV_675MS
             // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label5.Location = new System.Drawing.Point(759, 420);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(106, 23);
-            this.label5.TabIndex = 44;
-            this.label5.Text = "Última VTV";
+            this.lblUltimaVTV_675MS.BackColor = System.Drawing.Color.Transparent;
+            this.lblUltimaVTV_675MS.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUltimaVTV_675MS.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblUltimaVTV_675MS.Location = new System.Drawing.Point(759, 420);
+            this.lblUltimaVTV_675MS.Name = "lblUltimaVTV_675MS";
+            this.lblUltimaVTV_675MS.Size = new System.Drawing.Size(106, 23);
+            this.lblUltimaVTV_675MS.TabIndex = 44;
+            this.lblUltimaVTV_675MS.Text = "Última VTV";
+            this.lblUltimaVTV_675MS.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // txtVersion_675MS
             // 
@@ -247,29 +249,52 @@
             this.txtChasis_675MS.Size = new System.Drawing.Size(217, 22);
             this.txtChasis_675MS.TabIndex = 47;
             // 
+            // lblIdioma675MS
+            // 
+            this.lblIdioma675MS.AutoSize = true;
+            this.lblIdioma675MS.BackColor = System.Drawing.Color.Transparent;
+            this.lblIdioma675MS.Font = new System.Drawing.Font("Segoe UI Black", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIdioma675MS.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblIdioma675MS.Location = new System.Drawing.Point(831, 26);
+            this.lblIdioma675MS.Name = "lblIdioma675MS";
+            this.lblIdioma675MS.Size = new System.Drawing.Size(115, 35);
+            this.lblIdioma675MS.TabIndex = 49;
+            this.lblIdioma675MS.Text = "IDIOMA";
+            // 
+            // cmbIdiomas_675MS
+            // 
+            this.cmbIdiomas_675MS.FormattingEnabled = true;
+            this.cmbIdiomas_675MS.Location = new System.Drawing.Point(952, 34);
+            this.cmbIdiomas_675MS.Name = "cmbIdiomas_675MS";
+            this.cmbIdiomas_675MS.Size = new System.Drawing.Size(141, 24);
+            this.cmbIdiomas_675MS.TabIndex = 48;
+            this.cmbIdiomas_675MS.SelectedIndexChanged += new System.EventHandler(this.cmbIdiomas_675MS_SelectedIndexChanged);
+            // 
             // FormVehiculos
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1134, 711);
+            this.ClientSize = new System.Drawing.Size(1134, 709);
+            this.Controls.Add(this.lblIdioma675MS);
+            this.Controls.Add(this.cmbIdiomas_675MS);
             this.Controls.Add(this.txtChasis_675MS);
             this.Controls.Add(this.txtAnio_675MS);
             this.Controls.Add(this.txtVersion_675MS);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblUltimaVTV_675MS);
+            this.Controls.Add(this.lblchasis_675MS);
             this.Controls.Add(this.cmbClientes_675MS);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lblAnio_675MS);
             this.Controls.Add(this.btnVolver_675MS);
             this.Controls.Add(this.btnModificar_675MS);
             this.Controls.Add(this.bntRegistrar_675MS);
-            this.Controls.Add(this.lblDuracion);
+            this.Controls.Add(this.lblVersion_675MS);
             this.Controls.Add(this.txtModelo_675MS);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblModelo_675MS);
             this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.lblDominio_675MS);
             this.Controls.Add(this.lblDNI_675MS);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblDominio_675MS);
+            this.Controls.Add(this.lblGestorVehiculos_675MS);
             this.Controls.Add(this.txtDominio_675MS);
             this.Controls.Add(this.dgvVehiculos_675MS);
             this.Name = "FormVehiculos";
@@ -284,23 +309,25 @@
         #endregion
 
         private System.Windows.Forms.ComboBox cmbClientes_675MS;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblAnio_675MS;
         private System.Windows.Forms.Button btnVolver_675MS;
         private System.Windows.Forms.Button btnModificar_675MS;
         private System.Windows.Forms.Button bntRegistrar_675MS;
-        private System.Windows.Forms.Label lblDuracion;
+        private System.Windows.Forms.Label lblVersion_675MS;
         private System.Windows.Forms.TextBox txtModelo_675MS;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label lblDominio_675MS;
+        private System.Windows.Forms.Label lblModelo_675MS;
         private System.Windows.Forms.Label lblDNI_675MS;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblDominio_675MS;
+        private System.Windows.Forms.Label lblGestorVehiculos_675MS;
         private System.Windows.Forms.TextBox txtDominio_675MS;
         private System.Windows.Forms.DataGridView dgvVehiculos_675MS;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblchasis_675MS;
+        private System.Windows.Forms.Label lblUltimaVTV_675MS;
         private System.Windows.Forms.TextBox txtVersion_675MS;
         private System.Windows.Forms.TextBox txtAnio_675MS;
         private System.Windows.Forms.TextBox txtChasis_675MS;
+        private System.Windows.Forms.Label lblIdioma675MS;
+        private System.Windows.Forms.ComboBox cmbIdiomas_675MS;
     }
 }

@@ -17,14 +17,6 @@ namespace BE
 			set { idTurno_675MS = value; }
 		}
 
-		private int dni_675MS;
-
-		public int Dni_675MS
-		{
-			get { return dni_675MS; }
-			set { dni_675MS = value; }
-		}
-
 
 		private string dominio_675MS;
 

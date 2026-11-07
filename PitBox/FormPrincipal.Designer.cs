@@ -34,8 +34,8 @@
             this.lblPassword_675MS = new System.Windows.Forms.Label();
             this.btnIngresar_675MS = new System.Windows.Forms.Button();
             this.bntRegistrar_675MS = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.cmbIdiomas_675MS = new System.Windows.Forms.ComboBox();
+            this.lblIdioma_675MS = new System.Windows.Forms.Label();
             this.btnSalir_675MS = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -104,25 +104,25 @@
             this.bntRegistrar_675MS.UseVisualStyleBackColor = false;
             this.bntRegistrar_675MS.Click += new System.EventHandler(this.bntRegistrar_675MS_Click);
             // 
-            // comboBox1
+            // cmbIdiomas_675MS
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(981, 24);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(141, 24);
-            this.comboBox1.TabIndex = 7;
+            this.cmbIdiomas_675MS.FormattingEnabled = true;
+            this.cmbIdiomas_675MS.Location = new System.Drawing.Point(981, 24);
+            this.cmbIdiomas_675MS.Name = "cmbIdiomas_675MS";
+            this.cmbIdiomas_675MS.Size = new System.Drawing.Size(141, 24);
+            this.cmbIdiomas_675MS.TabIndex = 7;
+            this.cmbIdiomas_675MS.SelectedIndexChanged += new System.EventHandler(this.cmbIdiomas_675MS_SelectedIndexChanged);
             // 
-            // label1
+            // lblIdioma_675MS
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Black", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(884, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(115, 35);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "IDIOMA";
+            this.lblIdioma_675MS.BackColor = System.Drawing.Color.Transparent;
+            this.lblIdioma_675MS.Font = new System.Drawing.Font("Segoe UI Black", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIdioma_675MS.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblIdioma_675MS.Location = new System.Drawing.Point(803, 15);
+            this.lblIdioma_675MS.Name = "lblIdioma_675MS";
+            this.lblIdioma_675MS.Size = new System.Drawing.Size(155, 35);
+            this.lblIdioma_675MS.TabIndex = 8;
+            this.lblIdioma_675MS.Text = "IDIOMA";
             // 
             // btnSalir_675MS
             // 
@@ -143,8 +143,8 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1134, 711);
             this.Controls.Add(this.btnSalir_675MS);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.lblIdioma_675MS);
+            this.Controls.Add(this.cmbIdiomas_675MS);
             this.Controls.Add(this.bntRegistrar_675MS);
             this.Controls.Add(this.btnIngresar_675MS);
             this.Controls.Add(this.lblPassword_675MS);
@@ -168,8 +168,8 @@
         private System.Windows.Forms.Label lblPassword_675MS;
         private System.Windows.Forms.Button btnIngresar_675MS;
         private System.Windows.Forms.Button bntRegistrar_675MS;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cmbIdiomas_675MS;
+        private System.Windows.Forms.Label lblIdioma_675MS;
         private System.Windows.Forms.Button btnSalir_675MS;
     }
 }

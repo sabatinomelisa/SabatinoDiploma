@@ -66,13 +66,7 @@ namespace BE
             set { idRol_675MS = value; }
         }
 
-        private string nombreRol_675MS;
 
-        public string NombreRol_675MS
-        {
-            get { return nombreRol_675MS; }
-            set { nombreRol_675MS = value; }
-        }
 
         private int idEmpleado_675MS;
 

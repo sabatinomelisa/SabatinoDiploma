@@ -38,7 +38,6 @@ namespace DAL
             {
                 TurnoBE turnoAuxiliar_675MS = new TurnoBE();
                 turnoAuxiliar_675MS.IdTurno_675MS = Convert.ToInt32(turnoBE["IdTurno"]);
-                turnoAuxiliar_675MS.Dni_675MS = Convert.ToInt32(turnoBE["DNI"]);
                 turnoAuxiliar_675MS.Dominio_675MS = turnoBE["Dominio"].ToString();
                 turnoAuxiliar_675MS.FechaHora_675MS = Convert.ToDateTime(turnoBE["FechaHora"]);
                 turnoAuxiliar_675MS.DuracionEstimada_675MS = Convert.ToInt32(turnoBE["DuracionEstimada"]);
@@ -72,7 +71,6 @@ namespace DAL
                     TurnoBE turno_675MS = new TurnoBE();
                     // Mapeamos todos los datos usando el nombre EXACTO de la columna en SQL
                     turno_675MS.IdTurno_675MS = Convert.ToInt32(fila_675MS["IdTurno"]);
-                    turno_675MS.Dni_675MS = Convert.ToInt32(fila_675MS["DNI"]);
                     turno_675MS.Dominio_675MS = fila_675MS["Dominio"].ToString();
                     turno_675MS.FechaHora_675MS = Convert.ToDateTime(fila_675MS["FechaHora"]);
                     turno_675MS.DuracionEstimada_675MS = Convert.ToInt32(fila_675MS["DuracionEstimada"]);
@@ -140,7 +138,6 @@ namespace DAL
                 List<SqlParameter> parametros = new List<SqlParameter>();
 
                 // Emvio el ID del turno que queremos dar de baja
-                parametros.Add(acceso_675MS.CrearParametro_675MS("@dni", turnoBE_675MS.Dni_675MS));
                 parametros.Add(acceso_675MS.CrearParametro_675MS("@dominio", turnoBE_675MS.Dominio_675MS));
                 parametros.Add(acceso_675MS.CrearParametro_675MS("@fechahora", turnoBE_675MS.FechaHora_675MS));
                 parametros.Add(acceso_675MS.CrearParametro_675MS("@duracionestimada", turnoBE_675MS.DuracionEstimada_675MS));

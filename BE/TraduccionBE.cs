@@ -25,12 +25,12 @@ namespace BE
             set { nombreControl_675MS = value; }
         }
 
-        private IdiomaBE idioma_675MS;
+        private int idIdioma_675MS;
 
-        public IdiomaBE Idioma_675MS
-{
-            get { return idioma_675MS; }
-            set { idioma_675MS = value; }
+        public int IdIdioma_675MS
+        {
+            get { return idIdioma_675MS; }
+            set { idIdioma_675MS = value; }
         }
 
         private string traduccion_675MS;

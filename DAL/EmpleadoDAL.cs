@@ -181,5 +181,39 @@ namespace DAL
                 acceso_675MS.Desconectar_675MS();
             }
         }
+
+        public EmpleadoBE ObtenerEmpleadoPorID_675MS(int idEmpleado_675MS)
+        {
+            Acceso acceso_675MS = new Acceso();
+            List<EmpleadoBE> empleados_675MS = new List<EmpleadoBE>();
+            List<SqlParameter> parametros = new List<SqlParameter>();
+
+            acceso_675MS.Conectar_675MS();
+
+            parametros.Add(acceso_675MS.CrearParametro_675MS("@IdEmpleado", idEmpleado_675MS));
+        
+
+            DataTable tabla_675MS = acceso_675MS.Leer_675MS("OBTENER_EMPLEADO_POR_ID",parametros);
+
+            foreach (DataRow row in tabla_675MS.Rows)
+            {
+                EmpleadoBE empleadoAuxiliar_675MS = new EmpleadoBE();
+                empleadoAuxiliar_675MS.IdEmpleado_675MS = int.Parse(row["IdEmpleado"].ToString());
+                empleadoAuxiliar_675MS.DniEmpleado_675MS = int.Parse(row["DNI"].ToString());
+                empleadoAuxiliar_675MS.Nombre_675MS = row["Nombre"].ToString();
+                empleadoAuxiliar_675MS.Apellido_675MS = row["Apellido"].ToString();
+                empleadoAuxiliar_675MS.Mail_675MS = row["Mail"].ToString();
+                empleadoAuxiliar_675MS.Domicilio_675MS = row["Domicilio"].ToString();
+                empleadoAuxiliar_675MS.Telefono_675MS = int.Parse(row["Telefono"].ToString());
+                empleadoAuxiliar_675MS.FechaNacimiento_675MS = Convert.ToDateTime(row["FechaNacimiento"]);
+                empleadoAuxiliar_675MS.DigitoVerificadorHorizontal_675MS = Convert.ToInt32(row["DigitoVerificadorHorizontal"]);
+                empleadoAuxiliar_675MS.Baja_675MS = Convert.ToInt32(row["BAJA"]);
+
+                empleados_675MS.Add(empleadoAuxiliar_675MS);
+            }
+
+            acceso_675MS.Desconectar_675MS();
+            return empleados_675MS[0];
+        }
     }
 }

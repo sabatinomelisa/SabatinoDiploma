@@ -149,14 +149,8 @@ namespace BLL
 
         public void RecalcularIntegridad_675MS()
         {
-            //sacar
-            MessageBox.Show("ENTRÓ A RECALCULAR INTEGRIDAD");
-
             
             List<ClienteBE> clientes_675MS = integridadDAL_675MS.ListarClientesParaIntegridad_675MS();
-
-            //sacar
-            MessageBox.Show("Cantidad de clientes: " + clientes_675MS.Count);
 
 
             foreach (ClienteBE cliente_675MS in clientes_675MS)
@@ -164,15 +158,6 @@ namespace BLL
                 int digitoHorizontal = CalcularDigitoHorizontalCliente_675MS(cliente_675MS);
                 integridadDAL_675MS.ActualizarDigitoHorizontalCliente_675MS(cliente_675MS.Dni_675MS, digitoHorizontal);
 
-                //Sacar
-
-                if (cliente_675MS.Dni_675MS == 112255447)
-                {
-                    MessageBox.Show(
-                        "DNI: " + cliente_675MS.Dni_675MS +
-                        "\nDVH calculado en recálculo: " + digitoHorizontal
-                    );
-                }
                 cliente_675MS.DigitoVerificadorHorizontal_675MS = digitoHorizontal;
             }
 

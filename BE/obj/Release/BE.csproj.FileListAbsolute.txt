@@ -1,0 +1,6 @@
+C:\Users\Morsicasa\source\repos\PitBox\BE\bin\Release\BE.dll
+C:\Users\Morsicasa\source\repos\PitBox\BE\bin\Release\BE.pdb
+C:\Users\Morsicasa\source\repos\PitBox\BE\obj\Release\BE.csproj.AssemblyReference.cache
+C:\Users\Morsicasa\source\repos\PitBox\BE\obj\Release\BE.csproj.CoreCompileInputs.cache
+C:\Users\Morsicasa\source\repos\PitBox\BE\obj\Release\BE.dll
+C:\Users\Morsicasa\source\repos\PitBox\BE\obj\Release\BE.pdb
