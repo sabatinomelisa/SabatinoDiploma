@@ -32,15 +32,15 @@
             this.lblPassword_675MS = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblIdEmpleado_675MS = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.lblIdioma_675MS = new System.Windows.Forms.Label();
+            this.cmbIdiomas_675MS = new System.Windows.Forms.ComboBox();
             this.bntRegistrar_675MS = new System.Windows.Forms.Button();
             this.txtUsuario_675MS = new System.Windows.Forms.TextBox();
             this.txtPassword_675MS = new System.Windows.Forms.TextBox();
-            this.txtDni_675MS = new System.Windows.Forms.TextBox();
-            this.lblResultado_675MS = new System.Windows.Forms.Label();
             this.txtxRepetirPass_675MS = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblRepetirPass_675MS = new System.Windows.Forms.Label();
+            this.btnVolver_675MS = new System.Windows.Forms.Button();
+            this.cmbDNIEmpleado_675MS = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // lblUsuario_675MS
@@ -54,6 +54,7 @@
             this.lblUsuario_675MS.Size = new System.Drawing.Size(131, 35);
             this.lblUsuario_675MS.TabIndex = 4;
             this.lblUsuario_675MS.Text = "USUARIO";
+            this.lblUsuario_675MS.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // lblPassword_675MS
             // 
@@ -61,11 +62,12 @@
             this.lblPassword_675MS.BackColor = System.Drawing.Color.Transparent;
             this.lblPassword_675MS.Font = new System.Drawing.Font("Segoe UI Black", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPassword_675MS.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblPassword_675MS.Location = new System.Drawing.Point(651, 283);
+            this.lblPassword_675MS.Location = new System.Drawing.Point(640, 283);
             this.lblPassword_675MS.Name = "lblPassword_675MS";
             this.lblPassword_675MS.Size = new System.Drawing.Size(189, 35);
             this.lblPassword_675MS.TabIndex = 5;
             this.lblPassword_675MS.Text = "CONTRASEÑA";
+            this.lblPassword_675MS.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // label1
             // 
@@ -85,31 +87,33 @@
             this.lblIdEmpleado_675MS.BackColor = System.Drawing.Color.Transparent;
             this.lblIdEmpleado_675MS.Font = new System.Drawing.Font("Segoe UI Black", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIdEmpleado_675MS.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblIdEmpleado_675MS.Location = new System.Drawing.Point(635, 367);
+            this.lblIdEmpleado_675MS.Location = new System.Drawing.Point(619, 367);
             this.lblIdEmpleado_675MS.Name = "lblIdEmpleado_675MS";
             this.lblIdEmpleado_675MS.Size = new System.Drawing.Size(210, 35);
             this.lblIdEmpleado_675MS.TabIndex = 7;
             this.lblIdEmpleado_675MS.Text = "DNI EMPLEADO";
+            this.lblIdEmpleado_675MS.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // label2
+            // lblIdioma_675MS
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Black", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label2.Location = new System.Drawing.Point(860, 20);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(115, 35);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "IDIOMA";
+            this.lblIdioma_675MS.BackColor = System.Drawing.Color.Transparent;
+            this.lblIdioma_675MS.Font = new System.Drawing.Font("Segoe UI Black", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIdioma_675MS.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblIdioma_675MS.Location = new System.Drawing.Point(822, 17);
+            this.lblIdioma_675MS.Name = "lblIdioma_675MS";
+            this.lblIdioma_675MS.Size = new System.Drawing.Size(151, 35);
+            this.lblIdioma_675MS.TabIndex = 10;
+            this.lblIdioma_675MS.Text = "IDIOMA:";
+            this.lblIdioma_675MS.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // comboBox1
+            // cmbIdiomas_675MS
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(981, 24);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(141, 24);
-            this.comboBox1.TabIndex = 9;
+            this.cmbIdiomas_675MS.FormattingEnabled = true;
+            this.cmbIdiomas_675MS.Location = new System.Drawing.Point(981, 24);
+            this.cmbIdiomas_675MS.Name = "cmbIdiomas_675MS";
+            this.cmbIdiomas_675MS.Size = new System.Drawing.Size(141, 24);
+            this.cmbIdiomas_675MS.TabIndex = 9;
+            this.cmbIdiomas_675MS.SelectedIndexChanged += new System.EventHandler(this.cmbIdiomas_675MS_SelectedIndexChanged);
             // 
             // bntRegistrar_675MS
             // 
@@ -138,24 +142,6 @@
             this.txtPassword_675MS.Size = new System.Drawing.Size(275, 22);
             this.txtPassword_675MS.TabIndex = 13;
             // 
-            // txtDni_675MS
-            // 
-            this.txtDni_675MS.Location = new System.Drawing.Point(808, 371);
-            this.txtDni_675MS.Name = "txtDni_675MS";
-            this.txtDni_675MS.Size = new System.Drawing.Size(275, 22);
-            this.txtDni_675MS.TabIndex = 15;
-            // 
-            // lblResultado_675MS
-            // 
-            this.lblResultado_675MS.AutoSize = true;
-            this.lblResultado_675MS.BackColor = System.Drawing.Color.Transparent;
-            this.lblResultado_675MS.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblResultado_675MS.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblResultado_675MS.Location = new System.Drawing.Point(600, 485);
-            this.lblResultado_675MS.Name = "lblResultado_675MS";
-            this.lblResultado_675MS.Size = new System.Drawing.Size(0, 29);
-            this.lblResultado_675MS.TabIndex = 15;
-            // 
             // txtxRepetirPass_675MS
             // 
             this.txtxRepetirPass_675MS.Location = new System.Drawing.Point(808, 329);
@@ -164,17 +150,38 @@
             this.txtxRepetirPass_675MS.Size = new System.Drawing.Size(275, 22);
             this.txtxRepetirPass_675MS.TabIndex = 14;
             // 
-            // label3
+            // lblRepetirPass_675MS
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Black", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label3.Location = new System.Drawing.Point(562, 324);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(299, 35);
-            this.label3.TabIndex = 16;
-            this.label3.Text = "REPETIR CONTRASEÑA";
+            this.lblRepetirPass_675MS.AutoSize = true;
+            this.lblRepetirPass_675MS.BackColor = System.Drawing.Color.Transparent;
+            this.lblRepetirPass_675MS.Font = new System.Drawing.Font("Segoe UI Black", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRepetirPass_675MS.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblRepetirPass_675MS.Location = new System.Drawing.Point(530, 324);
+            this.lblRepetirPass_675MS.Name = "lblRepetirPass_675MS";
+            this.lblRepetirPass_675MS.Size = new System.Drawing.Size(299, 35);
+            this.lblRepetirPass_675MS.TabIndex = 16;
+            this.lblRepetirPass_675MS.Text = "REPETIR CONTRASEÑA";
+            this.lblRepetirPass_675MS.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // btnVolver_675MS
+            // 
+            this.btnVolver_675MS.BackColor = System.Drawing.Color.LightCoral;
+            this.btnVolver_675MS.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVolver_675MS.Location = new System.Drawing.Point(592, 455);
+            this.btnVolver_675MS.Name = "btnVolver_675MS";
+            this.btnVolver_675MS.Size = new System.Drawing.Size(491, 37);
+            this.btnVolver_675MS.TabIndex = 17;
+            this.btnVolver_675MS.Text = "Volver";
+            this.btnVolver_675MS.UseVisualStyleBackColor = false;
+            this.btnVolver_675MS.Click += new System.EventHandler(this.btnVolver_675MS_Click);
+            // 
+            // cmbDNIEmpleado_675MS
+            // 
+            this.cmbDNIEmpleado_675MS.FormattingEnabled = true;
+            this.cmbDNIEmpleado_675MS.Location = new System.Drawing.Point(808, 372);
+            this.cmbDNIEmpleado_675MS.Name = "cmbDNIEmpleado_675MS";
+            this.cmbDNIEmpleado_675MS.Size = new System.Drawing.Size(275, 24);
+            this.cmbDNIEmpleado_675MS.TabIndex = 18;
             // 
             // FormRegistro
             // 
@@ -182,15 +189,15 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1134, 711);
+            this.Controls.Add(this.cmbDNIEmpleado_675MS);
+            this.Controls.Add(this.btnVolver_675MS);
             this.Controls.Add(this.txtxRepetirPass_675MS);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.lblResultado_675MS);
-            this.Controls.Add(this.txtDni_675MS);
+            this.Controls.Add(this.lblRepetirPass_675MS);
             this.Controls.Add(this.txtPassword_675MS);
             this.Controls.Add(this.txtUsuario_675MS);
             this.Controls.Add(this.bntRegistrar_675MS);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.lblIdioma_675MS);
+            this.Controls.Add(this.cmbIdiomas_675MS);
             this.Controls.Add(this.lblIdEmpleado_675MS);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblPassword_675MS);
@@ -211,14 +218,14 @@
         private System.Windows.Forms.Label lblPassword_675MS;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblIdEmpleado_675MS;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label lblIdioma_675MS;
+        private System.Windows.Forms.ComboBox cmbIdiomas_675MS;
         private System.Windows.Forms.Button bntRegistrar_675MS;
         private System.Windows.Forms.TextBox txtUsuario_675MS;
         private System.Windows.Forms.TextBox txtPassword_675MS;
-        private System.Windows.Forms.TextBox txtDni_675MS;
-        private System.Windows.Forms.Label lblResultado_675MS;
         private System.Windows.Forms.TextBox txtxRepetirPass_675MS;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblRepetirPass_675MS;
+        private System.Windows.Forms.Button btnVolver_675MS;
+        private System.Windows.Forms.ComboBox cmbDNIEmpleado_675MS;
     }
 }

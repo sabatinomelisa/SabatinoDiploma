@@ -1,5 +1,6 @@
 ﻿using BE;
 using BLL;
+using Servicios.Observer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,8 +13,13 @@ using System.Windows.Forms;
 
 namespace PitBox
 {
-    public partial class FormVehiculos : Form
+    public partial class FormVehiculos : Form, IObserverIdioma
     {
+        List<IdiomaBE> idiomas_675MS = new List<IdiomaBE>();
+        IdiomaBLL idiomaBLL_675MS= new IdiomaBLL();
+        List<TraduccionBE> traducciones_675MS = new List<TraduccionBE>();
+        private bool cargandoIdiomas_675MS = false;
+
         public FormVehiculos()
         {
             InitializeComponent();
@@ -38,6 +44,48 @@ namespace PitBox
 
             ActualizarPantalla_675MS();
 
+            TratamientoIdioma.Instancia.Suscribir(this);
+
+            CargarComboIdiomas_675MS();
+
+        }
+
+        private void CargarComboIdiomas_675MS()
+        {
+            try
+            {
+                cargandoIdiomas_675MS = true;
+
+                idiomas_675MS = idiomaBLL_675MS.ListarIdiomas_675MS();
+
+                cmbIdiomas_675MS.DataSource = null;
+                cmbIdiomas_675MS.DisplayMember = "Nombre_675MS";
+                cmbIdiomas_675MS.ValueMember = "Id_675MS";
+                cmbIdiomas_675MS.DataSource = idiomas_675MS;
+
+                if (TratamientoIdioma.Instancia.IdiomaActual_675MS != null)
+                {
+                    cmbIdiomas_675MS.SelectedValue =
+                        TratamientoIdioma.Instancia.IdiomaActual_675MS.Id_675MS;
+                }
+                else if (idiomas_675MS.Count > 0)
+                {
+                    cmbIdiomas_675MS.SelectedIndex = 0;
+
+                    TratamientoIdioma.Instancia.IdiomaActual_675MS =
+                        idiomas_675MS[0];
+                }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("No se pudieron cargar los idiomas: " + exception.Message);
+            }
+            finally
+            {
+                cargandoIdiomas_675MS = false;
+            }
+
+            ActualizarIdioma_675MS();
         }
 
         private void CargoClientes_675MS()
@@ -240,6 +288,80 @@ namespace PitBox
                 MessageBox.Show("El vehículo se ha modificado de manera correcta.");
             }
 
+        }
+
+        public void ActualizarIdioma_675MS()
+        {
+            if (TratamientoIdioma.Instancia.IdiomaActual_675MS == null)
+                return;
+
+            TraduccionBLL traduccionBLL_675MS = new TraduccionBLL();
+
+            int idiomaSeleccionado = TratamientoIdioma.Instancia.IdiomaActual_675MS.Id_675MS;
+
+            List<TraduccionBE> traducciones = traduccionBLL_675MS.Listar_675MS(idiomaSeleccionado);
+
+            foreach (TraduccionBE traduccion in traducciones)
+            {
+                switch (traduccion.NombreControl_675MS)
+                {
+                    case "lblDNI_675MS":
+                        lblDNI_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+                    case "lblAnio_675MS":
+                        lblAnio_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+                    case "lblchasis_675MS":
+                        lblchasis_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+                    case "lblDominio_675MS":
+                        lblDominio_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+                    case "lblGestorVehiculos_675MS":
+                        lblGestorVehiculos_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+                    case "lblIdioma675MS":
+                        lblIdioma675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+                    case "lblModelo_675MS":
+                        lblModelo_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+                    case "lblVersion_675MS":
+                        lblVersion_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+                    case "lblUltimaVTV_675MS":
+                        lblUltimaVTV_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+                    case "bntRegistrar_675MS":
+                        bntRegistrar_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+                    case "btnModificar_675MS":
+                        btnModificar_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+                    case "btnVolver_675MS":
+                        btnVolver_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+
+                }
+            }
+        }
+
+        private void cmbIdiomas_675MS_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cargandoIdiomas_675MS)
+                return;
+           
+            if (cmbIdiomas_675MS.SelectedItem == null)
+                return;
+
+            IdiomaBE idioma = cmbIdiomas_675MS.SelectedItem as IdiomaBE;
+
+            if (idioma == null)
+                return;
+
+            TratamientoIdioma.Instancia.IdiomaActual_675MS = idioma;
+
+            TratamientoIdioma.Instancia.Notificar();
         }
     }
 }

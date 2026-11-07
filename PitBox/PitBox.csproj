@@ -90,6 +90,12 @@
     <Compile Include="FormMenuEmpleado.Designer.cs">
       <DependentUpon>FormMenuEmpleado.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormRoles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRoles.Designer.cs">
+      <DependentUpon>FormRoles.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormTurnos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +113,12 @@
     </Compile>
     <Compile Include="FormVehiculos.Designer.cs">
       <DependentUpon>FormVehiculos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormVTV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormVTV.Designer.cs">
+      <DependentUpon>FormVTV.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -133,6 +145,9 @@
       <DependentUpon>FormRegistro.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormRoles.resx">
+      <DependentUpon>FormRoles.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormTurnos.resx">
       <DependentUpon>FormTurnos.cs</DependentUpon>
     </EmbeddedResource>
@@ -141,6 +156,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormVehiculos.resx">
       <DependentUpon>FormVehiculos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormVTV.resx">
+      <DependentUpon>FormVTV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

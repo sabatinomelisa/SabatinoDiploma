@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CalculadorDigitoVerificador.cs" />
+    <Compile Include="CrearPDF.cs" />
     <Compile Include="GestorXML.cs" />
     <Compile Include="Observer\IObserverIdioma.cs" />
     <Compile Include="Observer\IObserverSubjectIdioma.cs" />

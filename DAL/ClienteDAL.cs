@@ -135,6 +135,43 @@ namespace DAL
                 acceso_675MS.Desconectar_675MS();
             }
         }
-    
+
+        public ClienteBE ConsultaPorDNI_675MS(int dniValidado_675MS)
+        {
+            Acceso acceso_675MS = new Acceso();
+            acceso_675MS.Conectar_675MS();
+
+            try
+            {
+                List<SqlParameter> parametros = new List<SqlParameter>();
+                parametros.Add(acceso_675MS.CrearParametro_675MS("@DNI", dniValidado_675MS)); 
+
+                DataTable tabla_675MS = acceso_675MS.Leer_675MS("OBTENER_CLIENTE_POR_DNI", parametros);
+
+                // Si encontró al menos un registro, devuelvo el objeto
+                if (tabla_675MS.Rows.Count > 0)
+                {
+                    DataRow fila_675MS = tabla_675MS.Rows[0];
+                    ClienteBE cliente_675MS = new ClienteBE();
+
+                    cliente_675MS.Dni_675MS = Convert.ToInt32(fila_675MS["Dni"]);
+                    cliente_675MS.Nombre_675MS = fila_675MS["Nombre"].ToString();
+                    cliente_675MS.Apellido_675MS = fila_675MS["Apellido"].ToString();
+                    cliente_675MS.FechaNacimiento_675MS = Convert.ToDateTime(fila_675MS["FechaNacimiento"]);
+                    cliente_675MS.Mail_675MS = fila_675MS["Mail"].ToString();
+                    cliente_675MS.Domicilio_675MS = fila_675MS["Domicilio"].ToString();
+                    cliente_675MS.Telefono_675MS = Convert.ToInt32(fila_675MS["Telefono"]);
+
+                    return cliente_675MS;
+                }
+
+                // Si no existe, devuelvo null
+                return null;
+            }
+            finally
+            {
+                acceso_675MS.Desconectar_675MS();
+            }
+        }
     }
 }

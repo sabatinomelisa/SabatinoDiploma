@@ -11,6 +11,52 @@ namespace DAL
 {
     public class TraduccionDAL
     {
+        public int AltaTraduccionDAL_675MS(TraduccionBE nuevaTraduccion_675MS)
+        {
+            Acceso acceso_675MS = new Acceso();
+            acceso_675MS.Conectar_675MS();
+
+            try
+            {
+                List<SqlParameter> parametros = new List<SqlParameter>();
+
+                parametros.Add(acceso_675MS.CrearParametro_675MS("@NombreControl", nuevaTraduccion_675MS.NombreControl_675MS));
+                parametros.Add(acceso_675MS.CrearParametro_675MS("@Traduccion", nuevaTraduccion_675MS.Traduccion_675MS));
+                parametros.Add(acceso_675MS.CrearParametro_675MS("@IdIdioma", nuevaTraduccion_675MS.IdIdioma_675MS));
+
+
+                int filasAfectadas_675MS = acceso_675MS.Escribir_675MS("ALTA_TRADUCCION", parametros);
+
+                return filasAfectadas_675MS;
+            }
+            finally
+            {
+                acceso_675MS.Desconectar_675MS();
+            }
+        }
+
+        public int BorrarTraduccionDAL_675MS(int traduccionEliminar_675MS)
+        {
+            Acceso acceso_675MS = new Acceso();
+            acceso_675MS.Conectar_675MS();
+
+            try
+            {
+                List<SqlParameter> parametros = new List<SqlParameter>();
+                
+                parametros.Add(acceso_675MS.CrearParametro_675MS("@Id", traduccionEliminar_675MS));
+
+
+                int filasAfectadas_675MS = acceso_675MS.Escribir_675MS("BAJA_TRADUCCION", parametros);
+
+                return filasAfectadas_675MS;
+            }
+            finally
+            {
+                acceso_675MS.Desconectar_675MS();
+            }
+        }
+
         public List<TraduccionBE> ListarTraducciones_675MS(int idiomaSel_675MS)
         {
             Acceso acceso_675MS = new Acceso();
@@ -37,6 +83,29 @@ namespace DAL
             acceso_675MS.Desconectar_675MS();
 
             return traducciones_675MS;
+        }
+
+        public int ModificarTraduccionDAL_675MS(TraduccionBE traduccionModificada_675MS)
+        {
+            Acceso acceso_675MS = new Acceso();
+            acceso_675MS.Conectar_675MS();
+
+            try
+            {
+                List<SqlParameter> parametros = new List<SqlParameter>();
+
+                parametros.Add(acceso_675MS.CrearParametro_675MS("@Id", traduccionModificada_675MS.Id_675MS));
+                parametros.Add(acceso_675MS.CrearParametro_675MS("@nombreControl", traduccionModificada_675MS.NombreControl_675MS));
+                parametros.Add(acceso_675MS.CrearParametro_675MS("@traduccion", traduccionModificada_675MS.Traduccion_675MS));
+
+                int filasAfectadas_675MS = acceso_675MS.Escribir_675MS("MODIFICAR_TRADUCCION", parametros);
+
+                return filasAfectadas_675MS;
+            }
+            finally
+            {
+                acceso_675MS.Desconectar_675MS();
+            }
         }
     }
 }

@@ -65,7 +65,7 @@ namespace BLL
                 throw new Exception("Usuario inexistente.");
             }
 
-            if (usuario_675MS.Bloqueado_675MS  == "S")
+            if (usuario_675MS.Bloqueado_675MS  == "1")
             {
                 bitacoraBLL_675MS.Registrar_675MS(username_675MS, "LOGIN_FALLIDO", "Seguridad", "El usuario está bloqueado.");
                 throw new Exception("El usuario está bloqueado.");
@@ -120,6 +120,8 @@ namespace BLL
 
             ValidarDatosRegistro_675MS(usuario_675MS);
             usuario_675MS.Password_675MS = Seguridad.GenerarHash_675MS(usuario_675MS.Password_675MS);
+            // Calculo y asigno el dígito verificador horizontal al cliente
+            usuario_675MS.DigitoVerificadorHorizontal_675MS = CalcularDVHUsuario_675MS(usuario_675MS);
 
             int resultado_675MS = usuarioDAL_675MS.AltaUsuario_675MS(usuario_675MS);
 
@@ -154,6 +156,41 @@ namespace BLL
             List<UsuarioBloqueadoBE> usuariosBloqueados_675MS = usuarioDAL_675MS.ListarUsuariosBloqueados_675MS();
 
             return usuariosBloqueados_675MS;
+        }
+
+        private int CalcularDVHUsuario_675MS(UsuarioBE usuario_675MS)
+        {
+            CalculadorDigitoVerificador calculador_675MS = new CalculadorDigitoVerificador();
+
+            return calculador_675MS.CalcularHorizontal_675MS(
+                usuario_675MS.Username_675MS.ToString(),
+                usuario_675MS.Password_675MS,
+                usuario_675MS.FechaCreacion_675MS.ToString("yyyyMMdd"),
+                usuario_675MS.Bloqueado_675MS,
+                usuario_675MS.IntentosFallidos_675MS.ToString(),
+                usuario_675MS.SolicitudDesbloqueo_675MS.ToString(),
+                usuario_675MS.IdRol_675MS.ToString(),
+                usuario_675MS.IdEmpleado_675MS.ToString()
+
+            );
+        }
+
+        public int ActivarUsuario(int idUsuario_675MS)
+        {
+            usuarioDAL_675MS = new UsuarioDAL();
+            UsuarioBE usuario_675MS = usuarioDAL_675MS.ObtenerUsuarioPorId_675MS(idUsuario_675MS);
+
+            if (usuario_675MS == null)
+            {
+                throw new Exception("No se encontró el usuario para activar.");
+            }
+
+            usuario_675MS.Bloqueado_675MS = "0";
+
+
+            usuario_675MS.DigitoVerificadorHorizontal_675MS = CalcularDVHUsuario_675MS(usuario_675MS);
+
+            return usuarioDAL_675MS.ActualizarUsuarioConDVH_675MS(usuario_675MS);
         }
     }
 }

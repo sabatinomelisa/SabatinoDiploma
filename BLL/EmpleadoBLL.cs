@@ -73,6 +73,16 @@ namespace BLL
             return empleadoDAL675MS.ModificarEmpleadoDAL_675MS(empleadoModificado_675MS);
         }
 
+        public EmpleadoBE ObtenerEmpleadoPorId_675MS(int idEmpleado_675MS)
+        {
+            //Instancio la DAL
+            empleadoDAL675MS = new EmpleadoDAL();
+
+            EmpleadoBE empleado_675MS = empleadoDAL675MS.ObtenerEmpleadoPorID_675MS(idEmpleado_675MS);
+
+            return empleado_675MS;
+        }
+
         public int ReactivarEmpleado_675MS(int idEmpleadoBaja_675MS)
         {
             empleadoDAL675MS = new EmpleadoDAL();

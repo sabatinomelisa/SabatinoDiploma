@@ -1,5 +1,6 @@
 ﻿using BE;
 using BLL;
+using Servicios.Observer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,7 +13,7 @@ using System.Windows.Forms;
 
 namespace PitBox
 {
-    public partial class FormEmpleado : Form
+    public partial class FormEmpleado : Form, IObserverIdioma
     {
         public FormEmpleado()
         {
@@ -23,6 +24,12 @@ namespace PitBox
 
         // Instancio a la BLL
         EmpleadoBLL empleadoBLL_675MS = new EmpleadoBLL();
+        //Manejo de Idiomas
+        List<IdiomaBE> idiomas_675MS = new List<IdiomaBE>();
+        IdiomaBLL idiomaBLL_675MS = new IdiomaBLL();
+        List<TraduccionBE> traducciones_675MS = new List<TraduccionBE>();
+        private bool cargandoIdiomas_675MS = false;
+
         private void lblDNI_675MS_Click(object sender, EventArgs e)
         {
 
@@ -117,8 +124,115 @@ namespace PitBox
             //Suscribo al evento CellFormatting para mostrar el campo BAJA con el estado correspondiente
             dgvEmpleados_675MS.CellFormatting += dgvEmpleados_675MS_CellFormatting;
 
+            //Suscribo al evento del observer
+            TratamientoIdioma.Instancia.Suscribir(this);
+            //Cargo combo con los idiomas del sistema
+            CargarComboIdiomas_675MS();
+
             ActualizarPantalla_675MS();
         }
+
+        private void CargarComboIdiomas_675MS()
+        {
+            try
+            {
+                cargandoIdiomas_675MS = true;
+
+                idiomas_675MS = idiomaBLL_675MS.ListarIdiomas_675MS();
+
+                cmbIdiomas_675MS.DataSource = null;
+                cmbIdiomas_675MS.DisplayMember = "Nombre_675MS";
+                cmbIdiomas_675MS.ValueMember = "Id_675MS";
+                cmbIdiomas_675MS.DataSource = idiomas_675MS;
+
+                if (TratamientoIdioma.Instancia.IdiomaActual_675MS != null)
+                {
+                    cmbIdiomas_675MS.SelectedValue =
+                        TratamientoIdioma.Instancia.IdiomaActual_675MS.Id_675MS;
+                }
+                else if (idiomas_675MS.Count > 0)
+                {
+                    cmbIdiomas_675MS.SelectedIndex = 0;
+
+                    TratamientoIdioma.Instancia.IdiomaActual_675MS =
+                        idiomas_675MS[0];
+                }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("No se pudieron cargar los idiomas: " + exception.Message);
+            }
+            finally
+            {
+                cargandoIdiomas_675MS = false;
+            }
+
+            ActualizarIdioma_675MS();
+        }
+
+        public void ActualizarIdioma_675MS()
+        {
+            if (TratamientoIdioma.Instancia.IdiomaActual_675MS == null)
+                return;
+
+            TraduccionBLL traduccionBLL_675MS = new TraduccionBLL();
+
+            int idiomaSeleccionado =
+                TratamientoIdioma.Instancia.IdiomaActual_675MS.Id_675MS;
+
+            List<TraduccionBE> traducciones =
+                traduccionBLL_675MS.Listar_675MS(idiomaSeleccionado);
+
+            foreach (TraduccionBE traduccion in traducciones)
+            {
+                switch (traduccion.NombreControl_675MS)
+                {
+                    case "lblIdioma_675MS":
+                        lblIdioma_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+                    case "lblApellido_675MS":
+                        lblApellido_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+                    case "lblDNI_675MS":
+                        lblDNI_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+                    case "lblDomicilio_675MS":
+                        lblDomicilio_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+                    case "lblFechadeNacimiento_675MS":
+                        lblFechadeNacimiento_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+                    case "lblGestionEmpleados_675MS":
+                        lblGestionEmpleados_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+                    case "lblNombre_675MS":
+                        lblNombre_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+                    case "lblMail_675MS":
+                        lblMail_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+                    case "lblTelefono_675MS":
+                        lblTelefono_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+                    case "bntRegistrar_675MS":
+                        bntRegistrar_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+                    case "btnBaja_675MS":
+                        btnBaja_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+                    case "btnModificar_675MS":
+                        btnModificar_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+                    case "btnVolver_675MS":
+                        btnVolver_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+                    case "btnReactivar_675MS":
+                        btnReactivar_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+                }
+            }
+        }
+
 
         private void dgvEmpleados_675MS_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
@@ -218,6 +332,7 @@ namespace PitBox
                 empleadoSeleccionado_675MS.Telefono_675MS = Convert.ToInt32(dgvEmpleados_675MS.CurrentRow.Cells["Telefono_675MS"].Value);
                 empleadoSeleccionado_675MS.DigitoVerificadorHorizontal_675MS = Convert.ToInt32(dgvEmpleados_675MS.CurrentRow.Cells["DigitoVerificadorHorizontal_675MS"].Value);
                 empleadoSeleccionado_675MS.Baja_675MS = Convert.ToInt32(dgvEmpleados_675MS.CurrentRow.Cells["Baja_675MS"].Value);
+                empleadoSeleccionado_675MS.IdEmpleado_675MS = Convert.ToInt32(dgvEmpleados_675MS.CurrentRow.Cells["IdEmpleado_675MS"].Value);
 
                 // Vuelco los datos en los TextBox del panel izquierdo de la interfaz
                 txtDNI_675MS.Text = empleadoSeleccionado_675MS.DniEmpleado_675MS.ToString();
@@ -233,7 +348,15 @@ namespace PitBox
 
         private void btnBaja_675MS_Click(object sender, EventArgs e)
         {
+            // Validamos que realmente haya una fila seleccionada en la grilla
+            if (dgvEmpleados_675MS.CurrentRow == null)
+            {
+                MessageBox.Show("Seleccione un empleado de la grilla para inactivar.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             int idEmpleadoBaja_675MS = Convert.ToInt32(dgvEmpleados_675MS.CurrentRow.Cells["IdEmpleado_675MS"].Value);
+            empleadoBLL_675MS = new EmpleadoBLL();
             empleadoBLL_675MS = new EmpleadoBLL();
 
             int resultado_675MS = empleadoBLL_675MS.BajaEmpleado_675MS(idEmpleadoBaja_675MS);
@@ -251,10 +374,17 @@ namespace PitBox
 
         private void btnReactivar_675MS_Click(object sender, EventArgs e)
         {
-            int idEmpleadoBaja_675MS = Convert.ToInt32(dgvEmpleados_675MS.CurrentRow.Cells["IdEmpleado_675MS"].Value);
-            empleadoBLL_675MS = new EmpleadoBLL();
+            // Validamos que realmente haya una fila seleccionada en la grilla
+            if (dgvEmpleados_675MS.CurrentRow == null)
+            {
+                MessageBox.Show("Seleccione un empleado de la grilla para reactivar.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-            int resultado_675MS = empleadoBLL_675MS.ReactivarEmpleado_675MS(idEmpleadoBaja_675MS);
+            int idEmpleadoReactivar_675MS = Convert.ToInt32(dgvEmpleados_675MS.CurrentRow.Cells["IdEmpleado_675MS"].Value);
+            
+            empleadoBLL_675MS = new EmpleadoBLL();
+            int resultado_675MS = empleadoBLL_675MS.ReactivarEmpleado_675MS(idEmpleadoReactivar_675MS);
 
             if (resultado_675MS == -1)
             {
@@ -265,6 +395,24 @@ namespace PitBox
                 ActualizarPantalla_675MS();
                 MessageBox.Show("El empleado se ha reactivado de manera correcta.");
             }
+        }
+
+        private void cmbIdiomas_675MS_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cargandoIdiomas_675MS)
+                return;
+
+            if (cmbIdiomas_675MS.SelectedItem == null)
+                return;
+
+            IdiomaBE idioma = cmbIdiomas_675MS.SelectedItem as IdiomaBE;
+
+            if (idioma == null)
+                return;
+
+            TratamientoIdioma.Instancia.IdiomaActual_675MS = idioma;
+
+            TratamientoIdioma.Instancia.Notificar();
         }
     }
 }

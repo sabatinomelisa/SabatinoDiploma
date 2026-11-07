@@ -11,7 +11,7 @@ namespace BLL
     public class VehiculoBLL
     {
         VehiculoDAL vehiculoDAL_675MS;
-        public List<string> ListarPatentes()
+        public List<string> ListarPatentes_675MS()
         {
             vehiculoDAL_675MS = new VehiculoDAL();
 

@@ -44,9 +44,9 @@
             this.dgvtraducciones_675MS = new System.Windows.Forms.DataGridView();
             this.lblNombreIdioma_675MS = new System.Windows.Forms.Label();
             this.txtNombreIdioma_675MS = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnBorrarIdioma_675MS = new System.Windows.Forms.Button();
+            this.btnModificarIdioma_675MS = new System.Windows.Forms.Button();
+            this.btnRegistrarIdioma_675MS = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvIdiomas_675MS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvtraducciones_675MS)).BeginInit();
             this.SuspendLayout();
@@ -73,6 +73,7 @@
             this.btnBorrar_675MS.TabIndex = 42;
             this.btnBorrar_675MS.Text = "Borrar Traducción";
             this.btnBorrar_675MS.UseVisualStyleBackColor = false;
+            this.btnBorrar_675MS.Click += new System.EventHandler(this.btnBorrar_675MS_Click);
             // 
             // btnModificar_675MS
             // 
@@ -84,6 +85,7 @@
             this.btnModificar_675MS.TabIndex = 41;
             this.btnModificar_675MS.Text = "Modificar Traduccion";
             this.btnModificar_675MS.UseVisualStyleBackColor = false;
+            this.btnModificar_675MS.Click += new System.EventHandler(this.btnModificar_675MS_Click);
             // 
             // bntRegistrar_675MS
             // 
@@ -95,6 +97,7 @@
             this.bntRegistrar_675MS.TabIndex = 40;
             this.bntRegistrar_675MS.Text = "Registrar Traducción";
             this.bntRegistrar_675MS.UseVisualStyleBackColor = false;
+            this.bntRegistrar_675MS.Click += new System.EventHandler(this.bntRegistrar_675MS_Click);
             // 
             // lblTraduccion
             // 
@@ -222,41 +225,41 @@
             this.txtNombreIdioma_675MS.Size = new System.Drawing.Size(217, 22);
             this.txtNombreIdioma_675MS.TabIndex = 49;
             // 
-            // button1
+            // btnBorrarIdioma_675MS
             // 
-            this.button1.BackColor = System.Drawing.Color.MistyRose;
-            this.button1.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(885, 312);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(217, 30);
-            this.button1.TabIndex = 53;
-            this.button1.Text = "Borrar Idioma";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnBorrarIdioma_675MS.BackColor = System.Drawing.Color.MistyRose;
+            this.btnBorrarIdioma_675MS.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBorrarIdioma_675MS.Location = new System.Drawing.Point(885, 312);
+            this.btnBorrarIdioma_675MS.Name = "btnBorrarIdioma_675MS";
+            this.btnBorrarIdioma_675MS.Size = new System.Drawing.Size(217, 30);
+            this.btnBorrarIdioma_675MS.TabIndex = 53;
+            this.btnBorrarIdioma_675MS.Text = "Borrar Idioma";
+            this.btnBorrarIdioma_675MS.UseVisualStyleBackColor = false;
+            this.btnBorrarIdioma_675MS.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // btnModificarIdioma_675MS
             // 
-            this.button2.BackColor = System.Drawing.Color.LemonChiffon;
-            this.button2.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(885, 281);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(217, 30);
-            this.button2.TabIndex = 52;
-            this.button2.Text = "Modificar Idioma";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnModificarIdioma_675MS.BackColor = System.Drawing.Color.LemonChiffon;
+            this.btnModificarIdioma_675MS.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificarIdioma_675MS.Location = new System.Drawing.Point(885, 281);
+            this.btnModificarIdioma_675MS.Name = "btnModificarIdioma_675MS";
+            this.btnModificarIdioma_675MS.Size = new System.Drawing.Size(217, 30);
+            this.btnModificarIdioma_675MS.TabIndex = 52;
+            this.btnModificarIdioma_675MS.Text = "Modificar Idioma";
+            this.btnModificarIdioma_675MS.UseVisualStyleBackColor = false;
+            this.btnModificarIdioma_675MS.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button3
+            // btnRegistrarIdioma_675MS
             // 
-            this.button3.BackColor = System.Drawing.Color.Aquamarine;
-            this.button3.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(885, 251);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(217, 30);
-            this.button3.TabIndex = 51;
-            this.button3.Text = "Registrar Idioma";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnRegistrarIdioma_675MS.BackColor = System.Drawing.Color.Aquamarine;
+            this.btnRegistrarIdioma_675MS.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistrarIdioma_675MS.Location = new System.Drawing.Point(885, 251);
+            this.btnRegistrarIdioma_675MS.Name = "btnRegistrarIdioma_675MS";
+            this.btnRegistrarIdioma_675MS.Size = new System.Drawing.Size(217, 30);
+            this.btnRegistrarIdioma_675MS.TabIndex = 51;
+            this.btnRegistrarIdioma_675MS.Text = "Registrar Idioma";
+            this.btnRegistrarIdioma_675MS.UseVisualStyleBackColor = false;
+            this.btnRegistrarIdioma_675MS.Click += new System.EventHandler(this.button3_Click);
             // 
             // FormIdiomas
             // 
@@ -264,9 +267,9 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1134, 711);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnBorrarIdioma_675MS);
+            this.Controls.Add(this.btnModificarIdioma_675MS);
+            this.Controls.Add(this.btnRegistrarIdioma_675MS);
             this.Controls.Add(this.lblNombreIdioma_675MS);
             this.Controls.Add(this.txtNombreIdioma_675MS);
             this.Controls.Add(this.dgvtraducciones_675MS);
@@ -312,8 +315,8 @@
         private System.Windows.Forms.DataGridView dgvtraducciones_675MS;
         private System.Windows.Forms.Label lblNombreIdioma_675MS;
         private System.Windows.Forms.TextBox txtNombreIdioma_675MS;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnBorrarIdioma_675MS;
+        private System.Windows.Forms.Button btnModificarIdioma_675MS;
+        private System.Windows.Forms.Button btnRegistrarIdioma_675MS;
     }
 }

@@ -1,5 +1,6 @@
 ﻿using BE;
 using BLL;
+using Servicios.Observer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,8 +14,13 @@ using System.Xml.Schema;
 
 namespace PitBox
 {
-    public partial class FormTurnos : Form
+    public partial class FormTurnos : Form, IObserverIdioma
     {
+        List<IdiomaBE> idiomas_675MS = new List<IdiomaBE>();
+        IdiomaBLL idiomaBLL_675MS = new IdiomaBLL();
+        List<TraduccionBE> traducciones_675MS = new List<TraduccionBE>();
+        private bool cargandoIdiomas_675MS = false;
+
         public FormTurnos()
         {
             InitializeComponent();
@@ -41,6 +47,101 @@ namespace PitBox
             CargoHorarios_675MS();
             ActualizarPantalla_675MS();
 
+            //Suscribo al evento del observer
+            TratamientoIdioma.Instancia.Suscribir(this);
+            //Cargo combo con los idiomas del sistema
+            CargarComboIdiomas_675MS();
+
+        }
+
+        private void CargarComboIdiomas_675MS()
+        {
+            try
+            {
+                cargandoIdiomas_675MS = true;
+
+                idiomas_675MS = idiomaBLL_675MS.ListarIdiomas_675MS();
+
+                cmbIdiomas_675MS.DataSource = null;
+                cmbIdiomas_675MS.DisplayMember = "Nombre_675MS";
+                cmbIdiomas_675MS.ValueMember = "Id_675MS";
+                cmbIdiomas_675MS.DataSource = idiomas_675MS;
+
+                if (TratamientoIdioma.Instancia.IdiomaActual_675MS != null)
+                {
+                    cmbIdiomas_675MS.SelectedValue =
+                        TratamientoIdioma.Instancia.IdiomaActual_675MS.Id_675MS;
+                }
+                else if (idiomas_675MS.Count > 0)
+                {
+                    cmbIdiomas_675MS.SelectedIndex = 0;
+
+                    TratamientoIdioma.Instancia.IdiomaActual_675MS =
+                        idiomas_675MS[0];
+                }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("No se pudieron cargar los idiomas: " + exception.Message);
+            }
+            finally
+            {
+                cargandoIdiomas_675MS = false;
+            }
+
+            ActualizarIdioma_675MS();
+        }
+
+        public void ActualizarIdioma_675MS()
+        {
+            if (TratamientoIdioma.Instancia.IdiomaActual_675MS == null)
+                return;
+
+            TraduccionBLL traduccionBLL_675MS = new TraduccionBLL();
+
+            int idiomaSeleccionado =
+                TratamientoIdioma.Instancia.IdiomaActual_675MS.Id_675MS;
+
+            List<TraduccionBE> traducciones =
+                traduccionBLL_675MS.Listar_675MS(idiomaSeleccionado);
+
+            foreach (TraduccionBE traduccion in traducciones)
+            {
+                switch (traduccion.NombreControl_675MS)
+                {
+                    case "lblIdioma_675MS":
+                        lblIdioma_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+                    case "lblDia_675MS":
+                        lblDia_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+                    case "lblDominio_675MS":
+                        lblDominio_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+                    case "lblDuracion_675MS":
+                        lblDuracion_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+                    case "lblGestorTurnos_675MS":
+                        lblGestorTurnos_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+                    case "lblHora_675MS":
+                        lblHora_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+                    case "btnBaja_675MS":
+                        btnBaja_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+                    case "btnModificar_675MS":
+                        btnModificar_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+                    case "bntRegistrar_675MS":
+                        bntRegistrar_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+                    case "btnVolver_675MS":
+                        btnVolver_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+
+                }
+            }
         }
 
         public void ActualizarPantalla_675MS()
@@ -48,7 +149,7 @@ namespace PitBox
 
             TurnoBLL turnoBLL_675MS = new TurnoBLL();
 
-            turnos_675MS =  turnoBLL_675MS.ListarTurnosturnos_675MS();
+            turnos_675MS =  turnoBLL_675MS.ListarTurnost_6755MS();
 
             dgvTurnos_675MS.DataSource = null;
             dgvTurnos_675MS.DataSource = turnos_675MS;
@@ -57,7 +158,6 @@ namespace PitBox
             dgvTurnos_675MS.Columns["Activo_675MS"].Visible = false;
             dgvTurnos_675MS.Columns["FechaBaja_675MS"].Visible = false;
             dgvTurnos_675MS.Columns["IdEmpleado_675MS"].Visible = false;
-            dgvTurnos_675MS.Columns["Dni_675MS"].HeaderText = "DNI Cliente";
             dgvTurnos_675MS.Columns["Dominio_675MS"].HeaderText = "Patente";
             dgvTurnos_675MS.Columns["FechaHora_675MS"].HeaderText = "Fecha/Hora";
             dgvTurnos_675MS.Columns["DuracionEstimada_675MS"].HeaderText = "Duración (minutos)";
@@ -70,7 +170,7 @@ namespace PitBox
             // Instancio la BLL
             VehiculoBLL vehiculoBLL_675MS = new VehiculoBLL();
 
-            List<string> patentes_675MS = vehiculoBLL_675MS.ListarPatentes();
+            List<string> patentes_675MS = vehiculoBLL_675MS.ListarPatentes_675MS();
 
             // Llenamos el combo con la lista procesada
             foreach (string dominio in patentes_675MS)
@@ -90,7 +190,6 @@ namespace PitBox
 
                     // Recuperamos el valor del registro seleccionado en el Data Grid View
                     turnoSeleccionado.IdTurno_675MS = Convert.ToInt32(dgvTurnos_675MS.CurrentRow.Cells["IdTurno_675MS"].Value);
-                    turnoSeleccionado.Dni_675MS = Convert.ToInt32(dgvTurnos_675MS.CurrentRow.Cells["Dni_675MS"].Value);
                     turnoSeleccionado.Dominio_675MS = dgvTurnos_675MS.CurrentRow.Cells["Dominio_675MS"].Value.ToString();
                     turnoSeleccionado.FechaHora_675MS = Convert.ToDateTime(dgvTurnos_675MS.CurrentRow.Cells["FechaHora_675MS"].Value);
                     turnoSeleccionado.DuracionEstimada_675MS = Convert.ToInt32(dgvTurnos_675MS.CurrentRow.Cells["DuracionEstimada_675MS"].Value);
@@ -99,11 +198,24 @@ namespace PitBox
                     turnoSeleccionado.Activo_675MS = Convert.ToBoolean(dgvTurnos_675MS.CurrentRow.Cells["Activo_675MS"].Value);
                     turnoSeleccionado.IdEmpleado_675MS = Convert.ToInt32(dgvTurnos_675MS.CurrentRow.Cells["IdEmpleado_675MS"].Value);
 
-
-                    txtDNI_675MS.Text = turnoSeleccionado.Dni_675MS.ToString();
+                    dateTimePicker1.Value= turnoSeleccionado.FechaHora_675MS;
                     cmbVehiculos_675MS.Text = turnoSeleccionado.Dominio_675MS.ToString();
                     txtDuracion_675MS.Text = turnoSeleccionado.DuracionEstimada_675MS.ToString();
-                }
+                    string horaStr_675MS = turnoSeleccionado.FechaHora_675MS.ToString("HH:mm");
+
+                    cmbHorario_675MS.SelectedItem = horaStr_675MS;
+
+                    if (cmbHorario_675MS.Items.Contains(horaStr_675MS))
+                    {
+                        cmbHorario_675MS.SelectedItem = horaStr_675MS;
+                    }
+                    else
+                    {
+                        // Como no está en la lista precargada, lo agrego temporalmente para que se muestre
+                        cmbHorario_675MS.Items.Add(horaStr_675MS);
+                        cmbHorario_675MS.SelectedItem = horaStr_675MS;
+                    }
+            }
       }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
@@ -151,7 +263,7 @@ namespace PitBox
             {
                 if (resultado_675MS==1)
                 {
-                    // Refrescar la grilla para que aparezca el nuevo turno
+                    // Refrescar la grilla 
                     ActualizarPantalla_675MS();
                     MessageBox.Show("Baja Correcta");
                 }
@@ -189,8 +301,7 @@ namespace PitBox
         private void bntRegistrar_675MS_Click(object sender, EventArgs e)
         {
             // Valido campos vacios
-            if (string.IsNullOrWhiteSpace(txtDNI_675MS.Text) ||
-                string.IsNullOrWhiteSpace(cmbVehiculos_675MS.Text) ||
+            if (string.IsNullOrWhiteSpace(cmbVehiculos_675MS.Text) ||
                 string.IsNullOrWhiteSpace(txtDuracion_675MS.Text))
             {
                 MessageBox.Show("Por favor, complete todos los campos de texto.", "Faltan datos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -202,14 +313,6 @@ namespace PitBox
             if (cmbHorario_675MS.SelectedIndex == -1)
             {
                 MessageBox.Show("Por favor, seleccione un horario disponible del listado.", "Faltan datos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                //Corto la ejecucion
-                return;
-            }
-
-            // Valido que el DNI sea un número entero positivo
-            if (!int.TryParse(txtDNI_675MS.Text, out int dniValidado_675MS) || dniValidado_675MS <= 0)
-            {
-                MessageBox.Show("El DNI ingresado no es válido. Ingrese solo números.", "Error de formato", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 //Corto la ejecucion
                 return;
             }
@@ -228,7 +331,6 @@ namespace PitBox
             // Instancio el objeto TurnoBE para registrar
             TurnoBE nuevoTurno_675MS = new TurnoBE();
 
-            nuevoTurno_675MS.Dni_675MS = dniValidado_675MS;
             // Guardamos la patente siempre en mayúsculas 
             nuevoTurno_675MS.Dominio_675MS = cmbVehiculos_675MS.Text.Trim().ToUpper();
             nuevoTurno_675MS.FechaHora_675MS = fechaElegida_675MS;
@@ -259,6 +361,24 @@ namespace PitBox
         private void btnVolver_675MS_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void cmbIdiomas_675MS_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            if (cargandoIdiomas_675MS)
+                return;
+
+            if (cmbIdiomas_675MS.SelectedItem == null)
+                return;
+
+            IdiomaBE idioma = cmbIdiomas_675MS.SelectedItem as IdiomaBE;
+
+            if (idioma == null)
+                return;
+
+            TratamientoIdioma.Instancia.IdiomaActual_675MS = idioma;
+
+            TratamientoIdioma.Instancia.Notificar();
         }
     }
 }
