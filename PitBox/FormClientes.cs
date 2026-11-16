@@ -153,20 +153,48 @@ namespace PitBox
             }
         }
 
+
+
+
         private void ActualizarPantalla_675MS()
         {
+            // Conservo el DNI seleccionado, si existe
+            int dniSeleccionado_675MS = 0;
 
-            // Traigo la lista de clientes desde la base de datos
-            List<ClienteBE> clientes_675MS = clienteBLL_675MS.ListarClientes_675MS();
+            if (dgvClientes_675MS.CurrentRow != null)
+            {
+                ClienteBE seleccionado_675MS =  dgvClientes_675MS.CurrentRow.DataBoundItem as ClienteBE;
 
-            // Asigno la lista al DataGridView
+                if (seleccionado_675MS != null)
+                    dniSeleccionado_675MS = seleccionado_675MS.Dni_675MS;
+            }
+
+            // Recupero los clientes desde la BLL
+            List<ClienteBE> clientes_675MS =  clienteBLL_675MS.ListarClientes_675MS();
+
             dgvClientes_675MS.DataSource = null;
+            dgvClientes_675MS.Columns.Clear();
+            dgvClientes_675MS.AutoGenerateColumns = true;
+            dgvClientes_675MS.AllowUserToAddRows = false;
             dgvClientes_675MS.DataSource = clientes_675MS;
+            dgvClientes_675MS.Columns["Activo_675MS"].Visible = false;
 
-            // Oculto columnas
-            dgvClientes_675MS.Columns["DigitoVerificadorHorizontal_675MS"].Visible = false;
+            DataGridViewTextBoxColumn columnaEstado_675MS = new DataGridViewTextBoxColumn();
 
-            // Cambio titulos de columnas
+            columnaEstado_675MS.Name = "EstadoCliente_675MS";
+            columnaEstado_675MS.HeaderText = "Activo";
+            columnaEstado_675MS.DataPropertyName = "Activo_675MS";
+            columnaEstado_675MS.ReadOnly = true;
+
+            dgvClientes_675MS.Columns.Add(columnaEstado_675MS);
+
+            dgvClientes_675MS.CellFormatting -= dgvClientes_675MS_CellFormatting;
+            dgvClientes_675MS.CellFormatting += dgvClientes_675MS_CellFormatting;
+
+            // La ubico al final
+            columnaEstado_675MS.DisplayIndex =  dgvClientes_675MS.Columns.Count - 1;
+
+            // Encabezados
             dgvClientes_675MS.Columns["Dni_675MS"].HeaderText = "DNI";
             dgvClientes_675MS.Columns["Nombre_675MS"].HeaderText = "Nombre";
             dgvClientes_675MS.Columns["Apellido_675MS"].HeaderText = "Apellido";
@@ -174,6 +202,47 @@ namespace PitBox
             dgvClientes_675MS.Columns["Mail_675MS"].HeaderText = "Correo Electrónico";
             dgvClientes_675MS.Columns["Domicilio_675MS"].HeaderText = "Domicilio";
             dgvClientes_675MS.Columns["Telefono_675MS"].HeaderText = "Teléfono";
+            dgvClientes_675MS.Columns["DigitoVerificadorHorizontal_675MS"].Visible = false;
+
+            // Restablezco la selección
+            dgvClientes_675MS.ClearSelection();
+            dgvClientes_675MS.CurrentCell = null;
+
+            btnBaja_675MS.Enabled = false;
+            btnReactivar_675MS.Enabled = false;
+
+            foreach (DataGridViewRow fila_675MS in dgvClientes_675MS.Rows)
+            {
+                ClienteBE cliente_675MS =
+                    fila_675MS.DataBoundItem as ClienteBE;
+
+                if (cliente_675MS != null &&
+                    cliente_675MS.Dni_675MS == dniSeleccionado_675MS)
+                {
+                    dgvClientes_675MS.CurrentCell =   fila_675MS.Cells["Dni_675MS"];
+
+                    fila_675MS.Selected = true;
+
+                    btnBaja_675MS.Enabled = cliente_675MS.Activo_675MS;
+                    btnReactivar_675MS.Enabled = !cliente_675MS.Activo_675MS;
+
+                    break;
+                }
+            }
+        }
+
+
+        private void dgvClientes_675MS_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dgvClientes_675MS.Columns[e.ColumnIndex].Name == "EstadoCliente_675MS"
+                && e.Value != null
+                && e.Value != DBNull.Value)
+            {
+                bool activo_675MS = Convert.ToBoolean(e.Value);
+
+                e.Value = activo_675MS ? "Activo" : "Inactivo";
+                e.FormattingApplied = true;
+            }
         }
 
         private void btnSerializacion_675MS_Click(object sender, EventArgs e)
@@ -264,29 +333,29 @@ namespace PitBox
 
         private void dgvClientes_675MS_SelectionChanged(object sender, EventArgs e)
         {
-            ClienteBE clienteSeleccionado = new ClienteBE();
+            btnBaja_675MS.Enabled = false;
+            btnReactivar_675MS.Enabled = false;
 
-            if (dgvClientes_675MS.CurrentRow != null)
-            {
-                // Recupero los valores del registro seleccionado en el Data Grid View de Clientes
-                clienteSeleccionado.Dni_675MS = Convert.ToInt32(dgvClientes_675MS.CurrentRow.Cells["Dni_675MS"].Value);
-                clienteSeleccionado.Nombre_675MS = dgvClientes_675MS.CurrentRow.Cells["Nombre_675MS"].Value.ToString();
-                clienteSeleccionado.Apellido_675MS = dgvClientes_675MS.CurrentRow.Cells["Apellido_675MS"].Value.ToString();
-                clienteSeleccionado.FechaNacimiento_675MS = Convert.ToDateTime(dgvClientes_675MS.CurrentRow.Cells["FechaNacimiento_675MS"].Value);
-                clienteSeleccionado.Mail_675MS = dgvClientes_675MS.CurrentRow.Cells["Mail_675MS"].Value.ToString();
-                clienteSeleccionado.Domicilio_675MS = dgvClientes_675MS.CurrentRow.Cells["Domicilio_675MS"].Value.ToString();
-                clienteSeleccionado.Telefono_675MS = Convert.ToInt32(dgvClientes_675MS.CurrentRow.Cells["Telefono_675MS"].Value);
-                clienteSeleccionado.DigitoVerificadorHorizontal_675MS = Convert.ToInt32(dgvClientes_675MS.CurrentRow.Cells["DigitoVerificadorHorizontal_675MS"].Value);
+            if (dgvClientes_675MS.CurrentRow == null)
+                return;
 
-                // Vuelco los datos en los TextBox del panel izquierdo de la interfaz
-                txtDNI_675MS.Text = clienteSeleccionado.Dni_675MS.ToString();
-                txtApellido_675MS.Text = clienteSeleccionado.Apellido_675MS;
-                txtNombre_675MS.Text = clienteSeleccionado.Nombre_675MS;
-                txtMail_675MS.Text = clienteSeleccionado.Mail_675MS;
-                txtTelefono_675MS.Text = clienteSeleccionado.Telefono_675MS.ToString();
-                txtDomicilio_675MS.Text = clienteSeleccionado.Domicilio_675MS;
-                dateTimePicker1.Value = clienteSeleccionado.FechaNacimiento_675MS;
-            }
+            ClienteBE clienteSeleccionado_675MS =  dgvClientes_675MS.CurrentRow.DataBoundItem as ClienteBE;
+
+            if (clienteSeleccionado_675MS == null)
+                return;
+
+            // Cargo los datos del cliente seleccionado
+            txtDNI_675MS.Text = clienteSeleccionado_675MS.Dni_675MS.ToString();
+            txtApellido_675MS.Text = clienteSeleccionado_675MS.Apellido_675MS;
+            txtNombre_675MS.Text = clienteSeleccionado_675MS.Nombre_675MS;
+            txtMail_675MS.Text = clienteSeleccionado_675MS.Mail_675MS;
+            txtTelefono_675MS.Text = clienteSeleccionado_675MS.Telefono_675MS.ToString();
+            txtDomicilio_675MS.Text = clienteSeleccionado_675MS.Domicilio_675MS;
+            dateTimePicker1.Value = clienteSeleccionado_675MS.FechaNacimiento_675MS;
+
+            // Habilito el botón correspondiente al estado del cliente
+            btnBaja_675MS.Enabled = clienteSeleccionado_675MS.Activo_675MS;
+            btnReactivar_675MS.Enabled = !clienteSeleccionado_675MS.Activo_675MS;
         }
 
         private void bntRegistrar_675MS_Click(object sender, EventArgs e)
@@ -422,6 +491,80 @@ namespace PitBox
             TratamientoIdioma.Instancia.IdiomaActual_675MS = idioma;
 
             TratamientoIdioma.Instancia.Notificar();
+        }
+
+        private void btnBaja_675MS_Click(object sender, EventArgs e)
+        {
+            if (!int.TryParse(txtDNI_675MS.Text, out int dni_675MS))
+            {
+                MessageBox.Show("Seleccioná un cliente válido.");
+                return;
+            }
+
+            DialogResult respuesta_675MS = MessageBox.Show("¿Confirmás que querés dar de baja al cliente?","Baja de cliente", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (respuesta_675MS != DialogResult.Yes)
+                return;
+
+            try
+            {
+                ClienteBLL clienteBLL_675MS = new ClienteBLL();
+
+                int resultado_675MS = clienteBLL_675MS.BajaCliente_675MS(dni_675MS);
+
+                if (resultado_675MS > 0)
+                {
+                    MessageBox.Show("Cliente dado de baja correctamente.");
+                    btnBaja_675MS.Enabled = false;
+
+                    ActualizarPantalla_675MS();
+
+                }
+                else
+                {
+                    MessageBox.Show("El cliente no existe o ya está dado de baja.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnReactivar_675MS_Click(object sender, EventArgs e)
+        {
+            if (!int.TryParse(txtDNI_675MS.Text, out int dni_675MS))
+            {
+                MessageBox.Show("Seleccioná un cliente válido.");
+                return;
+            }
+
+            DialogResult respuesta_675MS = MessageBox.Show("¿Confirmás que querés reactivar al cliente?", "Reactivar cliente", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (respuesta_675MS != DialogResult.Yes)
+                return;
+
+            try
+            {
+                ClienteBLL clienteBLL_675MS = new ClienteBLL();
+
+                int resultado_675MS = clienteBLL_675MS.ReactivarCliente_675MS(dni_675MS);
+
+                if (resultado_675MS > 0)
+                {
+                    MessageBox.Show("Cliente reactivado correctamente.");
+                    btnReactivar_675MS.Enabled = false;
+                    ActualizarPantalla_675MS();
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo reactivar el cliente.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

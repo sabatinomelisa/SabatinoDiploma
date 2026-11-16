@@ -369,6 +369,10 @@ namespace PitBox
                 vehiculosToolStripMenuItem.Visible = false;
                 turnosToolStripMenuItem.Visible = false;
                 idiomasToolStripMenuItem.Visible = false;
+                gestionarVTVToolStripMenuItem.Visible = false;
+                gestionarRolesToolStripMenuItem.Visible = false;
+                integridadToolStripMenuItem.Visible = false;
+                historialDeCambiosToolStripMenuItem.Visible = false;
 
                 return;
             }
@@ -390,6 +394,13 @@ namespace PitBox
 
             bool permisoVTV_675MS = rolBLL_675MS.TienePermiso_675MS(rol_675MS, "VTV");
 
+            // Consulto el permiso de gestión de integridad
+            bool permisoIntegridad_675MS = rolBLL_675MS.TienePermiso_675MS(rol_675MS, "GestionIntegridad");
+
+            // Muestro Integridad e Historial según los permisos del usuario
+            integridadToolStripMenuItem.Visible = permisoIntegridad_675MS;
+            historialDeCambiosToolStripMenuItem.Visible = permisoIntegridad_675MS;
+
             // Filtro los menús principales.
             usuariosToolStripMenuItem.Visible = permisoUsuarios_675MS;
 
@@ -405,6 +416,8 @@ namespace PitBox
             // Filtro opciones particulares.
             gestionarVTVToolStripMenuItem.Visible = permisoVTV_675MS;
 
+            altaVehículoToolStripMenuItem.Visible = permisoVehiculos_675MS;
+
             // Idiomas y gestión de roles quedan reservados al Admin.
             bool esAdmin_675MS = usuario_675MS.IdRol_675MS == 1;
 
@@ -413,5 +426,90 @@ namespace PitBox
             gestionarRolesToolStripMenuItem.Visible = esAdmin_675MS;
         }
 
+        private void gestionarIntegridadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            // Verifico que el usuario tenga permiso para gestionar integridad
+            UsuarioBE usuario_675MS = SessionManager.ObtenerUsuarioActual_675MS();
+
+            if (!SessionManager.SesionIniciada_675MS || usuario_675MS == null ||  usuario_675MS.Rol_675MS == null || !new RolBLL().TienePermiso_675MS(usuario_675MS.Rol_675MS, "GestionIntegridad"))
+            {
+                MessageBox.Show( "No tiene permiso para acceder al control de integridad.", "Acceso denegado",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+
+                return;
+            }
+
+
+            FormIntegridad formExistente_675MS = null;
+
+            // Buscamos si el formulario ya se encuentra abierto
+            foreach (Form formulario_675MS in Application.OpenForms)
+            {
+                if (formulario_675MS is FormIntegridad)
+                {
+                    formExistente_675MS = (FormIntegridad)formulario_675MS;
+                    break;
+                }
+            }
+
+            if (formExistente_675MS != null)
+            {
+                // Si ya está abierto, lo traemos al frente
+                formExistente_675MS.BringToFront();
+            }
+            else
+            {
+                // Si no está abierto, lo creo
+                FormIntegridad formIntegridad_675MS = new FormIntegridad();
+
+                // Lo vinculo al contenedor MDI
+                formIntegridad_675MS.MdiParent = this;
+
+                // Mostrar dentro del contenedor
+                formIntegridad_675MS.Show();
+            }
+        }
+
+        private void historialDeCambiosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            // Verificamos que el usuario tenga permiso para gestionar integridad
+            UsuarioBE usuario_675MS = SessionManager.ObtenerUsuarioActual_675MS();
+
+            if (!SessionManager.SesionIniciada_675MS || usuario_675MS == null || usuario_675MS.Rol_675MS == null ||!new RolBLL().TienePermiso_675MS(usuario_675MS.Rol_675MS, "GestionIntegridad"))
+            {
+                MessageBox.Show("No tiene permiso para acceder al control de integridad.", "Acceso denegado", MessageBoxButtons.OK,  MessageBoxIcon.Warning);
+                return;
+            }
+
+            FormHistorialCliente formExistente_675MS = null;
+
+            // Buscamos si el formulario ya se encuentra abierto
+            foreach (Form formulario_675MS in Application.OpenForms)
+            {
+                if (formulario_675MS is FormHistorialCliente)
+                {
+                    formExistente_675MS = (FormHistorialCliente)formulario_675MS;
+                    break;
+                }
+            }
+
+            if (formExistente_675MS != null)
+            {
+                // Si ya está abierto, lo traemos al frente
+                formExistente_675MS.BringToFront();
+            }
+            else
+            {
+                // Si no está abierto, lo creo
+                FormHistorialCliente formHistorial_675MS = new FormHistorialCliente();
+
+                // Lo vinculo al contenedor MDI
+                formHistorial_675MS.MdiParent = this;
+
+                // Mostrar dentro del contenedor
+                formHistorial_675MS.Show();
+            }
+        }
     }
 }

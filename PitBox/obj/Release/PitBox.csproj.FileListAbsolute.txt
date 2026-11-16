@@ -15,7 +15,9 @@ C:\Users\Morsicasa\source\repos\PitBox\PitBox\obj\Release\PitBox.csproj.Assembly
 C:\Users\Morsicasa\source\repos\PitBox\PitBox\obj\Release\PitBox.FormClientes.resources
 C:\Users\Morsicasa\source\repos\PitBox\PitBox\obj\Release\PitBox.FormDesbloquear.resources
 C:\Users\Morsicasa\source\repos\PitBox\PitBox\obj\Release\PitBox.FormEmpleado.resources
+C:\Users\Morsicasa\source\repos\PitBox\PitBox\obj\Release\PitBox.FormHistorialCliente.resources
 C:\Users\Morsicasa\source\repos\PitBox\PitBox\obj\Release\PitBox.FormIdiomas.resources
+C:\Users\Morsicasa\source\repos\PitBox\PitBox\obj\Release\PitBox.FormIntegridad.resources
 C:\Users\Morsicasa\source\repos\PitBox\PitBox\obj\Release\PitBox.FormMenuEmpleado.resources
 C:\Users\Morsicasa\source\repos\PitBox\PitBox\obj\Release\PitBox.FormPrincipal.resources
 C:\Users\Morsicasa\source\repos\PitBox\PitBox\obj\Release\PitBox.FormRegistro.resources

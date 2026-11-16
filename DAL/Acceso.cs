@@ -18,9 +18,16 @@ namespace DAL
         //Conectar a la Base de Datos
         public void Conectar_675MS()
         {
-            conexion_675MS = new SqlConnection();
-            // conexion_675MS.ConnectionString = "DATA SOURCE = DESKTOP-BJDMH9N\\SQLEXPRESS;" + "Initial Catalog=PITBOX;" + "Integrated Security=true;";
-            conexion_675MS.ConnectionString = "Data Source=.\\SQLEXPRESS;" + "Initial Catalog=PITBOX;" + "Integrated Security=True;";
+            string servidor = System.Configuration.ConfigurationManager.AppSettings["ServidorSQL"];
+
+            if (string.IsNullOrWhiteSpace(servidor))
+            {
+                throw new Exception("No está configurado el servidor SQL de PitBox.");
+            }
+
+            string cadenaConexion = "Data Source=" + servidor + ";" + "Initial Catalog=PITBOX;" + "Integrated Security=True;";
+
+            conexion_675MS = new SqlConnection(cadenaConexion);
             conexion_675MS.Open();
         }
         //Desconectar de la Base de Datos
@@ -157,6 +164,7 @@ namespace DAL
 
             return filasAfectadas_675MS;
         }
+
 
         public int DevolverEscalar_675MS(string sql_675MS, List<SqlParameter> parameters_675MS = null)
         {

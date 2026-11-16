@@ -19,99 +19,179 @@ namespace PitBox
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            // Llamamos a la verificación de la base de datos antes de abrir el primer formulario
-            InicializarBaseDeDatos_675MS();
-            Application.Run(new FormPrincipal());
+
+            try
+            {
+                InicializarBaseDeDatos_675MS();
+                Application.Run(new FormPrincipal());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudo iniciar PitBox.\n\n" + ex.Message,"Error de inicialización",MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private static void InicializarBaseDeDatos_675MS()
         {
-            try
+            string[] servidoresCandidatos =
             {
-                string servidorActivo = null;
-                string[] servidoresCandidatos = { ".", "localhost", ".\\SQLEXPRESS", ".\\SQLEXPRESS01", "(localdb)\\MSSQLLocalDB" };
+                @".\SQLEXPRESS",
+                @".\SQLEXPRESS01",
+                @"(localdb)\MSSQLLocalDB",
+                "."
+            };
 
-                // 1. Probar automáticamente cuál de los servidores locales responde
-                foreach (var servidor in servidoresCandidatos)
+
+            string servidorActivo = null;
+
+            // Primero buscar una instancia que ya tenga PITBOX.
+            foreach (string servidor in servidoresCandidatos)
+            {
+                try
                 {
-                    string conexionMaster = $"Server={servidor};Database=master;Trusted_Connection=True;";
+                    string cadena =
+                        $"Server={servidor};Database=master;Integrated Security=True;Connect Timeout=3;";
 
-                    using (SqlConnection connMaster = new SqlConnection(conexionMaster))
+                    using (SqlConnection conexion = new SqlConnection(cadena))
                     {
-                        try
+                        conexion.Open();
+
+                        using (SqlCommand comando = new SqlCommand(
+                            "SELECT DB_ID(N'PITBOX')", conexion))
                         {
-                            connMaster.Open();
-                            servidorActivo = servidor; // ¡Encontró una instancia válida!
+                            object resultado = comando.ExecuteScalar();
 
-                            // Asegurar que la base de datos PITBOX exista en este servidor
-                            SqlCommand cmdCreate = new SqlCommand(
-                                "IF NOT EXISTS (SELECT * FROM sys.databases WHERE name = 'PITBOX') CREATE DATABASE [PITBOX]", connMaster);
-                            cmdCreate.ExecuteNonQuery();
-                            break; // Salimos del bucle al conectar con éxito
-                        }
-                        catch
-                        {
-                            // Si este servidor no responde, el bucle continúa probando con el siguiente
-                        }
-                    }
-                }
-
-                if (string.IsNullOrEmpty(servidorActivo))
-                {
-                    throw new Exception("No se pudo detectar ninguna instancia activa de SQL Server (ni ., ni localhost, ni SQLEXPRESS).");
-                }
-
-                // 2. Conectarse a la base de datos PITBOX usando el servidor detectado
-                string conexionPitbox = $"Server={servidorActivo};Database=PITBOX;Trusted_Connection=True;";
-
-                using (SqlConnection connPitbox = new SqlConnection(conexionPitbox))
-                {
-                    connPitbox.Open();
-
-                    // 3. Verificar si ya existen las tablas para ejecutar el script inicial una única vez
-                    SqlCommand cmdTableCheck = new SqlCommand("SELECT OBJECT_ID('dbo.Empleado', 'U')", connPitbox);
-                    var tablaExiste = cmdTableCheck.ExecuteScalar();
-
-                    if (tablaExiste == null || tablaExiste == DBNull.Value)
-                    {
-                        string rutaScript = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "script.sql");
-
-                        if (!File.Exists(rutaScript))
-                        {
-                            throw new Exception("No se encontró el archivo script.sql en la carpeta de instalación.");
-                        }
-
-                        string scriptContenido = File.ReadAllText(rutaScript);
-
-                        // Separar los bloques utilizando GO
-                        string[] comandos = System.Text.RegularExpressions.Regex.Split(
-                            scriptContenido,
-                            @"^\s*GO\s*$",
-                            System.Text.RegularExpressions.RegexOptions.Multiline | System.Text.RegularExpressions.RegexOptions.IgnoreCase);
-
-                        foreach (string comandoSql in comandos)
-                        {
-                            string sqlLimpio = comandoSql.Trim();
-                            if (!string.IsNullOrWhiteSpace(sqlLimpio) &&
-                                !sqlLimpio.StartsWith("USE ", StringComparison.OrdinalIgnoreCase))
+                            if (resultado != null && resultado != DBNull.Value)
                             {
-                                using (SqlCommand cmd = new SqlCommand(sqlLimpio, connPitbox))
-                                {
-                                    cmd.CommandTimeout = 120;
-                                    cmd.ExecuteNonQuery();
-                                }
+                                servidorActivo = servidor;
+                                break;
                             }
                         }
                     }
                 }
+                catch (SqlException)
+                {
+                    // Continuar con otra instancia.
+                }
             }
-            catch (Exception ex)
+
+            // Si PITBOX no existe, buscar una instancia disponible.
+            if (servidorActivo == null)
             {
-                MessageBox.Show(
-                    "Error al inicializar la base de datos: " + ex.Message,
-                    "Error crítico",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                foreach (string servidor in servidoresCandidatos)
+                {
+                    try
+                    {
+                        string cadena =
+                            $"Server={servidor};Database=master;Integrated Security=True;Connect Timeout=3;";
+
+                        using (SqlConnection conexion = new SqlConnection(cadena))
+                        {
+                            conexion.Open();
+                            servidorActivo = servidor;
+                            break;
+                        }
+                    }
+                    catch (SqlException)
+                    {
+                        // Continuar con otra instancia.
+                    }
+                }
+            }
+
+            // Compartir la instancia detectada con la DAL
+            if (servidorActivo != null)
+            {
+                System.Configuration.ConfigurationManager.AppSettings["ServidorSQL"] = servidorActivo;
+            }
+
+            if (servidorActivo == null)
+            {
+                throw new Exception( "No se encontró SQL Server. Es necesario instalar SQL Server Express.");
+            }
+
+            string conexionMasterActiva = $"Server={servidorActivo};Database=master;Integrated Security=True;";
+
+            // 2. Crear PITBOX únicamente si no existe.
+            using (SqlConnection conexion = new SqlConnection(conexionMasterActiva))
+            {
+                conexion.Open();
+
+                using (SqlCommand comando = new SqlCommand(
+                    "IF DB_ID(N'PITBOX') IS NULL CREATE DATABASE [PITBOX];",
+                    conexion))
+                {
+                    comando.ExecuteNonQuery();
+                }
+            }
+
+            string conexionPitbox =
+                $"Server={servidorActivo};Database=PITBOX;Integrated Security=True;";
+
+            // 3. Comprobar si la base ya tiene objetos.
+            // No modificar automáticamente bases existentes o incompletas.
+            using (SqlConnection conexion = new SqlConnection(conexionPitbox))
+            {
+                conexion.Open();
+
+                using (SqlCommand comando = new SqlCommand(
+                    "SELECT COUNT(*) FROM sys.tables WHERE is_ms_shipped = 0;",
+                    conexion))
+                {
+                    int cantidadTablas = Convert.ToInt32(comando.ExecuteScalar());
+
+                    if (cantidadTablas > 0)
+                    {
+                        return;
+                    }
+                }
+            }
+
+            // 4. Ejecutar esquema y luego datos iniciales.
+            string carpeta = AppDomain.CurrentDomain.BaseDirectory;
+
+            EjecutarScriptSql_675MS(Path.Combine(carpeta, "PitBox_esquema_limpio.sql"), conexionPitbox);
+
+            EjecutarScriptSql_675MS(Path.Combine(carpeta, "PitBox_datos_iniciales.sql"),conexionPitbox);
+        }
+
+        private static void EjecutarScriptSql_675MS(
+            string rutaArchivo,
+            string cadenaConexion)
+        {
+            if (!File.Exists(rutaArchivo))
+            {
+                throw new FileNotFoundException(
+                    "No se encontró el archivo SQL requerido.", rutaArchivo);
+            }
+
+            string contenido = File.ReadAllText(rutaArchivo);
+
+            // GO es un separador de lotes de SQL Server.
+            string[] bloques = System.Text.RegularExpressions.Regex.Split(
+                contenido,
+                @"^\s*GO\s*(?:--[^\r\n]*)?$",
+                System.Text.RegularExpressions.RegexOptions.Multiline |
+                System.Text.RegularExpressions.RegexOptions.IgnoreCase);
+
+            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+            {
+                conexion.Open();
+
+                foreach (string bloque in bloques)
+                {
+                    string sql = bloque.Trim();
+
+                    if (string.IsNullOrWhiteSpace(sql))
+                        continue;
+
+                    using (SqlCommand comando = new SqlCommand(sql, conexion))
+                    {
+                        comando.CommandTimeout = 120;
+                        comando.ExecuteNonQuery();
+                    }
+                }
             }
         }
+
     }
 }

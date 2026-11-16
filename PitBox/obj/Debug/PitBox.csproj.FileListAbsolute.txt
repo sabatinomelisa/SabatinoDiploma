@@ -30,3 +30,5 @@ C:\Users\Morsicasa\source\repos\PitBox\PitBox\obj\Debug\PitBox.FormEmpleado.reso
 C:\Users\Morsicasa\source\repos\PitBox\PitBox\obj\Debug\PitBox.FormIdiomas.resources
 C:\Users\Morsicasa\source\repos\PitBox\PitBox\obj\Debug\PitBox.FormVTV.resources
 C:\Users\Morsicasa\source\repos\PitBox\PitBox\obj\Debug\PitBox.FormRoles.resources
+C:\Users\Morsicasa\source\repos\PitBox\PitBox\obj\Debug\PitBox.FormHistorialCliente.resources
+C:\Users\Morsicasa\source\repos\PitBox\PitBox\obj\Debug\PitBox.FormIntegridad.resources
