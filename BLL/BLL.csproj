@@ -49,6 +49,7 @@
     <Compile Include="ClienteBLL.cs" />
     <Compile Include="ComponenteBLL.cs" />
     <Compile Include="EmpleadoBLL.cs" />
+    <Compile Include="HistorialClienteBLL.cs" />
     <Compile Include="IdiomaBLL.cs" />
     <Compile Include="IntegridadBLL.cs" />
     <Compile Include="PermisoBLL.cs" />

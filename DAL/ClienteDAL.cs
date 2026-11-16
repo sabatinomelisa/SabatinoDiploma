@@ -71,6 +71,7 @@ namespace DAL
                 clienteAuxiliar_675MS.Telefono_675MS = int.Parse(row["Telefono"].ToString());
                 clienteAuxiliar_675MS.FechaNacimiento_675MS = Convert.ToDateTime(row["FechaNacimiento"]);
                 clienteAuxiliar_675MS.DigitoVerificadorHorizontal_675MS = Convert.ToInt32(row["DigitoVerificadorHorizontal"]);
+                clienteAuxiliar_675MS.Activo_675MS = Convert.ToBoolean(row["Activo"]);
 
                 clientes_675MS.Add(clienteAuxiliar_675MS);
             }
@@ -161,6 +162,8 @@ namespace DAL
                     cliente_675MS.Mail_675MS = fila_675MS["Mail"].ToString();
                     cliente_675MS.Domicilio_675MS = fila_675MS["Domicilio"].ToString();
                     cliente_675MS.Telefono_675MS = Convert.ToInt32(fila_675MS["Telefono"]);
+                    cliente_675MS.DigitoVerificadorHorizontal_675MS = Convert.ToInt32(fila_675MS["DigitoVerificadorHorizontal"]);
+                    cliente_675MS.Activo_675MS = Convert.ToBoolean(fila_675MS["Activo"]);
 
                     return cliente_675MS;
                 }
@@ -173,5 +176,51 @@ namespace DAL
                 acceso_675MS.Desconectar_675MS();
             }
         }
+
+
+
+
+        public int BajaClienteDAL_675MS(int dni_675MS)
+        {
+            Acceso acceso_675MS = new Acceso();
+            acceso_675MS.Conectar_675MS();
+
+            try
+            {
+                List<SqlParameter> parametros_675MS =
+                    new List<SqlParameter>();
+
+                parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@dni", dni_675MS));
+
+                // Escribir devuelve la cantidad de filas afectadas
+                return acceso_675MS.Escribir_675MS("BAJA_CLIENTE", parametros_675MS);
+            }
+            finally
+            {
+                acceso_675MS.Desconectar_675MS();
+            }
+        }
+
+
+
+        public int ReactivarClienteDAL_675MS(int dni_675MS)
+        {
+            Acceso acceso_675MS = new Acceso();
+            acceso_675MS.Conectar_675MS();
+
+            try
+            {
+                List<SqlParameter> parametros_675MS = new List<SqlParameter>();
+                parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@dni", dni_675MS));
+
+                return acceso_675MS.Escribir_675MS("REACTIVAR_CLIENTE", parametros_675MS);
+            }
+            finally
+            {
+                acceso_675MS.Desconectar_675MS();
+            }
+        }
+
+
     }
 }

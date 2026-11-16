@@ -55,8 +55,6 @@ namespace BLL
 
             ValidarCredencialesIngresadas_675MS(username_675MS, password_675MS);
 
-            integridadBLL_675MS.ValidarIntegridadParaLogin_675MS();
-
             UsuarioBE usuario_675MS = usuarioDAL_675MS.ObtenerPorNombreUsuario_675MS(username_675MS);
 
             if (usuario_675MS == null)
@@ -88,6 +86,35 @@ namespace BLL
                 bitacoraBLL_675MS.Registrar_675MS(username_675MS, "LOGIN_FALLIDO", "Seguridad", "Contraseña incorrecta.");
                 throw new Exception("Contraseña incorrecta.");
             }
+            // Primero verificamos que el usuario exista, que no esté bloqueado y que su contraseña sea correcta.
+
+            bool esAdministrador_675MS = usuario_675MS.IdRol_675MS == 1;
+
+            if (!esAdministrador_675MS)
+            {
+                // Los usuarios comunes no pueden ingresar
+                // si existe alguna inconsistencia de integridad.
+                integridadBLL_675MS.ValidarIntegridadParaLogin_675MS();
+            }
+            else
+            {
+                // El administrador puede ingresar para reparar
+                // las inconsistencias, pero debe quedar registrado.
+                try
+                {
+                    integridadBLL_675MS.ValidarIntegridadParaLogin_675MS();
+                }
+                catch (Exception ex)
+                {
+                    bitacoraBLL_675MS.Registrar_675MS(
+                        username_675MS,
+                        "INTEGRIDAD_DETECTADA",
+                        "Seguridad",
+                        "El administrador ingresó con una inconsistencia de integridad: "
+                        + ex.Message);
+                }
+            }
+
 
             usuarioDAL_675MS.ReiniciarIntentosFallidos_675MS(username_675MS);
             SessionManager.Login_675MS(usuario_675MS);
@@ -96,21 +123,33 @@ namespace BLL
             return usuario_675MS;
         }
 
+
         public void Logout_675MS()
         {
             string nombreUsuario = "SIN_SESION";
-            integridadBLL_675MS = new IntegridadBLL();
+
             bitacoraBLL_675MS = new BitacoraBLL();
 
             if (SessionManager.SesionIniciada_675MS)
             {
-                nombreUsuario = SessionManager.ObtenerUsuarioActual_675MS().Username_675MS;
-                integridadBLL_675MS.ActualizarIntegridadParaLogout_675MS();
-                SessionManager.Logout_675MS();
+                nombreUsuario =
+                    SessionManager.ObtenerUsuarioActual_675MS().Username_675MS;
             }
 
-            bitacoraBLL_675MS.RegistrarLogout_675MS(nombreUsuario);
+            // Cerrar la sesión independientemente del estado de integridad.
+            try
+            {
+                bitacoraBLL_675MS.RegistrarLogout_675MS(nombreUsuario);
+            }
+            finally
+            {
+                if (SessionManager.SesionIniciada_675MS)
+                {
+                    SessionManager.Logout_675MS();
+                }
+            }
         }
+
 
         public int AltaUsuario_675MS(UsuarioBE usuario_675MS)
         {

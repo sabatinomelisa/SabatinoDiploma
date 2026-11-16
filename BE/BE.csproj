@@ -48,6 +48,7 @@
     <Compile Include="ClienteBE.cs" />
     <Compile Include="ComponenteBE.cs" />
     <Compile Include="EmpleadoBE.cs" />
+    <Compile Include="HistorialClienteBE.cs" />
     <Compile Include="IdiomaBE.cs" />
     <Compile Include="PermisoBE.cs" />
     <Compile Include="ResultadoIntegridadBE.cs" />

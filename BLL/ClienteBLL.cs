@@ -111,5 +111,101 @@ namespace BLL
             }else return true;
 ;
         }
+
+
+        public int RecuperarCliente_675MS(HistorialClienteBE historial_675MS)
+        {
+            if (historial_675MS == null)
+                throw new Exception("No se seleccionó ninguna versión histórica.");
+
+            if (!SessionManager.SesionIniciada_675MS)
+                throw new Exception("No hay una sesión iniciada.");
+
+
+            HistorialClienteBLL historialBLL_675MS = new HistorialClienteBLL();
+
+            historial_675MS = historialBLL_675MS.ValidarVersionParaRecuperar_675MS(historial_675MS.IdHistorial_675MS, historial_675MS.DNI_675MS);
+
+            UsuarioBE usuario_675MS = SessionManager.ObtenerUsuarioActual_675MS();
+
+            if (usuario_675MS == null || usuario_675MS.Rol_675MS == null)
+                throw new Exception("El usuario no tiene un rol asignado.");
+
+            RolBLL rolBLL_675MS = new RolBLL();
+
+            if (!rolBLL_675MS.TienePermiso_675MS(usuario_675MS.Rol_675MS, "GestionIntegridad"))
+                throw new Exception("No tenés permiso para recuperar versiones históricas.");
+
+            ClienteBE cliente_675MS = clienteDAL675MS.ConsultaPorDNI_675MS(historial_675MS.DNI_675MS);
+
+            if (cliente_675MS == null)
+                throw new Exception("No se encontró el cliente.");
+
+            if (!cliente_675MS.Activo_675MS)
+                throw new Exception("No se puede recuperar una versión de un cliente dado de baja.");
+
+            cliente_675MS.Nombre_675MS = historial_675MS.Nombre_675MS;
+            cliente_675MS.Apellido_675MS = historial_675MS.Apellido_675MS;
+            cliente_675MS.FechaNacimiento_675MS = historial_675MS.FechaNacimiento_675MS;
+            cliente_675MS.Mail_675MS = historial_675MS.Mail_675MS;
+            cliente_675MS.Domicilio_675MS = historial_675MS.Domicilio_675MS;
+            cliente_675MS.Telefono_675MS = historial_675MS.Telefono_675MS ?? 0;
+
+            return ModificarCliente_675MS(cliente_675MS);
+        }
+
+
+        public int BajaCliente_675MS(int dni_675MS)
+        {
+            if (!Servicios.SessionManager.SesionIniciada_675MS)
+                throw new Exception("No hay una sesión iniciada.");
+
+            if (dni_675MS <= 0)
+                throw new Exception("DNI inválido.");
+
+            BE.UsuarioBE usuario_675MS = Servicios.SessionManager.ObtenerUsuarioActual_675MS();
+
+            if (usuario_675MS == null || usuario_675MS.Rol_675MS == null || !new RolBLL().TienePermiso_675MS(usuario_675MS.Rol_675MS, "GestionIntegridad"))
+                throw new UnauthorizedAccessException("No tenés permiso para dar de baja clientes.");
+
+            int resultado_675MS = new ClienteDAL().BajaClienteDAL_675MS(dni_675MS);
+
+            if (resultado_675MS > 0)
+                new IntegridadBLL().ActualizarDigitosVerticalesCliente_675MS();
+
+            return resultado_675MS;
+        }
+
+
+        public int ReactivarCliente_675MS(int dni_675MS)
+        {
+            if (!Servicios.SessionManager.SesionIniciada_675MS)
+                throw new Exception("No hay una sesión iniciada.");
+
+            if (dni_675MS <= 0)
+                throw new Exception("DNI inválido.");
+
+            UsuarioBE usuario_675MS = Servicios.SessionManager.ObtenerUsuarioActual_675MS();
+
+            if (usuario_675MS == null || usuario_675MS.Rol_675MS == null ||
+                !new RolBLL().TienePermiso_675MS(usuario_675MS.Rol_675MS, "GestionIntegridad"))
+                throw new UnauthorizedAccessException("No tenés permiso para reactivar clientes.");
+
+            ClienteBE cliente_675MS = clienteDAL675MS.ConsultaPorDNI_675MS(dni_675MS);
+
+            if (cliente_675MS == null)
+                throw new Exception("El cliente no existe.");
+
+            if (cliente_675MS.Activo_675MS)
+                throw new Exception("El cliente ya está activo.");
+
+            int resultado_675MS = clienteDAL675MS.ReactivarClienteDAL_675MS(dni_675MS);
+
+            if (resultado_675MS > 0)
+                new IntegridadBLL().ActualizarDigitosVerticalesCliente_675MS();
+
+            return resultado_675MS;
+        }
+
     }
 }

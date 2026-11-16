@@ -71,5 +71,14 @@ namespace BE
             set { digitoVerificadorHorizontal_675MS = value; }
         }
 
-    }
+		private bool activo_675MS;
+
+		public bool Activo_675MS
+        {
+			get { return activo_675MS; }
+			set { activo_675MS = value; }
+		}
+
+
+	}
 }

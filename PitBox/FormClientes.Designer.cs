@@ -57,6 +57,8 @@
             this.txtSerializacion_675MS = new System.Windows.Forms.TextBox();
             this.lblIdioma_675MS = new System.Windows.Forms.Label();
             this.cmbIdiomas_675MS = new System.Windows.Forms.ComboBox();
+            this.btnBaja_675MS = new System.Windows.Forms.Button();
+            this.btnReactivar_675MS = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes_675MS)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -122,7 +124,7 @@
             // 
             this.btnVolver_675MS.BackColor = System.Drawing.Color.MistyRose;
             this.btnVolver_675MS.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVolver_675MS.Location = new System.Drawing.Point(876, 494);
+            this.btnVolver_675MS.Location = new System.Drawing.Point(876, 556);
             this.btnVolver_675MS.Name = "btnVolver_675MS";
             this.btnVolver_675MS.Size = new System.Drawing.Size(217, 30);
             this.btnVolver_675MS.TabIndex = 59;
@@ -358,12 +360,38 @@
             this.cmbIdiomas_675MS.TabIndex = 69;
             this.cmbIdiomas_675MS.SelectedIndexChanged += new System.EventHandler(this.cmbIdiomas_675MS_SelectedIndexChanged);
             // 
+            // btnBaja_675MS
+            // 
+            this.btnBaja_675MS.BackColor = System.Drawing.Color.LightCoral;
+            this.btnBaja_675MS.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBaja_675MS.Location = new System.Drawing.Point(876, 494);
+            this.btnBaja_675MS.Name = "btnBaja_675MS";
+            this.btnBaja_675MS.Size = new System.Drawing.Size(217, 30);
+            this.btnBaja_675MS.TabIndex = 71;
+            this.btnBaja_675MS.Text = "Baja";
+            this.btnBaja_675MS.UseVisualStyleBackColor = false;
+            this.btnBaja_675MS.Click += new System.EventHandler(this.btnBaja_675MS_Click);
+            // 
+            // btnReactivar_675MS
+            // 
+            this.btnReactivar_675MS.BackColor = System.Drawing.Color.PowderBlue;
+            this.btnReactivar_675MS.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReactivar_675MS.Location = new System.Drawing.Point(876, 525);
+            this.btnReactivar_675MS.Name = "btnReactivar_675MS";
+            this.btnReactivar_675MS.Size = new System.Drawing.Size(217, 30);
+            this.btnReactivar_675MS.TabIndex = 72;
+            this.btnReactivar_675MS.Text = "Reactivar";
+            this.btnReactivar_675MS.UseVisualStyleBackColor = false;
+            this.btnReactivar_675MS.Click += new System.EventHandler(this.btnReactivar_675MS_Click);
+            // 
             // FormClientes
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1134, 711);
+            this.Controls.Add(this.btnReactivar_675MS);
+            this.Controls.Add(this.btnBaja_675MS);
             this.Controls.Add(this.lblIdioma_675MS);
             this.Controls.Add(this.cmbIdiomas_675MS);
             this.Controls.Add(this.groupBox1);
@@ -427,5 +455,7 @@
         private System.Windows.Forms.Button btnCarpeta1_675MS;
         private System.Windows.Forms.Label lblIdioma_675MS;
         private System.Windows.Forms.ComboBox cmbIdiomas_675MS;
+        private System.Windows.Forms.Button btnBaja_675MS;
+        private System.Windows.Forms.Button btnReactivar_675MS;
     }
 }
