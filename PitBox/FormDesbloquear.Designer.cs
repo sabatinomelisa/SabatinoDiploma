@@ -30,7 +30,7 @@
         {
             this.dgvDesbloquear_675MS = new System.Windows.Forms.DataGridView();
             this.btnVolver_675MS = new System.Windows.Forms.Button();
-            this.bntRegistrar_675MS = new System.Windows.Forms.Button();
+            this.bntDesbloquear_675MS = new System.Windows.Forms.Button();
             this.lblUsuario_675MS = new System.Windows.Forms.Label();
             this.lblDesbloqueo_675MS = new System.Windows.Forms.Label();
             this.txtUsuario_675MS = new System.Windows.Forms.TextBox();
@@ -50,6 +50,7 @@
             this.dgvDesbloquear_675MS.RowTemplate.Height = 24;
             this.dgvDesbloquear_675MS.Size = new System.Drawing.Size(706, 460);
             this.dgvDesbloquear_675MS.TabIndex = 49;
+            this.dgvDesbloquear_675MS.SelectionChanged += new System.EventHandler(this.dgvDesbloquear_675MS_SelectionChanged);
             // 
             // btnVolver_675MS
             // 
@@ -63,17 +64,17 @@
             this.btnVolver_675MS.UseVisualStyleBackColor = false;
             this.btnVolver_675MS.Click += new System.EventHandler(this.btnVolver_675MS_Click);
             // 
-            // bntRegistrar_675MS
+            // bntDesbloquear_675MS
             // 
-            this.bntRegistrar_675MS.BackColor = System.Drawing.Color.Aquamarine;
-            this.bntRegistrar_675MS.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bntRegistrar_675MS.Location = new System.Drawing.Point(854, 343);
-            this.bntRegistrar_675MS.Name = "bntRegistrar_675MS";
-            this.bntRegistrar_675MS.Size = new System.Drawing.Size(255, 30);
-            this.bntRegistrar_675MS.TabIndex = 60;
-            this.bntRegistrar_675MS.Text = "Desbloquear";
-            this.bntRegistrar_675MS.UseVisualStyleBackColor = false;
-            this.bntRegistrar_675MS.Click += new System.EventHandler(this.bntRegistrar_675MS_Click);
+            this.bntDesbloquear_675MS.BackColor = System.Drawing.Color.Aquamarine;
+            this.bntDesbloquear_675MS.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bntDesbloquear_675MS.Location = new System.Drawing.Point(854, 343);
+            this.bntDesbloquear_675MS.Name = "bntDesbloquear_675MS";
+            this.bntDesbloquear_675MS.Size = new System.Drawing.Size(255, 30);
+            this.bntDesbloquear_675MS.TabIndex = 60;
+            this.bntDesbloquear_675MS.Text = "Desbloquear";
+            this.bntDesbloquear_675MS.UseVisualStyleBackColor = false;
+            this.bntDesbloquear_675MS.Click += new System.EventHandler(this.bntRegistrar_675MS_Click);
             // 
             // lblUsuario_675MS
             // 
@@ -83,7 +84,7 @@
             this.lblUsuario_675MS.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblUsuario_675MS.Location = new System.Drawing.Point(773, 269);
             this.lblUsuario_675MS.Name = "lblUsuario_675MS";
-            this.lblUsuario_675MS.Size = new System.Drawing.Size(75, 23);
+            this.lblUsuario_675MS.Size = new System.Drawing.Size(62, 19);
             this.lblUsuario_675MS.TabIndex = 71;
             this.lblUsuario_675MS.Text = "Usuario";
             // 
@@ -95,7 +96,7 @@
             this.lblDesbloqueo_675MS.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.lblDesbloqueo_675MS.Location = new System.Drawing.Point(767, 199);
             this.lblDesbloqueo_675MS.Name = "lblDesbloqueo_675MS";
-            this.lblDesbloqueo_675MS.Size = new System.Drawing.Size(360, 35);
+            this.lblDesbloqueo_675MS.Size = new System.Drawing.Size(286, 28);
             this.lblDesbloqueo_675MS.TabIndex = 69;
             this.lblDesbloqueo_675MS.Text = "DESBLOQUEO DE USUARIOS";
             // 
@@ -103,7 +104,7 @@
             // 
             this.txtUsuario_675MS.Location = new System.Drawing.Point(854, 271);
             this.txtUsuario_675MS.Name = "txtUsuario_675MS";
-            this.txtUsuario_675MS.Size = new System.Drawing.Size(255, 22);
+            this.txtUsuario_675MS.Size = new System.Drawing.Size(255, 20);
             this.txtUsuario_675MS.TabIndex = 68;
             // 
             // lblIdioma_675MS
@@ -122,7 +123,7 @@
             this.cmbIdiomas_675MS.FormattingEnabled = true;
             this.cmbIdiomas_675MS.Location = new System.Drawing.Point(968, 29);
             this.cmbIdiomas_675MS.Name = "cmbIdiomas_675MS";
-            this.cmbIdiomas_675MS.Size = new System.Drawing.Size(141, 24);
+            this.cmbIdiomas_675MS.Size = new System.Drawing.Size(141, 21);
             this.cmbIdiomas_675MS.TabIndex = 72;
             this.cmbIdiomas_675MS.SelectedIndexChanged += new System.EventHandler(this.cmbIdiomas_675MS_SelectedIndexChanged);
             // 
@@ -137,7 +138,7 @@
             this.Controls.Add(this.lblDesbloqueo_675MS);
             this.Controls.Add(this.txtUsuario_675MS);
             this.Controls.Add(this.btnVolver_675MS);
-            this.Controls.Add(this.bntRegistrar_675MS);
+            this.Controls.Add(this.bntDesbloquear_675MS);
             this.Controls.Add(this.dgvDesbloquear_675MS);
             this.Name = "FormDesbloquear";
             this.Text = "Desbloquear Usuario";
@@ -152,7 +153,7 @@
 
         private System.Windows.Forms.DataGridView dgvDesbloquear_675MS;
         private System.Windows.Forms.Button btnVolver_675MS;
-        private System.Windows.Forms.Button bntRegistrar_675MS;
+        private System.Windows.Forms.Button bntDesbloquear_675MS;
         private System.Windows.Forms.Label lblUsuario_675MS;
         private System.Windows.Forms.Label lblDesbloqueo_675MS;
         private System.Windows.Forms.TextBox txtUsuario_675MS;

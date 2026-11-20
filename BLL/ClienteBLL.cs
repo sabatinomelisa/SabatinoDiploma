@@ -15,6 +15,9 @@ namespace BLL
     {
         ClienteDAL clienteDAL675MS = new ClienteDAL();
         ClienteBE clienteBE_675MS = new ClienteBE();
+
+        //Serialización
+        private GestorXML gestorXML_675MS = new GestorXML();
         public List<ClienteBE> ListarClientes_675MS()
         {
             //Instancio la DAL
@@ -24,10 +27,6 @@ namespace BLL
 
             return clientes_675MS;
         }
-
-
-        //Serialización
-        private GestorXML gestorXML_675MS = new GestorXML();
 
         public void GuardarClientesXML_675MS(List<ClienteBE> clientes, string path)
         {
@@ -111,8 +110,7 @@ namespace BLL
             }else return true;
 ;
         }
-
-
+        
         public int RecuperarCliente_675MS(HistorialClienteBE historial_675MS)
         {
             if (historial_675MS == null)
@@ -153,8 +151,7 @@ namespace BLL
 
             return ModificarCliente_675MS(cliente_675MS);
         }
-
-
+        
         public int BajaCliente_675MS(int dni_675MS)
         {
             if (!Servicios.SessionManager.SesionIniciada_675MS)
@@ -175,8 +172,7 @@ namespace BLL
 
             return resultado_675MS;
         }
-
-
+        
         public int ReactivarCliente_675MS(int dni_675MS)
         {
             if (!Servicios.SessionManager.SesionIniciada_675MS)

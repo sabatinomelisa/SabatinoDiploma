@@ -1,5 +1,6 @@
 ﻿using BE;
 using DAL;
+using Servicios;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -73,9 +74,25 @@ namespace BLL
             return filasAfectadas_675MS;
         }
 
+
         public int AprobarVTV_675MS(int id_675MS)
         {
+            if (id_675MS <= 0) throw new Exception("Debe seleccionar una VTV válida.");
+
+            if (!SessionManager.SesionIniciada_675MS) throw new Exception("Debe iniciar sesión para aprobar una VTV.");
+
+            UsuarioBE usuario_675MS = SessionManager.ObtenerUsuarioActual_675MS();
+
+            if (usuario_675MS == null || usuario_675MS.Rol_675MS == null) throw new Exception("No se pudo recuperar el rol del usuario.");
+
+            RolBLL rolBLL_675MS = new RolBLL();
+
+            bool puedeAprobar_675MS = rolBLL_675MS.TienePermiso_675MS(usuario_675MS.Rol_675MS, "AprobarVTV");
+
+            if (!puedeAprobar_675MS) throw new Exception("No tiene permiso para aprobar una VTV.");
+
             VtvDAL_675MS = new VtvDAL();
+
             return VtvDAL_675MS.AprobarVtvDAL_675MS(id_675MS);
         }
 

@@ -30,21 +30,7 @@ namespace PitBox
             this.BackgroundImageLayout = ImageLayout.Stretch;
         }
 
-        private void FormHistorialCliente_Load(object sender, EventArgs e)
-        {
-            // Le saco los bordes y la barra de título superior
-            this.FormBorderStyle = FormBorderStyle.None;
-
-            // Hago que ocupe todo el espacio disponible dentro del contenedor MDI sin salirse
-            this.Dock = DockStyle.Fill;
-
-            //Suscribo al evento del observer
-            TratamientoIdioma.Instancia.Suscribir(this);
-            //Cargo combo con los idiomas del sistema
-            CargarComboIdiomas_675MS();
-
-        }
-
+        //Manejo de idiomas
         private void CargarComboIdiomas_675MS()
         {
             try
@@ -117,6 +103,22 @@ namespace PitBox
             }
         }
 
+        //Eventos del form y controles de usuario
+        private void FormHistorialCliente_Load(object sender, EventArgs e)
+        {
+            // Le saco los bordes y la barra de título superior
+            this.FormBorderStyle = FormBorderStyle.None;
+
+            // Hago que ocupe todo el espacio disponible dentro del contenedor MDI sin salirse
+            this.Dock = DockStyle.Fill;
+
+            //Suscribo al evento del observer
+            TratamientoIdioma.Instancia.Suscribir(this);
+            //Cargo combo con los idiomas del sistema
+            CargarComboIdiomas_675MS();
+
+        }
+
         private void cmbIdiomas_675MS_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cargandoIdiomas_675MS)
@@ -139,7 +141,6 @@ namespace PitBox
         {
             this.Close();
         }
-
 
         private void bntConsultar_675MS_Click(object sender, EventArgs e)
         {
@@ -228,8 +229,6 @@ namespace PitBox
                 MessageBox.Show(ex.Message, "Error al consultar historial", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-
 
         private void btnLimpiar_675MS_Click(object sender, EventArgs e)
         {

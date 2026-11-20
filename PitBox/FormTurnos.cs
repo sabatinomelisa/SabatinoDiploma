@@ -26,6 +26,7 @@ namespace PitBox
             InitializeComponent();
             this.BackgroundImage = Properties.Resources.FondoRepetido;
             this.BackgroundImageLayout = ImageLayout.Stretch;
+            txtDuracion_675MS.TextChanged += (s, e) => CargoHorarios_675MS();
         }
 
         List<TurnoBE> turnos_675MS = new List<TurnoBE>();
@@ -224,27 +225,35 @@ namespace PitBox
 
         }
 
+
         private void CargoHorarios_675MS()
         {
             cmbHorario_675MS.Items.Clear();
-            DateTime fechaSeleccionada = dateTimePicker1.Value.Date;
 
-            // Llamo a la BLL
-            TurnoBLL turnoBLL = new TurnoBLL();
-            List<string> horarios = turnoBLL.ObtenerHorariosDisponibles_675MS(fechaSeleccionada);
+            int duracion_675MS;
 
-            // Llenamos el combo con la lista procesada
-            foreach (string hora in horarios)
+            if (!int.TryParse(txtDuracion_675MS.Text, out duracion_675MS) || duracion_675MS <= 0)
             {
-                cmbHorario_675MS.Items.Add(hora);
+                return;
             }
 
-            // Seleccionamos el primero por defecto si hay disponibilidad
+            DateTime fecha_675MS = dateTimePicker1.Value.Date;
+
+            TurnoBLL turnoBLL_675MS = new TurnoBLL();
+
+            List<string> horarios_675MS = turnoBLL_675MS.ObtenerHorariosDisponibles_675MS(fecha_675MS, duracion_675MS);
+
+            foreach (string horario_675MS in horarios_675MS)
+            {
+                cmbHorario_675MS.Items.Add(horario_675MS);
+            }
+
             if (cmbHorario_675MS.Items.Count > 0)
             {
                 cmbHorario_675MS.SelectedIndex = 0;
             }
         }
+
 
         private void btnBaja_675MS_Click(object sender, EventArgs e)
         {

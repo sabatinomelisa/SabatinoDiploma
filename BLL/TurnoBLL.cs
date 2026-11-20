@@ -18,50 +18,50 @@ namespace BLL
             return turnoDAL_675MS.ListarTurnosturnos_675MS();
         }
 
-        public List<string> ObtenerHorariosDisponibles_675MS(DateTime fechaSeleccionada_675MS)
+
+        public List<string> ObtenerHorariosDisponibles_675MS(DateTime fechaSeleccionada_675MS, int duracionSolicitada_675MS = 60, int idTurnoExcluir_675MS = 0)
         {
+            List<string> horariosDisponibles_675MS = new List<string>();
+
+            if (duracionSolicitada_675MS <= 0)
+                return horariosDisponibles_675MS;
+
             TurnoDAL turnoDAL_675MS = new TurnoDAL();
-            List<TurnoBE> turnosOcupados_675MS = turnoDAL_675MS.ObtenerTurnosPorFecha_675MS(fechaSeleccionada_675MS);
 
-            List<string> horariosDisponibles = new List<string>();
+            List<TurnoBE> turnosOcupados_675MS = turnoDAL_675MS.ObtenerTurnosPorFecha_675MS(fechaSeleccionada_675MS.Date);
 
-            // Reglas de negocio: horario del taller
-            TimeSpan horaApertura_675MS = new TimeSpan(8, 0, 0);   // 08:00 AM
-            TimeSpan horaCierre_675MS = new TimeSpan(18, 0, 0);    // 18:00 PM
-            TimeSpan intervalo_675MS = new TimeSpan(0, 30, 0);     // Turnos cada 30 min
+            DateTime apertura_675MS = fechaSeleccionada_675MS.Date.AddHours(8);
 
-            TimeSpan horaEvaluada_675MS = horaApertura_675MS;
+            DateTime cierre_675MS = fechaSeleccionada_675MS.Date.AddHours(18);
 
-            while (horaEvaluada_675MS < horaCierre_675MS)
+            for (DateTime inicio_675MS = apertura_675MS; inicio_675MS.AddMinutes(duracionSolicitada_675MS) <= cierre_675MS; inicio_675MS = inicio_675MS.AddMinutes(30))
             {
-                DateTime posibleHorario = fechaSeleccionada_675MS.Add(horaEvaluada_675MS);
-                bool horarioLibre = true;
+                DateTime fin_675MS = inicio_675MS.AddMinutes(duracionSolicitada_675MS);
+
+                bool ocupado_675MS = false;
 
                 foreach (TurnoBE turno_675MS in turnosOcupados_675MS)
                 {
-                    DateTime inicioTurno = Convert.ToDateTime(turno_675MS.FechaHora_675MS);
-                    int duracion = Convert.ToInt32(turno_675MS.DuracionEstimada_675MS);
-                    DateTime finTurno = inicioTurno.AddMinutes(duracion);
+                    if (!turno_675MS.Activo_675MS || turno_675MS.IdTurno_675MS == idTurnoExcluir_675MS)
+                        continue;
 
-                    if (posibleHorario >= inicioTurno && posibleHorario < finTurno)
+                    DateTime inicioExistente_675MS = turno_675MS.FechaHora_675MS;
+
+                    DateTime finExistente_675MS = inicioExistente_675MS.AddMinutes(turno_675MS.DuracionEstimada_675MS);
+
+                    if (inicio_675MS < finExistente_675MS && fin_675MS > inicioExistente_675MS)
                     {
-                        horarioLibre = false;
+                        ocupado_675MS = true;
                         break;
                     }
                 }
 
-                if (horarioLibre)
-                {
-                    // Agregamos la hora libre a la lista
-                    horariosDisponibles.Add(horaEvaluada_675MS.ToString(@"hh\:mm"));
-                }
-
-                horaEvaluada_675MS = horaEvaluada_675MS.Add(intervalo_675MS);
+                if (!ocupado_675MS)
+                    horariosDisponibles_675MS.Add(inicio_675MS.ToString("HH:mm"));
             }
 
-            return horariosDisponibles;
+            return horariosDisponibles_675MS;
         }
-
 
         public void ValidarDatosIngresados_675MS(TurnoBE turno_675MS)
         {

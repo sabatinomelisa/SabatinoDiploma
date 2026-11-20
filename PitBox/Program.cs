@@ -146,17 +146,19 @@ namespace PitBox
                 }
             }
 
-            // 4. Ejecutar esquema y luego datos iniciales.
+            // 4. Ejecutar el script completo de instalación.
             string carpeta = AppDomain.CurrentDomain.BaseDirectory;
+            string rutaScript = Path.Combine(carpeta, "script.sql");
 
-            EjecutarScriptSql_675MS(Path.Combine(carpeta, "PitBox_esquema_limpio.sql"), conexionPitbox);
+            if (!File.Exists(rutaScript))
+            {
+                throw new Exception("No se encontró script.sql en la carpeta de instalación.");
+            }
 
-            EjecutarScriptSql_675MS(Path.Combine(carpeta, "PitBox_datos_iniciales.sql"),conexionPitbox);
+            EjecutarScriptSql_675MS(rutaScript, conexionPitbox);
         }
 
-        private static void EjecutarScriptSql_675MS(
-            string rutaArchivo,
-            string cadenaConexion)
+        private static void EjecutarScriptSql_675MS(string rutaArchivo, string cadenaConexion)
         {
             if (!File.Exists(rutaArchivo))
             {

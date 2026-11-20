@@ -128,5 +128,179 @@ namespace DAL
                 acceso_675MS.Desconectar_675MS();
             }
         }
+
+        public int AltaRol_675MS(string nombre_675MS)
+        {
+            Acceso acceso_675MS = new Acceso();
+            acceso_675MS.Conectar_675MS();
+
+            try
+            {
+                List<SqlParameter> parametros_675MS = new List<SqlParameter>();
+
+                parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@Nombre", nombre_675MS));
+
+                return acceso_675MS.Escribir_675MS("ALTA_ROL", parametros_675MS);
+            }
+            finally
+            {
+                acceso_675MS.Desconectar_675MS();
+            }
+        }
+
+        public int ModificarRol_675MS(int idRol_675MS, string nombre_675MS)
+        {
+            Acceso acceso_675MS = new Acceso();
+            acceso_675MS.Conectar_675MS();
+
+            try
+            {
+                List<SqlParameter> parametros_675MS = new List<SqlParameter>();
+
+                parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@IdRol", idRol_675MS));
+
+                parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@Nombre", nombre_675MS));
+
+                return acceso_675MS.Escribir_675MS("MODIFICAR_ROL", parametros_675MS);
+            }
+            finally
+            {
+                acceso_675MS.Desconectar_675MS();
+            }
+        }
+
+        public int BajaRol_675MS(int idRol_675MS)
+        {
+            Acceso acceso_675MS = new Acceso();
+            acceso_675MS.Conectar_675MS();
+
+            try
+            {
+                List<SqlParameter> parametros_675MS = new List<SqlParameter>();
+
+                parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@IdRol", idRol_675MS));
+
+                return acceso_675MS.Escribir_675MS("BAJA_ROL", parametros_675MS);
+            }
+            finally
+            {
+                acceso_675MS.Desconectar_675MS();
+            }
+        }
+
+        public int VerificarRolEnUso_675MS(int idRol_675MS)
+        {
+            Acceso acceso_675MS = new Acceso();
+            acceso_675MS.Conectar_675MS();
+
+            try
+            {
+                List<SqlParameter> parametros_675MS = new List<SqlParameter>();
+
+                parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@IdRol", idRol_675MS));
+
+                DataTable tabla_675MS = acceso_675MS.Leer_675MS("VERIFICAR_ROL_EN_USO", parametros_675MS);
+
+                return Convert.ToInt32(tabla_675MS.Rows[0]["Cantidad"]);
+            }
+            finally
+            {
+                acceso_675MS.Desconectar_675MS();
+            }
+        }
+
+        // LISTAR RELACIONES ROL - PERMISO
+        public DataTable ListarRolPermisos_675MS()
+        {
+            Acceso acceso_675MS = new Acceso();
+            acceso_675MS.Conectar_675MS();
+
+            try
+            {
+                List<SqlParameter> parametros_675MS = new List<SqlParameter>();
+
+                return acceso_675MS.Leer_675MS("LISTAR_ROL_PERMISOS", parametros_675MS);
+            }
+            finally
+            {
+                acceso_675MS.Desconectar_675MS();
+            }
+        }
+
+        // ASIGNAR PERMISO A UN ROL
+        public int AltaRolPermiso_675MS(int idRol_675MS, int idPermiso_675MS)
+        {
+            Acceso acceso_675MS = new Acceso();
+            acceso_675MS.Conectar_675MS();
+
+            try
+            {
+                List<SqlParameter> parametros_675MS = new List<SqlParameter>();
+
+                parametros_675MS.Add(
+                    acceso_675MS.CrearParametro_675MS("@IdRol", idRol_675MS));
+
+                parametros_675MS.Add(
+                    acceso_675MS.CrearParametro_675MS("@IdPermiso", idPermiso_675MS));
+
+                return acceso_675MS.Escribir_675MS(
+                    "ALTA_ROL_PERMISO", parametros_675MS);
+            }
+            finally
+            {
+                acceso_675MS.Desconectar_675MS();
+            }
+        }
+
+        // MODIFICAR RELACIÓN ROL - PERMISO
+        public int ModificarRolPermiso_675MS(
+            int idRolComponente_675MS,
+            int idRol_675MS,
+            int idPermiso_675MS)
+        {
+            Acceso acceso_675MS = new Acceso();
+            acceso_675MS.Conectar_675MS();
+
+            try
+            {
+                List<SqlParameter> parametros_675MS = new List<SqlParameter>();
+
+                parametros_675MS.Add(
+                    acceso_675MS.CrearParametro_675MS(
+                        "@IdRolComponente", idRolComponente_675MS));
+
+                parametros_675MS.Add(
+                    acceso_675MS.CrearParametro_675MS("@IdRol", idRol_675MS));
+
+                parametros_675MS.Add(
+                    acceso_675MS.CrearParametro_675MS("@IdPermiso", idPermiso_675MS));
+
+                return acceso_675MS.Escribir_675MS(
+                    "MODIFICAR_ROL_PERMISO", parametros_675MS);
+            }
+            finally
+            {
+                acceso_675MS.Desconectar_675MS();
+            }
+        }
+
+        public int BajaRolPermiso_675MS(int idRolComponente_675MS)
+        {
+            Acceso acceso_675MS = new Acceso();
+            acceso_675MS.Conectar_675MS();
+
+            try
+            {
+                List<SqlParameter> parametros_675MS = new List<SqlParameter>();
+
+                parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@IdRolComponente", idRolComponente_675MS));
+
+                return acceso_675MS.Escribir_675MS("BAJA_ROL_PERMISO", parametros_675MS);
+            }
+            finally
+            {
+                acceso_675MS.Desconectar_675MS();
+            }
+        }
     }
 }

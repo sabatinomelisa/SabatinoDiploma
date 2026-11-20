@@ -11,8 +11,6 @@ namespace DAL
 {
     public class ClienteDAL
     {
-  
-
         public int ActualizarDigitoVerificadorHorizontal_675MS(int dni_675MS, int digitoVerificadorHorizontal_675MS)
         {
             Acceso acceso_675MS = new Acceso();
@@ -177,9 +175,6 @@ namespace DAL
             }
         }
 
-
-
-
         public int BajaClienteDAL_675MS(int dni_675MS)
         {
             Acceso acceso_675MS = new Acceso();
@@ -201,8 +196,6 @@ namespace DAL
             }
         }
 
-
-
         public int ReactivarClienteDAL_675MS(int dni_675MS)
         {
             Acceso acceso_675MS = new Acceso();
@@ -220,7 +213,6 @@ namespace DAL
                 acceso_675MS.Desconectar_675MS();
             }
         }
-
 
     }
 }

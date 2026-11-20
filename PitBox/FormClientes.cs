@@ -15,11 +15,14 @@ namespace PitBox
 {
     public partial class FormClientes : Form,IObserverIdioma
     {
+        //Manejo de Idiomas
         List<IdiomaBE> idiomas_675MS = new List<IdiomaBE>();
         IdiomaBLL idiomaBLL_675MS = new IdiomaBLL();
         List<TraduccionBE> traducciones_675MS = new List<TraduccionBE>();
         private bool cargandoIdiomas_675MS = false;
 
+        // Instancio a la BLL
+        ClienteBLL clienteBLL_675MS = new ClienteBLL();
         public FormClientes()
         {
             InitializeComponent();
@@ -27,27 +30,7 @@ namespace PitBox
             this.BackgroundImageLayout = ImageLayout.Stretch;
         }
 
-        // Instancio a la BLL
-        ClienteBLL clienteBLL_675MS = new ClienteBLL();
-        private void FormClientes_Load(object sender, EventArgs e)
-        {
-            {
-                // Le saco los bordes y la barra de título superior
-                this.FormBorderStyle = FormBorderStyle.None;
-
-                // Hago que ocupe todo el espacio disponible dentro del contenedor MDI sin salirse
-                this.Dock = DockStyle.Fill;
-
-                ActualizarPantalla_675MS();
-
-                //Suscribo al evento del observer
-                TratamientoIdioma.Instancia.Suscribir(this);
-                //Cargo combo con los idiomas del sistema
-                CargarComboIdiomas_675MS();
-
-            }
-        }
-
+        //Metodos de manejo de idioma
         private void CargarComboIdiomas_675MS()
         {
             try
@@ -153,9 +136,6 @@ namespace PitBox
             }
         }
 
-
-
-
         private void ActualizarPantalla_675MS()
         {
             // Conservo el DNI seleccionado, si existe
@@ -163,14 +143,14 @@ namespace PitBox
 
             if (dgvClientes_675MS.CurrentRow != null)
             {
-                ClienteBE seleccionado_675MS =  dgvClientes_675MS.CurrentRow.DataBoundItem as ClienteBE;
+                ClienteBE seleccionado_675MS = dgvClientes_675MS.CurrentRow.DataBoundItem as ClienteBE;
 
                 if (seleccionado_675MS != null)
                     dniSeleccionado_675MS = seleccionado_675MS.Dni_675MS;
             }
 
             // Recupero los clientes desde la BLL
-            List<ClienteBE> clientes_675MS =  clienteBLL_675MS.ListarClientes_675MS();
+            List<ClienteBE> clientes_675MS = clienteBLL_675MS.ListarClientes_675MS();
 
             dgvClientes_675MS.DataSource = null;
             dgvClientes_675MS.Columns.Clear();
@@ -192,7 +172,7 @@ namespace PitBox
             dgvClientes_675MS.CellFormatting += dgvClientes_675MS_CellFormatting;
 
             // La ubico al final
-            columnaEstado_675MS.DisplayIndex =  dgvClientes_675MS.Columns.Count - 1;
+            columnaEstado_675MS.DisplayIndex = dgvClientes_675MS.Columns.Count - 1;
 
             // Encabezados
             dgvClientes_675MS.Columns["Dni_675MS"].HeaderText = "DNI";
@@ -219,7 +199,7 @@ namespace PitBox
                 if (cliente_675MS != null &&
                     cliente_675MS.Dni_675MS == dniSeleccionado_675MS)
                 {
-                    dgvClientes_675MS.CurrentCell =   fila_675MS.Cells["Dni_675MS"];
+                    dgvClientes_675MS.CurrentCell = fila_675MS.Cells["Dni_675MS"];
 
                     fila_675MS.Selected = true;
 
@@ -231,6 +211,25 @@ namespace PitBox
             }
         }
 
+        //Eventos del form y controles de usuario
+        private void FormClientes_Load(object sender, EventArgs e)
+        {
+            {
+                // Le saco los bordes y la barra de título superior
+                this.FormBorderStyle = FormBorderStyle.None;
+
+                // Hago que ocupe todo el espacio disponible dentro del contenedor MDI sin salirse
+                this.Dock = DockStyle.Fill;
+
+                ActualizarPantalla_675MS();
+
+                //Suscribo al evento del observer
+                TratamientoIdioma.Instancia.Suscribir(this);
+                //Cargo combo con los idiomas del sistema
+                CargarComboIdiomas_675MS();
+
+            }
+        }
 
         private void dgvClientes_675MS_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
@@ -395,6 +394,14 @@ namespace PitBox
                 return;
             }
 
+
+            //Valido Mail
+            if (!System.Text.RegularExpressions.Regex.IsMatch(txtMail_675MS.Text.Trim(), @"^[^@\s]+@[^@\s\.]+(\.[^@\s\.]+)+$"))
+            {
+                MessageBox.Show("Ingrese un correo electrónico válido.", "Mail inválido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             // Instancio el objeto ClienteBE para registrar
             ClienteBE nuevoCliente_675MS = new ClienteBE();
 
@@ -449,6 +456,13 @@ namespace PitBox
             if (!int.TryParse(txtTelefono_675MS.Text, out int telefonoValidado_675MS) || telefonoValidado_675MS <= 0)
             {
                 MessageBox.Show("El teléfono debe ser un número válido.", "Error de formato", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            //Valido Mail
+            if (!System.Text.RegularExpressions.Regex.IsMatch(txtMail_675MS.Text.Trim(), @"^[^@\s]+@[^@\s\.]+(\.[^@\s\.]+)+$"))
+            {
+                MessageBox.Show("Ingrese un correo electrónico válido.", "Mail inválido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 

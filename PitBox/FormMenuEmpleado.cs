@@ -237,7 +237,7 @@ namespace PitBox
             // Buscamos manualmente si el formulario ya se encuentra abierto
             foreach (Form formulario_675MS in Application.OpenForms)
             {
-                if (formulario_675MS is FormUsuarios)
+                if (formulario_675MS is FormDesbloquear)
                 {
                     formExistente_675MS = (FormDesbloquear)formulario_675MS;
                     break;
@@ -353,16 +353,14 @@ namespace PitBox
         }
 
 
+
         private void FiltrarMenuPorPermisos_675MS()
         {
-            // Recuperar el usuario que inició sesión.
             UsuarioBE usuario_675MS = SessionManager.ObtenerUsuarioActual_675MS();
 
             if (usuario_675MS == null || usuario_675MS.Rol_675MS == null)
             {
                 MessageBox.Show("No se pudo recuperar el rol del usuario.");
-
-                // Si no hay permisos cargados, ocultamos los módulos.
                 usuariosToolStripMenuItem.Visible = false;
                 empleadosToolStripMenuItem.Visible = false;
                 clientesToolStripMenuItem.Visible = false;
@@ -373,57 +371,34 @@ namespace PitBox
                 gestionarRolesToolStripMenuItem.Visible = false;
                 integridadToolStripMenuItem.Visible = false;
                 historialDeCambiosToolStripMenuItem.Visible = false;
-
                 return;
             }
 
             RolBLL rolBLL_675MS = new RolBLL();
-
             RolBE rol_675MS = usuario_675MS.Rol_675MS;
 
-            // Consultar los permisos del usuario.
-            bool permisoUsuarios_675MS  =  rolBLL_675MS.TienePermiso_675MS(rol_675MS, "Usuarios");
-
+            bool permisoUsuarios_675MS = rolBLL_675MS.TienePermiso_675MS(rol_675MS, "Usuarios");
             bool permisoEmpleados_675MS = rolBLL_675MS.TienePermiso_675MS(rol_675MS, "Empleados");
-
-            bool permisoClientes_675MS  =  rolBLL_675MS.TienePermiso_675MS(rol_675MS, "Clientes");
-
-            bool permisoVehiculos_675MS =  rolBLL_675MS.TienePermiso_675MS(rol_675MS, "Vehiculos");
-
+            bool permisoClientes_675MS = rolBLL_675MS.TienePermiso_675MS(rol_675MS, "Clientes");
+            bool permisoVehiculos_675MS = rolBLL_675MS.TienePermiso_675MS(rol_675MS, "Vehiculos");
             bool permisoTurnos_675MS = rolBLL_675MS.TienePermiso_675MS(rol_675MS, "Turnos");
-
             bool permisoVTV_675MS = rolBLL_675MS.TienePermiso_675MS(rol_675MS, "VTV");
-
-            // Consulto el permiso de gestión de integridad
             bool permisoIntegridad_675MS = rolBLL_675MS.TienePermiso_675MS(rol_675MS, "GestionIntegridad");
+            bool permisoIdiomas_675MS = rolBLL_675MS.TienePermiso_675MS(rol_675MS, "Idiomas");
+            bool permisoRoles_675MS = rolBLL_675MS.TienePermiso_675MS(rol_675MS, "GestionRoles");
+            bool permisoBitacora_675MS = rolBLL_675MS.TienePermiso_675MS(rol_675MS, "ConsultarBitacora");
 
-            // Muestro Integridad e Historial según los permisos del usuario
-            integridadToolStripMenuItem.Visible = permisoIntegridad_675MS;
-            historialDeCambiosToolStripMenuItem.Visible = permisoIntegridad_675MS;
-
-            // Filtro los menús principales.
             usuariosToolStripMenuItem.Visible = permisoUsuarios_675MS;
-
             empleadosToolStripMenuItem.Visible = permisoEmpleados_675MS;
-
             clientesToolStripMenuItem.Visible = permisoClientes_675MS;
-
-            //Se hace de este modo ya que la opcion de VTV esta en el menú "Vehículos"
             vehiculosToolStripMenuItem.Visible = permisoVehiculos_675MS || permisoVTV_675MS;
-
             turnosToolStripMenuItem.Visible = permisoTurnos_675MS;
-
-            // Filtro opciones particulares.
             gestionarVTVToolStripMenuItem.Visible = permisoVTV_675MS;
-
             altaVehículoToolStripMenuItem.Visible = permisoVehiculos_675MS;
-
-            // Idiomas y gestión de roles quedan reservados al Admin.
-            bool esAdmin_675MS = usuario_675MS.IdRol_675MS == 1;
-
-            idiomasToolStripMenuItem.Visible = esAdmin_675MS;
-
-            gestionarRolesToolStripMenuItem.Visible = esAdmin_675MS;
+            integridadToolStripMenuItem.Visible = permisoIntegridad_675MS;
+            historialDeCambiosToolStripMenuItem.Visible = permisoBitacora_675MS;
+            idiomasToolStripMenuItem.Visible = permisoIdiomas_675MS;
+            gestionarRolesToolStripMenuItem.Visible = permisoRoles_675MS;
         }
 
         private void gestionarIntegridadToolStripMenuItem_Click(object sender, EventArgs e)
@@ -476,9 +451,9 @@ namespace PitBox
             // Verificamos que el usuario tenga permiso para gestionar integridad
             UsuarioBE usuario_675MS = SessionManager.ObtenerUsuarioActual_675MS();
 
-            if (!SessionManager.SesionIniciada_675MS || usuario_675MS == null || usuario_675MS.Rol_675MS == null ||!new RolBLL().TienePermiso_675MS(usuario_675MS.Rol_675MS, "GestionIntegridad"))
+            if (!SessionManager.SesionIniciada_675MS || usuario_675MS == null || usuario_675MS.Rol_675MS == null || !new RolBLL().TienePermiso_675MS(usuario_675MS.Rol_675MS, "ConsultarBitacora"))
             {
-                MessageBox.Show("No tiene permiso para acceder al control de integridad.", "Acceso denegado", MessageBoxButtons.OK,  MessageBoxIcon.Warning);
+                MessageBox.Show("No tiene permiso para consultar el historial de cambios.", "Acceso denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -511,5 +486,61 @@ namespace PitBox
                 formHistorial_675MS.Show();
             }
         }
+
+        private void manualDeUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string ruta_675MS = System.IO.Path.Combine(Application.StartupPath, "ManualUsuario.pdf");
+
+                if (!System.IO.File.Exists(ruta_675MS))
+                {
+                    MessageBox.Show("No se encontró el manual de usuario.", "Ayuda", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                System.Diagnostics.Process.Start(ruta_675MS);
+            }
+            catch (Exception ex_675MS)
+            {
+                MessageBox.Show("No se pudo abrir el manual: " + ex_675MS.Message,"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ayudaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void reporteInteligenteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormReporteInteligente formExistente_675MS = null;
+            // Buscamos manualmente si el formulario ya se encuentra abierto
+            foreach (Form formulario_675MS in Application.OpenForms)
+            {
+                if (formulario_675MS is FormReporteInteligente)
+                {
+                    formExistente_675MS = (FormReporteInteligente)formulario_675MS;
+                    break;
+                }
+            }
+            if (formExistente_675MS != null)
+            {
+                // Si ya hay uno abiert, lo traemos al frente para que el usuario no pierda el foco
+                formExistente_675MS.BringToFront();
+            }
+            else
+            {
+                //Si no está abierto lo creo
+                FormReporteInteligente formReporteInteligente_675MS = new FormReporteInteligente();
+
+                // Lo vinculo al contenedor MDI 
+                formReporteInteligente_675MS.MdiParent = this;
+
+                // Mostrar dentro del contenedor
+                formReporteInteligente_675MS.Show();
+            }
+        }
     }
+    
 }

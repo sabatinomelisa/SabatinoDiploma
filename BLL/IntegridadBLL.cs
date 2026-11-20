@@ -39,7 +39,6 @@ namespace BLL
             }
         }
 
-
         public void ValidarIntegridadParaLogin_675MS()
         {
             InicializarSiCorresponde_675MS();
@@ -171,8 +170,6 @@ namespace BLL
             return resultados_675MS;
         }
 
-
-
         public void RecalcularIntegridad_675MS()
         {
             // Verifico que el usuario tenga permiso para gestionar integridad
@@ -193,8 +190,6 @@ namespace BLL
             // Recalculo solamente si los DVH existentes son correctos
             CalcularYGuardarIntegridad_675MS();
         }
-
-
 
         private void CalcularYGuardarIntegridad_675MS()
         {
@@ -226,8 +221,6 @@ namespace BLL
             // Guardo los nuevos DVV
             integridadDAL_675MS.GuardarDigitosVerticales_675MS(EntidadCliente_675MS, digitosVerticales_675MS);
         }
-
-
 
         public void RecuperarDigitosVerticalesCliente_675MS()
         {
@@ -270,8 +263,7 @@ namespace BLL
                 });
 
         }
-
-
+        
         public int CalcularDigitoHorizontalCliente_675MS(ClienteBE cliente_675MS)
         {
             return calculadorDigitoVerificador_675MS.CalcularHorizontal_675MS(
@@ -284,7 +276,7 @@ namespace BLL
                 cliente_675MS.Telefono_675MS.ToString()
             );
         }
-
+        
         private Dictionary<string, int> CalcularDigitosVerticales_675MS(List<ClienteBE> clientes_675MS)
         {
             List<Dictionary<string, string>> filas_675MS = new List<Dictionary<string, string>>();
@@ -318,7 +310,6 @@ namespace BLL
             return historial_675MS;
         }
 
-
         public List<HistorialClienteBE> ObtenerCambiosParaRecuperar_675MS(int dni_675MS)
         {
             ValidarPermisoIntegridad_675MS();
@@ -334,7 +325,6 @@ namespace BLL
 
             return historial_675MS;
         }
-
 
         private void ValidarPermisoIntegridad_675MS()
         {
@@ -361,7 +351,6 @@ namespace BLL
             }
         }
 
-
         private ClienteBE CopiarCliente_675MS(ClienteBE cliente_675MS)
         {
             // Creo una copia del cliente para no modificar el original
@@ -379,8 +368,6 @@ namespace BLL
             return copia_675MS;
         }
 
-
-
         private void AplicarValorAnterior_675MS(ClienteBE cliente_675MS, HistorialClienteBE historial_675MS)
         {
             if (cliente_675MS == null) throw new ArgumentNullException(nameof(cliente_675MS));
@@ -394,7 +381,6 @@ namespace BLL
             cliente_675MS.Domicilio_675MS = historial_675MS.Domicilio_675MS;
             cliente_675MS.Telefono_675MS = historial_675MS.Telefono_675MS ?? 0;
         }
-
 
         public ClienteBE BuscarClienteOriginal_675MS(int dni_675MS)
         {
@@ -447,8 +433,6 @@ namespace BLL
 
             throw new Exception("No se encontró una versión anterior compatible con el DVH almacenado. " + "Es necesario revisar el historial y una copia de seguridad.");
         }
-
-
 
         private void ValidarCambioHistorial_675MS(ClienteBE cliente_675MS, HistorialClienteBE historial_675MS)
         {

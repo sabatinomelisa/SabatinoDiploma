@@ -50,7 +50,9 @@
     <Compile Include="EmpleadoBE.cs" />
     <Compile Include="HistorialClienteBE.cs" />
     <Compile Include="IdiomaBE.cs" />
+    <Compile Include="IndicadoresReporteBE.cs" />
     <Compile Include="PermisoBE.cs" />
+    <Compile Include="ReporteBE.cs" />
     <Compile Include="ResultadoIntegridadBE.cs" />
     <Compile Include="RolBE.cs" />
     <Compile Include="TraduccionBE.cs" />
