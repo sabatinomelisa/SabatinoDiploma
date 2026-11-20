@@ -508,7 +508,7 @@ namespace PitBox
 
                 // 3. Defino ruta genérica segura (Carpeta Descargas)
                 string rutaCarpeta_675MS = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Downloads");
-                string rutaCompleta_675MS = Path.Combine(rutaCarpeta_675MS, $"ComprobanteVTV_{idVtv_675MS}.txt");
+                string rutaCompleta_675MS = Path.Combine(rutaCarpeta_675MS, $"ComprobanteVTV_{idVtv_675MS}.pdf");
 
                 // 4. Llamo a la BLL para procesar la impresión pasando también el nombre del empleado
                 vtvBLL_675MS = new VtvBLL();

@@ -113,8 +113,8 @@ namespace PitBox
                     case "btnVolver_675MS":
                         btnVolver_675MS.Text = traduccion.Traduccion_675MS;
                         break;
-                    case "bntRegistrar_675MS":
-                        bntRegistrar_675MS.Text = traduccion.Traduccion_675MS;
+                    case "bntDesbloquear_675MS":
+                        bntDesbloquear_675MS.Text = traduccion.Traduccion_675MS;
                         break;
 
                 }
@@ -145,6 +145,8 @@ namespace PitBox
             this.Close();
         }
 
+        //Boton desbloquear
+
         private void bntRegistrar_675MS_Click(object sender, EventArgs e)
         {
             if (dgvDesbloquear_675MS.CurrentRow == null)
@@ -153,22 +155,41 @@ namespace PitBox
                 return;
             }
 
-            // Suponiendo que tu grilla tiene la propiedad IdUsuario_675MS
+            if (dgvDesbloquear_675MS.CurrentRow.Cells["IdUsuario_675MS"].Value == null)
+            {
+                MessageBox.Show("No se pudo identificar al usuario seleccionado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             int idUsuario_675MS = Convert.ToInt32(dgvDesbloquear_675MS.CurrentRow.Cells["IdUsuario_675MS"].Value);
 
-            // Pasas el ID a la BLL
-            int resultado_675MS = usuarioBLL_675MS.ActivarUsuario(idUsuario_675MS);
+            DialogResult confirmacion_675MS = MessageBox.Show("¿Está seguro de que desea desbloquear al usuario seleccionado?", "Confirmar desbloqueo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            if (resultado_675MS > 0)
+            if (confirmacion_675MS != DialogResult.Yes)
             {
-                MessageBox.Show("El usuario se reactivó correctamente.", "PitBox", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ActualizarPantalla_675MS();
+                return;
             }
-            else
+
+            try
             {
-                MessageBox.Show("Ocurrió un error al intentar activar el usuario.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                int resultado_675MS = usuarioBLL_675MS.ActivarUsuario(idUsuario_675MS);
+
+                if (resultado_675MS > 0)
+                {
+                    MessageBox.Show("El usuario se desbloqueó correctamente.", "PitBox", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ActualizarPantalla_675MS();
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo desbloquear el usuario.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al desbloquear el usuario: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         private void cmbIdiomas_675MS_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -187,5 +208,19 @@ namespace PitBox
 
             TratamientoIdioma.Instancia.Notificar();
         }
+
+        private void dgvDesbloquear_675MS_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvDesbloquear_675MS.CurrentRow == null) return;
+
+            UsuarioBloqueadoBE usuario_675MS = dgvDesbloquear_675MS.CurrentRow.DataBoundItem as UsuarioBloqueadoBE;
+
+            if (usuario_675MS == null) return;
+
+            txtUsuario_675MS.Text = usuario_675MS.Usuario_675MS;
+
+        }
+
+
     }
 }

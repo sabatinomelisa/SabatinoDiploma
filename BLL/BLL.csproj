@@ -53,6 +53,7 @@
     <Compile Include="IdiomaBLL.cs" />
     <Compile Include="IntegridadBLL.cs" />
     <Compile Include="PermisoBLL.cs" />
+    <Compile Include="ReporteBLL.cs" />
     <Compile Include="RolBLL.cs" />
     <Compile Include="TraduccionBLL.cs" />
     <Compile Include="TurnoBLL.cs" />

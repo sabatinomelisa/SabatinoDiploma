@@ -8,6 +8,14 @@ namespace BE
 {
     public class UsuarioBE
     {
+
+        private int idUsuario_675MS;
+
+        public int IdUsuario_675MS
+        {
+            get { return idUsuario_675MS; }
+            set { idUsuario_675MS = value; }
+        }
         private string username_675MS;
 
         public string Username_675MS
@@ -49,14 +57,6 @@ namespace BE
             set { intentosFallidos_675MS = value; }
         }
 
-        private int solicitudDesbloqueo_675MS;
-
-        public int SolicitudDesbloqueo_675MS
-        {
-            get { return solicitudDesbloqueo_675MS; }
-            set { solicitudDesbloqueo_675MS = value; }
-        }
-
 
         private int idRol_675MS;
 
@@ -74,6 +74,14 @@ namespace BE
         {
             get { return idEmpleado_675MS; }
             set { idEmpleado_675MS = value; }
+        }
+
+        private int activo_675MS;
+
+        public int Activo_675MS
+        {
+            get { return activo_675MS; }
+            set { activo_675MS = value; }
         }
 
         private int digitoVerificadorHorizontal_675MS;

@@ -56,32 +56,44 @@ namespace BLL
             return vehiculoDAL_675MS.ModificarVehiculoDAL_675MS(vehiculoModificado_675MS);
         }
 
+
         public int RegistrarVehiculo_675MS(VehiculoBE nuevoVehiculo_675MS)
         {
-            //Instancio Calculadora de Digito Verificador
+            VehiculoDAL vehiculoDAL_675MS = new VehiculoDAL();
+
+            // Validar que el dominio no esté vacío
+            if (nuevoVehiculo_675MS == null || string.IsNullOrWhiteSpace(nuevoVehiculo_675MS.Dominio_675MS))
+            {
+                throw new Exception("Debe ingresar un dominio válido.");
+            }
+
+            // Validar si el dominio ya existe
+            string dominio_675MS = nuevoVehiculo_675MS.Dominio_675MS.Trim().ToUpperInvariant();
+
+            nuevoVehiculo_675MS.Dominio_675MS = dominio_675MS;
+
+            // Buscar en los vehículos existentes
+            var vehiculos_675MS = vehiculoDAL_675MS.ListarVehiculos_675MS();
+
+            if (vehiculos_675MS.Any(v => string.Equals(v.Dominio_675MS, dominio_675MS, StringComparison.OrdinalIgnoreCase)))
+            {
+                throw new InvalidOperationException("Ya existe un vehículo registrado con ese dominio.");
+            }
+
+            // Calcular DVH
             Servicios.CalculadorDigitoVerificador calculadorDV_675MS = new Servicios.CalculadorDigitoVerificador();
 
-            // Preparo los datos del vehículo pasándolos a texto
-            string dominioStr_675MS = nuevoVehiculo_675MS.Dominio_675MS ?? "";
-            string dniStr_675MS = nuevoVehiculo_675MS.Dni_675MS.ToString();
-            string modeloStr_675MS = nuevoVehiculo_675MS.Modelo_675MS ?? "";
-            string versionStr_675MS = nuevoVehiculo_675MS.Version_675MS ?? "";
-            string anioStr_675MS = nuevoVehiculo_675MS.Anio_675MS.ToString();
-            string chasisStr_675MS = nuevoVehiculo_675MS.NroChasis_675MS ?? "";
-            string vtvStr_675MS = nuevoVehiculo_675MS.UltimaVTV_675MS.ToString("yyyyMMdd");
+            nuevoVehiculo_675MS.DigitoVerificadorHorizontal_675MS =
+                calculadorDV_675MS.CalcularHorizontal_675MS(
+                    nuevoVehiculo_675MS.Dominio_675MS ?? "",
+                    nuevoVehiculo_675MS.Dni_675MS.ToString(),
+                    nuevoVehiculo_675MS.Modelo_675MS ?? "",
+                    nuevoVehiculo_675MS.Version_675MS ?? "",
+                    nuevoVehiculo_675MS.Anio_675MS.ToString(),
+                    nuevoVehiculo_675MS.NroChasis_675MS ?? "",
+                    nuevoVehiculo_675MS.UltimaVTV_675MS.ToString("yyyyMMdd")
+                );
 
-            // Calculamos el DVH
-            nuevoVehiculo_675MS.DigitoVerificadorHorizontal_675MS = calculadorDV_675MS.CalcularHorizontal_675MS(
-                dominioStr_675MS,
-                dniStr_675MS,
-                modeloStr_675MS,
-                versionStr_675MS,
-                anioStr_675MS,
-                chasisStr_675MS,
-                vtvStr_675MS
-            );
-
-            VehiculoDAL vehiculoDAL_675MS = new VehiculoDAL();
             return vehiculoDAL_675MS.RegistrarVehiculoDAL_675MS(nuevoVehiculo_675MS);
         }
     }

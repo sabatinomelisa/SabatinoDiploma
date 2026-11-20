@@ -26,19 +26,20 @@ namespace PitBox
             this.BackgroundImageLayout = ImageLayout.Stretch;
         }
 
+
         private void bntRegistrar_675MS_Click(object sender, EventArgs e)
         {
-
-            // Instamcio el formulario al que voy a pasar
-            FormRegistro frmRegistro = new FormRegistro();
-
-            // Oculto el FormPrincipal
             this.Hide();
 
-            // Mostraar el nuevo formulario
-            frmRegistro.ShowDialog(); 
+            using (FormRegistro frmRegistro_675MS = new FormRegistro())
+            {
+                frmRegistro_675MS.ShowDialog(this);
+            }
 
+            this.Show();
+            this.Activate();
         }
+
 
         private void btnSalir_675MS_Click(object sender, EventArgs e)
         {

@@ -159,20 +159,23 @@ namespace PitBox
                 return;
             }
 
-            //Valido que haya seleccionado una cliente
-            if (cmbClientes_675MS.SelectedIndex == -1)
+
+            // Primero valido el año
+            if (!int.TryParse(txtAnio_675MS.Text, out int anioValidado_675MS) || anioValidado_675MS < 1900 || anioValidado_675MS > DateTime.Now.Year + 1)
             {
-                MessageBox.Show("Por favor, seleccione un Cliente del listado.", "Faltan datos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                //Corto la ejecucion
+                MessageBox.Show("El año ingresado no es válido. Ingrese un año correcto.", "Error de formato", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtAnio_675MS.Focus();
                 return;
             }
 
-            //Valido que el año sea numérico
-            if (!int.TryParse(txtAnio_675MS.Text, out int anioValidado_675MS) || anioValidado_675MS < 1900)
+            // Después valido que el cliente esté seleccionado
+            if (cmbClientes_675MS.SelectedIndex == -1)
             {
-                MessageBox.Show("El año ingresado no es válido. Ingrese solo números.", "Error de formato", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show( "Por favor, seleccione un cliente del listado.", "Faltan datos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                cmbClientes_675MS.Focus();
                 return;
             }
+
 
             // Concateno fecha y hora
             DateTime fechaVTV_675MS = dateTimePicker1.Value.Date;
@@ -194,8 +197,24 @@ namespace PitBox
             VehiculoBLL vehiculoBLL_675MS = new VehiculoBLL();
 
             // Registro el vehículo 
-            int resultado_675MS = vehiculoBLL_675MS.RegistrarVehiculo_675MS(nuevoVehiculo_675MS);
+            int resultado_675MS;
 
+            try
+            {
+                resultado_675MS = vehiculoBLL_675MS.RegistrarVehiculo_675MS(nuevoVehiculo_675MS);
+            }
+            catch (InvalidOperationException ex_675MS)
+            {
+                MessageBox.Show(ex_675MS.Message,"Vehículo duplicado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                return; // Evita continuar con el registro
+            }
+            catch (Exception ex_675MS)
+            {
+                MessageBox.Show("No se pudo registrar el vehículo.\n" + ex_675MS.Message, "Error", MessageBoxButtons.OK,  MessageBoxIcon.Error);
+
+                return;
+            }
             if (resultado_675MS > 0)
             {
                 MessageBox.Show("El vehículo con patente " + nuevoVehiculo_675MS.Dominio_675MS + " se registró correctamente.", "PitBox", MessageBoxButtons.OK, MessageBoxIcon.Information);

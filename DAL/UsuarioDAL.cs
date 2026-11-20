@@ -59,12 +59,13 @@ namespace DAL
                 parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@usuario", usr_675MS.Username_675MS));
                 parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@pass", usr_675MS.Password_675MS));
                 parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@dv", usr_675MS.DigitoVerificadorHorizontal_675MS));
-                parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@idEmp", 2));
-
+                parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@idEmp", usr_675MS.IdEmpleado_675MS));
+                parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@idRol", usr_675MS.IdRol_675MS));
+                parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@fechaCreacion", usr_675MS.FechaCreacion_675MS));
 
                 int resultado = acceso_675MS.Escribir_675MS(sql, parametros_675MS);
 
-                if (resultado != -1)
+                if (resultado > 0)
                 {
                     acceso_675MS.ConfirmarTx_675MS();
                     acceso_675MS.Desconectar_675MS();
@@ -72,7 +73,9 @@ namespace DAL
                 }
                 else
                 {
+                    acceso_675MS.RevertirTx_675MS();
                     acceso_675MS.Desconectar_675MS();
+
                     return resultado;
                 }
 
@@ -213,24 +216,27 @@ namespace DAL
             }
         }
 
+
         private UsuarioBE MapearUsuario_675MS(DataRow fila_675MS)
         {
             UsuarioBE usuario_675MS = new UsuarioBE();
+
+            usuario_675MS.IdUsuario_675MS = Convert.ToInt32(fila_675MS["Id"]);
             usuario_675MS.Username_675MS = fila_675MS["Usuario"].ToString();
             usuario_675MS.Password_675MS = fila_675MS["Contrasena"].ToString();
             usuario_675MS.FechaCreacion_675MS = Convert.ToDateTime(fila_675MS["FechaCreacion"]);
             usuario_675MS.Bloqueado_675MS = fila_675MS["Bloqueado"].ToString();
             usuario_675MS.IntentosFallidos_675MS = Convert.ToInt32(fila_675MS["IntentosFallidos"]);
-            usuario_675MS.IdRol_675MS = Convert.ToInt32(fila_675MS["IdRol"].ToString());
+            usuario_675MS.IdRol_675MS = Convert.ToInt32(fila_675MS["IdRol"]);
+            usuario_675MS.Activo_675MS = Convert.ToInt32(fila_675MS["Activo"]);
+            usuario_675MS.IdEmpleado_675MS = fila_675MS["IdEmpleado"] != DBNull.Value ? Convert.ToInt32(fila_675MS["IdEmpleado"]) : 0;
 
             RolDAL rolDAL_675MS = new RolDAL();
-
-            usuario_675MS.Rol_675MS =  rolDAL_675MS.ObtenerComponentesRol(usuario_675MS.IdRol_675MS);
-
-            usuario_675MS.IdEmpleado_675MS = fila_675MS["IdEmpleado"] != DBNull.Value ? Convert.ToInt32(fila_675MS["IdEmpleado"]) : 0;
+            usuario_675MS.Rol_675MS = rolDAL_675MS.ObtenerComponentesRol(usuario_675MS.IdRol_675MS);
 
             return usuario_675MS;
         }
+
 
         public List<UsuarioBloqueadoBE> ListarUsuariosBloqueados_675MS()
         {
@@ -246,11 +252,12 @@ namespace DAL
                 foreach (DataRow row in tabla_675MS.Rows)
                 {
                     UsuarioBloqueadoBE usuarioBloqueadoAuxiliar_675MS = new UsuarioBloqueadoBE();
-                    usuarioBloqueadoAuxiliar_675MS.IdUsuario_675MS = int.Parse(row["Id"].ToString());
-                    usuarioBloqueadoAuxiliar_675MS.Usuario_675MS = row["Usuario"].ToString();
-                    usuarioBloqueadoAuxiliar_675MS.Nombre_675MS = row["Nombre"].ToString();
-                    usuarioBloqueadoAuxiliar_675MS.Apellido_675MS = row["Apellido"].ToString();
-                    usuarioBloqueadoAuxiliar_675MS.Mail_675MS = row["Mail"].ToString();
+
+                    usuarioBloqueadoAuxiliar_675MS.IdUsuario_675MS = Convert.ToInt32(row["IdUsuario"]);
+                    usuarioBloqueadoAuxiliar_675MS.Usuario_675MS = row["NombreUsuario"].ToString();
+                    usuarioBloqueadoAuxiliar_675MS.Nombre_675MS = row["NombreEmpleado"].ToString();
+                    usuarioBloqueadoAuxiliar_675MS.Apellido_675MS = row["ApellidoEmpleado"].ToString();
+                    usuarioBloqueadoAuxiliar_675MS.Mail_675MS = row["MailEmpleado"].ToString();
                     usuarioBloqueadoAuxiliar_675MS.DescripcionRol_675MS = row["DescripcionRol"].ToString();
 
                     usuariosBloqueados_675MS.Add(usuarioBloqueadoAuxiliar_675MS);
@@ -301,34 +308,219 @@ namespace DAL
             }
         }
 
+
         public int ActualizarUsuarioConDVH_675MS(UsuarioBE usr_675MS)
         {
             Acceso acceso_675MS = new Acceso();
-            acceso_675MS.Conectar_675MS();
-            acceso_675MS.IniciarTx_675MS();
+            bool transaccionActiva_675MS = false;
 
             try
             {
-                string sql = "ACTIVAR_USUARIO";
+                acceso_675MS.Conectar_675MS();
+                acceso_675MS.IniciarTx_675MS();
+                transaccionActiva_675MS = true;
+
+                string sql_675MS = "ACTIVAR_USUARIO";
                 List<SqlParameter> parametros_675MS = new List<SqlParameter>();
 
                 parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@usu", usr_675MS.Username_675MS));
                 parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@bloqueado", usr_675MS.Bloqueado_675MS));
                 parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@dv", usr_675MS.DigitoVerificadorHorizontal_675MS));
 
-                int resultado_675MS = acceso_675MS.Escribir_675MS(sql, parametros_675MS);
+                int resultado_675MS = acceso_675MS.Escribir_675MS(sql_675MS, parametros_675MS);
+
+                if (resultado_675MS <= 0)
+                {
+                    throw new Exception("No se pudo desbloquear el usuario. Verifique que continúe bloqueado.");
+                }
+
                 acceso_675MS.ConfirmarTx_675MS();
+                transaccionActiva_675MS = false;
+
                 return resultado_675MS;
             }
             catch
             {
-                acceso_675MS.RevertirTx_675MS();
-                throw new Exception("Error al actualizar el usuario.");
+                if (transaccionActiva_675MS)
+                {
+                    acceso_675MS.RevertirTx_675MS();
+                }
+
+                throw;
             }
             finally
             {
                 acceso_675MS.Desconectar_675MS();
             }
         }
+
+        public DataTable ListarEmpleadosRoles_675MS()
+        {
+            Acceso acceso_675MS = new Acceso();
+            acceso_675MS.Conectar_675MS();
+
+            try
+            {
+                List<SqlParameter> parametros_675MS = new List<SqlParameter>();
+
+                DataTable tabla_675MS = acceso_675MS.Leer_675MS("LISTAR_EMPLEADOS_ROLES", parametros_675MS);
+
+                return tabla_675MS;
+            }
+            finally
+            {
+                acceso_675MS.Desconectar_675MS();
+            }
+        }
+
+
+        public int AsignarRolUsuario_675MS(int idUsuario_675MS, int idRol_675MS, int dvh_675MS)
+        {
+            Acceso acceso_675MS = new Acceso();
+            bool transaccionActiva_675MS = false;
+
+            try
+            {
+                acceso_675MS.Conectar_675MS();
+                acceso_675MS.IniciarTx_675MS();
+                transaccionActiva_675MS = true;
+
+                List<SqlParameter> parametros_675MS = new List<SqlParameter>();
+                parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@IdUsuario", idUsuario_675MS));
+                parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@IdRol", idRol_675MS));
+                parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@DVH", dvh_675MS));
+
+                int resultado_675MS = acceso_675MS.Escribir_675MS("ASIGNAR_ROL_USUARIO_CON_DVH", parametros_675MS);
+
+                if (resultado_675MS <= 0) throw new Exception("No se pudo actualizar el rol del usuario.");
+
+                acceso_675MS.ConfirmarTx_675MS();
+                transaccionActiva_675MS = false;
+
+                return resultado_675MS;
+            }
+            catch
+            {
+                if (transaccionActiva_675MS) acceso_675MS.RevertirTx_675MS();
+                throw;
+            }
+            finally
+            {
+                acceso_675MS.Desconectar_675MS();
+            }
+        }
+
+
+
+        public bool EmpleadoTieneUsuario_675MS(int idEmpleado_675MS)
+        {
+            Acceso acceso_675MS = new Acceso();
+
+            try
+            {
+                acceso_675MS.Conectar_675MS();
+
+                List<SqlParameter> parametros_675MS =  new List<SqlParameter>();
+
+                parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@idEmpleado", idEmpleado_675MS));
+
+                int cantidad_675MS = acceso_675MS.DevolverEscalar_675MS( "EMPLEADO_TIENE_USUARIO", parametros_675MS);
+
+                return cantidad_675MS > 0;
+            }
+            finally
+            {
+                acceso_675MS.Desconectar_675MS();
+            }
+        }
+
+
+        public DataTable ListarUsuarios_675MS()
+        {
+            Acceso acceso_675MS = new Acceso();
+
+            try
+            {
+                acceso_675MS.Conectar_675MS();
+                DataTable tabla_675MS = acceso_675MS.Leer_675MS("LISTAR_USUARIOS");
+                return tabla_675MS;
+            }
+            finally
+            {
+                acceso_675MS.Desconectar_675MS();
+            }
+        }
+
+
+        public int ActivarCuentaUsuario_675MS(int idUsuario_675MS)
+        {
+            Acceso acceso_675MS = new Acceso();
+            bool transaccionActiva_675MS = false;
+
+            try
+            {
+                acceso_675MS.Conectar_675MS();
+                acceso_675MS.IniciarTx_675MS();
+                transaccionActiva_675MS = true;
+
+                List<SqlParameter> parametros_675MS = new List<SqlParameter>();
+                parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@IdUsuario", idUsuario_675MS));
+
+                int resultado_675MS = acceso_675MS.Escribir_675MS("ACTIVAR_CUENTA_USUARIO", parametros_675MS);
+
+                if (resultado_675MS <= 0) throw new Exception("No se pudo activar el usuario. Es posible que ya esté activo.");
+
+                acceso_675MS.ConfirmarTx_675MS();
+                transaccionActiva_675MS = false;
+
+                return resultado_675MS;
+            }
+            catch
+            {
+                if (transaccionActiva_675MS) acceso_675MS.RevertirTx_675MS();
+                throw;
+            }
+            finally
+            {
+                acceso_675MS.Desconectar_675MS();
+            }
+        }
+
+
+        public int DesactivarCuentaUsuario_675MS(int idUsuario_675MS)
+        {
+            Acceso acceso_675MS = new Acceso();
+            bool transaccionActiva_675MS = false;
+
+            try
+            {
+                acceso_675MS.Conectar_675MS();
+                acceso_675MS.IniciarTx_675MS();
+                transaccionActiva_675MS = true;
+
+                List<SqlParameter> parametros_675MS = new List<SqlParameter>();
+                parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@IdUsuario", idUsuario_675MS));
+
+                int resultado_675MS = acceso_675MS.Escribir_675MS("DESACTIVAR_CUENTA_USUARIO", parametros_675MS);
+
+                if (resultado_675MS <= 0) throw new Exception("No se pudo desactivar el usuario. Es posible que ya esté inactivo.");
+
+                acceso_675MS.ConfirmarTx_675MS();
+                transaccionActiva_675MS = false;
+
+                return resultado_675MS;
+            }
+            catch
+            {
+                if (transaccionActiva_675MS) acceso_675MS.RevertirTx_675MS();
+                throw;
+            }
+            finally
+            {
+                acceso_675MS.Desconectar_675MS();
+            }
+        }
+
+
     }
 }
