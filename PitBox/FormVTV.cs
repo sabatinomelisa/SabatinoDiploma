@@ -237,6 +237,12 @@ namespace PitBox
                     case "bntRegistrar_675MS":
                         bntRegistrar_675MS.Text = traduccion.Traduccion_675MS;
                         break;
+                    case "btnAprobar_675MS":
+                        btnAprobar_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+                    case "btnImprimir_675MS":
+                        btnImprimir_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
                 }
             }
         }

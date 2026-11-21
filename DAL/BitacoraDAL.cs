@@ -55,5 +55,29 @@ namespace DAL
             }
 
         }
+
+        public DataTable Consultar_675MS(string usuario_675MS, string modulo_675MS, DateTime? desde_675MS, DateTime? hasta_675MS)
+        {
+            Acceso acceso_675MS = new Acceso();
+
+            try
+            {
+                acceso_675MS.Conectar_675MS();
+
+                string sql_675MS = "CONSULTAR_BITACORA";
+
+                List<SqlParameter> parametros_675MS = new List<SqlParameter>();
+                parametros_675MS.Add(new SqlParameter("@usuario", SqlDbType.VarChar, 100) { Value = string.IsNullOrWhiteSpace(usuario_675MS) ? (object)DBNull.Value : usuario_675MS.Trim() });
+                parametros_675MS.Add(new SqlParameter("@modulo", SqlDbType.VarChar, 100) { Value = string.IsNullOrWhiteSpace(modulo_675MS) ? (object)DBNull.Value : modulo_675MS.Trim() });
+                parametros_675MS.Add(new SqlParameter("@desde", SqlDbType.Date) { Value = desde_675MS.HasValue ? (object)desde_675MS.Value.Date : DBNull.Value });
+                parametros_675MS.Add(new SqlParameter("@hasta", SqlDbType.Date) { Value = hasta_675MS.HasValue ? (object)hasta_675MS.Value.Date : DBNull.Value });
+
+                return acceso_675MS.Leer_675MS(sql_675MS, parametros_675MS);
+            }
+            finally
+            {
+                acceso_675MS.Desconectar_675MS();
+            }
+        }
     }
 }

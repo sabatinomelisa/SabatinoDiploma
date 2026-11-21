@@ -384,54 +384,40 @@ namespace BLL
 
         public ClienteBE BuscarClienteOriginal_675MS(int dni_675MS)
         {
-            // Verifico que el usuario tenga permiso para gestionar integridad
             ValidarPermisoIntegridad_675MS();
 
-            // Obtengo el cliente actual desde la base de datos
-            List<ClienteBE> clientes_675MS = integridadDAL_675MS.ListarClientesParaIntegridad_675MS();
+            ClienteBE clienteActual_675MS = integridadDAL_675MS.ListarClientesParaIntegridad_675MS().FirstOrDefault(c => c.Dni_675MS == dni_675MS);
 
-            ClienteBE clienteActual_675MS = clientes_675MS.FirstOrDefault(c => c.Dni_675MS == dni_675MS);
+            if (clienteActual_675MS == null) throw new Exception("No se encontró el cliente.");
 
-            if (clienteActual_675MS == null)
+            int dvhActualCalculado_675MS = CalcularDigitoHorizontalCliente_675MS(clienteActual_675MS);
+
+            if (dvhActualCalculado_675MS == clienteActual_675MS.DigitoVerificadorHorizontal_675MS) throw new Exception("El cliente no presenta errores de DVH.");
+
+            List<HistorialClienteBE> historial_675MS = ObtenerCambiosParaRecuperar_675MS(dni_675MS);
+
+            foreach (HistorialClienteBE registro_675MS in historial_675MS.OrderByDescending(h => h.FechaCambio_675MS))
             {
-                throw new Exception("No se encontró el cliente.");
+                if (!registro_675MS.DigitoVerificadorHorizontal_675MS.HasValue) continue;
+
+                ClienteBE candidato_675MS = CopiarCliente_675MS(clienteActual_675MS);
+
+                candidato_675MS.Nombre_675MS = registro_675MS.Nombre_675MS;
+                candidato_675MS.Apellido_675MS = registro_675MS.Apellido_675MS;
+                candidato_675MS.FechaNacimiento_675MS = registro_675MS.FechaNacimiento_675MS;
+                candidato_675MS.Mail_675MS = registro_675MS.Mail_675MS;
+                candidato_675MS.Domicilio_675MS = registro_675MS.Domicilio_675MS;
+                candidato_675MS.Telefono_675MS = registro_675MS.Telefono_675MS ?? 0;
+                candidato_675MS.DigitoVerificadorHorizontal_675MS = registro_675MS.DigitoVerificadorHorizontal_675MS.Value;
+
+                if (CalcularDigitoHorizontalCliente_675MS(candidato_675MS) != candidato_675MS.DigitoVerificadorHorizontal_675MS) continue;
+
+                bool mismosDatos_675MS = candidato_675MS.Nombre_675MS == clienteActual_675MS.Nombre_675MS && candidato_675MS.Apellido_675MS == clienteActual_675MS.Apellido_675MS && candidato_675MS.FechaNacimiento_675MS.Date == clienteActual_675MS.FechaNacimiento_675MS.Date && candidato_675MS.Mail_675MS == clienteActual_675MS.Mail_675MS && candidato_675MS.Domicilio_675MS == clienteActual_675MS.Domicilio_675MS && candidato_675MS.Telefono_675MS == clienteActual_675MS.Telefono_675MS;
+
+                if (mismosDatos_675MS) return candidato_675MS;
             }
 
-            //Verifico si el cliente actual ya tiene un DVH correcto
-            int digitoActual_675MS = CalcularDigitoHorizontalCliente_675MS(clienteActual_675MS);
-
-            if (digitoActual_675MS == clienteActual_675MS.DigitoVerificadorHorizontal_675MS)
-            {
-                throw new Exception("El cliente no presenta errores de DVH. No necesita restauración.");
-            }
-
-            // Creo una copia para no modificar los datos originales
-            ClienteBE copia_675MS = CopiarCliente_675MS(clienteActual_675MS);
-
-            // Obtengo los cambios registrados en el historial
-            List<HistorialClienteBE> historial_675MS =
-                ObtenerCambiosParaRecuperar_675MS(dni_675MS);
-
-            // Recorro los cambios desde el más reciente
-            foreach (HistorialClienteBE cambio_675MS in historial_675MS)
-            {
-                // Verifico que el historial coincida con el estado actual de la copia
-                ValidarCambioHistorial_675MS(copia_675MS, cambio_675MS);
-
-                // Aplico el valor anterior solamente sobre la copia
-                AplicarValorAnterior_675MS(copia_675MS, cambio_675MS);
-
-                // Calculo el DVH de la copia
-                int digitoCalculado_675MS = CalcularDigitoHorizontalCliente_675MS(copia_675MS);
-
-                // Comparo con el DVH almacenado originalmente
-                if (digitoCalculado_675MS == clienteActual_675MS.DigitoVerificadorHorizontal_675MS)
-                {
-                    return copia_675MS;
-                }
-            }
-
-            throw new Exception("No se encontró una versión anterior compatible con el DVH almacenado. " + "Es necesario revisar el historial y una copia de seguridad.");
+            throw new Exception("No se encontró una versión histórica válida que coincida con los datos actuales. Revisá el historial y el backup antes de restaurar.");
         }
 
         private void ValidarCambioHistorial_675MS(ClienteBE cliente_675MS, HistorialClienteBE historial_675MS)

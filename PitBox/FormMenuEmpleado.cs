@@ -371,6 +371,8 @@ namespace PitBox
                 gestionarRolesToolStripMenuItem.Visible = false;
                 integridadToolStripMenuItem.Visible = false;
                 historialDeCambiosToolStripMenuItem.Visible = false;
+                consultaDeBitácoraToolStripMenuItem.Visible = false;
+                generarBackupToolStripMenuItem.Visible = false;
                 return;
             }
 
@@ -388,6 +390,7 @@ namespace PitBox
             bool permisoRoles_675MS = rolBLL_675MS.TienePermiso_675MS(rol_675MS, "GestionRoles");
             bool permisoBitacora_675MS = rolBLL_675MS.TienePermiso_675MS(rol_675MS, "ConsultarBitacora");
 
+
             usuariosToolStripMenuItem.Visible = permisoUsuarios_675MS;
             empleadosToolStripMenuItem.Visible = permisoEmpleados_675MS;
             clientesToolStripMenuItem.Visible = permisoClientes_675MS;
@@ -399,6 +402,8 @@ namespace PitBox
             historialDeCambiosToolStripMenuItem.Visible = permisoBitacora_675MS;
             idiomasToolStripMenuItem.Visible = permisoIdiomas_675MS;
             gestionarRolesToolStripMenuItem.Visible = permisoRoles_675MS;
+            consultaDeBitácoraToolStripMenuItem.Visible = permisoBitacora_675MS;
+            generarBackupToolStripMenuItem.Visible = permisoIntegridad_675MS;
         }
 
         private void gestionarIntegridadToolStripMenuItem_Click(object sender, EventArgs e)
@@ -540,6 +545,55 @@ namespace PitBox
                 // Mostrar dentro del contenedor
                 formReporteInteligente_675MS.Show();
             }
+        }
+
+        private void consultaDeBitácoraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UsuarioBE usuario_675MS = SessionManager.ObtenerUsuarioActual_675MS();
+
+            if (!SessionManager.SesionIniciada_675MS || usuario_675MS == null || usuario_675MS.Rol_675MS == null || !new RolBLL().TienePermiso_675MS(usuario_675MS.Rol_675MS, "ConsultarBitacora"))
+            {
+                MessageBox.Show("No tiene permiso para consultar la bitácora.", "Acceso denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            foreach (Form formulario_675MS in this.MdiChildren)
+            {
+                if (formulario_675MS is FormBitacora)
+                {
+                    formulario_675MS.BringToFront();
+                    return;
+                }
+            }
+
+            FormBitacora formBitacora_675MS = new FormBitacora();
+            formBitacora_675MS.MdiParent = this;
+            formBitacora_675MS.Show();
+        }
+
+        private void generarBackupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UsuarioBE usuario_675MS = SessionManager.ObtenerUsuarioActual_675MS();
+
+            if (!SessionManager.SesionIniciada_675MS || usuario_675MS == null || usuario_675MS.Rol_675MS == null || !new RolBLL().TienePermiso_675MS(usuario_675MS.Rol_675MS, "GestionIntegridad"))
+            {
+                MessageBox.Show("No tiene permiso para gestionar copias de seguridad.", "Acceso denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            foreach (Form formulario_675MS in this.MdiChildren)
+            {
+                if (formulario_675MS is FormBackupRestore)
+                {
+                    formulario_675MS.BringToFront();
+                    return;
+                }
+            }
+
+            FormBackupRestore formBackup_675MS = new FormBackupRestore();
+            formBackup_675MS.MdiParent = this;
+            formBackup_675MS.Show();
+
         }
     }
     

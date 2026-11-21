@@ -109,6 +109,41 @@ namespace PitBox
                     case "btnVolver_675MS":
                         btnVolver_675MS.Text = traduccion.Traduccion_675MS;
                         break;
+                    case "tabRolesPermisos_675MS":
+                        tabRolesPermisos_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+
+                    case "tabRoles_675MS":
+                        tabRoles_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+
+                    case "tabPermisos_675MS":
+                        tabPermisos_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+
+                    case "TabPermisoEmpleado_675MS":
+                        TabPermisoEmpleado_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+
+                    case "lblSeleccionarRol_675MS":
+                        lblSeleccionarRol_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+
+                    case "lblEmpleadoRol_675MS":
+                        lblEmpleadoRol_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+
+                    case "tabRolPer_675MS":
+                        tabRolPer_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+
+                    case "lblRolPermisos_675MS":
+                        lblRolPermisos_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+
+                    case "lblPermisoRol_675MS":
+                        lblPermisoRol_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
 
                 }
             }
@@ -833,7 +868,23 @@ namespace PitBox
             }
         }
 
+        private void cmbIdiomas_675MS_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if (cargandoIdiomas_675MS)
+                return;
 
+            if (cmbIdiomas_675MS.SelectedItem == null)
+                return;
+
+            IdiomaBE idioma = cmbIdiomas_675MS.SelectedItem as IdiomaBE;
+
+            if (idioma == null)
+                return;
+
+            TratamientoIdioma.Instancia.IdiomaActual_675MS = idioma;
+
+            TratamientoIdioma.Instancia.Notificar();
+        }
     }
 
 

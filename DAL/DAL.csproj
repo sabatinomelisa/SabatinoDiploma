@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Acceso.cs" />
+    <Compile Include="BackupRestoreDAL.cs" />
     <Compile Include="BitacoraDAL.cs" />
     <Compile Include="ClienteDAL.cs" />
     <Compile Include="ComponenteDAL.cs" />

@@ -78,15 +78,14 @@
             // 
             // lblUsuario_675MS
             // 
-            this.lblUsuario_675MS.AutoSize = true;
             this.lblUsuario_675MS.BackColor = System.Drawing.Color.Transparent;
             this.lblUsuario_675MS.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsuario_675MS.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblUsuario_675MS.Location = new System.Drawing.Point(773, 269);
+            this.lblUsuario_675MS.Location = new System.Drawing.Point(763, 269);
             this.lblUsuario_675MS.Name = "lblUsuario_675MS";
-            this.lblUsuario_675MS.Size = new System.Drawing.Size(62, 19);
+            this.lblUsuario_675MS.Size = new System.Drawing.Size(85, 19);
             this.lblUsuario_675MS.TabIndex = 71;
-            this.lblUsuario_675MS.Text = "Usuario";
+            this.lblUsuario_675MS.Text = "Usuario:";
             // 
             // lblDesbloqueo_675MS
             // 
@@ -94,7 +93,7 @@
             this.lblDesbloqueo_675MS.BackColor = System.Drawing.Color.Transparent;
             this.lblDesbloqueo_675MS.Font = new System.Drawing.Font("Segoe UI Black", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDesbloqueo_675MS.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.lblDesbloqueo_675MS.Location = new System.Drawing.Point(767, 199);
+            this.lblDesbloqueo_675MS.Location = new System.Drawing.Point(823, 198);
             this.lblDesbloqueo_675MS.Name = "lblDesbloqueo_675MS";
             this.lblDesbloqueo_675MS.Size = new System.Drawing.Size(286, 28);
             this.lblDesbloqueo_675MS.TabIndex = 69;
@@ -104,7 +103,7 @@
             // 
             this.txtUsuario_675MS.Location = new System.Drawing.Point(854, 271);
             this.txtUsuario_675MS.Name = "txtUsuario_675MS";
-            this.txtUsuario_675MS.Size = new System.Drawing.Size(255, 20);
+            this.txtUsuario_675MS.Size = new System.Drawing.Size(255, 22);
             this.txtUsuario_675MS.TabIndex = 68;
             // 
             // lblIdioma_675MS
@@ -112,7 +111,7 @@
             this.lblIdioma_675MS.BackColor = System.Drawing.Color.Transparent;
             this.lblIdioma_675MS.Font = new System.Drawing.Font("Segoe UI Black", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIdioma_675MS.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblIdioma_675MS.Location = new System.Drawing.Point(790, 20);
+            this.lblIdioma_675MS.Location = new System.Drawing.Point(807, 22);
             this.lblIdioma_675MS.Name = "lblIdioma_675MS";
             this.lblIdioma_675MS.Size = new System.Drawing.Size(155, 35);
             this.lblIdioma_675MS.TabIndex = 73;
@@ -123,7 +122,7 @@
             this.cmbIdiomas_675MS.FormattingEnabled = true;
             this.cmbIdiomas_675MS.Location = new System.Drawing.Point(968, 29);
             this.cmbIdiomas_675MS.Name = "cmbIdiomas_675MS";
-            this.cmbIdiomas_675MS.Size = new System.Drawing.Size(141, 21);
+            this.cmbIdiomas_675MS.Size = new System.Drawing.Size(141, 24);
             this.cmbIdiomas_675MS.TabIndex = 72;
             this.cmbIdiomas_675MS.SelectedIndexChanged += new System.EventHandler(this.cmbIdiomas_675MS_SelectedIndexChanged);
             // 

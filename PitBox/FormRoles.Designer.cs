@@ -86,6 +86,7 @@
             this.cmbIdiomas_675MS.Name = "cmbIdiomas_675MS";
             this.cmbIdiomas_675MS.Size = new System.Drawing.Size(141, 21);
             this.cmbIdiomas_675MS.TabIndex = 50;
+            this.cmbIdiomas_675MS.SelectionChangeCommitted += new System.EventHandler(this.cmbIdiomas_675MS_SelectionChangeCommitted);
             // 
             // btnVolver_675MS
             // 

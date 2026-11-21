@@ -37,10 +37,10 @@
             this.lblNombreControl_675MS = new System.Windows.Forms.Label();
             this.lblIdioma675MS = new System.Windows.Forms.Label();
             this.cmbIdiomas_675MS = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblGestorIdiomas_675MS = new System.Windows.Forms.Label();
             this.txtNombreControl_675MS = new System.Windows.Forms.TextBox();
             this.dgvIdiomas_675MS = new System.Windows.Forms.DataGridView();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblGestorTraducciones_365MS = new System.Windows.Forms.Label();
             this.dgvtraducciones_675MS = new System.Windows.Forms.DataGridView();
             this.lblNombreIdioma_675MS = new System.Windows.Forms.Label();
             this.txtNombreIdioma_675MS = new System.Windows.Forms.TextBox();
@@ -107,7 +107,7 @@
             this.lblTraduccion.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblTraduccion.Location = new System.Drawing.Point(776, 450);
             this.lblTraduccion.Name = "lblTraduccion";
-            this.lblTraduccion.Size = new System.Drawing.Size(103, 23);
+            this.lblTraduccion.Size = new System.Drawing.Size(86, 19);
             this.lblTraduccion.TabIndex = 39;
             this.lblTraduccion.Text = "Traducción";
             // 
@@ -126,7 +126,7 @@
             this.lblNombreControl_675MS.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblNombreControl_675MS.Location = new System.Drawing.Point(732, 424);
             this.lblNombreControl_675MS.Name = "lblNombreControl_675MS";
-            this.lblNombreControl_675MS.Size = new System.Drawing.Size(147, 23);
+            this.lblNombreControl_675MS.Size = new System.Drawing.Size(121, 19);
             this.lblNombreControl_675MS.TabIndex = 34;
             this.lblNombreControl_675MS.Text = "Nombre Control";
             // 
@@ -138,7 +138,7 @@
             this.lblIdioma675MS.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblIdioma675MS.Location = new System.Drawing.Point(857, 18);
             this.lblIdioma675MS.Name = "lblIdioma675MS";
-            this.lblIdioma675MS.Size = new System.Drawing.Size(115, 35);
+            this.lblIdioma675MS.Size = new System.Drawing.Size(91, 28);
             this.lblIdioma675MS.TabIndex = 33;
             this.lblIdioma675MS.Text = "IDIOMA";
             // 
@@ -151,17 +151,17 @@
             this.cmbIdiomas_675MS.TabIndex = 32;
             this.cmbIdiomas_675MS.SelectedIndexChanged += new System.EventHandler(this.cmbIdiomas_675MS_SelectedIndexChanged);
             // 
-            // label1
+            // lblGestorIdiomas_675MS
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Black", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label1.Location = new System.Drawing.Point(828, 153);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(274, 35);
-            this.label1.TabIndex = 31;
-            this.label1.Text = "GESTOR DE IDIOMAS";
+            this.lblGestorIdiomas_675MS.AutoSize = true;
+            this.lblGestorIdiomas_675MS.BackColor = System.Drawing.Color.Transparent;
+            this.lblGestorIdiomas_675MS.Font = new System.Drawing.Font("Segoe UI Black", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGestorIdiomas_675MS.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.lblGestorIdiomas_675MS.Location = new System.Drawing.Point(883, 153);
+            this.lblGestorIdiomas_675MS.Name = "lblGestorIdiomas_675MS";
+            this.lblGestorIdiomas_675MS.Size = new System.Drawing.Size(219, 28);
+            this.lblGestorIdiomas_675MS.TabIndex = 31;
+            this.lblGestorIdiomas_675MS.Text = "GESTOR DE IDIOMAS";
             // 
             // txtNombreControl_675MS
             // 
@@ -182,17 +182,17 @@
             this.dgvIdiomas_675MS.TabIndex = 29;
             this.dgvIdiomas_675MS.SelectionChanged += new System.EventHandler(this.dgvIdiomas_675MS_SelectionChanged_1);
             // 
-            // label3
+            // lblGestorTraducciones_365MS
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Black", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label3.Location = new System.Drawing.Point(744, 368);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(358, 35);
-            this.label3.TabIndex = 47;
-            this.label3.Text = "GESTOR DE TRADUCCIONES";
+            this.lblGestorTraducciones_365MS.AutoSize = true;
+            this.lblGestorTraducciones_365MS.BackColor = System.Drawing.Color.Transparent;
+            this.lblGestorTraducciones_365MS.Font = new System.Drawing.Font("Segoe UI Black", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGestorTraducciones_365MS.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.lblGestorTraducciones_365MS.Location = new System.Drawing.Point(815, 374);
+            this.lblGestorTraducciones_365MS.Name = "lblGestorTraducciones_365MS";
+            this.lblGestorTraducciones_365MS.Size = new System.Drawing.Size(287, 28);
+            this.lblGestorTraducciones_365MS.TabIndex = 47;
+            this.lblGestorTraducciones_365MS.Text = "GESTOR DE TRADUCCIONES";
             // 
             // dgvtraducciones_675MS
             // 
@@ -214,7 +214,7 @@
             this.lblNombreIdioma_675MS.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblNombreIdioma_675MS.Location = new System.Drawing.Point(732, 207);
             this.lblNombreIdioma_675MS.Name = "lblNombreIdioma_675MS";
-            this.lblNombreIdioma_675MS.Size = new System.Drawing.Size(143, 23);
+            this.lblNombreIdioma_675MS.Size = new System.Drawing.Size(117, 19);
             this.lblNombreIdioma_675MS.TabIndex = 50;
             this.lblNombreIdioma_675MS.Text = "Nombre Idioma";
             // 
@@ -273,7 +273,7 @@
             this.Controls.Add(this.lblNombreIdioma_675MS);
             this.Controls.Add(this.txtNombreIdioma_675MS);
             this.Controls.Add(this.dgvtraducciones_675MS);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblGestorTraducciones_365MS);
             this.Controls.Add(this.btnVolver_675MS);
             this.Controls.Add(this.btnBorrar_675MS);
             this.Controls.Add(this.btnModificar_675MS);
@@ -283,7 +283,7 @@
             this.Controls.Add(this.lblNombreControl_675MS);
             this.Controls.Add(this.lblIdioma675MS);
             this.Controls.Add(this.cmbIdiomas_675MS);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblGestorIdiomas_675MS);
             this.Controls.Add(this.txtNombreControl_675MS);
             this.Controls.Add(this.dgvIdiomas_675MS);
             this.Name = "FormIdiomas";
@@ -308,10 +308,10 @@
         private System.Windows.Forms.Label lblNombreControl_675MS;
         private System.Windows.Forms.Label lblIdioma675MS;
         private System.Windows.Forms.ComboBox cmbIdiomas_675MS;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblGestorIdiomas_675MS;
         private System.Windows.Forms.TextBox txtNombreControl_675MS;
         private System.Windows.Forms.DataGridView dgvIdiomas_675MS;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblGestorTraducciones_365MS;
         private System.Windows.Forms.DataGridView dgvtraducciones_675MS;
         private System.Windows.Forms.Label lblNombreIdioma_675MS;
         private System.Windows.Forms.TextBox txtNombreIdioma_675MS;

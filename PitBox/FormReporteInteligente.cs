@@ -194,38 +194,49 @@ namespace PitBox
 
             foreach (TraduccionBE traduccion in traducciones)
             {
-                //switch (traduccion.NombreControl_675MS)
-                //{
-                //    case "lblIdioma_675MS":
-                //        lblIdioma_675MS.Text = traduccion.Traduccion_675MS;
-                //        break;
-                //    case "lblUsuario_675MS":
-                //        lblUsuario_675MS.Text = traduccion.Traduccion_675MS;
-                //        break;
-                //    case "lblPassword_675MS":
-                //        lblPassword_675MS.Text = traduccion.Traduccion_675MS;
-                //        break;
-                //    case "txtUsuario_675MS":
-                //        txtUsuario_675MS.Text = traduccion.Traduccion_675MS;
-                //        break;
-                //    case "txtPassword_675MS":
-                //        txtPassword_675MS.Text = traduccion.Traduccion_675MS;
-                //        break;
-                //    case "btnIngresar_675MS":
-                //        btnIngresar_675MS.Text = traduccion.Traduccion_675MS;
-                //        break;
-                //    case "btnSalir_675MS":
-                //        btnSalir_675MS.Text = traduccion.Traduccion_675MS;
-                //        break;
-                //    case "bntRegistrar_675MS":
-                //        bntRegistrar_675MS.Text = traduccion.Traduccion_675MS;
-                //        break;
+                switch (traduccion.NombreControl_675MS)
+                {
+                    case "lblIdioma_675MS":
+                        lblIdioma_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+                    case "lblTitulo_675MS":
+                        lblTitulo_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
 
-                //}
+                    case "lblTituloDos_675MS":
+                        lblTituloDos_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+
+                    case "btnGenerar_675MS":
+                        btnGenerar_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+                    case "btnVolver_675MS":
+                        btnVolver_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+
+                }
             }
         }
 
         private void cmbIdiomas_675MS_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cargandoIdiomas_675MS)
+                return;
+
+            if (cmbIdiomas_675MS.SelectedItem == null)
+                return;
+
+            IdiomaBE idioma = cmbIdiomas_675MS.SelectedItem as IdiomaBE;
+
+            if (idioma == null)
+                return;
+
+            TratamientoIdioma.Instancia.IdiomaActual_675MS = idioma;
+
+            TratamientoIdioma.Instancia.Notificar();
+        }
+
+        private void cmbIdiomas_675MS_SelectionChangeCommitted(object sender, EventArgs e)
         {
             if (cargandoIdiomas_675MS)
                 return;

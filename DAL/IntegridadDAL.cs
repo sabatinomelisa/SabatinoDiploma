@@ -174,6 +174,7 @@ namespace DAL
                 parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@DomicilioActual", clienteActual_675MS.Domicilio_675MS));
                 parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@TelefonoActual", clienteActual_675MS.Telefono_675MS));
                 parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@DVHActual", clienteActual_675MS.DigitoVerificadorHorizontal_675MS));
+                parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@DVHOriginal", cliente_675MS.DigitoVerificadorHorizontal_675MS));
 
                 //Restauro los datos del cliente sin modificar su DVH
                 int resultado_675MS = acceso_675MS.Escribir_675MS("RESTAURAR_CLIENTE", parametros_675MS);
@@ -276,6 +277,7 @@ namespace DAL
                     parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@DomicilioActual", clienteActual_675MS.Domicilio_675MS));
                     parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@TelefonoActual", clienteActual_675MS.Telefono_675MS));
                     parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@DVHActual", clienteActual_675MS.DigitoVerificadorHorizontal_675MS));
+                    parametros_675MS.Add(acceso_675MS.CrearParametro_675MS("@DVHOriginal", clienteOriginal_675MS.DigitoVerificadorHorizontal_675MS));
 
                     //Restauro el cliente sin modificar su DVH
                     int resultado_675MS = acceso_675MS.Escribir_675MS("RESTAURAR_CLIENTE", parametros_675MS);
