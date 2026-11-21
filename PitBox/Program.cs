@@ -142,6 +142,9 @@ namespace PitBox
 
                     if (cantidadTablas > 0)
                     {
+                        string rutaReparacion_675MS = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "script_reparacion.sql");
+                        if (!File.Exists(rutaReparacion_675MS)) throw new FileNotFoundException("Falta script_reparacion.sql", rutaReparacion_675MS);
+                        EjecutarScriptSql_675MS(rutaReparacion_675MS, conexionPitbox);
                         return;
                     }
                 }
