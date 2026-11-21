@@ -34,14 +34,15 @@ namespace PitBox
         {
             string[] servidoresCandidatos =
             {
+                ".",
                 @".\SQLEXPRESS",
                 @".\SQLEXPRESS01",
-                @"(localdb)\MSSQLLocalDB",
-                "."
+                @"(localdb)\MSSQLLocalDB"
             };
 
 
             string servidorActivo = null;
+
 
             // Primero buscar una instancia que ya tenga PITBOX.
             foreach (string servidor in servidoresCandidatos)

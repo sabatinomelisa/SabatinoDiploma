@@ -113,11 +113,23 @@ namespace PitBox
             {
                 switch (traduccion_675MS.NombreControl_675MS)
                 {
-                    case "lblIdioma_675MS": lblIdioma_675MS.Text = traduccion_675MS.Traduccion_675MS; break;
-                    case "lblGestionIntegridad_675MS": lblGestionIntegridad_675MS.Text = traduccion_675MS.Traduccion_675MS; break;
-                    case "btnReparar_675MS": btnReparar_675MS.Text = traduccion_675MS.Traduccion_675MS; break;
-                    case "bntVerificar_675MS": bntVerificar_675MS.Text = traduccion_675MS.Traduccion_675MS; break;
-                    case "btnVolver_675MS": btnVolver_675MS.Text = traduccion_675MS.Traduccion_675MS; break;
+                    case "lblGestionIntegridad_675MS":
+                        lblGestionIntegridad_675MS.Text = traduccion_675MS.Traduccion_675MS;
+                        break;
+
+                    case "bntVerificar_675MS":
+                        bntVerificar_675MS.Text = traduccion_675MS.Traduccion_675MS;
+                        break;
+
+                    case "btnReparar_675MS":
+                        btnReparar_675MS.Text = traduccion_675MS.Traduccion_675MS;
+                        break;
+                    case "btnVolver_675MS":
+                        btnVolver_675MS.Text = traduccion_675MS.Traduccion_675MS;
+                        break;
+                    case "lblIdioma_675MS":
+                        lblIdioma_675MS.Text = traduccion_675MS.Traduccion_675MS;
+                        break;
                 }
             }
         }

@@ -414,5 +414,25 @@ namespace PitBox
 
             TratamientoIdioma.Instancia.Notificar();
         }
+
+        private void lblTelefono_675MS_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblDomicilio_675MS_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblApellido_675MS_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblNombre_675MS_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

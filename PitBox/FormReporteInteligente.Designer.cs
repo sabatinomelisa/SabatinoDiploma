@@ -71,7 +71,7 @@
             this.lblIdioma_675MS.BackColor = System.Drawing.Color.Transparent;
             this.lblIdioma_675MS.Font = new System.Drawing.Font("Segoe UI Black", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIdioma_675MS.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblIdioma_675MS.Location = new System.Drawing.Point(803, 12);
+            this.lblIdioma_675MS.Location = new System.Drawing.Point(820, 14);
             this.lblIdioma_675MS.Name = "lblIdioma_675MS";
             this.lblIdioma_675MS.Size = new System.Drawing.Size(155, 35);
             this.lblIdioma_675MS.TabIndex = 98;
@@ -84,6 +84,7 @@
             this.cmbIdiomas_675MS.Name = "cmbIdiomas_675MS";
             this.cmbIdiomas_675MS.Size = new System.Drawing.Size(141, 21);
             this.cmbIdiomas_675MS.TabIndex = 97;
+            this.cmbIdiomas_675MS.SelectionChangeCommitted += new System.EventHandler(this.cmbIdiomas_675MS_SelectionChangeCommitted);
             // 
             // lblTurnos_675MS
             // 

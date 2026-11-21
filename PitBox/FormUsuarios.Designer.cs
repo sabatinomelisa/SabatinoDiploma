@@ -65,6 +65,7 @@
             this.cmbIdiomas_675MS.Name = "cmbIdiomas_675MS";
             this.cmbIdiomas_675MS.Size = new System.Drawing.Size(141, 21);
             this.cmbIdiomas_675MS.TabIndex = 80;
+            this.cmbIdiomas_675MS.SelectionChangeCommitted += new System.EventHandler(this.cmbIdiomas_675MS_SelectionChangeCommitted);
             // 
             // lblUsuario_675MS
             // 
@@ -246,7 +247,7 @@
             this.Controls.Add(this.btnVolver_675MS);
             this.Controls.Add(this.bntActivar_675MS);
             this.Controls.Add(this.dgvUsuarios_675MS);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormUsuarios";
             this.Text = "Gestión de Usuarios - Pitbox";
             this.Load += new System.EventHandler(this.FormUsuarios_Load);

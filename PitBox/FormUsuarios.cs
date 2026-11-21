@@ -56,15 +56,13 @@ namespace PitBox
 
                 if (TratamientoIdioma.Instancia.IdiomaActual_675MS != null)
                 {
-                    cmbIdiomas_675MS.SelectedValue =
-                        TratamientoIdioma.Instancia.IdiomaActual_675MS.Id_675MS;
+                    cmbIdiomas_675MS.SelectedValue = TratamientoIdioma.Instancia.IdiomaActual_675MS.Id_675MS;
                 }
                 else if (idiomas_675MS.Count > 0)
                 {
                     cmbIdiomas_675MS.SelectedIndex = 0;
 
-                    TratamientoIdioma.Instancia.IdiomaActual_675MS =
-                        idiomas_675MS[0];
+                    TratamientoIdioma.Instancia.IdiomaActual_675MS =  idiomas_675MS[0];
                 }
             }
             catch (Exception exception)
@@ -94,55 +92,60 @@ namespace PitBox
 
             foreach (TraduccionBE traduccion in traducciones)
             {
-                //switch (traduccion.NombreControl_675MS)
-                //{
-                //    case "lblIdioma_675MS":
-                //        lblIdioma_675MS.Text = traduccion.Traduccion_675MS;
-                //        break;
-                //    case "lblUsuario_675MS":
-                //        lblUsuario_675MS.Text = traduccion.Traduccion_675MS;
-                //        break;
-                //    case "lblPassword_675MS":
-                //        lblPassword_675MS.Text = traduccion.Traduccion_675MS;
-                //        break;
-                //    case "txtUsuario_675MS":
-                //        txtUsuario_675MS.Text = traduccion.Traduccion_675MS;
-                //        break;
-                //    case "txtPassword_675MS":
-                //        txtPassword_675MS.Text = traduccion.Traduccion_675MS;
-                //        break;
-                //    case "btnIngresar_675MS":
-                //        btnIngresar_675MS.Text = traduccion.Traduccion_675MS;
-                //        break;
-                //    case "btnSalir_675MS":
-                //        btnSalir_675MS.Text = traduccion.Traduccion_675MS;
-                //        break;
-                //    case "bntRegistrar_675MS":
-                //        bntRegistrar_675MS.Text = traduccion.Traduccion_675MS;
-                //        break;
+                switch (traduccion.NombreControl_675MS)
+                {
+                    case "lblIdioma_675MS":
+                        lblIdioma_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+                    case "lblGestionUsuarios_675MS":
+                        lblGestionUsuarios_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
 
-                //}
+                    case "bntActivar_675MS":
+                        bntActivar_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+
+                    case "lblEmpleado_675MS":
+                        lblEmpleado_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+
+                    case "btnDesactivar_675MS":
+                        btnDesactivar_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+
+                    case "btnGuardarRol_675MS":
+                        btnGuardarRol_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+
+                    case "chkActivo_675MS":
+                        chkActivo_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+
+                    case "lblRol_675MS":
+                        lblRol_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+
+                    case "lblActivo_675MS":
+                        lblActivo_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+                    case "btnVolver_675MS":
+                        btnVolver_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+                }
             }
         }
 
         private void cmbIdiomas_675MS_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cargandoIdiomas_675MS)
-                return;
+            if (cargandoIdiomas_675MS) return;
 
-            if (cmbIdiomas_675MS.SelectedItem == null)
-                return;
+            IdiomaBE idioma_675MS = cmbIdiomas_675MS.SelectedItem as IdiomaBE;
+            if (idioma_675MS == null) return;
 
-            IdiomaBE idioma = cmbIdiomas_675MS.SelectedItem as IdiomaBE;
-
-            if (idioma == null)
-                return;
-
-            TratamientoIdioma.Instancia.IdiomaActual_675MS = idioma;
-
+            TratamientoIdioma.Instancia.IdiomaActual_675MS = idioma_675MS;
             TratamientoIdioma.Instancia.Notificar();
+            ActualizarIdioma_675MS();
         }
-
 
         private void CargarUsuarios_675MS()
         {
@@ -327,6 +330,18 @@ namespace PitBox
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void cmbIdiomas_675MS_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if (cargandoIdiomas_675MS) return;
+
+            IdiomaBE idioma_675MS = cmbIdiomas_675MS.SelectedItem as IdiomaBE;
+            if (idioma_675MS == null) return;
+
+            TratamientoIdioma.Instancia.IdiomaActual_675MS = idioma_675MS;
+            TratamientoIdioma.Instancia.Notificar();
+            ActualizarIdioma_675MS();
         }
     }
 }

@@ -84,7 +84,6 @@
             // 
             // lblTelefono_675MS
             // 
-            this.lblTelefono_675MS.AutoSize = true;
             this.lblTelefono_675MS.BackColor = System.Drawing.Color.Transparent;
             this.lblTelefono_675MS.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTelefono_675MS.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -93,10 +92,11 @@
             this.lblTelefono_675MS.Size = new System.Drawing.Size(86, 23);
             this.lblTelefono_675MS.TabIndex = 83;
             this.lblTelefono_675MS.Text = "Teléfono";
+            this.lblTelefono_675MS.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.lblTelefono_675MS.Click += new System.EventHandler(this.lblTelefono_675MS_Click);
             // 
             // lblDomicilio_675MS
             // 
-            this.lblDomicilio_675MS.AutoSize = true;
             this.lblDomicilio_675MS.BackColor = System.Drawing.Color.Transparent;
             this.lblDomicilio_675MS.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDomicilio_675MS.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -105,10 +105,11 @@
             this.lblDomicilio_675MS.Size = new System.Drawing.Size(89, 23);
             this.lblDomicilio_675MS.TabIndex = 82;
             this.lblDomicilio_675MS.Text = "Domicilio";
+            this.lblDomicilio_675MS.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.lblDomicilio_675MS.Click += new System.EventHandler(this.lblDomicilio_675MS_Click);
             // 
             // lblMail_675MS
             // 
-            this.lblMail_675MS.AutoSize = true;
             this.lblMail_675MS.BackColor = System.Drawing.Color.Transparent;
             this.lblMail_675MS.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMail_675MS.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -156,7 +157,6 @@
             // 
             // lblFechadeNacimiento_675MS
             // 
-            this.lblFechadeNacimiento_675MS.AutoSize = true;
             this.lblFechadeNacimiento_675MS.BackColor = System.Drawing.Color.Transparent;
             this.lblFechadeNacimiento_675MS.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFechadeNacimiento_675MS.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -165,6 +165,7 @@
             this.lblFechadeNacimiento_675MS.Size = new System.Drawing.Size(185, 23);
             this.lblFechadeNacimiento_675MS.TabIndex = 77;
             this.lblFechadeNacimiento_675MS.Text = "Fecha de Nacimiento";
+            this.lblFechadeNacimiento_675MS.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // txtApellido_675MS
             // 
@@ -175,7 +176,6 @@
             // 
             // lblApellido_675MS
             // 
-            this.lblApellido_675MS.AutoSize = true;
             this.lblApellido_675MS.BackColor = System.Drawing.Color.Transparent;
             this.lblApellido_675MS.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblApellido_675MS.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -184,6 +184,8 @@
             this.lblApellido_675MS.Size = new System.Drawing.Size(81, 23);
             this.lblApellido_675MS.TabIndex = 75;
             this.lblApellido_675MS.Text = "Apellido";
+            this.lblApellido_675MS.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.lblApellido_675MS.Click += new System.EventHandler(this.lblApellido_675MS_Click);
             // 
             // dateTimePicker1
             // 
@@ -191,12 +193,11 @@
             this.dateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker1.Location = new System.Drawing.Point(868, 329);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(220, 25);
+            this.dateTimePicker1.Size = new System.Drawing.Size(220, 22);
             this.dateTimePicker1.TabIndex = 74;
             // 
             // lblDNI_675MS
             // 
-            this.lblDNI_675MS.AutoSize = true;
             this.lblDNI_675MS.BackColor = System.Drawing.Color.Transparent;
             this.lblDNI_675MS.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDNI_675MS.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -205,11 +206,11 @@
             this.lblDNI_675MS.Size = new System.Drawing.Size(131, 23);
             this.lblDNI_675MS.TabIndex = 73;
             this.lblDNI_675MS.Text = "DNI Empleado";
+            this.lblDNI_675MS.TextAlign = System.Drawing.ContentAlignment.TopRight;
             this.lblDNI_675MS.Click += new System.EventHandler(this.lblDNI_675MS_Click);
             // 
             // lblNombre_675MS
             // 
-            this.lblNombre_675MS.AutoSize = true;
             this.lblNombre_675MS.BackColor = System.Drawing.Color.Transparent;
             this.lblNombre_675MS.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombre_675MS.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -218,6 +219,8 @@
             this.lblNombre_675MS.Size = new System.Drawing.Size(79, 23);
             this.lblNombre_675MS.TabIndex = 72;
             this.lblNombre_675MS.Text = "Nombre";
+            this.lblNombre_675MS.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.lblNombre_675MS.Click += new System.EventHandler(this.lblNombre_675MS_Click);
             // 
             // lblGestionEmpleados_675MS
             // 
@@ -227,7 +230,7 @@
             this.lblGestionEmpleados_675MS.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.lblGestionEmpleados_675MS.Location = new System.Drawing.Point(777, 183);
             this.lblGestionEmpleados_675MS.Name = "lblGestionEmpleados_675MS";
-            this.lblGestionEmpleados_675MS.Size = new System.Drawing.Size(314, 35);
+            this.lblGestionEmpleados_675MS.Size = new System.Drawing.Size(251, 28);
             this.lblGestionEmpleados_675MS.TabIndex = 71;
             this.lblGestionEmpleados_675MS.Text = "GESTOR DE EMPLEADOS";
             // 

@@ -160,6 +160,14 @@ namespace PitBox
                     case "lblIdioma675MS":
                         lblIdioma675MS.Text = traduccion.Traduccion_675MS;
                         break;
+
+                    case "lblGestorTraducciones_365MS":
+                        lblGestorTraducciones_365MS.Text = traduccion.Traduccion_675MS;
+                        break;
+
+                    case "lblGestorIdiomas_675MS":
+                        lblGestorIdiomas_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
                 }
             }
         }

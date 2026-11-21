@@ -2,6 +2,7 @@
 using DAL;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -76,6 +77,16 @@ namespace BLL
             Registrar_675MS(usuario_675MS, "ERROR", modulo_675MS, descripcion_675MS);
         }
 
+        public DataTable Consultar_675MS(string usuario_675MS, string modulo_675MS, DateTime? desde_675MS, DateTime? hasta_675MS)
+        {
+            if (desde_675MS.HasValue && hasta_675MS.HasValue && desde_675MS.Value.Date > hasta_675MS.Value.Date)
+            {
+                throw new ArgumentException("La fecha desde no puede ser posterior a la fecha hasta.");
+            }
+
+            BitacoraDAL bitacoraDAL_675MS = new BitacoraDAL();
+            return bitacoraDAL_675MS.Consultar_675MS(usuario_675MS, modulo_675MS, desde_675MS, hasta_675MS);
+        }
 
     }
 }

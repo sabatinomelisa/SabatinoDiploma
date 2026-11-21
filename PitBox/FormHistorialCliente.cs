@@ -98,6 +98,20 @@ namespace PitBox
                     case "btnVolver_675MS":
                         btnVolver_675MS.Text = traduccion.Traduccion_675MS;
                         break;
+                    case "btnActivar_675MS":
+                        btnActivar_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+                    case "btnLimpiar_675MS":
+                        btnLimpiar_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+
+                    case "lblDesde_675MS":
+                        lblDesde_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+
+                    case "lblHasta_675MS":
+                        lblHasta_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
 
                 }
             }

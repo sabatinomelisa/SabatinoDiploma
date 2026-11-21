@@ -128,6 +128,12 @@ namespace PitBox
                     case "bntRegistrar_675MS":
                         bntRegistrar_675MS.Text = traduccion.Traduccion_675MS;
                         break;
+                    case "btnReactivar_675MS":
+                        btnReactivar_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
+                    case "btnBaja_675MS":
+                        btnBaja_675MS.Text = traduccion.Traduccion_675MS;
+                        break;
                     case "groupBox1":
                         groupBox1.Text = traduccion.Traduccion_675MS;
                         break;
